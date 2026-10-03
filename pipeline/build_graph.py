@@ -1,7 +1,7 @@
 """Build the base Atlas graph from free, curated sources (HPO release files, optional MONDO).
 
 Outputs (data/graph/):
-  nodes.jsonl  edges.jsonl  similarity.csv  clusters.json  report.md
+  nodes.jsonl  edges.jsonl  similarity.csv  (clusters: pipeline/cluster.py)
 
 Every edge carries: source_db, references, evidence_type, retrieved_at, confidence.
 evidence_type is one of: curated | computed | llm_extracted | manual
@@ -161,45 +161,6 @@ for a, b, s, shared in sim_rows:
                                                   "ic": round(IC[t], 2)} for t in shared],
              method_note="Similarity is a hypothesis-generating signal, not evidence of shared mechanism.")
 
-# kNN graph (k=3, symmetrised) + Louvain; stability = co-assignment frequency over 30 seeds (WP2.1, phenotype-only part)
-K, SEEDS, STABLE_MIN = 3, range(30), 0.8
-sim = {frozenset((a, b)): s for a, b, s, _ in sim_rows}
-knn = nx.Graph(); knn.add_nodes_from(dis)
-for d in dis:
-    for o in sorted((x for x in dis if x != d), key=lambda x: -sim[frozenset((d, x))])[:K]:
-        knn.add_edge(d, o, weight=sim[frozenset((d, o))])
-runs = [nx.community.louvain_communities(knn, weight="weight", seed=s) for s in SEEDS]
-co = collections.Counter()
-for comms_s in runs:
-    for c in comms_s:
-        for x, y in itertools.combinations(sorted(c), 2): co[(x, y)] += 1
-co_freq = lambda x, y: co[tuple(sorted((x, y)))] / len(runs)
-comms = runs[0]  # reference partition (seed 0)
-stab = {}
-for c in comms:
-    for d in c:
-        others = [o for o in c if o != d]
-        stab[d] = round(sum(co_freq(d, o) for o in others) / len(others), 3) if others else 1.0
-clusters = [{"cluster": i, "members": [{"id": d, "name": nodes[d]["name"], "role": nodes[d]["role"], "gene": ALL[d],
-                                         "stability": stab[d], "uncertain": stab[d] < STABLE_MIN} for d in sorted(c)]}
-            for i, c in enumerate(comms)]
-counter_pairs = [{"counterexample": c, "core": d, "gene": ALL[c], "same_cluster_freq": round(co_freq(c, d), 3)}
-                 for c in COUNTEREXAMPLES for d in CORE if ALL[c] == ALL[d] and c in nodes and d in nodes]
-# Counterexample check: a benign form must not share a cluster with its own gene's DEE. If it does, flag both (never hide).
-member = {m["id"]: m for c in clusters for m in c["members"]}
-cl_of = {m["id"]: c["cluster"] for c in clusters for m in c["members"]}
-for pr in counter_pairs:
-    pr["same_cluster_reference"] = cl_of[pr["counterexample"]] == cl_of[pr["core"]]
-    if pr["same_cluster_reference"]:
-        for k in (pr["counterexample"], pr["core"]):
-            member[k]["uncertain"] = True
-            member[k]["uncertain_reason"] = ("Same-gene benign counterexample falls in this cluster on phenotype similarity alone; "
-                                             "treat the grouping as unresolved until mechanism evidence is added.")
-cluster_report = {"k": K, "seeds": len(runs), "stable_min": STABLE_MIN, "method": "kNN(k=3) on phenotype similarity + Louvain",
-                  "mean_stability": round(sum(stab.values()) / len(stab), 3),
-                  "n_uncertain": sum(m["uncertain"] for m in member.values()), "counterexample_pairs": counter_pairs}
-json.dump(cluster_report, open(f"{OUT}/cluster_report.json", "w"), indent=2)
-
 with open(f"{OUT}/nodes.jsonl", "w") as f:
     for n in nodes.values(): f.write(json.dumps(n) + "\n")
 with open(f"{OUT}/edges.jsonl", "w") as f:
@@ -209,12 +170,10 @@ with open(f"{OUT}/similarity.csv", "w", newline="") as f:
     for a, b, s, shared in sorted(sim_rows, key=lambda r: -r[2]):
         w.writerow([a, nodes[a]["name"], b, nodes[b]["name"], round(s, 3),
                     "; ".join(terms[t]["name"] for t in shared[:5])])
-json.dump(clusters, open(f"{OUT}/clusters.json", "w"), indent=2)
 
+json.dump([{"a": a, "b": b, "similarity": round(s, 4),
+            "shared_phenotypes": [{"id": t, "name": terms[t]["name"], "ic": round(IC[t], 2)} for t in shared]}
+           for a, b, s, shared in sim_rows], open(f"{OUT}/similarity.json", "w"))
 print(f"Diseases annotated in HPO: {N}")
 print(f"Nodes: {len(nodes)}  Edges: {len(edges)}  MONDO xrefs found: {len(mondo_of)}")
-for c in clusters:
-    print(f"\nCluster {c['cluster']}:")
-    for m in c["members"]:
-        print(f"  [{m['role']:>14}] {m['gene']:<8} stab={m['stability']}{' UNCERTAIN' if m['uncertain'] else ''} {m['name']}")
-print("\ncluster report:", json.dumps(cluster_report))
+print("Clustering now runs in pipeline/cluster.py (needs mechanism claims).")

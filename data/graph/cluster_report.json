@@ -1,31 +1,69 @@
 {
-  "k": 3,
+  "method": "0.6*phenotype + 0.4*mechanism, kNN(k=3) + Louvain",
   "seeds": 30,
   "stable_min": 0.8,
-  "method": "kNN(k=3) on phenotype similarity + Louvain",
+  "min_directional_claims": 3,
   "mean_stability": 1.0,
-  "n_uncertain": 2,
+  "n_uncertain": 4,
+  "n_pairs_with_mechanism": 45,
+  "n_pairs": 66,
+  "diseases_with_profile": [
+    "OMIM:121200",
+    "OMIM:300672",
+    "OMIM:607208",
+    "OMIM:612164",
+    "OMIM:612621",
+    "OMIM:613720",
+    "OMIM:613721",
+    "OMIM:614558",
+    "OMIM:614959",
+    "OMIM:615473"
+  ],
   "counterexample_pairs": [
     {
       "counterexample": "OMIM:607745",
       "core": "OMIM:613721",
       "gene": "SCN2A",
       "same_cluster_freq": 1.0,
-      "same_cluster_reference": true
+      "same_cluster_reference": true,
+      "status": "uncertain membership",
+      "evidence_note": "disease-level evidence: benign=1 directional claims (dominant None), severe=9 (dominant gain_of_function); minimum 3 each to compare.",
+      "claims_benign": 2,
+      "claims_severe": 10,
+      "directional_benign": 1,
+      "directional_severe": 9,
+      "dominant_benign": null,
+      "dominant_severe": "gain_of_function"
     },
     {
       "counterexample": "OMIM:617080",
       "core": "OMIM:614558",
       "gene": "SCN8A",
-      "same_cluster_freq": 0.0,
-      "same_cluster_reference": false
+      "same_cluster_freq": 1.0,
+      "same_cluster_reference": true,
+      "status": "uncertain membership",
+      "evidence_note": "disease-level evidence: benign=1 directional claims (dominant None), severe=18 (dominant gain_of_function); minimum 3 each to compare.",
+      "claims_benign": 7,
+      "claims_severe": 24,
+      "directional_benign": 1,
+      "directional_severe": 18,
+      "dominant_benign": null,
+      "dominant_severe": "gain_of_function"
     },
     {
       "counterexample": "OMIM:121200",
       "core": "OMIM:613720",
       "gene": "KCNQ2",
       "same_cluster_freq": 0.0,
-      "same_cluster_reference": false
+      "same_cluster_reference": false,
+      "status": "separated",
+      "evidence_note": "disease-level evidence: benign=5 directional claims (dominant loss_of_function), severe=25 (dominant loss_of_function); minimum 3 each to compare. clustering separates them although both have dominant loss_of_function: severity, not mechanism, may differ",
+      "claims_benign": 8,
+      "claims_severe": 34,
+      "directional_benign": 5,
+      "directional_severe": 25,
+      "dominant_benign": "loss_of_function",
+      "dominant_severe": "loss_of_function"
     }
   ]
 }

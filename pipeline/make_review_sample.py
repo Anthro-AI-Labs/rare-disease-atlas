@@ -6,8 +6,8 @@ from curated import FILES
 
 N, PER_GENE = 20, 2
 out = CURATED / "evidence_review.csv"
-if out.exists() and any(r.get("verdict") for r in csv.DictReader(out.open())):
-    sys.exit("evidence_review.csv already has verdicts; not overwriting")
+if out.exists():
+    sys.exit("evidence_review.csv already exists (v1, frozen); not overwriting. Use make_review_v2.py")
 g = json.loads((GRAPH / "graph.json").read_text())
 rng = random.Random(7)
 by_gene = {}

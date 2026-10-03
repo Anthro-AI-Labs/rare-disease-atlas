@@ -50,11 +50,28 @@ QUERY = ('{g}[tiab] AND (loss-of-function OR gain-of-function OR haploinsufficie
          'OR "functional analysis")')
 
 
+# Targeted queries for the same-gene severe/benign pairs: disease-level evidence for each side (Phase 2 item 1)
+PAIR_GENES = {"SCN2A", "SCN8A", "KCNQ2"}
+BENIGN_Q = '{g}[tiab] AND ("benign familial" OR "self-limited" OR "neonatal seizures")'
+DEE_Q = ('{g}[tiab] AND ("developmental and epileptic encephalopathy" OR "epileptic encephalopathy" '
+         'OR "early infantile")')
+
+
+def queries(gene):
+    qs = [QUERY.format(g=gene)]
+    if gene in PAIR_GENES:
+        qs += [BENIGN_Q.format(g=gene), DEE_Q.format(g=gene)]
+    return qs
+
+
 def search(gene):
-    def go():
-        r = ncbi_get("esearch.fcgi", {"db": "pubmed", "term": QUERY.format(g=gene), "retmax": 40, "retmode": "json"})
-        return r.json()["esearchresult"]["idlist"]
-    return cached("pubmed_search", gene + QUERY, go)
+    ids = []
+    for q in queries(gene):
+        def go(q=q):
+            r = ncbi_get("esearch.fcgi", {"db": "pubmed", "term": q, "retmax": 40, "retmode": "json"})
+            return r.json()["esearchresult"]["idlist"]
+        ids += [i for i in cached("pubmed_search", gene + q, go) if i not in ids]
+    return ids
 
 
 def fetch_abstracts(pmids):
@@ -113,8 +130,12 @@ def main():
                     stats["dropped_span"] += 1; continue
                 mentions = gene.lower() in c["quoted_span"].lower()
                 conf = (0.8 if c["population"] == "human" else 0.7) if mentions else 0.5
+                if c["variant_effect"] == "unclear":
+                    conf = min(conf, 0.4)  # direction not stated: context only
                 stats["verified"] += 1; g["verified"] += 1
                 stats["span_mentions_gene"] = stats.get("span_mentions_gene", 0) + mentions
+                dc = stats.setdefault("by_disease_context", {}).setdefault(f"{gene}|{c['disease_context']}", {"claims": 0, "directional": 0})
+                dc["claims"] += 1; dc["directional"] += c["variant_effect"] != "unclear"
                 kept.append({**c, "pmid": pmid, "year": rec["year"], "title": rec["title"],
                              "span_mentions_gene": mentions, "confidence": conf})
     stats["span_drop_rate"] = round(stats["dropped_span"] / stats["extracted"], 3) if stats["extracted"] else None

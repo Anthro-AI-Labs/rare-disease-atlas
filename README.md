@@ -15,7 +15,7 @@ cd web && npm install
 ## Reproduce the dataset
 ```bash
 make data     # HPO (hp.obo, phenotype.hpoa, genes_to_disease.txt) + MONDO -> data/raw (gitignored)
-make graph    # base graph -> ClinicalTrials.gov -> mechanism extraction -> data/graph/graph.json (+ web/public/data/graph.json)
+make graph    # base graph -> ClinicalTrials.gov -> mechanism extraction -> clustering -> data/graph/graph.json (+ web/public/data/graph.json)
 make test     # pytest: span verification, edge schema, explanation-id validator
 make dev      # web app on http://localhost:3000
 ```
@@ -44,3 +44,6 @@ Later phases add `OPENAI_API_KEY` and `OPENAI_MODEL` (server-side only, for `/ap
 cd web && vercel link && vercel deploy --prod
 ```
 See `docs/PLAN.md` (roadmap), `docs/DECISIONS.md`, `docs/RESEARCH.md`, `DATA_SOURCES.md`.
+
+## Evidence review
+`python pipeline/make_review_v2.py` writes `data/curated/evidence_review_v2.csv` (24 random claims, 8 per confidence tier). Fill `verdict` with `correct`, `partial` or `incorrect`; `make graph` then reports precision per tier on the home page. `evidence_review.csv` (v1) is a priority sample and is not used for precision.

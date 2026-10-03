@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { EvidenceBadge, Empty, refLink } from "@/components/Evidence";
-import { diseaseView, diseases, idOf, slugOf } from "@/lib/graph";
+import { diseaseView, diseases, idOf, load, slugOf } from "@/lib/graph";
 
 export function generateStaticParams() {
   return diseases().map((d) => ({ slug: slugOf(d.id) }));
@@ -10,12 +10,41 @@ export function generateStaticParams() {
 const H = ({ children }: { children: React.ReactNode }) => (
   <h2 className="mt-10 border-b border-neutral-200 pb-1 text-sm font-medium uppercase tracking-wide text-neutral-500">{children}</h2>
 );
+const STATUS_CLS = { supported: "border-emerald-700 text-emerald-800", hypothesis: "border-amber-600 text-amber-800", none: "border-red-700 text-red-800" };
+const STATUS_TXT = { supported: "Supported route", hypothesis: "Hypothesis only (computed links)", none: "No supported route" };
 
 export default async function DiseasePage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const v = diseaseView(idOf(slug));
   if (!v) notFound();
-  const { d, cluster, mechOtherCount, similar, phenotypes, mechanisms, trials, orgs, assets, causes } = v;
+  const { g, nodes } = load();
+  const { d, cluster, related, phenotypes, mechanisms, geneLevel, mechOtherCount, effectCounts, sole, trials, orgs, assets, causes, pairInfo, findings, gap } = v;
+  const rule = g.meta.confidence_rule;
+  const Claim = ({ m }: { m: (typeof mechanisms)[number] }) => (
+    <li>
+      <p className="font-medium">{m.mech.name} <span className="text-sm font-normal text-neutral-500">· {String(m.edge.population)} · {m.edge.disease_context === "unspecified" ? (sole ? "gene-level, attributed to this disease (only one in the slice)" : "gene-level, disease unspecified") : "about this disease"}{m.edge.linked_phenotype_or_disease ? ` · ${m.edge.linked_phenotype_or_disease}` : ""}</span>
+        {m.mech.variant_effect === "unclear" && <span className="ml-2 rounded border border-neutral-400 px-1 text-xs font-normal text-neutral-600">direction unclear: context only</span>}
+        {m.edge.confidence <= 0.5 && <span title={rule} className="ml-2 rounded border border-red-700 px-1 text-xs font-normal text-red-800">low confidence {m.edge.confidence}</span>}
+      </p>
+      <blockquote className="mt-1 border-l-2 border-neutral-300 pl-3 text-sm italic text-neutral-700">“{m.edge.quoted_span}”</blockquote>
+      <p className="mt-1 text-sm">{m.pub ? <a className="underline" target="_blank" rel="noreferrer" href={String(m.pub.url)}>{m.edge.references[0]}</a> : m.edge.references[0]}{m.pub?.name ? ` — ${m.pub.name}` : ""}</p>
+      <div className="mt-1"><EvidenceBadge e={m.edge} /></div>
+    </li>
+  );
+  const directional = mechanisms.filter((m) => m.mech.variant_effect !== "unclear");
+  const top3 = directional.slice(0, 3);
+  const rest = mechanisms.filter((m) => !top3.includes(m));
+  const tr3 = trials.slice(0, 3);
+  const Trial = ({ t }: { t: (typeof trials)[number] }) => (
+    <li className="text-sm">
+      <a className="font-medium underline" target="_blank" rel="noreferrer" href={String(t.study.url)}>{t.study.id}</a> — {t.study.name}
+      <span className="text-neutral-500"> · {String(t.study.status)}{(t.study.phases as string[])?.length ? ` · ${(t.study.phases as string[]).join("/")}` : ""}</span>
+      <div className="mt-1"><EvidenceBadge e={t.edge} /></div>
+    </li>
+  );
+  const trialStatus: Record<string, number> = {};
+  for (const t of trials) trialStatus[String(t.study.status)] = (trialStatus[String(t.study.status)] ?? 0) + 1;
+
   return (
     <main className="mx-auto max-w-3xl px-4 py-8">
       <Link href="/" className="text-sm text-neutral-500 underline">← Search</Link>
@@ -26,59 +55,81 @@ export default async function DiseasePage({ params }: { params: Promise<{ slug: 
       </p>
       <div className="mt-2"><EvidenceBadge e={causes} /></div>
 
+      <H>Route to a next step</H>
+      <p className="mt-2"><span className={`rounded border px-2 py-0.5 text-sm ${STATUS_CLS[gap.route_status]}`}>{STATUS_TXT[gap.route_status]}</span></p>
+      <p className="mt-2 text-sm text-neutral-700">{gap.suggested_question}</p>
+      {gap.missing.length > 0 && (<><p className="mt-3 text-sm font-medium">Missing evidence</p>
+        <ul className="list-disc pl-5 text-sm text-neutral-700">{gap.missing.map((m) => <li key={m}>{m}</li>)}</ul></>)}
+      <details className="mt-3 text-sm"><summary className="cursor-pointer underline">Sources searched and counts</summary>
+        <table className="mt-2 w-full text-left text-xs"><tbody>{gap.sources.map((s) => (
+          <tr key={s.source} className="border-t border-neutral-200 align-top"><td className="py-1 pr-2 font-medium">{s.source}</td>
+            <td className="py-1 pr-2">{s.searched ? `${s.count} ${s.unit}` : s.unit}</td><td className="py-1">{s.found !== undefined ? `${s.found} ${s.found_unit}` : ""}</td></tr>))}</tbody></table></details>
+      {gap.routes.length > 0 && (<details className="mt-3 text-sm"><summary className="cursor-pointer underline">Candidate routes ({gap.routes.length})</summary>
+        <ul className="mt-2 space-y-1">{gap.routes.map((r) => (<li key={r.to}>
+          <Link className="underline" href={`/disease/${slugOf(r.to)}`}>{nodes.get(r.to)!.name}</Link> · {r.connection === "same_gene" ? "same gene (curated)" : "computed similarity (hypothesis)"} · {r.leads.trials.length} trials, {r.leads.patient_groups.length} patient groups, {r.leads.assets.length} assets · edges {r.edge_ids.join(", ")}</li>))}</ul></details>)}
+
       <H>Cluster (computed grouping — hypothesis)</H>
       {cluster ? (
         <ul className="mt-2 text-sm">{cluster.members.map((m) => (
           <li key={m.id}>{m.id === d.id ? <b>{m.gene} · {m.name}</b> : <Link className="underline" href={`/disease/${slugOf(m.id)}`}>{m.gene} · {m.name}</Link>}
-          {m.uncertain && <span title={m.uncertain_reason} className="ml-2 rounded border border-amber-600 px-1 text-xs text-amber-800">uncertain membership</span>}
-          <span className="text-xs text-neutral-400"> · stability {m.stability}</span></li>))}</ul>
+            {m.uncertain && <span title={m.uncertain_reason} className="ml-2 rounded border border-amber-600 px-1 text-xs text-amber-800">uncertain membership</span>}
+            <span className="text-xs text-neutral-400"> · stability {m.stability}</span></li>))}</ul>
       ) : <Empty>this disease is not in any cluster.</Empty>}
-      <p className="mt-1 text-xs text-neutral-500">kNN (k=3) + Louvain on phenotype similarity only; stability = how often two members co-cluster across 30 seeds. Mechanism overlap is not yet used. “Uncertain” members (hover for reason) are flagged, not hidden.</p>
+      <p className="mt-1 text-xs text-neutral-500">{g.meta.cluster_report.method}; stability = how often two members co-cluster across {g.meta.cluster_report.seeds} seeds. Pairs without disease-level mechanism evidence use phenotype similarity only. Uncertain members are flagged, not hidden.</p>
+      {pairInfo.map((p) => (
+        <div key={p.counterexample} className="mt-2 rounded border border-neutral-200 p-2 text-sm">
+          <b>Same-gene benign/severe pair ({p.gene}): {p.status}.</b>
+          <p className="text-neutral-600">{p.evidence_note}</p>
+        </div>))}
 
-      <H>Related diseases and why (inferred from phenotypes — hypothesis)</H>
-      {similar.length === 0 ? <Empty>no phenotype-similarity edge above the threshold; no supported or inferred link to show.</Empty> : (
-        <ul className="mt-2 space-y-4">{similar.map(({ edge, other }) => (
-          <li key={edge.id}>
+      <H>Related diseases and why</H>
+      {related.length === 0 ? <Empty>no related disease above the display threshold; no supported or inferred link to show.</Empty> : (
+        <ul className="mt-2 space-y-4">{related.map(({ pair, other, edges }) => (
+          <li key={other.id}>
             <Link className="font-medium underline" href={`/disease/${slugOf(other.id)}`}>{other.name}</Link>
-            <span className="text-sm text-neutral-500"> · similarity {edge.confidence}</span>
-            <p className="mt-1 text-sm text-neutral-700">Shared informative phenotypes: {edge.shared_phenotypes?.slice(0, 5).map((p) => p.name).join("; ") || "none listed"}.</p>
-            <div className="mt-1"><EvidenceBadge e={edge} /></div>
+            <span className="text-sm text-neutral-500"> · combined similarity {pair.combined} (phenotype {pair.phenotype}{pair.mechanism_available ? `, mechanism ${pair.mechanism}` : ", mechanism n/a: too little disease-level evidence"})</span>
+            <p className="mt-1 text-sm text-neutral-700">Shared informative phenotypes: {pair.shared_phenotypes.slice(0, 5).map((p) => p.name).join("; ") || "none listed"}.</p>
+            {pair.shared_mechanism_keys.length > 0 && <p className="text-sm text-neutral-700">Shared in claims: {pair.shared_mechanism_keys.map((k) => k.replace(/^[EF]:/, "").replace(/_/g, " ")).join("; ")}.</p>}
+            <div className="mt-1 flex flex-wrap gap-2">{edges.map((e) => <EvidenceBadge key={e.id} e={e} />)}</div>
           </li>))}</ul>
       )}
 
       <H>Mechanism claims (from PubMed abstracts)</H>
-      {mechanisms.length === 0 ? <Empty>no mechanism claims in the graph for {d.gene} yet (extraction not run or none passed quoted-span verification).</Empty> : (
-        (() => {
-          const sorted = [...mechanisms].sort((x, y) => y.edge.confidence - x.edge.confidence);
-          const row = ({ edge, mech, pub }: (typeof mechanisms)[number]) => <li key={edge.id}>
-            <p className="font-medium">{mech.name} <span className="text-sm font-normal text-neutral-500">· {edge.population} · {edge.disease_context === "unspecified" ? "gene-level, disease unspecified" : "about this disease"}{edge.linked_phenotype_or_disease ? ` · ${edge.linked_phenotype_or_disease}` : ""}</span>
-              {edge.confidence < 0.7 && <span className="ml-2 rounded border border-red-700 px-1 text-xs font-normal text-red-800">low confidence: quoted span does not name {d.gene}</span>}</p>
-            <blockquote className="mt-1 border-l-2 border-neutral-300 pl-3 text-sm italic text-neutral-700">“{edge.quoted_span}”</blockquote>
-            <p className="mt-1 text-sm">{pub ? <a className="underline" target="_blank" rel="noreferrer" href={String(pub.url)}>{edge.references[0]}</a> : edge.references[0]}{pub?.name ? ` — ${pub.name}` : ""}</p>
-            <div className="mt-1"><EvidenceBadge e={edge} /></div>
-          </li>;
-          return <>
-            <p className="mt-2 text-xs text-neutral-500">{mechanisms.length} claims, highest confidence first. Confidence: 0.8 span names the gene and is from human patients; 0.7 names the gene, not human; 0.5 span does not name the gene.</p>
-            <ul className="mt-2 space-y-4">{sorted.slice(0, 8).map(row)}</ul>
-            {sorted.length > 8 && <details className="mt-3"><summary className="cursor-pointer text-sm underline">Show {sorted.length - 8} more</summary><ul className="mt-2 space-y-4">{sorted.slice(8).map(row)}</ul></details>}
-          </>;
-        })()
+      {findings.map((f) => (
+        <p key={f.disease} className={`mt-2 rounded border p-2 text-sm ${f.kind === "contradicted" ? "border-red-700 text-red-800" : "border-sky-700 text-sky-800"}`}>
+          {f.kind === "contradicted" ? "Contradiction: " : "Mixed (a finding, not a contradiction): "}
+          {f.reduced.length} reduced-function and {f.increased.length} increased-function claims for this disease from different PMIDs
+          {f.kind === "mixed" ? ", tied to different phenotypes." : "; both sides share the same phenotypes, so they conflict."}
+        </p>))}
+      {mechanisms.length === 0 ? <Empty>no mechanism claims for this disease in the graph{geneLevel.length ? `; ${geneLevel.length} gene-level claims for ${d.gene} are listed below` : ""}.</Empty> : (
+        <>
+          <p className="mt-2 text-sm text-neutral-700">
+            {mechanisms.length} claims. Variant effect: {Object.entries(effectCounts).sort((a, b) => b[1] - a[1]).map(([k, n]) => `${k.replace(/_/g, " ")} ${n}`).join(" · ")}.
+            <span title={rule} className="ml-1 cursor-help underline decoration-dotted">Confidence rule</span>
+          </p>
+          <p className="text-xs text-neutral-500">{rule}</p>
+          {top3.length > 0 && <><p className="mt-3 text-sm font-medium">Top {top3.length} by confidence (directional claims)</p>
+            <ul className="mt-2 space-y-4">{top3.map((m) => <Claim key={m.edge.id} m={m} />)}</ul></>}
+          {rest.length > 0 && <details className="mt-3"><summary className="cursor-pointer text-sm underline">All other claims ({rest.length}, incl. “unclear”)</summary>
+            <ul className="mt-2 space-y-4">{rest.map((m) => <Claim key={m.edge.id} m={m} />)}</ul></details>}
+        </>
       )}
-
+      {geneLevel.length > 0 && <details className="mt-3"><summary className="cursor-pointer text-sm underline">{geneLevel.length} gene-level {d.gene} claims where the abstract names no specific disease</summary>
+        <ul className="mt-2 space-y-4">{geneLevel.map((m) => <Claim key={m.edge.id} m={m} />)}</ul></details>}
       {mechOtherCount > 0 && <p className="mt-2 text-xs text-neutral-500">{mechOtherCount} further {d.gene} claim(s) concern other {d.gene}-related diseases and are shown on those pages.</p>}
 
       <H>Clinical trials mentioning {d.gene}</H>
       {trials.length === 0 ? <Empty>no ClinicalTrials.gov record names {d.gene} in its title, conditions or keywords.</Empty> : (
-        <ul className="mt-2 space-y-3">{trials.map(({ edge, study }) => (
-          <li key={edge.id} className="text-sm">
-            <a className="font-medium underline" target="_blank" rel="noreferrer" href={String(study.url)}>{study.id}</a> — {study.name}
-            <span className="text-neutral-500"> · {String(study.status)}{(study.phases as string[])?.length ? ` · ${(study.phases as string[]).join("/")}` : ""}</span>
-            <div className="mt-1"><EvidenceBadge e={edge} /></div>
-          </li>))}</ul>
+        <>
+          <p className="mt-2 text-sm text-neutral-700">{trials.length} studies: {Object.entries(trialStatus).map(([k, n]) => `${k.toLowerCase().replace(/_/g, " ")} ${n}`).join(" · ")}. Matched by gene symbol; confirm disease and variant scope.</p>
+          <ul className="mt-2 space-y-3">{tr3.map((t) => <Trial key={t.edge.id} t={t} />)}</ul>
+          {trials.length > 3 && <details className="mt-3"><summary className="cursor-pointer text-sm underline">All other studies ({trials.length - 3})</summary>
+            <ul className="mt-2 space-y-3">{trials.slice(3).map((t) => <Trial key={t.edge.id} t={t} />)}</ul></details>}
+        </>
       )}
 
       <H>Patient groups and shared assets</H>
-      {orgs.length + assets.length === 0 ? <Empty>no curated patient groups or assets on file for {d.gene} (data/curated/*.csv is empty or missing).</Empty> : (
+      {orgs.length + assets.length === 0 ? <Empty>no curated patient groups or assets on file for {d.gene} (data/curated/patient_groups.csv and assets.csv are empty or missing).</Empty> : (
         <ul className="mt-2 space-y-3 text-sm">
           {orgs.map(({ edge, org }) => <li key={edge.id}><a className="font-medium underline" href={String(org.url)}>{org.name}</a> · {String(org.country)} <div className="mt-1"><EvidenceBadge e={edge} /></div></li>)}
           {assets.map(({ edge, asset }) => <li key={edge.id}><b>{asset.name}</b> · {String(asset.asset_type)} <div className="mt-1"><EvidenceBadge e={edge} /></div></li>)}

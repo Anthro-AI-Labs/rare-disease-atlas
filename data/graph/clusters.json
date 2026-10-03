@@ -3,22 +3,6 @@
     "cluster": 0,
     "members": [
       {
-        "id": "OMIM:300672",
-        "name": "Developmental and epileptic encephalopathy 2",
-        "role": "core",
-        "gene": "CDKL5",
-        "stability": 1.0,
-        "uncertain": false
-      },
-      {
-        "id": "OMIM:612164",
-        "name": "Developmental and epileptic encephalopathy 4",
-        "role": "core",
-        "gene": "STXBP1",
-        "stability": 1.0,
-        "uncertain": false
-      },
-      {
         "id": "OMIM:613720",
         "name": "Epileptic encephalopathy, early infantile, 7",
         "role": "core",
@@ -48,28 +32,26 @@
     "cluster": 1,
     "members": [
       {
-        "id": "OMIM:607745",
-        "name": "Seizures, benign familial infantile, 3",
-        "role": "counterexample",
-        "gene": "SCN2A",
-        "stability": 1.0,
-        "uncertain": true,
-        "uncertain_reason": "Same-gene benign counterexample falls in this cluster on phenotype similarity alone; treat the grouping as unresolved until mechanism evidence is added."
-      },
-      {
-        "id": "OMIM:613721",
-        "name": "Epileptic encephalopathy, early infantile, 11",
+        "id": "OMIM:300672",
+        "name": "Developmental and epileptic encephalopathy 2",
         "role": "core",
-        "gene": "SCN2A",
+        "gene": "CDKL5",
         "stability": 1.0,
-        "uncertain": true,
-        "uncertain_reason": "Same-gene benign counterexample falls in this cluster on phenotype similarity alone; treat the grouping as unresolved until mechanism evidence is added."
+        "uncertain": false
       },
       {
-        "id": "OMIM:617080",
-        "name": "Seizures, benign familial infantile, 5",
-        "role": "counterexample",
-        "gene": "SCN8A",
+        "id": "OMIM:612164",
+        "name": "Developmental and epileptic encephalopathy 4",
+        "role": "core",
+        "gene": "STXBP1",
+        "stability": 1.0,
+        "uncertain": false
+      },
+      {
+        "id": "OMIM:612621",
+        "name": "Intellectual developmental disorder, autosomal dominant 5",
+        "role": "core",
+        "gene": "SYNGAP1",
         "stability": 1.0,
         "uncertain": false
       }
@@ -95,12 +77,22 @@
         "uncertain": false
       },
       {
-        "id": "OMIM:612621",
-        "name": "Intellectual developmental disorder, autosomal dominant 5",
-        "role": "core",
-        "gene": "SYNGAP1",
+        "id": "OMIM:607745",
+        "name": "Seizures, benign familial infantile, 3",
+        "role": "counterexample",
+        "gene": "SCN2A",
         "stability": 1.0,
-        "uncertain": false
+        "uncertain": true,
+        "uncertain_reason": "Same-gene benign/severe pair co-clusters but disease-level evidence does not show the same variant effect (disease-level evidence: benign=1 directional claims (dominant None), severe=9 (dominant gain_of_function); minimum 3 each to compare.)"
+      },
+      {
+        "id": "OMIM:613721",
+        "name": "Epileptic encephalopathy, early infantile, 11",
+        "role": "core",
+        "gene": "SCN2A",
+        "stability": 1.0,
+        "uncertain": true,
+        "uncertain_reason": "Same-gene benign/severe pair co-clusters but disease-level evidence does not show the same variant effect (disease-level evidence: benign=1 directional claims (dominant None), severe=9 (dominant gain_of_function); minimum 3 each to compare.)"
       },
       {
         "id": "OMIM:614558",
@@ -108,7 +100,17 @@
         "role": "core",
         "gene": "SCN8A",
         "stability": 1.0,
-        "uncertain": false
+        "uncertain": true,
+        "uncertain_reason": "Same-gene benign/severe pair co-clusters but disease-level evidence does not show the same variant effect (disease-level evidence: benign=1 directional claims (dominant None), severe=18 (dominant gain_of_function); minimum 3 each to compare.)"
+      },
+      {
+        "id": "OMIM:617080",
+        "name": "Seizures, benign familial infantile, 5",
+        "role": "counterexample",
+        "gene": "SCN8A",
+        "stability": 1.0,
+        "uncertain": true,
+        "uncertain_reason": "Same-gene benign/severe pair co-clusters but disease-level evidence does not show the same variant effect (disease-level evidence: benign=1 directional claims (dominant None), severe=18 (dominant gain_of_function); minimum 3 each to compare.)"
       }
     ]
   }

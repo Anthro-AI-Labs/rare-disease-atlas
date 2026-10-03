@@ -15,7 +15,7 @@
    "year": "2026",
    "title": "TRACE: A Framework for Integrating Transcript Relevance Into ACMG/AMP Variant Interpretation.",
    "span_mentions_gene": false,
-   "confidence": 0.5
+   "confidence": 0.4
   },
   {
    "gene": "CDKL5",
@@ -43,7 +43,7 @@
    "year": "2025",
    "title": "RNA-based therapies for neurodevelopmental disorders: innovative tools for molecular correction.",
    "span_mentions_gene": true,
-   "confidence": 0.8
+   "confidence": 0.4
   },
   {
    "gene": "CDKL5",
@@ -71,7 +71,7 @@
    "year": "2025",
    "title": "Excitatory cortical neurons from CDKL5 deficiency disorder patient-derived organoids show early hyperexcitability not identified in neurogenin2 induced neurons.",
    "span_mentions_gene": true,
-   "confidence": 0.7
+   "confidence": 0.4
   },
   {
    "gene": "CDKL5",
@@ -113,7 +113,7 @@
    "year": "2025",
    "title": "De novo variants in CDKL1 and CDKL2 are associated with neurodevelopmental symptoms.",
    "span_mentions_gene": false,
-   "confidence": 0.5
+   "confidence": 0.4
   },
   {
    "gene": "CDKL5",
@@ -183,7 +183,7 @@
    "year": "2024",
    "title": "Engineered tRNAs efficiently suppress CDKL5 premature termination codons.",
    "span_mentions_gene": true,
-   "confidence": 0.7
+   "confidence": 0.4
   },
   {
    "gene": "CDKL5",
@@ -225,7 +225,7 @@
    "year": "2024",
    "title": "Cannabidiol attenuates seizure susceptibility and behavioural deficits in adult CDKL5R59X knock-in mice.",
    "span_mentions_gene": false,
-   "confidence": 0.5
+   "confidence": 0.4
   },
   {
    "gene": "CDKL5",
@@ -239,7 +239,7 @@
    "year": "2024",
    "title": "Biallelic variants identified in 36 Pakistani families and trios with autism spectrum disorder.",
    "span_mentions_gene": true,
-   "confidence": 0.8
+   "confidence": 0.4
   },
   {
    "gene": "CDKL5",
@@ -281,7 +281,7 @@
    "year": "2023",
    "title": "Epilepsy-linked kinase CDKL5 phosphorylates voltage-gated calcium channel Cav2.3, altering inactivation kinetics and neuronal excitability.",
    "span_mentions_gene": true,
-   "confidence": 0.7
+   "confidence": 0.4
   },
   {
    "gene": "CDKL5",
@@ -337,7 +337,7 @@
    "year": "2024",
    "title": "CDKL5 regulates p62-mediated selective autophagy and confers protection against neurotropic viruses.",
    "span_mentions_gene": true,
-   "confidence": 0.7
+   "confidence": 0.4
   },
   {
    "gene": "CDKL5",
@@ -351,7 +351,7 @@
    "year": "2024",
    "title": "CDKL5 regulates p62-mediated selective autophagy and confers protection against neurotropic viruses.",
    "span_mentions_gene": true,
-   "confidence": 0.7
+   "confidence": 0.4
   },
   {
    "gene": "CDKL5",
@@ -379,7 +379,7 @@
    "year": "2023",
    "title": "Discovery and characterization of a specific inhibitor of serine-threonine kinase cyclin-dependent kinase-like 5 (CDKL5) demonstrates role in hippocampal CA1 physiology.",
    "span_mentions_gene": true,
-   "confidence": 0.7
+   "confidence": 0.4
   },
   {
    "gene": "CDKL5",
@@ -393,7 +393,7 @@
    "year": "2023",
    "title": "Discovery and characterization of a specific inhibitor of serine-threonine kinase cyclin-dependent kinase-like 5 (CDKL5) demonstrates role in hippocampal CA1 physiology.",
    "span_mentions_gene": true,
-   "confidence": 0.7
+   "confidence": 0.4
   },
   {
    "gene": "CDKL5",
@@ -407,7 +407,7 @@
    "year": "2023",
    "title": "Discovery and characterization of a specific inhibitor of serine-threonine kinase cyclin-dependent kinase-like 5 (CDKL5) demonstrates role in hippocampal CA1 physiology.",
    "span_mentions_gene": true,
-   "confidence": 0.7
+   "confidence": 0.4
   },
   {
    "gene": "CDKL5",
@@ -645,7 +645,7 @@
    "year": "2021",
    "title": "CDKL5 deficiency disorder in males: Five new variants and review of the literature.",
    "span_mentions_gene": false,
-   "confidence": 0.5
+   "confidence": 0.4
   },
   {
    "gene": "CDKL5",
@@ -659,7 +659,7 @@
    "year": "2021",
    "title": "CDKL5 deficiency disorder in males: Five new variants and review of the literature.",
    "span_mentions_gene": true,
-   "confidence": 0.8
+   "confidence": 0.4
   },
   {
    "gene": "CDKL5",
@@ -687,7 +687,7 @@
    "year": "2021",
    "title": "Role of DNA Methyl-CpG-Binding Protein MeCP2 in Rett Syndrome Pathobiology and Mechanism of Disease.",
    "span_mentions_gene": true,
-   "confidence": 0.8
+   "confidence": 0.4
   },
   {
    "gene": "CDKL5",
@@ -715,7 +715,7 @@
    "year": "2018",
    "title": "Unbalanced 14;X Translocation and Pattern of X Inactivation in a Female Patient with Multiple Congenital Anomalies.",
    "span_mentions_gene": true,
-   "confidence": 0.8
+   "confidence": 0.4
   },
   {
    "gene": "CDKL5",
@@ -757,7 +757,7 @@
    "year": "2017",
    "title": "Gene panel analysis for nonsyndromic cryptogenic neonatal/infantile epileptic encephalopathy.",
    "span_mentions_gene": true,
-   "confidence": 0.8
+   "confidence": 0.4
   },
   {
    "gene": "CDKL5",
@@ -869,7 +869,7 @@
    "year": "2026",
    "title": "Longitudinal Phenotypic Trajectories in GNAO1-Related Disorders: Defining Disease Progression and Clinical Profiles.",
    "span_mentions_gene": true,
-   "confidence": 0.8
+   "confidence": 0.4
   },
   {
    "gene": "GNAO1",
@@ -883,7 +883,7 @@
    "year": "2026",
    "title": "Longitudinal Phenotypic Trajectories in GNAO1-Related Disorders: Defining Disease Progression and Clinical Profiles.",
    "span_mentions_gene": false,
-   "confidence": 0.5
+   "confidence": 0.4
   },
   {
    "gene": "GNAO1",
@@ -897,7 +897,7 @@
    "year": "2026",
    "title": "Longitudinal Phenotypic Trajectories in GNAO1-Related Disorders: Defining Disease Progression and Clinical Profiles.",
    "span_mentions_gene": false,
-   "confidence": 0.5
+   "confidence": 0.4
   },
   {
    "gene": "GNAO1",
@@ -925,7 +925,7 @@
    "year": "2026",
    "title": "Conditional Modeling of GNAO1 Disorder Dissociates Circuit Specific Contributions to Pathology and Rationalizes Ameliorative Strategies.",
    "span_mentions_gene": false,
-   "confidence": 0.5
+   "confidence": 0.4
   },
   {
    "gene": "GNAO1",
@@ -939,7 +939,7 @@
    "year": "2026",
    "title": "Conditional Modeling of GNAO1 Disorder Dissociates Circuit Specific Contributions to Pathology and Rationalizes Ameliorative Strategies.",
    "span_mentions_gene": false,
-   "confidence": 0.5
+   "confidence": 0.4
   },
   {
    "gene": "GNAO1",
@@ -967,7 +967,7 @@
    "year": "2026",
    "title": "Deciphering a mechanistic basis for the pathological effect of the GNAO1 E246K variant in neurodevelopmental disorder.",
    "span_mentions_gene": true,
-   "confidence": 0.8
+   "confidence": 0.4
   },
   {
    "gene": "GNAO1",
@@ -1121,7 +1121,7 @@
    "year": "2022",
    "title": "NRSF-GNAO1 Pathway Contributes to the Regulation of Cardiac Ca2+ Homeostasis.",
    "span_mentions_gene": false,
-   "confidence": 0.5
+   "confidence": 0.4
   },
   {
    "gene": "GNAO1",
@@ -1275,7 +1275,7 @@
    "year": "2019",
    "title": "Phenomenology and clinical course of movement disorder in GNAO1 variants: Results from an analytical review.",
    "span_mentions_gene": false,
-   "confidence": 0.5
+   "confidence": 0.4
   },
   {
    "gene": "GNAO1",
@@ -1303,7 +1303,7 @@
    "year": "2018",
    "title": "A mechanistic review on GNAO1-associated movement disorder.",
    "span_mentions_gene": true,
-   "confidence": 0.8
+   "confidence": 0.4
   },
   {
    "gene": "GNAO1",
@@ -1387,7 +1387,7 @@
    "year": "2014",
    "title": "Gain-of-function mutation in Gnao1: a murine model of epileptiform encephalopathy (EIEE17)?",
    "span_mentions_gene": true,
-   "confidence": 0.8
+   "confidence": 0.4
   },
   {
    "gene": "GNAO1",
@@ -1415,7 +1415,7 @@
    "year": "2026",
    "title": "Development of a human iPSC and patient phenotyping resource for preclinical investigations of neurodevelopmental disorders.",
    "span_mentions_gene": true,
-   "confidence": 0.7
+   "confidence": 0.4
   },
   {
    "gene": "KCNQ2",
@@ -1513,7 +1513,7 @@
    "year": "2026",
    "title": "Diagnostic delay in infants with very early-onset rare and ultra-rare genetic epilepsies.",
    "span_mentions_gene": true,
-   "confidence": 0.8
+   "confidence": 0.4
   },
   {
    "gene": "KCNQ2",
@@ -1597,7 +1597,7 @@
    "year": "2026",
    "title": "An upstream open reading frame represses translation of the neuronal potassium channel KCNQ2.",
    "span_mentions_gene": false,
-   "confidence": 0.5
+   "confidence": 0.4
   },
   {
    "gene": "KCNQ2",
@@ -1765,7 +1765,7 @@
    "year": "2026",
    "title": "Mislocalization of KCNQ2 Channels as a Pathogenic Mechanism in KCNQ2 Developmental and Epileptic Encephalopathy.",
    "span_mentions_gene": true,
-   "confidence": 0.7
+   "confidence": 0.4
   },
   {
    "gene": "KCNQ2",
@@ -1821,7 +1821,7 @@
    "year": "2025",
    "title": "Transgenic mouse models of sodium and potassium channelopathies in epilepsy: insights into disease mechanisms and therapeutics.",
    "span_mentions_gene": false,
-   "confidence": 0.5
+   "confidence": 0.4
   },
   {
    "gene": "KCNQ2",
@@ -1905,7 +1905,7 @@
    "year": "2025",
    "title": "Electrophysiological Abnormalities and Pharmacological Corrections of Pathogenic Missense Variants in KCNQ3.",
    "span_mentions_gene": true,
-   "confidence": 0.7
+   "confidence": 0.4
   },
   {
    "gene": "KCNQ2",
@@ -1919,7 +1919,7 @@
    "year": "2025",
    "title": "Evaluation of Small-Molecule Candidates as Modulators of M-Type K+ Currents: Impacts on Current Amplitude, Gating, and Voltage-Dependent Hysteresis.",
    "span_mentions_gene": true,
-   "confidence": 0.7
+   "confidence": 0.4
   },
   {
    "gene": "KCNQ2",
@@ -2017,7 +2017,7 @@
    "year": "2025",
    "title": "Developmental dysfunction in a preclinical model of Kcnq2 developmental and epileptic encephalopathy.",
    "span_mentions_gene": false,
-   "confidence": 0.5
+   "confidence": 0.4
   },
   {
    "gene": "KCNQ2",
@@ -2031,7 +2031,7 @@
    "year": "2025",
    "title": "Developmental dysfunction in a preclinical model of Kcnq2 developmental and epileptic encephalopathy.",
    "span_mentions_gene": false,
-   "confidence": 0.5
+   "confidence": 0.4
   },
   {
    "gene": "KCNQ2",
@@ -2059,7 +2059,7 @@
    "year": "2024",
    "title": "Voltage-gated potassium channels and genetic epilepsy.",
    "span_mentions_gene": true,
-   "confidence": 0.8
+   "confidence": 0.4
   },
   {
    "gene": "KCNQ2",
@@ -2283,7 +2283,7 @@
    "year": "2023",
    "title": "Inhibition of neuronal Kv7 channels ameliorates MK-801-induced cognitive dysfunction in mice via up-regulating NAMPT expression.",
    "span_mentions_gene": false,
-   "confidence": 0.5
+   "confidence": 0.4
   },
   {
    "gene": "KCNQ2",
@@ -2395,7 +2395,7 @@
    "year": "2023",
    "title": "Identifying the mechanism of action of the Kv7 channel opener, retigabine in the treatment of epilepsy.",
    "span_mentions_gene": true,
-   "confidence": 0.8
+   "confidence": 0.4
   },
   {
    "gene": "KCNQ2",
@@ -2468,6 +2468,818 @@
    "confidence": 0.8
   },
   {
+   "gene": "KCNQ2",
+   "variant_effect": "unclear",
+   "molecular_function": "sodium_channel",
+   "disease_context": "unspecified",
+   "linked_phenotype_or_disease": "KCNQ2/KCNQ3 channelopathies with a distinctive ictal aEEG sequence",
+   "population": "human",
+   "quoted_span": "In KCNQ2/KCNQ3 and SCN2A channelopathies, a distinctive ictal aEEG sequence-brief initial attenuation/decrease, rapid rise, and postictal depression-correlates with reproducible ictal features on rEEG/cEEG.",
+   "pmid": "42659555",
+   "year": "2026",
+   "title": "[Electroclinical recognition of SCN2A, SCN8A, KCNQ2, and KCNQ3 pathogenic variants].",
+   "span_mentions_gene": true,
+   "confidence": 0.4
+  },
+  {
+   "gene": "KCNQ2",
+   "variant_effect": "unclear",
+   "molecular_function": "sodium_channel",
+   "disease_context": "unspecified",
+   "linked_phenotype_or_disease": "developmental and epileptic encephalopathies",
+   "population": "human",
+   "quoted_span": "Pathogenic and likely pathogenic variants were identified in genes associated with developmental and epileptic encephalopathies, metabolic disorders, mitochondrial diseases, and neurodevelopmental syndromes, including SCN2A, KCNQ2, CACNA1A, STXBP1, PTPN11, BCOR, MMUT, COQ2, and GBE1.",
+   "pmid": "42650055",
+   "year": "2026",
+   "title": "Genomic Sequencing in Neonatal Encephalopathy and Suspected Hypoxic-Ischaemic Encephalopathy: A Systematic Review.",
+   "span_mentions_gene": true,
+   "confidence": 0.4
+  },
+  {
+   "gene": "KCNQ2",
+   "variant_effect": "unclear",
+   "molecular_function": "sodium_channel",
+   "disease_context": "unspecified",
+   "linked_phenotype_or_disease": "neonatal seizures",
+   "population": "human",
+   "quoted_span": "A novel heterozygous KCNQ2 mutation (c.766G>T, p.Gly256Trp) was identified and classified as likely pathogenic according to the ACMG guidelines.",
+   "pmid": "42452325",
+   "year": "2026",
+   "title": "Clinical Features and Gene Mutation of Neonatal Seizures.",
+   "span_mentions_gene": true,
+   "confidence": 0.4
+  },
+  {
+   "gene": "KCNQ2",
+   "variant_effect": "loss_of_function",
+   "molecular_function": "sodium_channel",
+   "disease_context": "unspecified",
+   "linked_phenotype_or_disease": "neonatal epilepsies, ranging from self-limited familial neonatal epilepsy to severe Developmental and Epileptic Encephalopathy (DEE)",
+   "population": "human",
+   "quoted_span": "therapies that target the underlying KCNQ2 channel dysfunction. Pharmacological modifiers of Kv7- mediated currents, such as retigabine, have demonstrated the restoration of impaired M-currents",
+   "pmid": "42220125",
+   "year": "2026",
+   "title": "KCNQ2 Channel as a Druggable Epilepsy Target: Advances in Pharmacological Modifiers.",
+   "span_mentions_gene": true,
+   "confidence": 0.8
+  },
+  {
+   "gene": "KCNQ2",
+   "variant_effect": "unclear",
+   "molecular_function": "other",
+   "disease_context": "unspecified",
+   "linked_phenotype_or_disease": "neonatal epilepsies, ranging from self-limited familial neonatal epilepsy to severe Developmental and Epileptic Encephalopathy (DEE)",
+   "population": "human",
+   "quoted_span": "KCNQ2 encodes the Kv7.2 channel, which mediates the M-current and regulates neuronal excitability.",
+   "pmid": "42220125",
+   "year": "2026",
+   "title": "KCNQ2 Channel as a Druggable Epilepsy Target: Advances in Pharmacological Modifiers.",
+   "span_mentions_gene": true,
+   "confidence": 0.4
+  },
+  {
+   "gene": "KCNQ2",
+   "variant_effect": "unclear",
+   "molecular_function": "sodium_channel",
+   "disease_context": "unspecified",
+   "linked_phenotype_or_disease": "KCNQ2 neonatal epilepsy",
+   "population": "human",
+   "quoted_span": "In KCNQ2 neonatal epilepsy, sodium channel blocking antiseizure medicines are recommended, but the benefits of starting treatment early have been uncertain.",
+   "pmid": "42081271",
+   "year": "2026",
+   "title": "KCNQ2 neonatal epilepsy: Impact of prompt diagnosis and treatment, and early predictors of outcome severity.",
+   "span_mentions_gene": true,
+   "confidence": 0.4
+  },
+  {
+   "gene": "KCNQ2",
+   "variant_effect": "unclear",
+   "molecular_function": "sodium_channel",
+   "disease_context": "unspecified",
+   "linked_phenotype_or_disease": "KCNQ2 neonatal epilepsy",
+   "population": "human",
+   "quoted_span": "prompt genetic diagnosis enabled early targeted treatment, with potential to improve outcomes.",
+   "pmid": "42081271",
+   "year": "2026",
+   "title": "KCNQ2 neonatal epilepsy: Impact of prompt diagnosis and treatment, and early predictors of outcome severity.",
+   "span_mentions_gene": false,
+   "confidence": 0.4
+  },
+  {
+   "gene": "KCNQ2",
+   "variant_effect": "unclear",
+   "molecular_function": "other",
+   "disease_context": "unspecified",
+   "linked_phenotype_or_disease": "self-limited neonatal epilepsy",
+   "population": "human",
+   "quoted_span": "Pathogenic variants in KCNQ2 and KCNQ3 are established causes of self-limited neonatal epilepsy (SeLNE).",
+   "pmid": "42024975",
+   "year": "2026",
+   "title": "Self-limited Neonatal Epilepsy associated with global developmental delay and high-threshold sensory profile: A novel KCNQ3 de novo variant unusually located in the voltage sensor S4 segment of the Kv7.3 channel subunit.",
+   "span_mentions_gene": true,
+   "confidence": 0.4
+  },
+  {
+   "gene": "KCNQ2",
+   "variant_effect": "unclear",
+   "molecular_function": "sodium_channel",
+   "disease_context": "unspecified",
+   "linked_phenotype_or_disease": "KCNQ2-related neonatal epilepsy; transmembrane missense variants were enriched in developmental and epileptic encephalopathy, whereas C-terminal/nontransmembrane variants were associated with self-limited familial neonatal epilepsy and benign outcomes",
+   "population": "human",
+   "quoted_span": "transmembrane missense variants-especially S5-pore-S6-were enriched in DEE, whereas C-terminal/nontransmembrane variants were associated with SeL(F)NE and benign outcomes.",
+   "pmid": "41988220",
+   "year": "2026",
+   "title": "KCNQ2 Variants in Neonatal Epilepsy: Clinical Characteristics and Neurodevelopmental Outcomes in 30 Patients.",
+   "span_mentions_gene": false,
+   "confidence": 0.4
+  },
+  {
+   "gene": "KCNQ2",
+   "variant_effect": "loss_of_function",
+   "molecular_function": "sodium_channel",
+   "disease_context": "Seizures, benign familial neonatal, 1",
+   "linked_phenotype_or_disease": "self-limited familial neonatal epilepsy associated with single-allele truncating/NMD lesions",
+   "population": "human",
+   "quoted_span": "All 5 single-allele truncating/NMD lesions (CNV deletion, canonical splice-site, 2 nonsense, 1 frameshift) aligned with SeL(F)NE",
+   "pmid": "41988220",
+   "year": "2026",
+   "title": "KCNQ2 Variants in Neonatal Epilepsy: Clinical Characteristics and Neurodevelopmental Outcomes in 30 Patients.",
+   "span_mentions_gene": false,
+   "confidence": 0.5
+  },
+  {
+   "gene": "KCNQ2",
+   "variant_effect": "unclear",
+   "molecular_function": "sodium_channel",
+   "disease_context": "unspecified",
+   "linked_phenotype_or_disease": "unexplained neonatal seizures",
+   "population": "human",
+   "quoted_span": "Pathogenic or likely pathogenic variants were detected in 67.5% (27/40) of cases, including, but not limited to, variants in KCNQ2, ALDH7A1, and SUOX.",
+   "pmid": "41810174",
+   "year": "2026",
+   "title": "Genetic spectrum of unexplained neonatal seizures: a single-center study.",
+   "span_mentions_gene": true,
+   "confidence": 0.4
+  },
+  {
+   "gene": "KCNQ2",
+   "variant_effect": "mixed",
+   "molecular_function": "potassium_channel",
+   "disease_context": "Seizures, benign familial neonatal, 1",
+   "linked_phenotype_or_disease": "self-limited familial neonatal epilepsy (SLFNE)",
+   "population": "animal",
+   "quoted_span": "two variants at the same codon, Y284C and Y284D, which are associated with distinct clinical phenotypes\u2014self-limited familial neonatal epilepsy (SLFNE) and developmental and epileptic encephalopathy (DEE), respectively\u2014exerted opposite effects on the fragment: Y284C increased the amounts of both KCNQ2 fragments, whereas Y284D decreased it compared with the wild type.",
+   "pmid": "41781647",
+   "year": "2026",
+   "title": "Novel proteolytic post-translational modification in voltage-gated potassium channel KCNQ2.",
+   "span_mentions_gene": true,
+   "confidence": 0.7
+  },
+  {
+   "gene": "KCNQ2",
+   "variant_effect": "unclear",
+   "molecular_function": "potassium_channel",
+   "disease_context": "Epileptic encephalopathy, early infantile, 7",
+   "linked_phenotype_or_disease": "developmental and epileptic encephalopathy (DEE)",
+   "population": "animal",
+   "quoted_span": "two variants at the same codon, Y284C and Y284D, which are associated with distinct clinical phenotypes\u2014self-limited familial neonatal epilepsy (SLFNE) and developmental and epileptic encephalopathy (DEE), respectively\u2014exerted opposite effects on the fragment: Y284C increased the amounts of both KCNQ2 fragments, whereas Y284D decreased it compared with the wild type.",
+   "pmid": "41781647",
+   "year": "2026",
+   "title": "Novel proteolytic post-translational modification in voltage-gated potassium channel KCNQ2.",
+   "span_mentions_gene": true,
+   "confidence": 0.4
+  },
+  {
+   "gene": "KCNQ2",
+   "variant_effect": "gain_of_function",
+   "molecular_function": "potassium_channel",
+   "disease_context": "Epileptic encephalopathy, early infantile, 7",
+   "linked_phenotype_or_disease": "early infantile developmental and epileptic encephalopathy (EIDEE); p.R213Q mice exhibited tonic-clonic seizures, shortened lifespan, delayed cortical neuron migration, abnormal elongation of the axon initial segment, and dentate gyrus-specific gliosis",
+   "population": "animal",
+   "quoted_span": "p.R213Q induces sustained cortical hyperexcitability and axon initial segment abnormalities",
+   "pmid": "41742307",
+   "year": "2026",
+   "title": "Kcnq2 R213 knock-in mice reveal variant- and region-specific mechanisms underlying self-limited familial neonatal-infantile epilepsy and early infantile developmental and epileptic encephalopathy.",
+   "span_mentions_gene": false,
+   "confidence": 0.5
+  },
+  {
+   "gene": "KCNQ2",
+   "variant_effect": "unclear",
+   "molecular_function": "potassium_channel",
+   "disease_context": "Seizures, benign familial neonatal, 1",
+   "linked_phenotype_or_disease": "self-limited familial neonatal-infantile epilepsy (SeLFNIE); p.R213W mice showed a milder phenotype with transient seizures and largely preserved cortical function",
+   "population": "animal",
+   "quoted_span": "Kcnq2R213W/+ mice showed a milder phenotype with transient seizures and largely preserved cortical function.",
+   "pmid": "41742307",
+   "year": "2026",
+   "title": "Kcnq2 R213 knock-in mice reveal variant- and region-specific mechanisms underlying self-limited familial neonatal-infantile epilepsy and early infantile developmental and epileptic encephalopathy.",
+   "span_mentions_gene": true,
+   "confidence": 0.4
+  },
+  {
+   "gene": "KCNQ2",
+   "variant_effect": "loss_of_function",
+   "molecular_function": "potassium_channel",
+   "disease_context": "Epileptic encephalopathy, early infantile, 7",
+   "linked_phenotype_or_disease": "KCNQ2 developmental and epileptic encephalopathy (KCNQ2 DEE) with seizures and developmental delays",
+   "population": "in_vitro",
+   "quoted_span": "Simulations comparing WT and G256W tetrameric channels exhibited more conformationally unstable ion selectivity filters for G256W subunits.",
+   "pmid": "41670008",
+   "year": "2026",
+   "title": "Molecular dynamics of the pathogenic KCNQ2 variant G256W reveals mechanisms of channel dysfunction in epileptic encephalopathy.",
+   "span_mentions_gene": false,
+   "confidence": 0.5
+  },
+  {
+   "gene": "KCNQ2",
+   "variant_effect": "unclear",
+   "molecular_function": "sodium_channel",
+   "disease_context": "unspecified",
+   "linked_phenotype_or_disease": "neonatal onset epilepsy spectrum from self-limited familial neonatal epilepsy (SeLNE) to developmental and epileptic encephalopathy (DEE)",
+   "population": "animal",
+   "quoted_span": "Pathogenic variants in the KCNQ2 gene cause a spectrum of neonatal onset epilepsy, from self-limited familial neonatal epilepsy (SeLNE; mild end) to developmental and epileptic encephalopathy (DEE; severe end).",
+   "pmid": "41051877",
+   "year": "2026",
+   "title": "Delayed excitability recovery and downregulation of neurodevelopmental pathways contribute to phenotypic differences in KCNQ2-related disorders.",
+   "span_mentions_gene": true,
+   "confidence": 0.4
+  },
+  {
+   "gene": "KCNQ2",
+   "variant_effect": "unclear",
+   "molecular_function": "sodium_channel",
+   "disease_context": "unspecified",
+   "linked_phenotype_or_disease": "neuronal hyperexcitability with high-frequency firing of action potentials",
+   "population": "animal",
+   "quoted_span": "Compared to wild-type mice, both Kcnq2-SeLNE and Kcnq2-DEE mice exhibited neuronal hyperexcitability characterized by high-frequency firing of action potentials.",
+   "pmid": "41051877",
+   "year": "2026",
+   "title": "Delayed excitability recovery and downregulation of neurodevelopmental pathways contribute to phenotypic differences in KCNQ2-related disorders.",
+   "span_mentions_gene": true,
+   "confidence": 0.4
+  },
+  {
+   "gene": "KCNQ2",
+   "variant_effect": "unclear",
+   "molecular_function": "sodium_channel",
+   "disease_context": "unspecified",
+   "linked_phenotype_or_disease": "delayed restoration of abnormal excitability in CA1 excitatory neurons",
+   "population": "animal",
+   "quoted_span": "whereas SeLNE mice showed timely recovery of excitability, DEE mice displayed delayed restoration of abnormal excitability in CA1 excitatory neurons.",
+   "pmid": "41051877",
+   "year": "2026",
+   "title": "Delayed excitability recovery and downregulation of neurodevelopmental pathways contribute to phenotypic differences in KCNQ2-related disorders.",
+   "span_mentions_gene": false,
+   "confidence": 0.4
+  },
+  {
+   "gene": "KCNQ2",
+   "variant_effect": "loss_of_function",
+   "molecular_function": "potassium_channel",
+   "disease_context": "unspecified",
+   "linked_phenotype_or_disease": "neonatal seizures, epileptic encephalopathy, intellectual disability, and autism",
+   "population": "human",
+   "quoted_span": "Pathogenic variants in the KCNQ2 gene, which encodes a potassium channel subunit, are associated with neonatal seizures, epileptic encephalopathy, intellectual disability, and autism.",
+   "pmid": "41015095",
+   "year": "2025",
+   "title": "Human iPSC-derived glutamatergic neurons with pathogenic KCNQ2 variants display hyperactive bursting phenotypes.",
+   "span_mentions_gene": true,
+   "confidence": 0.8
+  },
+  {
+   "gene": "KCNQ2",
+   "variant_effect": "unclear",
+   "molecular_function": "sodium_channel",
+   "disease_context": "unspecified",
+   "linked_phenotype_or_disease": "pharmacoresistant neonatal epilepsy with negative brain MRI",
+   "population": "human",
+   "quoted_span": "60% had a genetic etiology (KCNQ2, STXBP1, KCNT1, others).",
+   "pmid": "40884527",
+   "year": "2025",
+   "title": "Long-term outcomes of a cohort of patients with pharmacoresistant neonatal epilepsy and negative brain MRI.",
+   "span_mentions_gene": true,
+   "confidence": 0.4
+  },
+  {
+   "gene": "KCNQ2",
+   "variant_effect": "unclear",
+   "molecular_function": "sodium_channel",
+   "disease_context": "unspecified",
+   "linked_phenotype_or_disease": "neonatal-onset pharmacoresistant epilepsies with a normal brain MRI",
+   "population": "human",
+   "quoted_span": "Neonatal-onset pharmacoresistant epilepsies with a normal brain MRI are predominantly monogenic and lead to poor neurodevelopmental outcomes.",
+   "pmid": "40884527",
+   "year": "2025",
+   "title": "Long-term outcomes of a cohort of patients with pharmacoresistant neonatal epilepsy and negative brain MRI.",
+   "span_mentions_gene": false,
+   "confidence": 0.4
+  },
+  {
+   "gene": "KCNQ2",
+   "variant_effect": "unclear",
+   "molecular_function": "potassium_channel",
+   "disease_context": "unspecified",
+   "linked_phenotype_or_disease": "self-limiting KCNQ2-related epilepsy / self-limited epilepsies with onset in neonates (SeLNE)",
+   "population": "human",
+   "quoted_span": "identified a pathogenic KCNQ2 variant in the proband, which was also confirmed in the proband for case 2",
+   "pmid": "40453196",
+   "year": "2025",
+   "title": "KCNQ2 variants in neonatal onset of self-limiting epilepsy.",
+   "span_mentions_gene": true,
+   "confidence": 0.4
+  },
+  {
+   "gene": "KCNQ2",
+   "variant_effect": "unclear",
+   "molecular_function": "potassium_channel",
+   "disease_context": "unspecified",
+   "linked_phenotype_or_disease": "self-limited epilepsies with onset in neonates (SeLNE)",
+   "population": "human",
+   "quoted_span": "KCNQ2, encoding a voltage-gated potassium channel subunit, KV7.2, is the most common gene associated with SeLNE.",
+   "pmid": "40453196",
+   "year": "2025",
+   "title": "KCNQ2 variants in neonatal onset of self-limiting epilepsy.",
+   "span_mentions_gene": true,
+   "confidence": 0.4
+  },
+  {
+   "gene": "KCNQ2",
+   "variant_effect": "unclear",
+   "molecular_function": "sodium_channel",
+   "disease_context": "unspecified",
+   "linked_phenotype_or_disease": "self-limited focal epilepsy with neonatal/infantile onset (SeLFE)",
+   "population": "human",
+   "quoted_span": "known pathological genes including PRRT2, SCN2A and KCNQ2 were detected in 10 children.",
+   "pmid": "40236662",
+   "year": "2025",
+   "title": "Oxcarbazepine may be an effective option for Chinese pediatric patients with self-limited focal epilepsy of neonatal/infantile onset: a retrospective cohort study.",
+   "span_mentions_gene": true,
+   "confidence": 0.4
+  },
+  {
+   "gene": "KCNQ2",
+   "variant_effect": "loss_of_function",
+   "molecular_function": "sodium_channel",
+   "disease_context": "Epileptic encephalopathy, early infantile, 7",
+   "linked_phenotype_or_disease": "severe neonatal-onset developmental and epileptic encephalopathy (DEE)",
+   "population": "animal",
+   "quoted_span": "the charge-conserved D212E mutation leads to severe neonatal-onset developmental and epileptic encephalopathy (DEE)",
+   "pmid": "39971736",
+   "year": "2025",
+   "title": "Biophysical and structural mechanisms of epilepsy-associated mutations in the S4-S5 Linker of KCNQ2 channels.",
+   "span_mentions_gene": false,
+   "confidence": 0.5
+  },
+  {
+   "gene": "KCNQ2",
+   "variant_effect": "unclear",
+   "molecular_function": "sodium_channel",
+   "disease_context": "Seizures, benign familial neonatal, 1",
+   "linked_phenotype_or_disease": "self-limited familial neonatal epilepsy (SLFNE)",
+   "population": "animal",
+   "quoted_span": "the more dramatic substitution to glycine (D212G) results in self-limited familial neonatal epilepsy (SLFNE), a much milder pathology.",
+   "pmid": "39971736",
+   "year": "2025",
+   "title": "Biophysical and structural mechanisms of epilepsy-associated mutations in the S4-S5 Linker of KCNQ2 channels.",
+   "span_mentions_gene": false,
+   "confidence": 0.4
+  },
+  {
+   "gene": "KCNQ2",
+   "variant_effect": "loss_of_function",
+   "molecular_function": "sodium_channel",
+   "disease_context": "unspecified",
+   "linked_phenotype_or_disease": "rightward shift in the voltage-dependent activation curve, slower activation kinetics, and accelerated deactivation kinetics",
+   "population": "in_vitro",
+   "quoted_span": "the D212E mutation stabilizes the channel in the voltage sensor down-state and destabilizes the up-state, leading to a rightward shift in the voltage-dependent activation curve, slower activation kinetics, and accelerated deactivation kinetics.",
+   "pmid": "39971736",
+   "year": "2025",
+   "title": "Biophysical and structural mechanisms of epilepsy-associated mutations in the S4-S5 Linker of KCNQ2 channels.",
+   "span_mentions_gene": false,
+   "confidence": 0.5
+  },
+  {
+   "gene": "KCNQ2",
+   "variant_effect": "unclear",
+   "molecular_function": "sodium_channel",
+   "disease_context": "unspecified",
+   "linked_phenotype_or_disease": "destabilizes the up-state, but its impact on voltage sensitivity is significantly reduced in KCNQ2/3 heterotetrameric channels",
+   "population": "in_vitro",
+   "quoted_span": "the D212G mutation primarily destabilizes the up-state, but its impact on voltage sensitivity is significantly reduced in KCNQ2/3 heterotetrameric channels.",
+   "pmid": "39971736",
+   "year": "2025",
+   "title": "Biophysical and structural mechanisms of epilepsy-associated mutations in the S4-S5 Linker of KCNQ2 channels.",
+   "span_mentions_gene": true,
+   "confidence": 0.4
+  },
+  {
+   "gene": "KCNQ2",
+   "variant_effect": "unclear",
+   "molecular_function": "sodium_channel",
+   "disease_context": "unspecified",
+   "linked_phenotype_or_disease": "neonatal epilepsies, ranging from self-limited neonatal epilepsy to KCNQ2-developmental and epileptic encephalopathy (DEE)",
+   "population": "human",
+   "quoted_span": "Pathogenic KCNQ2 variants are associated with neonatal epilepsies, ranging from self-limited neonatal epilepsy to KCNQ2-developmental and epileptic encephalopathy (DEE).",
+   "pmid": "39796146",
+   "year": "2024",
+   "title": "Novel KCNQ2 Variants Related to a Variable Phenotypic Spectrum Ranging from Epilepsy with Auditory Features to Severe Developmental and Epileptic Encephalopathies.",
+   "span_mentions_gene": true,
+   "confidence": 0.4
+  },
+  {
+   "gene": "KCNQ2",
+   "variant_effect": "unclear",
+   "molecular_function": "potassium_channel",
+   "disease_context": "Seizures, benign familial neonatal, 1",
+   "linked_phenotype_or_disease": "neonatal seizures",
+   "population": "human",
+   "quoted_span": "A c.877C>T variant in KCNQ2 co-segregated with seizures in a family.",
+   "pmid": "39570101",
+   "year": "2025",
+   "title": "Genetic neonatal seizures in the neonatal intensive care unit: Diagnostic and prognostic implications for three families.",
+   "span_mentions_gene": true,
+   "confidence": 0.4
+  },
+  {
+   "gene": "KCNQ2",
+   "variant_effect": "unclear",
+   "molecular_function": "other",
+   "disease_context": "unspecified",
+   "linked_phenotype_or_disease": "self-limited infantile epilepsy (SeLIE)",
+   "population": "human",
+   "quoted_span": "other genes, such as SCN2A, KCNQ2-3 and SCN8A, have been recognized.",
+   "pmid": "39331768",
+   "year": "2024",
+   "title": "[Contribution of the Ibero-American Academy of Neuropediatrics to the knowledge of self-limited epilepsy in infants].",
+   "span_mentions_gene": true,
+   "confidence": 0.4
+  },
+  {
+   "gene": "KCNQ2",
+   "variant_effect": "unclear",
+   "molecular_function": "sodium_channel",
+   "disease_context": "unspecified",
+   "linked_phenotype_or_disease": "non-structural neonatal genetic epilepsy; particularly KCNQ2 and SCN2A epilepsy",
+   "population": "human",
+   "quoted_span": "Non-structural neonatal genetic epilepsy was associated with sequential seizures (68.2 %), particularly KCNQ2 and SCN2A epilepsy.",
+   "pmid": "39094245",
+   "year": "2024",
+   "title": "Retrospective study on neonatal seizures in a tertiary center of northern Italy after ILAE classification: Incidence, seizure type, EEG and etiology.",
+   "span_mentions_gene": true,
+   "confidence": 0.4
+  },
+  {
+   "gene": "KCNQ2",
+   "variant_effect": "loss_of_function",
+   "molecular_function": "potassium_channel",
+   "disease_context": "Epileptic encephalopathy, early infantile, 7",
+   "linked_phenotype_or_disease": "developmental delay and various seizures; epileptic behavior in flies; expands the genotype-phenotype link",
+   "population": "animal",
+   "quoted_span": "computational models, including hydrogen bonding and docking analyses, suggest that variants cause functional impairment.",
+   "pmid": "38880853",
+   "year": "2024",
+   "title": "Novel KCNQ2 missense variant expands the genotype spectrum of DEE7.",
+   "span_mentions_gene": false,
+   "confidence": 0.5
+  },
+  {
+   "gene": "KCNQ2",
+   "variant_effect": "loss_of_function",
+   "molecular_function": "potassium_channel",
+   "disease_context": "Epileptic encephalopathy, early infantile, 7",
+   "linked_phenotype_or_disease": "epileptic behavior; lifespan and climbing capacity were affected",
+   "population": "animal",
+   "quoted_span": "RNAi-mediated KCNQ knockout in flies led to the onset of epileptic behavior, lifespan and climbing capacity were affected",
+   "pmid": "38880853",
+   "year": "2024",
+   "title": "Novel KCNQ2 missense variant expands the genotype spectrum of DEE7.",
+   "span_mentions_gene": false,
+   "confidence": 0.5
+  },
+  {
+   "gene": "KCNQ2",
+   "variant_effect": "loss_of_function",
+   "molecular_function": "other",
+   "disease_context": "Seizures, benign familial neonatal, 1",
+   "linked_phenotype_or_disease": "self-limited familial neonatal epilepsy; neonatal behavior arrests without motor seizures; neonatal seizures",
+   "population": "in_vitro",
+   "quoted_span": "the current density and V1/2 exhibited significant improvement and close to that of the wild-type after transfection with heteromeric KCNQ2 + p.Arg448Ter and KCNQ2 + KCNQ3 + p.Arg448Ter respectively. Channel expression on the cell membrane was not visible after homomeric transfection",
+   "pmid": "38788659",
+   "year": "2024",
+   "title": "KCNQ2 mutations cause unique neonatal behavior arrests without motor seizures: Functional characterization.",
+   "span_mentions_gene": true,
+   "confidence": 0.7
+  },
+  {
+   "gene": "KCNQ2",
+   "variant_effect": "unclear",
+   "molecular_function": "other",
+   "disease_context": "unspecified",
+   "linked_phenotype_or_disease": "KCNQ2-related epilepsy; self-limited (familial) neonatal epilepsy; developmental and epileptic encephalopathy",
+   "population": "human",
+   "quoted_span": "developmental and epileptic encephalopathy due to pathogenic variants in KCNQ2",
+   "pmid": "37099824",
+   "year": "2023",
+   "title": "Relationship Between Epileptic Activity and Developmental Outcome in KCNQ2-Related Epilepsy.",
+   "span_mentions_gene": true,
+   "confidence": 0.4
+  },
+  {
+   "gene": "KCNQ2",
+   "variant_effect": "unclear",
+   "molecular_function": "other",
+   "disease_context": "unspecified",
+   "linked_phenotype_or_disease": "KCNQ2-related epilepsy",
+   "population": "human",
+   "quoted_span": "This study shows a partial correlation between epileptic activity and developmental outcome in KCNQ2-related epilepsy.",
+   "pmid": "37099824",
+   "year": "2023",
+   "title": "Relationship Between Epileptic Activity and Developmental Outcome in KCNQ2-Related Epilepsy.",
+   "span_mentions_gene": true,
+   "confidence": 0.4
+  },
+  {
+   "gene": "KCNQ2",
+   "variant_effect": "unclear",
+   "molecular_function": "potassium_channel",
+   "disease_context": "Epileptic encephalopathy, early infantile, 7",
+   "linked_phenotype_or_disease": "KCNQ2-related developmental and epileptic encephalopathy; seizures and developmental impairment",
+   "population": "human",
+   "quoted_span": "An approach targeting potassium channel dysfunction with ezogabine is warranted in patients with KCNQ2-related DEE.",
+   "pmid": "37096745",
+   "year": "2023",
+   "title": "Ezogabine impacts seizures and development in patients with KCNQ2 developmental and epileptic encephalopathy.",
+   "span_mentions_gene": true,
+   "confidence": 0.4
+  },
+  {
+   "gene": "KCNQ2",
+   "variant_effect": "unclear",
+   "molecular_function": "sodium_channel",
+   "disease_context": "unspecified",
+   "linked_phenotype_or_disease": "developmental and epileptic encephalencephalopathy (DEE) onset within 2 years of age; seizure freedom after ketogenic diet therapy",
+   "population": "human",
+   "quoted_span": "There were 24, 9, 9, 6, 5, and 5 children with SCN1A, CDKL5, SCN2A, KCNQ2, STXBP1 and KCNT1 genes variants, respectively; 7, 4, 2, 2, 4, and 1 of these children, respectively, achieved seizure freedom.",
+   "pmid": "42742013",
+   "year": "2026",
+   "title": "[Effectiveness and tolerability of ketogenic diet therapy in children with genetic developmental and epileptic encephalopathy onset within 2 years of age].",
+   "span_mentions_gene": true,
+   "confidence": 0.4
+  },
+  {
+   "gene": "KCNQ2",
+   "variant_effect": "unclear",
+   "molecular_function": "potassium_channel",
+   "disease_context": "unspecified",
+   "linked_phenotype_or_disease": "developmental and epileptic encephalopathies",
+   "population": "human",
+   "quoted_span": "De novo pathogenic variants in KCNQ2 are a well-established cause of neurodevelopmental disorders, particularly developmental and epileptic encephalopathies.",
+   "pmid": "42603519",
+   "year": "2026",
+   "title": "Generation of induced pluripotent stem cell lines from a patient withKCNQ2-developmental and epileptic encephalopathy pathogenic variant c.783A\u00a0>\u00a0C; p.Phe261Leu, and a sibling control.",
+   "span_mentions_gene": true,
+   "confidence": 0.4
+  },
+  {
+   "gene": "KCNQ2",
+   "variant_effect": "unclear",
+   "molecular_function": "potassium_channel",
+   "disease_context": "unspecified",
+   "linked_phenotype_or_disease": "mediates the neuronal M-current and plays a key role in stabilizing the resting membrane potential",
+   "population": "human",
+   "quoted_span": "The KCNQ2 gene encodes the Kv7.2 subunit of a voltage-gated potassium channel that mediates the neuronal M-current and plays a key role in stabilizing the resting membrane potential.",
+   "pmid": "42603519",
+   "year": "2026",
+   "title": "Generation of induced pluripotent stem cell lines from a patient withKCNQ2-developmental and epileptic encephalopathy pathogenic variant c.783A\u00a0>\u00a0C; p.Phe261Leu, and a sibling control.",
+   "span_mentions_gene": true,
+   "confidence": 0.4
+  },
+  {
+   "gene": "KCNQ2",
+   "variant_effect": "unclear",
+   "molecular_function": "other",
+   "disease_context": "unspecified",
+   "linked_phenotype_or_disease": "sleep dysfunction restricted to the developmental and epileptic encephalopathy subtype in KCNQ2-related disorders",
+   "population": "human",
+   "quoted_span": "sleep dysfunction restricted to the developmental and epileptic encephalopathy subtype in KCNQ2 -related disorders",
+   "pmid": "42428076",
+   "year": "2026",
+   "title": "Monogenic epilepsies exhibit distinct sleep endophenotypes.",
+   "span_mentions_gene": true,
+   "confidence": 0.4
+  },
+  {
+   "gene": "KCNQ2",
+   "variant_effect": "unclear",
+   "molecular_function": "sodium_channel",
+   "disease_context": "unspecified",
+   "linked_phenotype_or_disease": "childhood-onset epilepsy and febrile seizures",
+   "population": "human",
+   "quoted_span": "In family EP-36, a homozygous missense variant in KCNQ2 (c.1232C > A; p.Pro411Gln) was identified in individuals with childhood-onset epilepsy and febrile seizures.",
+   "pmid": "42313205",
+   "year": "2026",
+   "title": "Exome sequencing of pashtun familial epilepsy in Pakistan reveals novel variants in LAMA5, KCNQ2 and GNAO1.",
+   "span_mentions_gene": true,
+   "confidence": 0.4
+  },
+  {
+   "gene": "KCNQ2",
+   "variant_effect": "unclear",
+   "molecular_function": "sodium_channel",
+   "disease_context": "unspecified",
+   "linked_phenotype_or_disease": "early burst-suppression EEG developmental and epileptic encephalopathies (EIDEE-BS)",
+   "population": "human",
+   "quoted_span": "variants in the KCNQ2, STXBP1, and SCN2A genes are recognized as major causes",
+   "pmid": "42190144",
+   "year": "2026",
+   "title": "Burst-Suppression EEG in Early Infantile Developmental and Epileptic Encephalopathies: Phenotype, Genotype, and Outcome.",
+   "span_mentions_gene": true,
+   "confidence": 0.4
+  },
+  {
+   "gene": "KCNQ2",
+   "variant_effect": "unclear",
+   "molecular_function": "sodium_channel",
+   "disease_context": "unspecified",
+   "linked_phenotype_or_disease": "KCNQ2 cases with earlier seizure and burst-suppression onset",
+   "population": "human",
+   "quoted_span": "In KCNQ2 cases, seizures and BS onset occurred earlier than in STXBP1 cases: mean 2 days vs 6 weeks for seizures and 3 days vs 2 months for BS, respectively",
+   "pmid": "42190144",
+   "year": "2026",
+   "title": "Burst-Suppression EEG in Early Infantile Developmental and Epileptic Encephalopathies: Phenotype, Genotype, and Outcome.",
+   "span_mentions_gene": true,
+   "confidence": 0.4
+  },
+  {
+   "gene": "KCNQ2",
+   "variant_effect": "unclear",
+   "molecular_function": "sodium_channel",
+   "disease_context": "unspecified",
+   "linked_phenotype_or_disease": "typical burst-suppression pattern",
+   "population": "human",
+   "quoted_span": "A typical BS pattern (bursts longer than suppressions) strongly correlated with KCNQ2 and STXBP1 variants",
+   "pmid": "42190144",
+   "year": "2026",
+   "title": "Burst-Suppression EEG in Early Infantile Developmental and Epileptic Encephalopathies: Phenotype, Genotype, and Outcome.",
+   "span_mentions_gene": true,
+   "confidence": 0.4
+  },
+  {
+   "gene": "KCNQ2",
+   "variant_effect": "unclear",
+   "molecular_function": "sodium_channel",
+   "disease_context": "unspecified",
+   "linked_phenotype_or_disease": "early use of sodium channel blockers in selected cases",
+   "population": "human",
+   "quoted_span": "guide precision therapy, including the early use of sodium channel blockers in selected cases",
+   "pmid": "42190144",
+   "year": "2026",
+   "title": "Burst-Suppression EEG in Early Infantile Developmental and Epileptic Encephalopathies: Phenotype, Genotype, and Outcome.",
+   "span_mentions_gene": false,
+   "confidence": 0.4
+  },
+  {
+   "gene": "KCNQ2",
+   "variant_effect": "loss_of_function",
+   "molecular_function": "sodium_channel",
+   "disease_context": "Epileptic encephalopathy, early infantile, 7",
+   "linked_phenotype_or_disease": "KCNQ2-developmental and epileptic encephalopathy (KCNQ2-DEE)",
+   "population": "animal",
+   "quoted_span": "KCNQ2-developmental and epileptic encephalopathy (KCNQ2-DEE) is a severe neurodevelopmental disorder (NDD) characterised by early-life seizures but persistent cognitive impairment.",
+   "pmid": "41705898",
+   "year": "2025",
+   "title": "Imaging brain development in a KCNQ2-developmental and epileptic encephalopathy mouse model: identifying early biomarkers for functional and structural brain changes.",
+   "span_mentions_gene": true,
+   "confidence": 0.7
+  },
+  {
+   "gene": "KCNQ2",
+   "variant_effect": "loss_of_function",
+   "molecular_function": "potassium_channel",
+   "disease_context": "Epileptic encephalopathy, early infantile, 7",
+   "linked_phenotype_or_disease": "KCNQ2 developmental and epileptic encephalopathy (KCNQ2 DEE) with seizures and developmental delays",
+   "population": "in_vitro",
+   "quoted_span": "Simulations comparing WT and G256W tetrameric channels exhibited more conformationally unstable ion selectivity filters for G256W.",
+   "pmid": "41409146",
+   "year": "2025",
+   "title": "Molecular dynamics of the pathogenic KCNQ2 variant G256W reveal mechanisms of channel dysfunction in epileptic encephalopathy.",
+   "span_mentions_gene": false,
+   "confidence": 0.5
+  },
+  {
+   "gene": "KCNQ2",
+   "variant_effect": "unclear",
+   "molecular_function": "sodium_channel",
+   "disease_context": "unspecified",
+   "linked_phenotype_or_disease": "developmental and epileptic encephalopathy",
+   "population": "human",
+   "quoted_span": "Variants were detected in SCN1A, KCNQ2, STXBP1, CDKL5, PCDH19, PLCB1, WWOX, SCN2A, FGF12, HCN1, SCN8A, and SLC35A2.",
+   "pmid": "41153369",
+   "year": "2025",
+   "title": "Genetic Etiology of Developmental and Epileptic Encephalopathy in a Turkish Cohort: A Single-Center Study with Targeted Gene Panel and Whole Exome Sequencing.",
+   "span_mentions_gene": true,
+   "confidence": 0.4
+  },
+  {
+   "gene": "KCNQ2",
+   "variant_effect": "loss_of_function",
+   "molecular_function": "potassium_channel",
+   "disease_context": "Epileptic encephalopathy, early infantile, 7",
+   "linked_phenotype_or_disease": "developmental and epileptic encephalopathy (KCNQ2-DEE) with neonatal-onset seizures and impaired neurodevelopment",
+   "population": "human",
+   "quoted_span": "Pathogenic KCNQ2 variants are associated with developmental and epileptic encephalopathy (KCNQ2-DEE), a devastating disorder characterized by neonatal-onset seizures and impaired neurodevelopment",
+   "pmid": "40766585",
+   "year": "2025",
+   "title": "Machine Learning Resolves Functional Phenotypes and Therapeutic Responses in KCNQ2 Developmental Epileptic Encephalopathy iPSC Models.",
+   "span_mentions_gene": true,
+   "confidence": 0.8
+  },
+  {
+   "gene": "KCNQ2",
+   "variant_effect": "unclear",
+   "molecular_function": "potassium_channel",
+   "disease_context": "Epileptic encephalopathy, early infantile, 7",
+   "linked_phenotype_or_disease": "KCNQ2-DEE neurons",
+   "population": "in_vitro",
+   "quoted_span": "we showed that chronic treatment with the K V 7 activator retigabine rescues the disease-associated functional phenotypes with variable efficacy",
+   "pmid": "40766585",
+   "year": "2025",
+   "title": "Machine Learning Resolves Functional Phenotypes and Therapeutic Responses in KCNQ2 Developmental Epileptic Encephalopathy iPSC Models.",
+   "span_mentions_gene": false,
+   "confidence": 0.4
+  },
+  {
+   "gene": "KCNQ2",
+   "variant_effect": "unclear",
+   "molecular_function": "potassium_channel",
+   "disease_context": "Epileptic encephalopathy, early infantile, 7",
+   "linked_phenotype_or_disease": "KCNQ2-DEE",
+   "population": "in_vitro",
+   "quoted_span": "Our findings highlight SK channel upregulation as a critical pathophysiological mechanism underlying KCNQ2-DEE",
+   "pmid": "40766585",
+   "year": "2025",
+   "title": "Machine Learning Resolves Functional Phenotypes and Therapeutic Responses in KCNQ2 Developmental Epileptic Encephalopathy iPSC Models.",
+   "span_mentions_gene": true,
+   "confidence": 0.4
+  },
+  {
+   "gene": "KCNQ2",
+   "variant_effect": "loss_of_function",
+   "molecular_function": "potassium_channel",
+   "disease_context": "Epileptic encephalopathy, early infantile, 7",
+   "linked_phenotype_or_disease": "KCNQ2 developmental and epileptic encephalopathy; severe form of genetic epilepsy",
+   "population": "animal",
+   "quoted_span": "a mouse model of Kcnq2 dysfunction",
+   "pmid": "40632471",
+   "year": "2025",
+   "title": "Long-term treatment with carbamazepine restores cognitive abilities in a mouse model of KCNQ2 developmental and epileptic encephalopathy.",
+   "span_mentions_gene": true,
+   "confidence": 0.7
+  },
+  {
+   "gene": "KCNQ2",
+   "variant_effect": "unclear",
+   "molecular_function": "potassium_channel",
+   "disease_context": "Epileptic encephalopathy, early infantile, 7",
+   "linked_phenotype_or_disease": "KCNQ2-DEE; severe form of genetic epilepsy",
+   "population": "animal",
+   "quoted_span": "the impact on seizures was strong in the Kcnq2-DEE mice",
+   "pmid": "40632471",
+   "year": "2025",
+   "title": "Long-term treatment with carbamazepine restores cognitive abilities in a mouse model of KCNQ2 developmental and epileptic encephalopathy.",
+   "span_mentions_gene": true,
+   "confidence": 0.4
+  },
+  {
+   "gene": "KCNQ2",
+   "variant_effect": "unclear",
+   "molecular_function": "potassium_channel",
+   "disease_context": "Epileptic encephalopathy, early infantile, 7",
+   "linked_phenotype_or_disease": "early epileptic encephalopathy; West syndrome",
+   "population": "human",
+   "quoted_span": "mutations in Potassium Voltage-Gated Channel Subfamily Q Member 2 (KCNQ2) can result in EOEE",
+   "pmid": "40342533",
+   "year": "2025",
+   "title": "A case of early epileptic encephalopathy caused by new mutation at W218C in KCNQ2 and review literature.",
+   "span_mentions_gene": true,
+   "confidence": 0.4
+  },
+  {
+   "gene": "KCNQ2",
+   "variant_effect": "unclear",
+   "molecular_function": "potassium_channel",
+   "disease_context": "Epileptic encephalopathy, early infantile, 7",
+   "linked_phenotype_or_disease": "early epileptic encephalopathy; West syndrome",
+   "population": "human",
+   "quoted_span": "a novel heterozygous point mutation p. W218C in KCNQ2. The pathogenic variant was located in the protein's S4S5 connection region and was identified as a harmful mutation by silico tools.",
+   "pmid": "40342533",
+   "year": "2025",
+   "title": "A case of early epileptic encephalopathy caused by new mutation at W218C in KCNQ2 and review literature.",
+   "span_mentions_gene": true,
+   "confidence": 0.4
+  },
+  {
    "gene": "KCNT1",
    "variant_effect": "gain_of_function",
    "molecular_function": "potassium_channel",
@@ -2493,7 +3305,7 @@
    "year": "2026",
    "title": "Epilepsy of infancy with migrating focal seizures: A scoping review of clinical features, diagnostic testing including genetics, long-term outcomes, mortality, and current and emerging therapeutic strategies.",
    "span_mentions_gene": true,
-   "confidence": 0.8
+   "confidence": 0.4
   },
   {
    "gene": "KCNT1",
@@ -2507,7 +3319,7 @@
    "year": "2026",
    "title": "Epilepsy of infancy with migrating focal seizures: A scoping review of clinical features, diagnostic testing including genetics, long-term outcomes, mortality, and current and emerging therapeutic strategies.",
    "span_mentions_gene": true,
-   "confidence": 0.8
+   "confidence": 0.4
   },
   {
    "gene": "KCNT1",
@@ -2549,7 +3361,7 @@
    "year": "2025",
    "title": "RNA-based therapies for neurodevelopmental disorders: innovative tools for molecular correction.",
    "span_mentions_gene": true,
-   "confidence": 0.8
+   "confidence": 0.4
   },
   {
    "gene": "KCNT1",
@@ -2577,7 +3389,7 @@
    "year": "2025",
    "title": "Transgenic mouse models of sodium and potassium channelopathies in epilepsy: insights into disease mechanisms and therapeutics.",
    "span_mentions_gene": false,
-   "confidence": 0.5
+   "confidence": 0.4
   },
   {
    "gene": "KCNT1",
@@ -2675,7 +3487,7 @@
    "year": "2025",
    "title": "An updated patent review of small molecule KCNT1 inhibitors (2022-2024).",
    "span_mentions_gene": true,
-   "confidence": 0.8
+   "confidence": 0.4
   },
   {
    "gene": "KCNT1",
@@ -2689,7 +3501,7 @@
    "year": "2025",
    "title": "An updated patent review of small molecule KCNT1 inhibitors (2022-2024).",
    "span_mentions_gene": true,
-   "confidence": 0.8
+   "confidence": 0.4
   },
   {
    "gene": "KCNT1",
@@ -2773,7 +3585,7 @@
    "year": "2025",
    "title": "Durable suppression of seizures in a preclinical model of KCNT1 genetic epilepsy with divalent small interfering RNA.",
    "span_mentions_gene": true,
-   "confidence": 0.7
+   "confidence": 0.4
   },
   {
    "gene": "KCNT1",
@@ -2787,7 +3599,7 @@
    "year": "2025",
    "title": "Durable suppression of seizures in a preclinical model of KCNT1 genetic epilepsy with divalent small interfering RNA.",
    "span_mentions_gene": false,
-   "confidence": 0.5
+   "confidence": 0.4
   },
   {
    "gene": "KCNT1",
@@ -2815,7 +3627,7 @@
    "year": "2025",
    "title": "Electrophysiological characterization of human KCNT1 channel modulators and the therapeutic potential of hydroquinine and tipepidine in KCNT1 mutation-associated epilepsy mouse model.",
    "span_mentions_gene": true,
-   "confidence": 0.7
+   "confidence": 0.4
   },
   {
    "gene": "KCNT1",
@@ -2829,7 +3641,7 @@
    "year": "2025",
    "title": "Electrophysiological characterization of human KCNT1 channel modulators and the therapeutic potential of hydroquinine and tipepidine in KCNT1 mutation-associated epilepsy mouse model.",
    "span_mentions_gene": true,
-   "confidence": 0.7
+   "confidence": 0.4
   },
   {
    "gene": "KCNT1",
@@ -2843,7 +3655,7 @@
    "year": "2025",
    "title": "Electrophysiological characterization of human KCNT1 channel modulators and the therapeutic potential of hydroquinine and tipepidine in KCNT1 mutation-associated epilepsy mouse model.",
    "span_mentions_gene": true,
-   "confidence": 0.7
+   "confidence": 0.4
   },
   {
    "gene": "KCNT1",
@@ -2857,7 +3669,7 @@
    "year": "2024",
    "title": "Structure-Activity Relationship Studies in a Series of 2-Aryloxy-N-(pyrimidin-5-yl)acetamide Inhibitors of SLACK Potassium Channels.",
    "span_mentions_gene": true,
-   "confidence": 0.7
+   "confidence": 0.4
   },
   {
    "gene": "KCNT1",
@@ -3095,7 +3907,7 @@
    "year": "2024",
    "title": "Structure-Activity Relationship Studies in a Series of Xanthine Inhibitors of SLACK Potassium Channels.",
    "span_mentions_gene": false,
-   "confidence": 0.5
+   "confidence": 0.4
   },
   {
    "gene": "KCNT1",
@@ -3221,7 +4033,7 @@
    "year": "2024",
    "title": "Coupling of Slack and NaV1.6 sensitizes Slack to quinidine blockade and guides anti-seizure strategy development.",
    "span_mentions_gene": false,
-   "confidence": 0.5
+   "confidence": 0.4
   },
   {
    "gene": "KCNT1",
@@ -3235,7 +4047,7 @@
    "year": "2024",
    "title": "Coupling of Slack and NaV1.6 sensitizes Slack to quinidine blockade and guides anti-seizure strategy development.",
    "span_mentions_gene": false,
-   "confidence": 0.5
+   "confidence": 0.4
   },
   {
    "gene": "KCNT1",
@@ -3249,7 +4061,7 @@
    "year": "2023",
    "title": "Reduction of Kcnt1 is therapeutic in mouse models of SCN1A and SCN8A epilepsy.",
    "span_mentions_gene": true,
-   "confidence": 0.7
+   "confidence": 0.4
   },
   {
    "gene": "KCNT1",
@@ -3263,7 +4075,7 @@
    "year": "2023",
    "title": "Reduction of Kcnt1 is therapeutic in mouse models of SCN1A and SCN8A epilepsy.",
    "span_mentions_gene": true,
-   "confidence": 0.7
+   "confidence": 0.4
   },
   {
    "gene": "KCNT1",
@@ -3473,7 +4285,7 @@
    "year": "2023",
    "title": "New use for an old drug: quinidine in KCNT1-related epilepsy therapy.",
    "span_mentions_gene": false,
-   "confidence": 0.5
+   "confidence": 0.4
   },
   {
    "gene": "KCNT1",
@@ -3515,7 +4327,7 @@
    "year": "2022",
    "title": "Antisense oligonucleotide therapy for KCNT1 encephalopathy.",
    "span_mentions_gene": true,
-   "confidence": 0.7
+   "confidence": 0.4
   },
   {
    "gene": "SCN1A",
@@ -3557,7 +4369,7 @@
    "year": "2026",
    "title": "TRACE: A Framework for Integrating Transcript Relevance Into ACMG/AMP Variant Interpretation.",
    "span_mentions_gene": true,
-   "confidence": 0.8
+   "confidence": 0.4
   },
   {
    "gene": "SCN1A",
@@ -3627,7 +4439,7 @@
    "year": "2026",
    "title": "SCN1A-related epilepsy with spike-wave activation in sleep: A retrospective cohort and literature review.",
    "span_mentions_gene": false,
-   "confidence": 0.5
+   "confidence": 0.4
   },
   {
    "gene": "SCN1A",
@@ -3669,7 +4481,7 @@
    "year": "2026",
    "title": "Computational protein stability analysis of SCN1A missense variants reveals domain-dependent stability patterns.",
    "span_mentions_gene": false,
-   "confidence": 0.5
+   "confidence": 0.4
   },
   {
    "gene": "SCN1A",
@@ -3767,7 +4579,7 @@
    "year": "2026",
    "title": "At the forefront of gene-based therapies in Dravet syndrome.",
    "span_mentions_gene": true,
-   "confidence": 0.7
+   "confidence": 0.4
   },
   {
    "gene": "SCN1A",
@@ -4089,7 +4901,7 @@
    "year": "2026",
    "title": "Novel Genetic Insights into Lateral Temporal Lobe Epilepsy: Findings from Whole Exome Sequencing.",
    "span_mentions_gene": true,
-   "confidence": 0.8
+   "confidence": 0.4
   },
   {
    "gene": "SCN1A",
@@ -4159,7 +4971,7 @@
    "year": "2026",
    "title": "Ameliorating Seizures in Dravet Syndrome: A Review of Newly Approved and Investigational Drugs, RNA and Gene-Based Therapies.",
    "span_mentions_gene": true,
-   "confidence": 0.8
+   "confidence": 0.4
   },
   {
    "gene": "SCN1A",
@@ -4187,7 +4999,7 @@
    "year": "2026",
    "title": "Engineering a human-based translational activator for targeted protein expression restoration.",
    "span_mentions_gene": true,
-   "confidence": 0.7
+   "confidence": 0.4
   },
   {
    "gene": "SCN1A",
@@ -4201,7 +5013,7 @@
    "year": "2026",
    "title": "Genotypic spectrum in 1215 patients with Dravet syndrome or Dravet syndrome-like phenotype.",
    "span_mentions_gene": true,
-   "confidence": 0.8
+   "confidence": 0.4
   },
   {
    "gene": "SCN1A",
@@ -4215,7 +5027,7 @@
    "year": "2026",
    "title": "Genotypic spectrum in 1215 patients with Dravet syndrome or Dravet syndrome-like phenotype.",
    "span_mentions_gene": true,
-   "confidence": 0.8
+   "confidence": 0.4
   },
   {
    "gene": "SCN1A",
@@ -4243,7 +5055,7 @@
    "year": "2025",
    "title": "From Symptomatic Therapies to Disease-Modifying Approaches for Neuronal Sodium Channel Disorders.",
    "span_mentions_gene": false,
-   "confidence": 0.5
+   "confidence": 0.4
   },
   {
    "gene": "SCN1A",
@@ -4299,7 +5111,7 @@
    "year": "2025",
    "title": "RNA-based therapies for neurodevelopmental disorders: innovative tools for molecular correction.",
    "span_mentions_gene": true,
-   "confidence": 0.8
+   "confidence": 0.4
   },
   {
    "gene": "SCN1A",
@@ -4313,7 +5125,7 @@
    "year": "2025",
    "title": "RNA-based therapies for neurodevelopmental disorders: innovative tools for molecular correction.",
    "span_mentions_gene": true,
-   "confidence": 0.8
+   "confidence": 0.4
   },
   {
    "gene": "SCN1A",
@@ -4495,7 +5307,7 @@
    "year": "2026",
    "title": "Response to Electroconvulsive Therapy in a Patient With SCN2A-Variant Catatonia Is Associated With Postictal Spreading Depolarization.",
    "span_mentions_gene": true,
-   "confidence": 0.8
+   "confidence": 0.4
   },
   {
    "gene": "SCN2A",
@@ -4523,7 +5335,7 @@
    "year": "2026",
    "title": "CRISPR-Enabled functional genomics in hPSCs-derived neural models for autism spectrum disorder.",
    "span_mentions_gene": true,
-   "confidence": 0.7
+   "confidence": 0.4
   },
   {
    "gene": "SCN2A",
@@ -4551,7 +5363,7 @@
    "year": "2026",
    "title": "Diagnostic delay in infants with very early-onset rare and ultra-rare genetic epilepsies.",
    "span_mentions_gene": true,
-   "confidence": 0.8
+   "confidence": 0.4
   },
   {
    "gene": "SCN2A",
@@ -4621,7 +5433,7 @@
    "year": "2026",
    "title": "Nonsense-mediated decay influences position-dependent effects of SCN2A premature stop codons on neuronal excitability and behavior.",
    "span_mentions_gene": true,
-   "confidence": 0.7
+   "confidence": 0.4
   },
   {
    "gene": "SCN2A",
@@ -4677,7 +5489,7 @@
    "year": "2026",
    "title": "Excitatory Dysfunction and Phenotypic Rescue in a Human Neuronal Model of SCN2A-Related Disorders.",
    "span_mentions_gene": false,
-   "confidence": 0.5
+   "confidence": 0.4
   },
   {
    "gene": "SCN2A",
@@ -4691,7 +5503,7 @@
    "year": "2026",
    "title": "Loss of schizophrenia risk gene XPO7 disrupts neuronal excitability and network regularity via altered Na+ channel dynamics in human neurons.",
    "span_mentions_gene": true,
-   "confidence": 0.8
+   "confidence": 0.4
   },
   {
    "gene": "SCN2A",
@@ -4733,7 +5545,7 @@
    "year": "2026",
    "title": "Feeding dysfunction in a neonate with interstitial deletion of chromosome 2q24.3-q32.1: a case report.",
    "span_mentions_gene": false,
-   "confidence": 0.5
+   "confidence": 0.4
   },
   {
    "gene": "SCN2A",
@@ -4803,7 +5615,7 @@
    "year": "2026",
    "title": "Autism-related phenotypes in a heterozygous Scn2aR854Q mouse model and their partial rescue via a potassium channel opener.",
    "span_mentions_gene": false,
-   "confidence": 0.5
+   "confidence": 0.4
   },
   {
    "gene": "SCN2A",
@@ -5027,7 +5839,7 @@
    "year": "2025",
    "title": "Large-scale discovery of neural enhancers for cis-regulation therapies.",
    "span_mentions_gene": true,
-   "confidence": 0.8
+   "confidence": 0.4
   },
   {
    "gene": "SCN2A",
@@ -5069,7 +5881,7 @@
    "year": "2025",
    "title": "RNA-based therapies for neurodevelopmental disorders: innovative tools for molecular correction.",
    "span_mentions_gene": true,
-   "confidence": 0.8
+   "confidence": 0.4
   },
   {
    "gene": "SCN2A",
@@ -5083,7 +5895,7 @@
    "year": "2025",
    "title": "RNA-based therapies for neurodevelopmental disorders: innovative tools for molecular correction.",
    "span_mentions_gene": true,
-   "confidence": 0.8
+   "confidence": 0.4
   },
   {
    "gene": "SCN2A",
@@ -5097,7 +5909,7 @@
    "year": "2025",
    "title": "Transgenic mouse models of sodium and potassium channelopathies in epilepsy: insights into disease mechanisms and therapeutics.",
    "span_mentions_gene": false,
-   "confidence": 0.5
+   "confidence": 0.4
   },
   {
    "gene": "SCN2A",
@@ -5251,7 +6063,7 @@
    "year": "2025",
    "title": "Deciphering SCN2A: A comprehensive review of rodent models of Scn2a dysfunction.",
    "span_mentions_gene": true,
-   "confidence": 0.7
+   "confidence": 0.4
   },
   {
    "gene": "SCN2A",
@@ -5278,6 +6090,832 @@
    "pmid": "40694750",
    "year": "2025",
    "title": "Development and Adaptive Function in Individuals With SCN2A-Related Disorders.",
+   "span_mentions_gene": false,
+   "confidence": 0.5
+  },
+  {
+   "gene": "SCN2A",
+   "variant_effect": "unclear",
+   "molecular_function": "sodium_channel",
+   "disease_context": "unspecified",
+   "linked_phenotype_or_disease": "SCN2A disease spans a broad clinical spectrum from self-limited (familial) neonatal-infantile epilepsy to severe developmental and epileptic encephalopathies.",
+   "population": "human",
+   "quoted_span": "SCN2A disease spans a broad clinical spectrum from self-limited (familial) neonatal-infantile epilepsy to severe developmental and epileptic encephalopathies.",
+   "pmid": "42758957",
+   "year": "2026",
+   "title": "Neuroradiologic Findings in Patients With SCN2A Disease: A Systematic Review and Retrospective Multicenter Cohort Study.",
+   "span_mentions_gene": true,
+   "confidence": 0.4
+  },
+  {
+   "gene": "SCN2A",
+   "variant_effect": "unclear",
+   "molecular_function": "sodium_channel",
+   "disease_context": "unspecified",
+   "linked_phenotype_or_disease": "channelopathies with neonatal period and early infancy seizures",
+   "population": "human",
+   "quoted_span": "In KCNQ2/KCNQ3 and SCN2A channelopathies, a distinctive ictal aEEG sequence-brief initial attenuation/decrease, rapid rise, and postictal depression-correlates with reproducible ictal features on rEEG/cEEG.",
+   "pmid": "42659555",
+   "year": "2026",
+   "title": "[Electroclinical recognition of SCN2A, SCN8A, KCNQ2, and KCNQ3 pathogenic variants].",
+   "span_mentions_gene": true,
+   "confidence": 0.4
+  },
+  {
+   "gene": "SCN2A",
+   "variant_effect": "gain_of_function",
+   "molecular_function": "sodium_channel",
+   "disease_context": "unspecified",
+   "linked_phenotype_or_disease": "self-limited neonatal epilepsy / self-limited neonatal seizures with or without intellectual disability in 2q24.3 duplication",
+   "population": "human",
+   "quoted_span": "2q24.3 region, which includes a cluster of genes encoding sodium channel subunits (SCN1A, SCN2A, SCN3A, SCN7A, and SCN9A).",
+   "pmid": "42017391",
+   "year": "2026",
+   "title": "Self-limited neonatal epilepsy with 2q24.3 duplications: Case series and literature review.",
+   "span_mentions_gene": true,
+   "confidence": 0.8
+  },
+  {
+   "gene": "SCN2A",
+   "variant_effect": "unclear",
+   "molecular_function": "sodium_channel",
+   "disease_context": "unspecified",
+   "linked_phenotype_or_disease": "self-limited neonatal epilepsy / self-limited neonatal seizures with or without intellectual disability in 2q24.3 duplication",
+   "population": "human",
+   "quoted_span": "duplication affecting at least two whole genes, including at least one of SCN1A, SCN2A, or SCN3A.",
+   "pmid": "42017391",
+   "year": "2026",
+   "title": "Self-limited neonatal epilepsy with 2q24.3 duplications: Case series and literature review.",
+   "span_mentions_gene": true,
+   "confidence": 0.4
+  },
+  {
+   "gene": "SCN2A",
+   "variant_effect": "gain_of_function",
+   "molecular_function": "sodium_channel",
+   "disease_context": "unspecified",
+   "linked_phenotype_or_disease": "familial and sporadic hemiplegic migraine",
+   "population": "human",
+   "quoted_span": "Functional studies revealed altered voltage-dependent and kinetic properties in all three variants that elicited abnormal action potential firing in a computer model of a neuron, supporting their pathogenicity.",
+   "pmid": "41885191",
+   "year": "2026",
+   "title": "SCN2A variants are associated with familial and sporadic hemiplegic migraine.",
+   "span_mentions_gene": false,
+   "confidence": 0.5
+  },
+  {
+   "gene": "SCN2A",
+   "variant_effect": "unclear",
+   "molecular_function": "sodium_channel",
+   "disease_context": "unspecified",
+   "linked_phenotype_or_disease": "Developmental and Epileptic Encephalopathy, Self-limited Neonatal/Infantile Seizures, and Autism Spectrum Disorder",
+   "population": "human",
+   "quoted_span": "The SCN2A gene encodes the alpha subunit of a voltage-gated sodium channel which is necessary for creating and propagating action potentials in neurons.",
+   "pmid": "41632366",
+   "year": "2026",
+   "title": "Voltage-Gated Sodium Channel NaV1.2: Structural Perspective of the Genetic Variability.",
+   "span_mentions_gene": true,
+   "confidence": 0.4
+  },
+  {
+   "gene": "SCN2A",
+   "variant_effect": "unclear",
+   "molecular_function": "sodium_channel",
+   "disease_context": "unspecified",
+   "linked_phenotype_or_disease": "disease-associated variants tend to cluster in the voltage-sensing segments of the protein domains",
+   "population": "human",
+   "quoted_span": "disease-associated variants tend to cluster in the voltage-sensing segments of the protein domains.",
+   "pmid": "41632366",
+   "year": "2026",
+   "title": "Voltage-Gated Sodium Channel NaV1.2: Structural Perspective of the Genetic Variability.",
+   "span_mentions_gene": false,
+   "confidence": 0.4
+  },
+  {
+   "gene": "SCN2A",
+   "variant_effect": "unclear",
+   "molecular_function": "sodium_channel",
+   "disease_context": "unspecified",
+   "linked_phenotype_or_disease": "structurally important segments in the Nav1.2 structure that have been conserved through evolution due to their role in maintaining the function of the channel",
+   "population": "human",
+   "quoted_span": "structurally important segments in the Nav1.2 structure that have been conserved through evolution due to their role in maintaining the function of the channel.",
+   "pmid": "41632366",
+   "year": "2026",
+   "title": "Voltage-Gated Sodium Channel NaV1.2: Structural Perspective of the Genetic Variability.",
+   "span_mentions_gene": false,
+   "confidence": 0.4
+  },
+  {
+   "gene": "SCN2A",
+   "variant_effect": "unclear",
+   "molecular_function": "sodium_channel",
+   "disease_context": "unspecified",
+   "linked_phenotype_or_disease": "epilepsy",
+   "population": "human",
+   "quoted_span": "SCN2A gene mutation-related epilepsy",
+   "pmid": "40462216",
+   "year": "2025",
+   "title": "SCN2A gene mutations with epilepsy: single center experience.",
+   "span_mentions_gene": true,
+   "confidence": 0.4
+  },
+  {
+   "gene": "SCN2A",
+   "variant_effect": "unclear",
+   "molecular_function": "sodium_channel",
+   "disease_context": "unspecified",
+   "linked_phenotype_or_disease": "refractory epilepsy in infancy and young children with autism",
+   "population": "human",
+   "quoted_span": "Cases of refractory epilepsy in infancy and young children with autism and abnormal paraventricular white matter on magnetic resonance imaging should be vigilant of SCN2A gene mutations.",
+   "pmid": "40462216",
+   "year": "2025",
+   "title": "SCN2A gene mutations with epilepsy: single center experience.",
+   "span_mentions_gene": true,
+   "confidence": 0.4
+  },
+  {
+   "gene": "SCN2A",
+   "variant_effect": "unclear",
+   "molecular_function": "sodium_channel",
+   "disease_context": "unspecified",
+   "linked_phenotype_or_disease": "self-limited focal epilepsy with neonatal/infantile onset (SeLFE)",
+   "population": "human",
+   "quoted_span": "known pathological genes including PRRT2, SCN2A and KCNQ2 were detected in 10 children",
+   "pmid": "40236662",
+   "year": "2025",
+   "title": "Oxcarbazepine may be an effective option for Chinese pediatric patients with self-limited focal epilepsy of neonatal/infantile onset: a retrospective cohort study.",
+   "span_mentions_gene": true,
+   "confidence": 0.4
+  },
+  {
+   "gene": "SCN2A",
+   "variant_effect": "unclear",
+   "molecular_function": "sodium_channel",
+   "disease_context": "unspecified",
+   "linked_phenotype_or_disease": "neonatal encephalopathy / neonatal seizures",
+   "population": "human",
+   "quoted_span": "We classified 4 variants in PPP2R5D, BCOR, CFL2, and SCN2A (previously established disease genes) as pathogenic/likely pathogenic;",
+   "pmid": "39810752",
+   "year": "2025",
+   "title": "Neonatal Encephalopathy: Novel Phenotypes and Genotypes Identified by Genome Sequencing.",
+   "span_mentions_gene": true,
+   "confidence": 0.4
+  },
+  {
+   "gene": "SCN2A",
+   "variant_effect": "unclear",
+   "molecular_function": "sodium_channel",
+   "disease_context": "Seizures, benign familial infantile, 3",
+   "linked_phenotype_or_disease": "self-limited infantile epilepsy (SeLIE)",
+   "population": "human",
+   "quoted_span": "other genes, such as SCN2A, KCNQ2-3 and SCN8A, have been recognized. Drugs for focal seizures that act on sodium channels are indicated.",
+   "pmid": "39331768",
+   "year": "2024",
+   "title": "[Contribution of the Ibero-American Academy of Neuropediatrics to the knowledge of self-limited epilepsy in infants].",
+   "span_mentions_gene": true,
+   "confidence": 0.4
+  },
+  {
+   "gene": "SCN2A",
+   "variant_effect": "gain_of_function",
+   "molecular_function": "sodium_channel",
+   "disease_context": "unspecified",
+   "linked_phenotype_or_disease": "epilepsy phenotypes; predicted function of SCN variants",
+   "population": "human",
+   "quoted_span": "There are seven variants predicted to be gain-of-function and 13 predicted to be loss-of-function.",
+   "pmid": "38964184",
+   "year": "2024",
+   "title": "Voltage-gated sodium channel epilepsies in a tertiary care center: Phenotypic spectrum with correlation to predicted functional effects.",
+   "span_mentions_gene": false,
+   "confidence": 0.5
+  },
+  {
+   "gene": "SCN2A",
+   "variant_effect": "loss_of_function",
+   "molecular_function": "sodium_channel",
+   "disease_context": "unspecified",
+   "linked_phenotype_or_disease": "epilepsy phenotypes; predicted function of SCN variants",
+   "population": "human",
+   "quoted_span": "There are seven variants predicted to be gain-of-function and 13 predicted to be loss-of-function.",
+   "pmid": "38964184",
+   "year": "2024",
+   "title": "Voltage-gated sodium channel epilepsies in a tertiary care center: Phenotypic spectrum with correlation to predicted functional effects.",
+   "span_mentions_gene": false,
+   "confidence": 0.5
+  },
+  {
+   "gene": "SCN2A",
+   "variant_effect": "unclear",
+   "molecular_function": "sodium_channel",
+   "disease_context": "unspecified",
+   "linked_phenotype_or_disease": "self-limited familial neonatal and/or infantile epilepsy (SeLFE)",
+   "population": "human",
+   "quoted_span": "SCN2A (n=4), 3 likely pathogenic; KCNQ2 (n=1), SCN8A (n=2).",
+   "pmid": "38160512",
+   "year": "2024",
+   "title": "Neurodevelopmental outcomes in a cohort of Australian families with self-limited familial epilepsy of neonatal/infantile onset.",
+   "span_mentions_gene": true,
+   "confidence": 0.4
+  },
+  {
+   "gene": "SCN2A",
+   "variant_effect": "unclear",
+   "molecular_function": "sodium_channel",
+   "disease_context": "unspecified",
+   "linked_phenotype_or_disease": "seizures in families with self-limited familial neonatal and/or infantile epilepsy",
+   "population": "human",
+   "quoted_span": "Families were retrospectively recruited from epilepsy databases (2021-2022) in 2 paediatric hospitals, Sydney, Australia. Eligible families had 2 first degree relatives with seizures and underwent genetic testing.",
+   "pmid": "38160512",
+   "year": "2024",
+   "title": "Neurodevelopmental outcomes in a cohort of Australian families with self-limited familial epilepsy of neonatal/infantile onset.",
+   "span_mentions_gene": false,
+   "confidence": 0.4
+  },
+  {
+   "gene": "SCN2A",
+   "variant_effect": "unclear",
+   "molecular_function": "sodium_channel",
+   "disease_context": "unspecified",
+   "linked_phenotype_or_disease": "SCN2A-related epilepsy; phenotypes ranging from benign epilepsy in neonate and infancy to severe epileptic encephalopathy",
+   "population": "human",
+   "quoted_span": "The phenotypic spectrum of SCN2A-related epilepsy was broad, ranging from benign epilepsy in neonate and infancy to severe epileptic encephalopathy.",
+   "pmid": "35431799",
+   "year": "2022",
+   "title": "SCN2A-Related Epilepsy: The Phenotypic Spectrum, Treatment and Prognosis.",
+   "span_mentions_gene": true,
+   "confidence": 0.4
+  },
+  {
+   "gene": "SCN2A",
+   "variant_effect": "unclear",
+   "molecular_function": "sodium_channel",
+   "disease_context": "unspecified",
+   "linked_phenotype_or_disease": "benign familial neonatal-infantile seizures to early infantile epileptic encephalopathy; neonatal epileptic encephalopathy; focal epileptic syndrome with autistic spectrum disorders or intellectual disability",
+   "population": "human",
+   "quoted_span": "Pathogenic variants of the SCN2A gene (MIM 182390) are associated with several epileptic syndromes ranging from benign familial neonatal-infantile seizures (BFNIS) to early infantile epileptic encephalopathy.",
+   "pmid": "35053762",
+   "year": "2021",
+   "title": "SCN2A Pathogenic Variants and Epilepsy: Heterogeneous Clinical, Genetic and Diagnostic Features.",
+   "span_mentions_gene": true,
+   "confidence": 0.4
+  },
+  {
+   "gene": "SCN2A",
+   "variant_effect": "unclear",
+   "molecular_function": "sodium_channel",
+   "disease_context": "unspecified",
+   "linked_phenotype_or_disease": "neonatal seizures / neonatal epilepsies",
+   "population": "human",
+   "quoted_span": "Recent advances showed the role of several genes in the pathogenesis of these conditions, such as KCNQ2, KCNQ3, ARX, STXBP1, SLC25A22, CDKL5, KCNT1, SCN2A and SCN8A.",
+   "pmid": "34679360",
+   "year": "2021",
+   "title": "Neonatal Seizures: An Overview of Genetic Causes and Treatment Options.",
+   "span_mentions_gene": true,
+   "confidence": 0.4
+  },
+  {
+   "gene": "SCN2A",
+   "variant_effect": "unclear",
+   "molecular_function": "sodium_channel",
+   "disease_context": "unspecified",
+   "linked_phenotype_or_disease": "self-limited familial neonatal epilepsy; Ohtahara syndrome; EIFMS; West syndrome; Lennox-Gastaut syndrome; unclassifiable DEEs",
+   "population": "human",
+   "quoted_span": "some genes such as SCN2A can be associated with a wide range of epilepsy syndromes ranging from self-limited familial neonatal epilepsy at the mild end to Ohtahara syndrome, EIFMS, West syndrome, Lennox-Gastaut syndrome, or unclassifiable DEEs at the severe end of the spectrum",
+   "pmid": "34356067",
+   "year": "2021",
+   "title": "Epilepsy Syndromes in the First Year of Life and Usefulness of Genetic Testing for Precision Therapy.",
+   "span_mentions_gene": true,
+   "confidence": 0.4
+  },
+  {
+   "gene": "SCN2A",
+   "variant_effect": "gain_of_function",
+   "molecular_function": "sodium_channel",
+   "disease_context": "unspecified",
+   "linked_phenotype_or_disease": "developmental and epileptic encephalopathy (DEE) and status epilepticus during slow sleep (ESES)",
+   "population": "in_vitro",
+   "quoted_span": "The unpublished V911A and published K1933M variants detected in patients with DEE exhibited a profound gain-of-functional (GOF) change.",
+   "pmid": "34093402",
+   "year": "2021",
+   "title": "Differential Functional Changes of Nav1.2 Channel Causing SCN2A-Related Epilepsy and Status Epilepticus During Slow Sleep.",
+   "span_mentions_gene": false,
+   "confidence": 0.5
+  },
+  {
+   "gene": "SCN2A",
+   "variant_effect": "loss_of_function",
+   "molecular_function": "sodium_channel",
+   "disease_context": "Seizures, benign familial infantile, 3",
+   "linked_phenotype_or_disease": "benign familial infantile seizures (BFIS) and status epilepticus during slow sleep (ESES)",
+   "population": "in_vitro",
+   "quoted_span": "Another published BFIS variant S863F significantly reduced current density as a loss-of-functional (LOF) change.",
+   "pmid": "34093402",
+   "year": "2021",
+   "title": "Differential Functional Changes of Nav1.2 Channel Causing SCN2A-Related Epilepsy and Status Epilepticus During Slow Sleep.",
+   "span_mentions_gene": false,
+   "confidence": 0.5
+  },
+  {
+   "gene": "SCN2A",
+   "variant_effect": "unclear",
+   "molecular_function": "sodium_channel",
+   "disease_context": "unspecified",
+   "linked_phenotype_or_disease": "polymicrogyria with epilepsy",
+   "population": "human",
+   "quoted_span": "single nucleotide de novo variants in other epilepsy-associated and neurodevelopmental disease-associated genes (SCN2A in two individuals, GRIA3, CACNA1C)",
+   "pmid": "33818783",
+   "year": "2021",
+   "title": "Diverse genetic causes of polymicrogyria with epilepsy.",
+   "span_mentions_gene": true,
+   "confidence": 0.4
+  },
+  {
+   "gene": "SCN2A",
+   "variant_effect": "unclear",
+   "molecular_function": "sodium_channel",
+   "disease_context": "unspecified",
+   "linked_phenotype_or_disease": "epilepsy; neonatal seizures; benign familial epilepsy to epileptic encephalopathy variability",
+   "population": "human",
+   "quoted_span": "Mutations in SCN2A genes have been described in patients with epilepsy, finding a large phenotypic variability, from benign familial epilepsy to epileptic encephalopathy.",
+   "pmid": "37090830",
+   "year": "2023",
+   "title": "Variant in CACNA1G as a Possible Genetic Modifier of Neonatal Epilepsy in an Infant with a De Novo SCN2A Mutation.",
+   "span_mentions_gene": true,
+   "confidence": 0.4
+  },
+  {
+   "gene": "SCN2A",
+   "variant_effect": "gain_of_function",
+   "molecular_function": "sodium_channel",
+   "disease_context": "unspecified",
+   "linked_phenotype_or_disease": "Neonatal SCN2A encephalopathy; severe epileptic encephalopathy with neonatal/infantile seizures",
+   "population": "human",
+   "quoted_span": "SCN2A gain-of-function mutations are identified more and more often",
+   "pmid": "32603808",
+   "year": "2020",
+   "title": "Neonatal SCN2A encephalopathy: A peculiar recognizable electroclinical sequence.",
+   "span_mentions_gene": true,
+   "confidence": 0.8
+  },
+  {
+   "gene": "SCN2A",
+   "variant_effect": "unclear",
+   "molecular_function": "sodium_channel",
+   "disease_context": "unspecified",
+   "linked_phenotype_or_disease": "Neonatal SCN2A encephalopathy; seizures improved with phenytoin",
+   "population": "human",
+   "quoted_span": "Improvement was observed in two patients with sodium channel blocker (phenytoin)",
+   "pmid": "32603808",
+   "year": "2020",
+   "title": "Neonatal SCN2A encephalopathy: A peculiar recognizable electroclinical sequence.",
+   "span_mentions_gene": false,
+   "confidence": 0.4
+  },
+  {
+   "gene": "SCN2A",
+   "variant_effect": "gain_of_function",
+   "molecular_function": "sodium_channel",
+   "disease_context": "unspecified",
+   "linked_phenotype_or_disease": "early infancy epilepsy / neonatal and infantile presentations",
+   "population": "human",
+   "quoted_span": "Some missense, gain of function variants tend to present in early infancy with epilepsy",
+   "pmid": "31904126",
+   "year": "2019",
+   "title": "Phenotypic spectrum and genetics of SCN2A-related disorders, treatment options, and outcomes in epilepsy and beyond.",
+   "span_mentions_gene": false,
+   "confidence": 0.5
+  },
+  {
+   "gene": "SCN2A",
+   "variant_effect": "loss_of_function",
+   "molecular_function": "sodium_channel",
+   "disease_context": "unspecified",
+   "linked_phenotype_or_disease": "later-onset epilepsies or intellectual disability only",
+   "population": "human",
+   "quoted_span": "other missense or truncating, loss of function variants present with later-onset epilepsies or intellectual disability only",
+   "pmid": "31904126",
+   "year": "2019",
+   "title": "Phenotypic spectrum and genetics of SCN2A-related disorders, treatment options, and outcomes in epilepsy and beyond.",
+   "span_mentions_gene": false,
+   "confidence": 0.5
+  },
+  {
+   "gene": "SCN2A",
+   "variant_effect": "loss_of_function",
+   "molecular_function": "sodium_channel",
+   "disease_context": "unspecified",
+   "linked_phenotype_or_disease": "autism spectrum disorder (ASD) without overt epileptic phenotypes",
+   "population": "animal",
+   "quoted_span": "loss-of-function SCN2A mutations have also been identified in patients with autism spectrum disorder (ASD) without overt epileptic phenotypes.",
+   "pmid": "31501495",
+   "year": "2019",
+   "title": "NaV1.2 haploinsufficiency in Scn2a knock-out mice causes an autistic-like phenotype attenuated with age.",
+   "span_mentions_gene": true,
+   "confidence": 0.7
+  },
+  {
+   "gene": "SCN2A",
+   "variant_effect": "loss_of_function",
+   "molecular_function": "sodium_channel",
+   "disease_context": "unspecified",
+   "linked_phenotype_or_disease": "autistic-like phenotype associated to impaired memory and reduced reactivity to stressful stimuli",
+   "population": "animal",
+   "quoted_span": "young Scn2a+/- mice display autistic-like phenotype associated to impaired memory and reduced reactivity to stressful stimuli.",
+   "pmid": "31501495",
+   "year": "2019",
+   "title": "NaV1.2 haploinsufficiency in Scn2a knock-out mice causes an autistic-like phenotype attenuated with age.",
+   "span_mentions_gene": true,
+   "confidence": 0.7
+  },
+  {
+   "gene": "SCN2A",
+   "variant_effect": "unclear",
+   "molecular_function": "sodium_channel",
+   "disease_context": "Epileptic encephalopathy, early infantile, 11",
+   "linked_phenotype_or_disease": "early infantile epileptic encephalopathy",
+   "population": "human",
+   "quoted_span": "The voltage-gated sodium channel neuronal type 2 alpha subunit (Nav\u03b11.2) encoded by the SCN2A gene causes early infantile epileptic encephalopathy (EIEE) inherited in an autosomal dominant manner.",
+   "pmid": "31205438",
+   "year": "2019",
+   "title": "Biallelic SCN2A Gene Mutation Causing Early Infantile Epileptic Encephalopathy: Case Report and Review.",
+   "span_mentions_gene": true,
+   "confidence": 0.4
+  },
+  {
+   "gene": "SCN2A",
+   "variant_effect": "unclear",
+   "molecular_function": "sodium_channel",
+   "disease_context": "unspecified",
+   "linked_phenotype_or_disease": "developmental and epileptic encephalopathy (DEE)",
+   "population": "human",
+   "quoted_span": "Thirty genes were involved, with ion channels being the most common neurobiological mechanism (49 children (54%)), followed by synaptic function (7 children (8%)).",
+   "pmid": "42742013",
+   "year": "2026",
+   "title": "[Effectiveness and tolerability of ketogenic diet therapy in children with genetic developmental and epileptic encephalopathy onset within 2 years of age].",
+   "span_mentions_gene": false,
+   "confidence": 0.4
+  },
+  {
+   "gene": "SCN2A",
+   "variant_effect": "unclear",
+   "molecular_function": "sodium_channel",
+   "disease_context": "unspecified",
+   "linked_phenotype_or_disease": "developmental and epileptic encephalopathy (DEE)",
+   "population": "human",
+   "quoted_span": "There were 24, 9, 9, 6, 5, and 5 children with SCN1A, CDKL5, SCN2A, KCNQ2, STXBP1 and KCNT1 genes variants, respectively; 7, 4, 2, 2, 4, and 1 of these children, respectively, achieved seizure freedom.",
+   "pmid": "42742013",
+   "year": "2026",
+   "title": "[Effectiveness and tolerability of ketogenic diet therapy in children with genetic developmental and epileptic encephalopathy onset within 2 years of age].",
+   "span_mentions_gene": true,
+   "confidence": 0.4
+  },
+  {
+   "gene": "SCN2A",
+   "variant_effect": "gain_of_function",
+   "molecular_function": "sodium_channel",
+   "disease_context": "unspecified",
+   "linked_phenotype_or_disease": "epilepsy-associated SCN2A-L1342P mutation; developmental and epileptic encephalopathy (DEE)",
+   "population": "in_vitro",
+   "quoted_span": "Nav1.2-L1342P organoid neurons displayed increased intrinsic excitability",
+   "pmid": "42530523",
+   "year": "2026",
+   "title": "Epilepsy-associated SCN2A-L1342P mutation drives network hyperexcitability and widespread transcriptomic changes in human cortical organoids.",
+   "span_mentions_gene": false,
+   "confidence": 0.5
+  },
+  {
+   "gene": "SCN2A",
+   "variant_effect": "gain_of_function",
+   "molecular_function": "sodium_channel",
+   "disease_context": "unspecified",
+   "linked_phenotype_or_disease": "epilepsy-associated SCN2A-L1342P mutation; network hyperexcitability",
+   "population": "in_vitro",
+   "quoted_span": "elevated network firing activity, as demonstrated by MEA, indicates a pronounced network hyperexcitability",
+   "pmid": "42530523",
+   "year": "2026",
+   "title": "Epilepsy-associated SCN2A-L1342P mutation drives network hyperexcitability and widespread transcriptomic changes in human cortical organoids.",
+   "span_mentions_gene": false,
+   "confidence": 0.5
+  },
+  {
+   "gene": "SCN2A",
+   "variant_effect": "unclear",
+   "molecular_function": "sodium_channel",
+   "disease_context": "unspecified",
+   "linked_phenotype_or_disease": "developmental and epileptic encephalopathies with early burst-suppression EEG",
+   "population": "human",
+   "quoted_span": "variants in the KCNQ2, STXBP1, and SCN2A genes are recognized as major causes",
+   "pmid": "42190144",
+   "year": "2026",
+   "title": "Burst-Suppression EEG in Early Infantile Developmental and Epileptic Encephalopathies: Phenotype, Genotype, and Outcome.",
+   "span_mentions_gene": true,
+   "confidence": 0.4
+  },
+  {
+   "gene": "SCN2A",
+   "variant_effect": "unclear",
+   "molecular_function": "sodium_channel",
+   "disease_context": "unspecified",
+   "linked_phenotype_or_disease": "early infantile developmental and epileptic encephalopathies with burst-suppression EEG",
+   "population": "human",
+   "quoted_span": "KCNQ2, STXBP1, and SCN2A were the most commonly affected genes",
+   "pmid": "42190144",
+   "year": "2026",
+   "title": "Burst-Suppression EEG in Early Infantile Developmental and Epileptic Encephalopathies: Phenotype, Genotype, and Outcome.",
+   "span_mentions_gene": true,
+   "confidence": 0.4
+  },
+  {
+   "gene": "SCN2A",
+   "variant_effect": "unclear",
+   "molecular_function": "sodium_channel",
+   "disease_context": "unspecified",
+   "linked_phenotype_or_disease": "paroxysmal movement disorders in children with genetic developmental and epileptic encephalopathies",
+   "population": "human",
+   "quoted_span": "paroxysmal MDs were observed with ATP1A3, SCN2A, UFC1, GNB1 and GNB5 variants.",
+   "pmid": "41498396",
+   "year": "2026",
+   "title": "The Spectrum of Movement Disorders in Children with Genetic Developmental and Epileptic Encephalopathies: A Cross-Sectional Observational Study.",
+   "span_mentions_gene": true,
+   "confidence": 0.4
+  },
+  {
+   "gene": "SCN2A",
+   "variant_effect": "unclear",
+   "molecular_function": "sodium_channel",
+   "disease_context": "unspecified",
+   "linked_phenotype_or_disease": "severe epilepsy and profound autism spectrum disorder (ASD)",
+   "population": "human",
+   "quoted_span": "Voltage-gated sodium channel (VGSC) genes are the leading monogenic cause of severe epilepsy and profound autism spectrum disorder (ASD), most notably SCN1A, SCN2A, SCN3A, and SCN8A.",
+   "pmid": "41162233",
+   "year": "2026",
+   "title": "Precision medicine for sodium channelopathy-related autism and epilepsy.",
+   "span_mentions_gene": true,
+   "confidence": 0.4
+  },
+  {
+   "gene": "SCN2A",
+   "variant_effect": "unclear",
+   "molecular_function": "sodium_channel",
+   "disease_context": "unspecified",
+   "linked_phenotype_or_disease": "developmental and epileptic encephalopathy",
+   "population": "human",
+   "quoted_span": "Variants were detected in SCN1A, KCNQ2, STXBP1, CDKL5, PCDH19, PLCB1, WWOX, SCN2A, FGF12, HCN1, SCN8A, and SLC35A2.",
+   "pmid": "41153369",
+   "year": "2025",
+   "title": "Genetic Etiology of Developmental and Epileptic Encephalopathy in a Turkish Cohort: A Single-Center Study with Targeted Gene Panel and Whole Exome Sequencing.",
+   "span_mentions_gene": true,
+   "confidence": 0.4
+  },
+  {
+   "gene": "SCN2A",
+   "variant_effect": "gain_of_function",
+   "molecular_function": "sodium_channel",
+   "disease_context": "unspecified",
+   "linked_phenotype_or_disease": "epilepsy-associated SCN2A-L1342P mutation; developmental and epileptic encephalopathy; network hyperexcitability",
+   "population": "in_vitro",
+   "quoted_span": "Nav1.2-L1342P organoid neurons displayed increased intrinsic excitability",
+   "pmid": "40894722",
+   "year": "2025",
+   "title": "Epilepsy-Associated SCN2A-L1342P Mutation Drives Network Hyperexcitability and Widespread Transcriptomic Changes in Human Cortical Organoids.",
+   "span_mentions_gene": false,
+   "confidence": 0.5
+  },
+  {
+   "gene": "SCN2A",
+   "variant_effect": "gain_of_function",
+   "molecular_function": "sodium_channel",
+   "disease_context": "unspecified",
+   "linked_phenotype_or_disease": "epilepsy-associated SCN2A-L1342P mutation; amplified excitatory post-synaptic currents; increased network firing activity",
+   "population": "in_vitro",
+   "quoted_span": "amplified excitatory post-synaptic currents",
+   "pmid": "40894722",
+   "year": "2025",
+   "title": "Epilepsy-Associated SCN2A-L1342P Mutation Drives Network Hyperexcitability and Widespread Transcriptomic Changes in Human Cortical Organoids.",
+   "span_mentions_gene": false,
+   "confidence": 0.5
+  },
+  {
+   "gene": "SCN2A",
+   "variant_effect": "gain_of_function",
+   "molecular_function": "sodium_channel",
+   "disease_context": "unspecified",
+   "linked_phenotype_or_disease": "epilepsy-associated SCN2A-L1342P mutation; increased excitatory synapse formation; network hyperexcitability",
+   "population": "in_vitro",
+   "quoted_span": "consistent with an increase in excitatory synapse formation revealed by PSD95/SYN1 immunostaining",
+   "pmid": "40894722",
+   "year": "2025",
+   "title": "Epilepsy-Associated SCN2A-L1342P Mutation Drives Network Hyperexcitability and Widespread Transcriptomic Changes in Human Cortical Organoids.",
+   "span_mentions_gene": false,
+   "confidence": 0.5
+  },
+  {
+   "gene": "SCN2A",
+   "variant_effect": "unclear",
+   "molecular_function": "sodium_channel",
+   "disease_context": "unspecified",
+   "linked_phenotype_or_disease": "Lennox-Gastaut syndrome",
+   "population": "human",
+   "quoted_span": "channelopathies (SCN2A, SCN8A, KCNQ2, KCNA2, KCNT1, CACNA1A)",
+   "pmid": "40310132",
+   "year": "2025",
+   "title": "Precision Therapeutics in Lennox-Gastaut Syndrome: Targeting Molecular Pathophysiology in a Developmental and Epileptic Encephalopathy.",
+   "span_mentions_gene": true,
+   "confidence": 0.4
+  },
+  {
+   "gene": "SCN2A",
+   "variant_effect": "gain_of_function",
+   "molecular_function": "sodium_channel",
+   "disease_context": "Epileptic encephalopathy, early infantile, 11",
+   "linked_phenotype_or_disease": "early-onset SCN2A developmental and epileptic encephalopathy",
+   "population": "human",
+   "quoted_span": "Early-onset SCN2A developmental and epileptic encephalopathy is caused by SCN2A gain-of-function variants.",
+   "pmid": "40263630",
+   "year": "2025",
+   "title": "Antisense oligonucleotide treatment in a preterm infant with early-onset SCN2A developmental and epileptic encephalopathy.",
+   "span_mentions_gene": true,
+   "confidence": 0.8
+  },
+  {
+   "gene": "SCN2A",
+   "variant_effect": "gain_of_function",
+   "molecular_function": "sodium_channel",
+   "disease_context": "Epileptic encephalopathy, early infantile, 11",
+   "linked_phenotype_or_disease": "early-onset SCN2A developmental and epileptic encephalopathy",
+   "population": "in_vitro",
+   "quoted_span": "Voltage-clamp experiments confirmed impaired channel inactivation and increased persistent current consistent with a gain-of-function mechanism.",
+   "pmid": "40263630",
+   "year": "2025",
+   "title": "Antisense oligonucleotide treatment in a preterm infant with early-onset SCN2A developmental and epileptic encephalopathy.",
+   "span_mentions_gene": false,
+   "confidence": 0.5
+  },
+  {
+   "gene": "SCN2A",
+   "variant_effect": "unclear",
+   "molecular_function": "sodium_channel",
+   "disease_context": "unspecified",
+   "linked_phenotype_or_disease": "downregulated synaptic proteins in hiPSC-derived neurons",
+   "population": "in_vitro",
+   "quoted_span": "Proteomic analysis of hiPSC-derived neurons revealed a significant enrichment in downregulated synaptic proteins (e.g. CALB1, SCN2A, LRRC4B, PPFIA2).",
+   "pmid": "40181518",
+   "year": "2025",
+   "title": "SNAP25 variant I67N: synaptic phenotypes, drug response and proteome changes in human neurons.",
+   "span_mentions_gene": true,
+   "confidence": 0.4
+  },
+  {
+   "gene": "SCN2A",
+   "variant_effect": "gain_of_function",
+   "molecular_function": "sodium_channel",
+   "disease_context": "unspecified",
+   "linked_phenotype_or_disease": "developmental and epileptic encephalopathy (DEE) accompanied by prominent malformation of cortical development (MCD)",
+   "population": "human",
+   "quoted_span": "The neonatal isoforms of all SCN2A variants studied exhibit gain of function (GoF) with a large depolarized shift in steady-state inactivation, creating a markedly enhanced window current common across all four variants tested.",
+   "pmid": "39707911",
+   "year": "2025",
+   "title": "Rare dysfunctional SCN2A variants are associated with malformation of cortical development.",
+   "span_mentions_gene": true,
+   "confidence": 0.8
+  },
+  {
+   "gene": "SCN2A",
+   "variant_effect": "gain_of_function",
+   "molecular_function": "sodium_channel",
+   "disease_context": "unspecified",
+   "linked_phenotype_or_disease": "hyperexcitability in a developing neocortical pyramidal neuron",
+   "population": "animal",
+   "quoted_span": "expression of the NaV1.2-p.Met1770Leu-N variant in a developing neocortical pyramidal neuron results in hyperexcitability.",
+   "pmid": "39707911",
+   "year": "2025",
+   "title": "Rare dysfunctional SCN2A variants are associated with malformation of cortical development.",
+   "span_mentions_gene": false,
+   "confidence": 0.5
+  },
+  {
+   "gene": "SCN2A",
+   "variant_effect": "unclear",
+   "molecular_function": "sodium_channel",
+   "disease_context": "unspecified",
+   "linked_phenotype_or_disease": "developmental and epileptic encephalopathy (DEE) and metabolic epilepsy (ME)",
+   "population": "human",
+   "quoted_span": "structural variation as duplications in regions 2q24.3, including SCN1A and SCN2A were observed in 7 cases. These genetic variants, impacting ion channels",
+   "pmid": "39285222",
+   "year": "2024",
+   "title": "Genotype-driven therapeutics in DEE and metabolic epilepsy: navigating treatment efficacy and drug resistance.",
+   "span_mentions_gene": true,
+   "confidence": 0.4
+  },
+  {
+   "gene": "SCN2A",
+   "variant_effect": "gain_of_function",
+   "molecular_function": "sodium_channel",
+   "disease_context": "unspecified",
+   "linked_phenotype_or_disease": "microduplications, including SCN2A gene duplications, with developmental/epileptic encephalopathy with spike-wave activation during sleep (D/EE-SWAS) and drug-resistant seizures",
+   "population": "human",
+   "quoted_span": "microduplication spanning approximately 300 kb within the 2q24.3 region, which included a segment of the SCN2A gene",
+   "pmid": "39176185",
+   "year": "2024",
+   "title": "Microduplication of SCN2A Gene in a Child with Drug-Resistant Epilepsy and Developmental/Epileptic Encephalopathy with Spike Wave Activation During Sleep.",
+   "span_mentions_gene": true,
+   "confidence": 0.8
+  },
+  {
+   "gene": "SCN2A",
+   "variant_effect": "unclear",
+   "molecular_function": "sodium_channel",
+   "disease_context": "unspecified",
+   "linked_phenotype_or_disease": "favorable outcomes have been reported in patients with SCN2A gene duplications in cases of mild epilepsy with onset during the neonatal to infantile period, or in infantile epileptic spasm syndrome",
+   "population": "human",
+   "quoted_span": "Favorable outcomes have been reported in patients with SCN2A gene duplications in cases of mild epilepsy",
+   "pmid": "39176185",
+   "year": "2024",
+   "title": "Microduplication of SCN2A Gene in a Child with Drug-Resistant Epilepsy and Developmental/Epileptic Encephalopathy with Spike Wave Activation During Sleep.",
+   "span_mentions_gene": true,
+   "confidence": 0.4
+  },
+  {
+   "gene": "SCN2A",
+   "variant_effect": "loss_of_function",
+   "molecular_function": "sodium_channel",
+   "disease_context": "Epileptic encephalopathy, early infantile, 11",
+   "linked_phenotype_or_disease": "early-infantile developmental and epileptic encephalopathy (EI-DEE) / SCN2A-related DEE",
+   "population": "human",
+   "quoted_span": "SCN2A mutations affecting the fast inactivation gating mechanism can result in altered voltage dependence and incomplete inactivation of the encoded neuronal Nav1.2 channel and lead to abnormal neuronal excitability.",
+   "pmid": "38939966",
+   "year": "2025",
+   "title": "Nav1.2 channel mutations preventing fast inactivation lead to SCN2A encephalopathy.",
+   "span_mentions_gene": true,
+   "confidence": 0.8
+  },
+  {
+   "gene": "SCN2A",
+   "variant_effect": "gain_of_function",
+   "molecular_function": "sodium_channel",
+   "disease_context": "Epileptic encephalopathy, early infantile, 11",
+   "linked_phenotype_or_disease": "SCN2A-related DEE",
+   "population": "in_vitro",
+   "quoted_span": "M1501V, M1501T, F1651C, P1658S and A1659V variants resulted in biophysical properties that were consistent with gain-of-function and enhanced action potential firing of hybrid neurons in dynamic action potential clamp experiments.",
+   "pmid": "38939966",
+   "year": "2025",
+   "title": "Nav1.2 channel mutations preventing fast inactivation lead to SCN2A encephalopathy.",
+   "span_mentions_gene": false,
+   "confidence": 0.5
+  },
+  {
+   "gene": "SCN2A",
+   "variant_effect": "gain_of_function",
+   "molecular_function": "sodium_channel",
+   "disease_context": "unspecified",
+   "linked_phenotype_or_disease": "neonatal-onset epilepsy",
+   "population": "human",
+   "quoted_span": "gain-of-function and mixed function variants predominated in neonatal-onset epilepsy",
+   "pmid": "38651838",
+   "year": "2024",
+   "title": "Expanded clinical phenotype spectrum correlates with variant function in SCN2A-related disorders.",
+   "span_mentions_gene": false,
+   "confidence": 0.5
+  },
+  {
+   "gene": "SCN2A",
+   "variant_effect": "mixed",
+   "molecular_function": "sodium_channel",
+   "disease_context": "unspecified",
+   "linked_phenotype_or_disease": "neonatal-onset epilepsy",
+   "population": "human",
+   "quoted_span": "gain-of-function and mixed function variants predominated in neonatal-onset epilepsy",
+   "pmid": "38651838",
+   "year": "2024",
+   "title": "Expanded clinical phenotype spectrum correlates with variant function in SCN2A-related disorders.",
+   "span_mentions_gene": false,
+   "confidence": 0.5
+  },
+  {
+   "gene": "SCN2A",
+   "variant_effect": "loss_of_function",
+   "molecular_function": "sodium_channel",
+   "disease_context": "unspecified",
+   "linked_phenotype_or_disease": "infant-onset epilepsy",
+   "population": "human",
+   "quoted_span": "shifting to moderate loss of function in infant-onset epilepsy",
+   "pmid": "38651838",
+   "year": "2024",
+   "title": "Expanded clinical phenotype spectrum correlates with variant function in SCN2A-related disorders.",
+   "span_mentions_gene": false,
+   "confidence": 0.5
+  },
+  {
+   "gene": "SCN2A",
+   "variant_effect": "loss_of_function",
+   "molecular_function": "sodium_channel",
+   "disease_context": "unspecified",
+   "linked_phenotype_or_disease": "later-onset epilepsy and autism groups",
+   "population": "human",
+   "quoted_span": "and to severe and complete loss of function in later-onset epilepsy and autism groups",
+   "pmid": "38651838",
+   "year": "2024",
+   "title": "Expanded clinical phenotype spectrum correlates with variant function in SCN2A-related disorders.",
    "span_mentions_gene": false,
    "confidence": 0.5
   },
@@ -5321,7 +6959,7 @@
    "year": "2026",
    "title": "Differential effects of sodium channel blockers on SCN8A gain-of-function variants associated with drug-responsive or -resistant epilepsy.",
    "span_mentions_gene": false,
-   "confidence": 0.5
+   "confidence": 0.4
   },
   {
    "gene": "SCN8A",
@@ -5335,7 +6973,7 @@
    "year": "2026",
    "title": "Differential effects of sodium channel blockers on SCN8A gain-of-function variants associated with drug-responsive or -resistant epilepsy.",
    "span_mentions_gene": false,
-   "confidence": 0.5
+   "confidence": 0.4
   },
   {
    "gene": "SCN8A",
@@ -5363,7 +7001,7 @@
    "year": "2026",
    "title": "At the forefront of gene-based therapies in Dravet syndrome.",
    "span_mentions_gene": true,
-   "confidence": 0.7
+   "confidence": 0.4
   },
   {
    "gene": "SCN8A",
@@ -5545,7 +7183,7 @@
    "year": "2025",
    "title": "RNA-based therapies for neurodevelopmental disorders: innovative tools for molecular correction.",
    "span_mentions_gene": true,
-   "confidence": 0.8
+   "confidence": 0.4
   },
   {
    "gene": "SCN8A",
@@ -5559,7 +7197,7 @@
    "year": "2025",
    "title": "RNA-based therapies for neurodevelopmental disorders: innovative tools for molecular correction.",
    "span_mentions_gene": false,
-   "confidence": 0.5
+   "confidence": 0.4
   },
   {
    "gene": "SCN8A",
@@ -5573,7 +7211,7 @@
    "year": "2025",
    "title": "Transgenic mouse models of sodium and potassium channelopathies in epilepsy: insights into disease mechanisms and therapeutics.",
    "span_mentions_gene": false,
-   "confidence": 0.5
+   "confidence": 0.4
   },
   {
    "gene": "SCN8A",
@@ -5601,7 +7239,7 @@
    "year": "2026",
    "title": "Voltage-gated sodium channels in the nervous system: Molecular physiology to therapeutic interventions.",
    "span_mentions_gene": true,
-   "confidence": 0.8
+   "confidence": 0.4
   },
   {
    "gene": "SCN8A",
@@ -5685,7 +7323,7 @@
    "year": "2025",
    "title": "SCN8A Epileptic Encephalopathy Mutation Displays a Loss-of-Function Phenotype and Distinct Insensitivity to Valproate.",
    "span_mentions_gene": false,
-   "confidence": 0.5
+   "confidence": 0.4
   },
   {
    "gene": "SCN8A",
@@ -6094,6 +7732,510 @@
    "confidence": 0.5
   },
   {
+   "gene": "SCN8A",
+   "variant_effect": "unclear",
+   "molecular_function": "sodium_channel",
+   "disease_context": "unspecified",
+   "linked_phenotype_or_disease": "Genetic epilepsies presenting in the neonatal period and early infancy; broader electroclinical heterogeneity; high early seizure burden and progressively abnormal EEG",
+   "population": "human",
+   "quoted_span": "SCN8A shows broader electroclinical heterogeneity without a single signature; however, normal brain MRI combined with high early seizure burden (often bilateral tonic-clonic seizures) and a progressively abnormal EEG should raise suspicion.",
+   "pmid": "42659555",
+   "year": "2026",
+   "title": "[Electroclinical recognition of SCN2A, SCN8A, KCNQ2, and KCNQ3 pathogenic variants].",
+   "span_mentions_gene": true,
+   "confidence": 0.4
+  },
+  {
+   "gene": "SCN8A",
+   "variant_effect": "unclear",
+   "molecular_function": "sodium_channel",
+   "disease_context": "Seizures, benign familial infantile, 5",
+   "linked_phenotype_or_disease": "self-limited infantile epilepsy (SeLIE)",
+   "population": "human",
+   "quoted_span": "other genes, such as SCN2A, KCNQ2-3 and SCN8A, have been recognized. Drugs for focal seizures that act on sodium channels are indicated.",
+   "pmid": "39331768",
+   "year": "2024",
+   "title": "[Contribution of the Ibero-American Academy of Neuropediatrics to the knowledge of self-limited epilepsy in infants].",
+   "span_mentions_gene": true,
+   "confidence": 0.4
+  },
+  {
+   "gene": "SCN8A",
+   "variant_effect": "unclear",
+   "molecular_function": "sodium_channel",
+   "disease_context": "unspecified",
+   "linked_phenotype_or_disease": "self-limited infantile epilepsy / SCN8A-SeLIE",
+   "population": "human",
+   "quoted_span": "SCN8A variants cause a spectrum of epilepsy phenotypes ranging from self-limited infantile epilepsy (SeLIE) to developmental and epileptic encephalopathy.",
+   "pmid": "38845412",
+   "year": "2024",
+   "title": "SCN8A self-limited infantile epilepsy: Does epilepsy resolve?",
+   "span_mentions_gene": true,
+   "confidence": 0.4
+  },
+  {
+   "gene": "SCN8A",
+   "variant_effect": "unclear",
+   "molecular_function": "sodium_channel",
+   "disease_context": "Seizures, benign familial infantile, 5",
+   "linked_phenotype_or_disease": "benign familial infantile epilepsy",
+   "population": "human",
+   "quoted_span": "Case 1, who had benign familial infantile epilepsy, inherited a known pathogenic c.4840A>G variant from his father with similar symptoms.",
+   "pmid": "38311555",
+   "year": "2024",
+   "title": "[Clinical features and genetic analysis of five children with epilepsies due to variants of SCN8A gene].",
+   "span_mentions_gene": false,
+   "confidence": 0.4
+  },
+  {
+   "gene": "SCN8A",
+   "variant_effect": "unclear",
+   "molecular_function": "sodium_channel",
+   "disease_context": "Epileptic encephalopathy, early infantile, 13",
+   "linked_phenotype_or_disease": "early-onset infantile epileptic encephalopathy transformed into Lennox Gastaut-like syndrome",
+   "population": "human",
+   "quoted_span": "Case 5, who had early-onset infantile epileptic encephalopathy transformed into Lennox Gastaut-like syndrome, has harbored a de novo c.5615G>A variant, which was known to be pathogenic.",
+   "pmid": "38311555",
+   "year": "2024",
+   "title": "[Clinical features and genetic analysis of five children with epilepsies due to variants of SCN8A gene].",
+   "span_mentions_gene": false,
+   "confidence": 0.4
+  },
+  {
+   "gene": "SCN8A",
+   "variant_effect": "unclear",
+   "molecular_function": "sodium_channel",
+   "disease_context": "unspecified",
+   "linked_phenotype_or_disease": "self-limited familial neonatal and/or infantile epilepsy (SeLFE)",
+   "population": "human",
+   "quoted_span": "3 likely pathogenic; KCNQ2 (n=1), SCN8A (n=2).",
+   "pmid": "38160512",
+   "year": "2024",
+   "title": "Neurodevelopmental outcomes in a cohort of Australian families with self-limited familial epilepsy of neonatal/infantile onset.",
+   "span_mentions_gene": true,
+   "confidence": 0.4
+  },
+  {
+   "gene": "SCN8A",
+   "variant_effect": "loss_of_function",
+   "molecular_function": "sodium_channel",
+   "disease_context": "unspecified",
+   "linked_phenotype_or_disease": "SCN8A-related disorders",
+   "population": "in_vitro",
+   "quoted_span": "Electrophysiological analysis in transfected cells revealed a loss-of-function variant in Patient 4.",
+   "pmid": "37609289",
+   "year": "2023",
+   "title": "Expanding the genotype-phenotype spectrum in SCN8A-related disorders.",
+   "span_mentions_gene": false,
+   "confidence": 0.5
+  },
+  {
+   "gene": "SCN8A",
+   "variant_effect": "gain_of_function",
+   "molecular_function": "sodium_channel",
+   "disease_context": "unspecified",
+   "linked_phenotype_or_disease": "SCN8A-related epilepsy; distinct seizure types and neurodevelopmental phenotypes",
+   "population": "human",
+   "quoted_span": "investigated G-P correlations among 270 participants harboring gain-of-function (GOF) variants",
+   "pmid": "37585367",
+   "year": "2023",
+   "title": "Clinical severity is correlated with age at seizure onset and biophysical properties of recurrent gain of function variants associated with SCN8A-related epilepsy.",
+   "span_mentions_gene": false,
+   "confidence": 0.5
+  },
+  {
+   "gene": "SCN8A",
+   "variant_effect": "gain_of_function",
+   "molecular_function": "sodium_channel",
+   "disease_context": "unspecified",
+   "linked_phenotype_or_disease": "clinical severity for individuals carrying those variants",
+   "population": "human",
+   "quoted_span": "individual GOF variants (1) are predictive of clinical severity for individuals carrying those variants",
+   "pmid": "37585367",
+   "year": "2023",
+   "title": "Clinical severity is correlated with age at seizure onset and biophysical properties of recurrent gain of function variants associated with SCN8A-related epilepsy.",
+   "span_mentions_gene": false,
+   "confidence": 0.5
+  },
+  {
+   "gene": "SCN8A",
+   "variant_effect": "gain_of_function",
+   "molecular_function": "sodium_channel",
+   "disease_context": "unspecified",
+   "linked_phenotype_or_disease": "distinct clinical phenotypes of SCN8A disease",
+   "population": "human",
+   "quoted_span": "may underlie distinct clinical phenotypes of SCN8A disease",
+   "pmid": "37585367",
+   "year": "2023",
+   "title": "Clinical severity is correlated with age at seizure onset and biophysical properties of recurrent gain of function variants associated with SCN8A-related epilepsy.",
+   "span_mentions_gene": true,
+   "confidence": 0.8
+  },
+  {
+   "gene": "SCN8A",
+   "variant_effect": "unclear",
+   "molecular_function": "sodium_channel",
+   "disease_context": "unspecified",
+   "linked_phenotype_or_disease": "intermediate epilepsy of unknown origin, intellectual disability, autism spectrum disorder, and hyperactivity",
+   "population": "human",
+   "quoted_span": "The SCN8A variant [c.4499C > T (p.Pro1500Leu)] was also detected in the healthy mother and was classified as a variant of uncertain clinical significance.",
+   "pmid": "37498161",
+   "year": "2023",
+   "title": "A novel SCN8A variant of unknown significance in pediatric epilepsy: a case report.",
+   "span_mentions_gene": true,
+   "confidence": 0.4
+  },
+  {
+   "gene": "SCN8A",
+   "variant_effect": "unclear",
+   "molecular_function": "sodium_channel",
+   "disease_context": "unspecified",
+   "linked_phenotype_or_disease": "intermediate epilepsy of unknown origin, intellectual disability, autism spectrum disorder, and hyperactivity",
+   "population": "human",
+   "quoted_span": "This variant occurs in a highly conserved domain, which may affect the function of the encoded protein.",
+   "pmid": "37498161",
+   "year": "2023",
+   "title": "A novel SCN8A variant of unknown significance in pediatric epilepsy: a case report.",
+   "span_mentions_gene": false,
+   "confidence": 0.4
+  },
+  {
+   "gene": "SCN8A",
+   "variant_effect": "unclear",
+   "molecular_function": "sodium_channel",
+   "disease_context": "unspecified",
+   "linked_phenotype_or_disease": "genetic developmental and epileptic encephalopathies; sudden unexplained death in epilepsy",
+   "population": "human",
+   "quoted_span": "We included patients with a pathogenic variant in the genes SCN1A, SCN2A, SCN8A, SYNGAP1, NEXMIF, CHD2, PCDH19, STXBP1, GRIN2A, KCNT1, and KCNQ2",
+   "pmid": "36750385",
+   "year": "2023",
+   "title": "Rates of Status Epilepticus and Sudden Unexplained Death in Epilepsy in People With Genetic Developmental and Epileptic Encephalopathies.",
+   "span_mentions_gene": true,
+   "confidence": 0.4
+  },
+  {
+   "gene": "SCN8A",
+   "variant_effect": "unclear",
+   "molecular_function": "sodium_channel",
+   "disease_context": "unspecified",
+   "linked_phenotype_or_disease": "sudden unexplained death in epilepsy",
+   "population": "human",
+   "quoted_span": "Four genes were associated with SUDEP: SCN1A, SCN2A, SCN8A, and STXBP1.",
+   "pmid": "36750385",
+   "year": "2023",
+   "title": "Rates of Status Epilepticus and Sudden Unexplained Death in Epilepsy in People With Genetic Developmental and Epileptic Encephalopathies.",
+   "span_mentions_gene": true,
+   "confidence": 0.4
+  },
+  {
+   "gene": "SCN8A",
+   "variant_effect": "gain_of_function",
+   "molecular_function": "sodium_channel",
+   "disease_context": "Epileptic encephalopathy, early infantile, 13",
+   "linked_phenotype_or_disease": "developmental and epileptic encephalencephalopathy",
+   "population": "in_vitro",
+   "quoted_span": "Two variants causing developmental and epileptic encephalopathy showed a strong gain-of-function (hyperpolarizing shift of steady-state activation, strongly increased neuronal firing rate)",
+   "pmid": "34431999",
+   "year": "2022",
+   "title": "Genotype-phenotype correlations in SCN8A-related disorders reveal prognostic and therapeutic implications.",
+   "span_mentions_gene": false,
+   "confidence": 0.5
+  },
+  {
+   "gene": "SCN8A",
+   "variant_effect": "gain_of_function",
+   "molecular_function": "sodium_channel",
+   "disease_context": "Seizures, benign familial infantile, 5",
+   "linked_phenotype_or_disease": "benign familial infantile epilepsy",
+   "population": "in_vitro",
+   "quoted_span": "one variant causing benign familial infantile epilepsy or intermediate epilepsy showed a mild gain-of-function (defective fast inactivation, less increased firing)",
+   "pmid": "34431999",
+   "year": "2022",
+   "title": "Genotype-phenotype correlations in SCN8A-related disorders reveal prognostic and therapeutic implications.",
+   "span_mentions_gene": false,
+   "confidence": 0.5
+  },
+  {
+   "gene": "SCN8A",
+   "variant_effect": "loss_of_function",
+   "molecular_function": "sodium_channel",
+   "disease_context": "unspecified",
+   "linked_phenotype_or_disease": "generalized epilepsy",
+   "population": "in_vitro",
+   "quoted_span": "all three variants causing generalized epilepsy induced a loss-of-function (reduced current amplitudes, depolarizing shift of steady-state activation, reduced neuronal firing)",
+   "pmid": "34431999",
+   "year": "2022",
+   "title": "Genotype-phenotype correlations in SCN8A-related disorders reveal prognostic and therapeutic implications.",
+   "span_mentions_gene": false,
+   "confidence": 0.5
+  },
+  {
+   "gene": "SCN8A",
+   "variant_effect": "loss_of_function",
+   "molecular_function": "sodium_channel",
+   "disease_context": "unspecified",
+   "linked_phenotype_or_disease": "SCN8A-related encephalopathy / intermediate phenotype with paroxysmal tonic upgaze and seizures",
+   "population": "human",
+   "quoted_span": "harbouring a de novo, novel SCN8A deletion, whose clinical picture is consistent with an SCN8A-related \"intermediate phenotype\".",
+   "pmid": "34259158",
+   "year": "2021",
+   "title": "Paroxysmal tonic upgaze in a child with SCN8A-related encephalopathy.",
+   "span_mentions_gene": true,
+   "confidence": 0.8
+  },
+  {
+   "gene": "SCN8A",
+   "variant_effect": "loss_of_function",
+   "molecular_function": "sodium_channel",
+   "disease_context": "unspecified",
+   "linked_phenotype_or_disease": "severe developmental and epileptic encephalopathy (DEE)",
+   "population": "human",
+   "quoted_span": "Monoallelic de novo gain-of-function variants in the voltage-gated sodium channel SCN8A are one of the recurrent causes of severe developmental and epileptic encephalopathy (DEE).",
+   "pmid": "31625145",
+   "year": "2019",
+   "title": "Biallelic inherited SCN8A variants, a rare cause of SCN8A-related developmental and epileptic encephalopathy.",
+   "span_mentions_gene": true,
+   "confidence": 0.8
+  },
+  {
+   "gene": "SCN8A",
+   "variant_effect": "loss_of_function",
+   "molecular_function": "sodium_channel",
+   "disease_context": "unspecified",
+   "linked_phenotype_or_disease": "biallelic SCN8A-related developmental and epileptic encephalopathy",
+   "population": "human",
+   "quoted_span": "functional analysis demonstrated segregation of one allele with complete loss-of-function, and one allele with altered biophysical properties consistent with partial loss-of-function.",
+   "pmid": "31625145",
+   "year": "2019",
+   "title": "Biallelic inherited SCN8A variants, a rare cause of SCN8A-related developmental and epileptic encephalopathy.",
+   "span_mentions_gene": false,
+   "confidence": 0.5
+  },
+  {
+   "gene": "SCN8A",
+   "variant_effect": "mixed",
+   "molecular_function": "sodium_channel",
+   "disease_context": "unspecified",
+   "linked_phenotype_or_disease": "SCN8A DEE",
+   "population": "human",
+   "quoted_span": "These studies demonstrate that SCN8A DEE may, in rare cases, result from inheritance of two variants, both of which exhibit reduced channel activity.",
+   "pmid": "31625145",
+   "year": "2019",
+   "title": "Biallelic inherited SCN8A variants, a rare cause of SCN8A-related developmental and epileptic encephalopathy.",
+   "span_mentions_gene": true,
+   "confidence": 0.8
+  },
+  {
+   "gene": "SCN8A",
+   "variant_effect": "unclear",
+   "molecular_function": "sodium_channel",
+   "disease_context": "unspecified",
+   "linked_phenotype_or_disease": "developmental and epileptic encephalopathy; infancy; sodium channel blockers were effective",
+   "population": "human",
+   "quoted_span": "sodium channel blockers were effective in patients with mutations in KCNQ2 and SCN2A in infancy, as well as SCN8A",
+   "pmid": "29455050",
+   "year": "2018",
+   "title": "Targeted gene panel and genotype-phenotype correlation in children with developmental and epileptic encephalopathy.",
+   "span_mentions_gene": true,
+   "confidence": 0.4
+  },
+  {
+   "gene": "SCN8A",
+   "variant_effect": "unclear",
+   "molecular_function": "sodium_channel",
+   "disease_context": "Seizures, benign familial infantile, 5",
+   "linked_phenotype_or_disease": "early onset benign familial infantile epilepsy",
+   "population": "human",
+   "quoted_span": "Mutations in SCN8A, which codes for the voltage-gated sodium channel NaV1.6",
+   "pmid": "29263050",
+   "year": "2017",
+   "title": "A Novel Inherited Mutation of SCN8A in a Korean Family with Benign Familial Infantile Epilepsy Using Diagnostic Exome Sequencing.",
+   "span_mentions_gene": true,
+   "confidence": 0.4
+  },
+  {
+   "gene": "SCN8A",
+   "variant_effect": "unclear",
+   "molecular_function": "sodium_channel",
+   "disease_context": "Seizures, benign familial infantile, 5",
+   "linked_phenotype_or_disease": "benign familial infantile epilepsy",
+   "population": "human",
+   "quoted_span": "diagnostic exome sequencing (DES) identified a heterozygous mutation (c.4427G>A; p.Gly1476Asp) in the SCN8A gene. This mutation, confirmed by Sanger sequencing, effects a highly conserved amino acid. In-silico analysis predicts that this mutation may be pathogenic.",
+   "pmid": "29263050",
+   "year": "2017",
+   "title": "A Novel Inherited Mutation of SCN8A in a Korean Family with Benign Familial Infantile Epilepsy Using Diagnostic Exome Sequencing.",
+   "span_mentions_gene": true,
+   "confidence": 0.4
+  },
+  {
+   "gene": "SCN8A",
+   "variant_effect": "unclear",
+   "molecular_function": "sodium_channel",
+   "disease_context": "Seizures, benign familial infantile, 5",
+   "linked_phenotype_or_disease": "early onset focal epileptic seizures; benign familial infantile epilepsy",
+   "population": "human",
+   "quoted_span": "This is the second known SCN8A mutation associated with a phenotype of benign familial infantile epilepsy.",
+   "pmid": "27210545",
+   "year": "2016",
+   "title": "Autosomal dominant SCN8A mutation with an unusually mild phenotype.",
+   "span_mentions_gene": true,
+   "confidence": 0.4
+  },
+  {
+   "gene": "SCN8A",
+   "variant_effect": "unclear",
+   "molecular_function": "sodium_channel",
+   "disease_context": "Epileptic encephalopathy, early infantile, 13",
+   "linked_phenotype_or_disease": "early onset epileptic encephalopathy (EIEE) type 13; infantile onset epilepsy with developmental delay and cognitive impairment",
+   "population": "human",
+   "quoted_span": "Mutations in SCN8A, coding for the voltage-gated sodium channel Nav 1.6, have been described in relation to infantile onset epilepsy with developmental delay and cognitive impairment, in particular early onset epileptic encephalopathy (EIEE) type 13.",
+   "pmid": "27210545",
+   "year": "2016",
+   "title": "Autosomal dominant SCN8A mutation with an unusually mild phenotype.",
+   "span_mentions_gene": true,
+   "confidence": 0.4
+  },
+  {
+   "gene": "SCN8A",
+   "variant_effect": "unclear",
+   "molecular_function": "sodium_channel",
+   "disease_context": "Seizures, benign familial infantile, 5",
+   "linked_phenotype_or_disease": "Benign familial infantile seizures (BFIS), paroxysmal kinesigenic dyskinesia (PKD), and infantile convulsions and paroxysmal choreoathetosis (ICCA)",
+   "population": "human",
+   "quoted_span": "we identified the same, cosegregating heterozygous missense mutation (c.4447G>A; p.E1483K) in SCN8A, encoding a voltage-gated sodium channel.",
+   "pmid": "26677014",
+   "year": "2016",
+   "title": "Benign infantile seizures and paroxysmal dyskinesia caused by an SCN8A mutation.",
+   "span_mentions_gene": true,
+   "confidence": 0.4
+  },
+  {
+   "gene": "SCN8A",
+   "variant_effect": "unclear",
+   "molecular_function": "sodium_channel",
+   "disease_context": "Epileptic encephalopathy, early infantile, 13",
+   "linked_phenotype_or_disease": "early infantile epileptic encephalopathy with neonatal seizures, movement disorders, and multiple congenital anomalies",
+   "population": "human",
+   "quoted_span": "identified a de novo heterozygous missense mutation (c.3979A>G; p.Ile1327Val) in SCN8A (voltage-gated sodium-channel type VIII alpha subunit) gene",
+   "pmid": "24352161",
+   "year": "2014",
+   "title": "De novo SCN8A mutation identified by whole-exome sequencing in a boy with neonatal epileptic encephalopathy, multiple congenital anomalies, and movement disorders.",
+   "span_mentions_gene": true,
+   "confidence": 0.4
+  },
+  {
+   "gene": "SCN8A",
+   "variant_effect": "unclear",
+   "molecular_function": "sodium_channel",
+   "disease_context": "Epileptic encephalopathy, early infantile, 13",
+   "linked_phenotype_or_disease": "early infantile epileptic encephalopathy with a broad phenotypic spectrum",
+   "population": "human",
+   "quoted_span": "mutations in SCN8A can lead to early infantile epileptic encephalopathy with a broad phenotypic spectrum",
+   "pmid": "24352161",
+   "year": "2014",
+   "title": "De novo SCN8A mutation identified by whole-exome sequencing in a boy with neonatal epileptic encephalopathy, multiple congenital anomalies, and movement disorders.",
+   "span_mentions_gene": true,
+   "confidence": 0.4
+  },
+  {
+   "gene": "SCN8A",
+   "variant_effect": "gain_of_function",
+   "molecular_function": "sodium_channel",
+   "disease_context": "Epileptic encephalopathy, early infantile, 13",
+   "linked_phenotype_or_disease": "developmental and epileptic encephalopathy (DEE) characterized by treatment-resistant seizures, developmental delay, long-term cognitive and motor impairment, and elevated risk of premature death",
+   "population": "animal",
+   "quoted_span": "Variants in the voltage-gated sodium channel gene SCN8A cause a severe developmental and epileptic encephalopathy (DEE) characterized by treatment-resistant seizures, developmental delay, long-term cognitive and motor impairment, and elevated risk of premature death.",
+   "pmid": "41679675",
+   "year": "2026",
+   "title": "Distinct neuronal mechanisms for motor impairment and seizures in a novel mouse model of SCN8A epileptic encephalopathy.",
+   "span_mentions_gene": true,
+   "confidence": 0.7
+  },
+  {
+   "gene": "SCN8A",
+   "variant_effect": "gain_of_function",
+   "molecular_function": "sodium_channel",
+   "disease_context": "Epileptic encephalopathy, early infantile, 13",
+   "linked_phenotype_or_disease": "neuronal hyperexcitability, spontaneous convulsive seizures, and premature death",
+   "population": "animal",
+   "quoted_span": "Ubiquitous expression of the T767I allele with Sox2-Cre (Scn8aT767I/+) results in neuronal hyperexcitability, spontaneous convulsive seizures, and premature death in heterozygotes.",
+   "pmid": "41679675",
+   "year": "2026",
+   "title": "Distinct neuronal mechanisms for motor impairment and seizures in a novel mouse model of SCN8A epileptic encephalopathy.",
+   "span_mentions_gene": true,
+   "confidence": 0.7
+  },
+  {
+   "gene": "SCN8A",
+   "variant_effect": "unclear",
+   "molecular_function": "sodium_channel",
+   "disease_context": "Epileptic encephalopathy, early infantile, 13",
+   "linked_phenotype_or_disease": "seizures and early death but do not exhibit motor impairment",
+   "population": "animal",
+   "quoted_span": "Mice with expression of the T767I allele in excitatory neurons driven by Emx1-Cre experience seizures and early death but do not exhibit motor impairment, indicating that the neuronal mechanisms underlying seizures are distinct from the mechanisms underlying motor impairment.",
+   "pmid": "41679675",
+   "year": "2026",
+   "title": "Distinct neuronal mechanisms for motor impairment and seizures in a novel mouse model of SCN8A epileptic encephalopathy.",
+   "span_mentions_gene": false,
+   "confidence": 0.4
+  },
+  {
+   "gene": "SCN8A",
+   "variant_effect": "unclear",
+   "molecular_function": "sodium_channel",
+   "disease_context": "Epileptic encephalopathy, early infantile, 13",
+   "linked_phenotype_or_disease": "motor neuron function is affected by the T767I mutation",
+   "population": "animal",
+   "quoted_span": "Compound muscle action potentials are smaller, and the number of functional motor units is reduced in Sox2-Cre, Scn8aT767I/+ mice, suggesting that motor neuron function is affected by the T767I mutation.",
+   "pmid": "41679675",
+   "year": "2026",
+   "title": "Distinct neuronal mechanisms for motor impairment and seizures in a novel mouse model of SCN8A epileptic encephalopathy.",
+   "span_mentions_gene": true,
+   "confidence": 0.4
+  },
+  {
+   "gene": "SCN8A",
+   "variant_effect": "unclear",
+   "molecular_function": "sodium_channel",
+   "disease_context": "unspecified",
+   "linked_phenotype_or_disease": "severe epilepsy and profound autism spectrum disorder (ASD)",
+   "population": "human",
+   "quoted_span": "Voltage-gated sodium channel (VGSC) genes are the leading monogenic cause of severe epilepsy and profound autism spectrum disorder (ASD), most notably SCN1A, SCN2A, SCN3A, and SCN8A.",
+   "pmid": "41162233",
+   "year": "2026",
+   "title": "Precision medicine for sodium channelopathy-related autism and epilepsy.",
+   "span_mentions_gene": true,
+   "confidence": 0.4
+  },
+  {
+   "gene": "SCN8A",
+   "variant_effect": "unclear",
+   "molecular_function": "sodium_channel",
+   "disease_context": "unspecified",
+   "linked_phenotype_or_disease": "developmental and epileptic encephalopathy",
+   "population": "human",
+   "quoted_span": "Variants were detected in SCN1A, KCNQ2, STXBP1, CDKL5, PCDH19, PLCB1, WWOX, SCN2A, FGF12, HCN1, SCN8A, and SLC35A2.",
+   "pmid": "41153369",
+   "year": "2025",
+   "title": "Genetic Etiology of Developmental and Epileptic Encephalopathy in a Turkish Cohort: A Single-Center Study with Targeted Gene Panel and Whole Exome Sequencing.",
+   "span_mentions_gene": true,
+   "confidence": 0.4
+  },
+  {
+   "gene": "SCN8A",
+   "variant_effect": "unclear",
+   "molecular_function": "sodium_channel",
+   "disease_context": "unspecified",
+   "linked_phenotype_or_disease": "DEE",
+   "population": "human",
+   "quoted_span": "characteristic MDs in conditions such SCN8A, FOXG1 and ARX related DEE",
+   "pmid": "40068485",
+   "year": "2025",
+   "title": "Motor phenotyping in a Greek cohort of patients with neonatal and infantile onset developmental and epileptic encephalopathy.",
+   "span_mentions_gene": true,
+   "confidence": 0.4
+  },
+  {
    "gene": "STXBP1",
    "variant_effect": "loss_of_function",
    "molecular_function": "synaptic_vesicle_release",
@@ -6147,7 +8289,7 @@
    "year": "2026",
    "title": "Associations of Cortical and Subcortical White Matter Morphometric Abnormalities With Clinical and Genetic Findings in STXBP1 Encephalopathy.",
    "span_mentions_gene": true,
-   "confidence": 0.8
+   "confidence": 0.4
   },
   {
    "gene": "STXBP1",
@@ -6301,7 +8443,7 @@
    "year": "2026",
    "title": "Identification of a therapeutic threshold for AAV-STXBP1 gene therapy in a rodent model of STXBP1 developmental and epileptic encephalopathy.",
    "span_mentions_gene": true,
-   "confidence": 0.7
+   "confidence": 0.4
   },
   {
    "gene": "STXBP1",
@@ -6385,7 +8527,7 @@
    "year": "2025",
    "title": "STXBP1 Syndrome: Biotechnological Advances, Challenges, and Perspectives in Gene Therapy, Experimental Models, and Translational Research.",
    "span_mentions_gene": true,
-   "confidence": 0.8
+   "confidence": 0.4
   },
   {
    "gene": "STXBP1",
@@ -6399,7 +8541,7 @@
    "year": "2025",
    "title": "STXBP1 Syndrome: Biotechnological Advances, Challenges, and Perspectives in Gene Therapy, Experimental Models, and Translational Research.",
    "span_mentions_gene": true,
-   "confidence": 0.8
+   "confidence": 0.4
   },
   {
    "gene": "STXBP1",
@@ -6581,7 +8723,7 @@
    "year": "2024",
    "title": "The DDHD2-STXBP1 interaction mediates long-term memory via generation of saturated free fatty acids.",
    "span_mentions_gene": true,
-   "confidence": 0.7
+   "confidence": 0.4
   },
   {
    "gene": "STXBP1",
@@ -6609,7 +8751,7 @@
    "year": "2024",
    "title": "Disease-linked mutations in Munc18-1 deplete synaptic Doc2.",
    "span_mentions_gene": false,
-   "confidence": 0.5
+   "confidence": 0.4
   },
   {
    "gene": "STXBP1",
@@ -6665,7 +8807,7 @@
    "year": "2023",
    "title": "Phenotypic Spectrum of STXBP1 Gene Mutations in an Emirati Case Series.",
    "span_mentions_gene": true,
-   "confidence": 0.8
+   "confidence": 0.4
   },
   {
    "gene": "STXBP1",
@@ -6707,7 +8849,7 @@
    "year": "2023",
    "title": "Myosin Va, a Novel Interaction Partner of STXBP1, Is Required to Transport Syntaxin1A to the Plasma Membrane.",
    "span_mentions_gene": true,
-   "confidence": 0.7
+   "confidence": 0.4
   },
   {
    "gene": "STXBP1",
@@ -6749,7 +8891,7 @@
    "year": "2021",
    "title": "Phenotypic analysis of catastrophic childhood epilepsy genes.",
    "span_mentions_gene": true,
-   "confidence": 0.7
+   "confidence": 0.4
   },
   {
    "gene": "STXBP1",
@@ -6763,7 +8905,7 @@
    "year": "2021",
    "title": "De novo variants in SNAP25 cause an early-onset developmental and epileptic encephalopathy.",
    "span_mentions_gene": true,
-   "confidence": 0.8
+   "confidence": 0.4
   },
   {
    "gene": "STXBP1",
@@ -6777,7 +8919,7 @@
    "year": "2021",
    "title": "STXBP1 encephalopathies: Clinical spectrum, disease mechanisms, and therapeutic strategies.",
    "span_mentions_gene": true,
-   "confidence": 0.8
+   "confidence": 0.4
   },
   {
    "gene": "STXBP1",
@@ -6819,7 +8961,7 @@
    "year": "2020",
    "title": "Functional analysis of epilepsy-associated variants in STXBP1/Munc18-1 using humanized Caenorhabditis elegans.",
    "span_mentions_gene": true,
-   "confidence": 0.7
+   "confidence": 0.4
   },
   {
    "gene": "STXBP1",
@@ -6875,7 +9017,7 @@
    "year": "2020",
    "title": "Homozygous STXBP1 variant causes encephalopathy and gain-of-function in synaptic transmission.",
    "span_mentions_gene": true,
-   "confidence": 0.8
+   "confidence": 0.4
   },
   {
    "gene": "STXBP1",
@@ -7295,7 +9437,7 @@
    "year": "2026",
    "title": "Loss of Necdin causes social deficit and aberrant synaptic function through destabilization of SynGAP.",
    "span_mentions_gene": false,
-   "confidence": 0.5
+   "confidence": 0.4
   },
   {
    "gene": "SYNGAP1",
@@ -7379,7 +9521,7 @@
    "year": "2025",
    "title": "Roadmap to advance therapeutics for SYNGAP1-related disorder: a patient organization perspective from SynGAP Research Fund.",
    "span_mentions_gene": true,
-   "confidence": 0.8
+   "confidence": 0.4
   },
   {
    "gene": "SYNGAP1",
@@ -7477,7 +9619,7 @@
    "year": "2024",
    "title": "Synaptic neoteny of human cortical neurons requires species-specific balancing of SRGAP2-SYNGAP1 cross-inhibition.",
    "span_mentions_gene": true,
-   "confidence": 0.7
+   "confidence": 0.4
   },
   {
    "gene": "SYNGAP1",
@@ -7687,7 +9829,7 @@
    "year": "2023",
    "title": "RNA-based translation activators for targeted gene upregulation.",
    "span_mentions_gene": true,
-   "confidence": 0.7
+   "confidence": 0.4
   },
   {
    "gene": "SYNGAP1",
@@ -7771,7 +9913,7 @@
    "year": "2023",
    "title": "Case report: Off-label use of low-dose perampanel in a 25-month-old girl with a pathogenic SYNGAP1 variant.",
    "span_mentions_gene": true,
-   "confidence": 0.8
+   "confidence": 0.4
   },
   {
    "gene": "SYNGAP1",
@@ -7859,10 +10001,10 @@
   }
  ],
  "stats": {
-  "abstracts": 333,
-  "extracted": 596,
-  "verified": 561,
-  "dropped_span": 35,
+  "abstracts": 487,
+  "extracted": 759,
+  "verified": 714,
+  "dropped_span": 45,
   "dropped_gene": 0,
   "by_gene": {
    "CDKL5": {
@@ -7874,8 +10016,8 @@
     "verified": 39
    },
    "KCNQ2": {
-    "abstracts": 40,
-    "verified": 76
+    "abstracts": 92,
+    "verified": 134
    },
    "KCNT1": {
     "abstracts": 40,
@@ -7886,12 +10028,12 @@
     "verified": 59
    },
    "SCN2A": {
-    "abstracts": 37,
-    "verified": 67
+    "abstracts": 101,
+    "verified": 126
    },
    "SCN8A": {
-    "abstracts": 37,
-    "verified": 58
+    "abstracts": 75,
+    "verified": 94
    },
    "STXBP1": {
     "abstracts": 40,
@@ -7902,7 +10044,93 @@
     "verified": 65
    }
   },
-  "span_mentions_gene": 389,
+  "span_mentions_gene": 492,
+  "by_disease_context": {
+   "CDKL5|unspecified": {
+    "claims": 49,
+    "directional": 34
+   },
+   "CDKL5|Developmental and epileptic encephalopathy 2": {
+    "claims": 12,
+    "directional": 9
+   },
+   "GNAO1|unspecified": {
+    "claims": 32,
+    "directional": 23
+   },
+   "GNAO1|Developmental and epileptic encephalopathy 17": {
+    "claims": 7,
+    "directional": 6
+   },
+   "KCNQ2|unspecified": {
+    "claims": 92,
+    "directional": 49
+   },
+   "KCNQ2|Epileptic encephalopathy, early infantile, 7": {
+    "claims": 34,
+    "directional": 25
+   },
+   "KCNQ2|Seizures, benign familial neonatal, 1": {
+    "claims": 8,
+    "directional": 5
+   },
+   "KCNT1|unspecified": {
+    "claims": 61,
+    "directional": 42
+   },
+   "KCNT1|Developmental and epileptic encephalopathy 14": {
+    "claims": 14,
+    "directional": 14
+   },
+   "SCN1A|Epileptic encephalopathy, early infantile, 6 (Dravet syndrome)": {
+    "claims": 33,
+    "directional": 27
+   },
+   "SCN1A|unspecified": {
+    "claims": 26,
+    "directional": 20
+   },
+   "SCN2A|unspecified": {
+    "claims": 114,
+    "directional": 71
+   },
+   "SCN2A|Epileptic encephalopathy, early infantile, 11": {
+    "claims": 10,
+    "directional": 9
+   },
+   "SCN2A|Seizures, benign familial infantile, 3": {
+    "claims": 2,
+    "directional": 1
+   },
+   "SCN8A|unspecified": {
+    "claims": 63,
+    "directional": 44
+   },
+   "SCN8A|Epileptic encephalopathy, early infantile, 13": {
+    "claims": 24,
+    "directional": 18
+   },
+   "SCN8A|Seizures, benign familial infantile, 5": {
+    "claims": 7,
+    "directional": 1
+   },
+   "STXBP1|unspecified": {
+    "claims": 56,
+    "directional": 44
+   },
+   "STXBP1|Developmental and epileptic encephalopathy 4": {
+    "claims": 5,
+    "directional": 4
+   },
+   "SYNGAP1|Intellectual developmental disorder, autosomal dominant 5": {
+    "claims": 25,
+    "directional": 24
+   },
+   "SYNGAP1|unspecified": {
+    "claims": 40,
+    "directional": 36
+   }
+  },
   "span_drop_rate": 0.059
  }
 }

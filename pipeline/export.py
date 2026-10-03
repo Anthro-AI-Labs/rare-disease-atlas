@@ -3,10 +3,13 @@ import datetime, json, re, shutil, sys
 from collections import Counter
 from common import GRAPH, ROOT
 from config import ALL, CORE, COUNTEREXAMPLES
-import curated
+import curated, mech
+from spans import norm as mech_norm
+from gaps import build_gaps
 from models import Edge, Node
 
 TODAY = datetime.date.today().isoformat()
+SHARE_MECH_MIN = 0.5  # fixed a priori
 
 
 def jl(name):
@@ -34,7 +37,7 @@ def build():
             gene_diseases.setdefault(g, []).append(d)
     sources = [{"name": "HPO + MONDO", "retrieved_at": (GRAPH.parent / "raw" / "RETRIEVED_AT").read_text().strip()
                 if (GRAPH.parent / "raw" / "RETRIEVED_AT").exists() else TODAY}]
-    counter = {"T": 0, "M": 0, "C": 0}
+    counter = {"T": 0, "S": 0, "C": 0}
 
     def add(prefix, **kw):
         counter[prefix] += 1
@@ -43,7 +46,7 @@ def build():
 
     # --- trials (ClinicalTrials.gov) ---
     tr = jload("trials.json")
-    trial_stats = None
+    trial_stats, trial_hits = None, {}
     if tr:
         sources.append({"name": "ClinicalTrials.gov API v2", "retrieved_at": tr["retrieved_at"]})
         studies = {s["nct"]: s for s in tr["studies"]}
@@ -61,26 +64,66 @@ def build():
                     source_db="ClinicalTrials.gov API v2", references=[s["nct"]], confidence=0.6, status="supported",
                     note=f"Registry record names {l['gene']} in title/conditions/keywords; confirm the disease/variant is in scope.")
         trial_stats = {"studies_fetched": len(studies), "studies_in_graph": len(used)}
+        trial_hits = {}
+        for l in tr["links"]:
+            trial_hits[l["gene"]] = trial_hits.get(l["gene"], 0) + 1
 
-    # --- mechanisms (LLM, span-verified) ---
-    mech = jload("mechanisms.json")
-    if mech:
-        sources.append({"name": f"PubMed + OpenAI ({mech['model']})", "retrieved_at": mech["retrieved_at"]})
-        for c in mech["claims"]:
+    # --- mechanisms (LLM, span-verified); stable claim ids ---
+    mech_json = jload("mechanisms.json")
+    claims = mech_json["claims"] if mech_json else []
+    idx = mech.disease_index() if claims else {}
+    spec = mech.specific_claims(claims, idx, gene_level=True)
+    if mech_json:
+        sources.append({"name": f"PubMed + OpenAI ({mech_json['model']})", "retrieved_at": mech_json["retrieved_at"]})
+        for c in claims:
             mid = f"MECH:{c['variant_effect']}|{c['molecular_function']}"
             nodes.setdefault(mid, {"id": mid, "type": "mechanism",
                                    "name": f"{c['variant_effect'].replace('_', ' ')} · {c['molecular_function'].replace('_', ' ')}",
                                    "variant_effect": c["variant_effect"], "molecular_function": c["molecular_function"]})
             nodes.setdefault(f"PMID:{c['pmid']}", {"id": f"PMID:{c['pmid']}", "type": "publication", "name": c["title"],
                                                    "year": c["year"], "url": f"https://pubmed.ncbi.nlm.nih.gov/{c['pmid']}/"})
-            add("M", source=f"HGNC_SYMBOL:{c['gene'].upper()}", target=mid, relation="has_variant_effect",
-                evidence_type="llm_extracted", source_db=f"PubMed abstract + {mech['model']}",
-                references=[f"PMID:{c['pmid']}"], confidence=c["confidence"], span_mentions_gene=c["span_mentions_gene"], disease_context=c["disease_context"],
-                status="supported", quoted_span=c["quoted_span"], population=c["population"],
-                linked_phenotype_or_disease=c["linked_phenotype_or_disease"])
+            edges.append({"id": mech.claim_id(c), "retrieved_at": TODAY, "source": f"HGNC_SYMBOL:{c['gene'].upper()}", "target": mid,
+                          "relation": "has_variant_effect", "evidence_type": "llm_extracted",
+                          "source_db": f"PubMed abstract + {mech_json['model']}", "references": [f"PMID:{c['pmid']}"],
+                          "confidence": c["confidence"], "span_mentions_gene": c["span_mentions_gene"], "disease_context": c["disease_context"],
+                          "status": "supported", "quoted_span": c["quoted_span"], "population": c["population"],
+                          "linked_phenotype_or_disease": c["linked_phenotype_or_disease"], "contradicts": []})
+    by_id = {e["id"]: e for e in edges}
+    # --- WP2.2 contradictions (disease level); "mixed" is a finding, not a contradiction ---
+    findings = mech.contradictions(claims, idx) if claims else []
+    for f in findings:
+        if f["kind"] == "contradicted":
+            for mine, other in ((f["reduced"], f["increased"]), (f["increased"], f["reduced"])):
+                for i in mine:
+                    by_id[i]["status"] = "contradicted"
+                    by_id[i]["contradicts"] = other
+        else:
+            for i in f["reduced"] + f["increased"]:
+                by_id[i]["note"] = "Mixed: reduced- and increased-function claims are tied to different phenotypes (a finding, not a contradiction)."
+    # --- computed shares_mechanism_with (hypothesis) from disease-level profiles ---
+    comb = json.loads((GRAPH / "similarity_combined.json").read_text()) if (GRAPH / "similarity_combined.json").exists() else []
+    for p in comb:
+        if p["mechanism_available"] and p["mechanism"] >= SHARE_MECH_MIN:
+            keys = set(p["shared_mechanism_keys"])
+            sup = [c for d in (p["a"], p["b"]) for c in mech.directional(spec.get(d, []))
+                   if f"E:{c['variant_effect']}" in keys or f"F:{c['molecular_function']}" in keys]
+            add("S", source=p["a"], target=p["b"], relation="shares_mechanism_with", evidence_type="computed",
+                source_db="weighted Jaccard over disease-level mechanism profiles", references=sorted({f"PMID:{c['pmid']}" for c in sup}),
+                confidence=round(p["mechanism"], 3), status="hypothesis", supporting_edge_ids=sorted({mech.claim_id(c) for c in sup}),
+                shared_mechanisms=sorted(keys),
+                method_note="Computed from literature-derived claims; a hypothesis of shared mechanism, not established evidence.")
 
     # --- curated CSVs (missing => empty) ---
-    pg, assets = curated.load("patient_groups"), curated.load("assets")
+    slice_genes = set(ALL.values())
+    skipped = []
+    def ok(rows, name):
+        keep = [r for r in rows if r["gene"].upper() in slice_genes]
+        for r in rows:
+            if r["gene"].upper() not in slice_genes:
+                skipped.append(f"{name}:{r['gene']}")
+                print(f"WARNING: {name} row for gene {r['gene']!r} is outside the slice; skipped")
+        return keep
+    pg, assets = ok(curated.load("patient_groups"), "patient_groups"), ok(curated.load("assets"), "assets")
     for r in pg:
         oid = f"ORG:{slug(r['organization_name'])}"
         nodes.setdefault(oid, {"id": oid, "type": "patient_org", "name": r["organization_name"], "url": r["url"],
@@ -107,9 +150,35 @@ def build():
         assert e["source"] in nodes and e["target"] in nodes, f"dangling edge {e['id']}"
     for n in nodes.values():
         Node(**n)
+    # --- review precision per confidence tier (evidence_review*.csv; joined on pmid + quoted span) ---
+    tier = lambda c: "0.8" if c >= 0.8 else "0.7" if c >= 0.7 else "<=0.5"
+    key = lambda pmid, span: (str(pmid), mech_norm(span))
+    claim_edge = {key(e["references"][0].removeprefix("PMID:"), e["quoted_span"]): e for e in edges if e["relation"] == "has_variant_effect"}
+    review = {t: {"sampled": 0, "reviewed": 0, "correct": 0, "partial": 0, "incorrect": 0} for t in ("0.8", "0.7", "<=0.5")}
+    seen = set()
+    for name in ("evidence_review_v2",):  # v1 is a non-random (priority) sample: excluded from precision estimates
+        for r in curated.load(name):
+            e = claim_edge.get(key(r["pmid"], r["quoted_span"]))
+            if not e or key(r["pmid"], r["quoted_span"]) in seen:
+                continue
+            seen.add(key(r["pmid"], r["quoted_span"]))
+            t = review[tier(e["confidence"])]
+            t["sampled"] += 1
+            v = r["verdict"].lower()
+            if v in ("correct", "partial", "incorrect"):
+                t["reviewed"] += 1; t[v] += 1
+                e["review_verdict"] = v
+    for t in review.values():
+        t["precision"] = round(t["correct"] / t["reviewed"], 3) if t["reviewed"] else None
+    gaps = build_gaps(nodes, edges, comb, {"claims": claims, "specific": spec, "mech_stats": mech_json["stats"] if mech_json else None,
+                                           "trials": tr, "trial_hits": trial_hits, "n_orgs_file": len(pg), "n_assets_file": len(assets)})
     graph = {"meta": {"built_at": datetime.datetime.now(datetime.timezone.utc).isoformat(timespec="seconds"),
                       "sources": sources, "trial_stats": trial_stats,
-                      "mechanism_stats": mech["stats"] if mech else None,
+                      "mechanism_stats": mech_json["stats"] if mech_json else None,
+                      "review_precision_by_tier": review, "pairs": comb, "contradiction_findings": findings, "gaps": gaps,
+                      "cluster_report": json.loads((GRAPH / "cluster_report.json").read_text()),
+                      "curated_skipped": skipped, "share_mechanism_min": SHARE_MECH_MIN,
+                      "confidence_rule": "LLM claims: 0.8 span names the gene and population=human; 0.7 names the gene, not human; 0.5 span does not name the gene; variant_effect=unclear is capped at 0.4 and excluded from similarity.",
                       "curated_counts": {"patient_groups": len(pg), "assets": len(assets)},
                       "core": CORE, "counterexamples": COUNTEREXAMPLES},
              "nodes": list(nodes.values()), "edges": edges, "clusters": json.loads((GRAPH / "clusters.json").read_text()),

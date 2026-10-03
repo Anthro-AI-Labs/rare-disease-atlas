@@ -2,7 +2,7 @@ PY ?= venv/bin/python
 HPO = https://github.com/obophenotype/human-phenotype-ontology/releases/latest/download
 MONDO = https://github.com/monarch-initiative/mondo/releases/latest/download
 
-.PHONY: data base mechanisms trials graph test dev
+.PHONY: data base cluster mechanisms trials graph test dev
 data:
 	mkdir -p data/raw
 	for f in hp.obo phenotype.hpoa genes_to_disease.txt; do [ -s data/raw/$$f ] || curl -sSL -o data/raw/$$f $(HPO)/$$f; done
@@ -11,11 +11,13 @@ data:
 
 base:
 	$(PY) pipeline/build_graph.py
+cluster:
+	$(PY) pipeline/cluster.py
 mechanisms:
 	$(PY) pipeline/extract_mechanisms.py
 trials:
 	$(PY) pipeline/fetch_assets.py
-graph: base trials mechanisms
+graph: base trials mechanisms cluster
 	$(PY) pipeline/export.py
 test:
 	$(PY) -m pytest -q pipeline/tests

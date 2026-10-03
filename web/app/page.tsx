@@ -21,6 +21,12 @@ export default function Home() {
             <span className="text-neutral-500"> · {d.name}{d.role === "counterexample" ? " (benign)" : d.role === "contrast" ? " (contrast)" : ""}</span></li>
         ))}
       </ul>
+      <h2 className="mt-10 text-sm font-medium uppercase tracking-wide text-neutral-500">How reliable are the extracted claims?</h2>
+      <p className="mt-2 text-sm text-neutral-700">Manual review of random samples, reported per confidence tier (never one overall number). {g.meta.confidence_rule}</p>
+      <table className="mt-2 w-full text-left text-sm"><thead><tr className="text-xs text-neutral-500"><th>Tier</th><th>Sampled</th><th>Reviewed</th><th>Correct</th><th>Precision</th></tr></thead>
+        <tbody>{Object.entries(g.meta.review_precision_by_tier).map(([t, r]) => (
+          <tr key={t} className="border-t border-neutral-200"><td className="py-1">{t}</td><td>{r.sampled}</td><td>{r.reviewed}</td><td>{r.correct}</td>
+            <td>{r.precision === null ? "not yet reviewed" : `${Math.round(r.precision * 100)}% (${r.correct}/${r.reviewed}${r.partial ? `, ${r.partial} partial` : ""})`}</td></tr>))}</tbody></table>
       <p className="mt-10 text-xs text-neutral-500">Graph built {g.meta.built_at.slice(0, 10)} from {g.meta.sources.map((s) => s.name).join(", ")}.</p>
     </main>
   );
