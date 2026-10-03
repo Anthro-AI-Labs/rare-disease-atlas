@@ -10,10 +10,11 @@ import { Ev } from "@/components/EvidenceDrawer";
 import { strip } from "@/components/Explanation";
 import PairExplain from "@/components/PairExplain";
 import StepNav from "@/components/StepNav";
+import { DiseaseName, GeneName, StatusTip } from "@/components/Names";
 import { Glossed, Term } from "@/components/Term";
 import { diseases, graphData, idOf, load, slugOf } from "@/lib/graph";
 import { ROUTE } from "@/lib/status";
-import { story } from "@/lib/story";
+import { diseaseTip, story } from "@/lib/story";
 
 export function generateStaticParams() {
   return diseases().map((d) => ({ slug: slugOf(d.id) }));
@@ -61,13 +62,13 @@ export default async function DiseasePage({ params }: { params: Promise<{ slug: 
       <Link href="/" className="mt-2 inline-block text-sm text-muted hover:text-accent">← All diseases</Link>
       <header className="pt-4">
         <div className="flex flex-wrap items-center gap-2">
-          <span className="chip chip-accent">{d.gene}</span>
+          <GeneName t={s.gene}><span className="chip chip-accent">{d.gene}</span></GeneName>
           <a className="chip chip-ctx" href={refLink(d.id)!} target="_blank" rel="noreferrer">{d.id}</a>
           {d.role === "counterexample" && <Chip kind="ctx">benign form of a gene that also causes a severe disease</Chip>}
-          <Ev ids={g.meta.gaps[id].routes.flatMap((r) => r.edge_ids).slice(0, 10).concat([causes.id])} title="Evidence for this route"><span className={`chip chip-${route.kind} cursor-pointer`}>{route.label}</span></Ev>
+          <StatusTip kind={route.kind}><Ev ids={g.meta.gaps[id].routes.flatMap((r) => r.edge_ids).slice(0, 10).concat([causes.id])} title="Evidence for this route"><span className={`chip chip-${route.kind} cursor-pointer`}>{route.label}</span></Ev></StatusTip>
         </div>
         <h1 className="mt-4 max-w-4xl text-4xl font-bold leading-tight sm:text-5xl">{s.common}</h1>
-        <p className="mt-2 text-lg text-muted">{d.name}</p>
+        <p className="mt-2 text-lg text-muted">{d.name} · <DiseaseName t={s.tip} className="dotted text-accent">What is this?</DiseaseName></p>
       </header>
 
       <Answer segs={s.answer} tone={s.relKind} note={<>
@@ -104,11 +105,11 @@ export default async function DiseasePage({ params }: { params: Promise<{ slug: 
                 <div className="flex flex-wrap items-start justify-between gap-3">
                   <div>
                     <Link href={`/disease/${slugOf(r.to.id)}`} className="font-heading text-2xl font-semibold text-ink hover:text-accent">{diseases().find((x) => x.id === r.to.id)?.gene}</Link>
-                    <p className="text-sm text-muted">{r.to.name}</p>
+                    <p className="text-sm text-muted"><DiseaseName t={diseaseTip(r.to.id)} /></p>
                   </div>
                   <div className="flex flex-wrap gap-2">
                     {r.route.connection === "same_gene" && <Chip kind="ctx">Same gene</Chip>}
-                    <Ev ids={r.route.edge_ids} title={`Evidence: link to ${r.to.name}`}><span className={`chip chip-${c.kind} cursor-pointer`}>{c.label}<span aria-hidden className="ev-n opacity-70">· {r.route.edge_ids.length} evidence</span></span></Ev>
+                    <StatusTip kind={c.kind}><Ev ids={r.route.edge_ids} title={`Evidence: link to ${r.to.name}`}><span className={`chip chip-${c.kind} cursor-pointer`}>{c.label}<span aria-hidden className="ev-n opacity-70">· {r.route.edge_ids.length} evidence</span></span></Ev></StatusTip>
                   </div>
                 </div>
                 <p className="mt-4 text-lg"><b className="font-semibold">Why:</b> both involve {r.shared.slice(0, 2).map((p) => lc(p.name)).join(" and ") || "overlapping features"}. {mechLine(r)}</p>

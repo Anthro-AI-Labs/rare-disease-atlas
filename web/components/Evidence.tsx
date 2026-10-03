@@ -1,4 +1,5 @@
 import { Ev } from "@/components/EvidenceDrawer";
+import { StatusTip } from "@/components/Names";
 import { chipOf } from "@/lib/status";
 import type { Edge } from "@/lib/graph";
 
@@ -6,9 +7,9 @@ import type { Edge } from "@/lib/graph";
 export function EvidenceBadge({ e, label }: { e: Edge; label?: string }) {
   const c = chipOf(e);
   return (
-    <Ev ids={[e.id]} title="Evidence" className="rounded-full">
+    <StatusTip kind={c.kind}><Ev ids={[e.id]} title="Evidence" className="rounded-full">
       <span className={`chip chip-${c.kind} cursor-pointer`}>{e.review_verdict === "correct" ? "✓ " : ""}{label ?? c.label}<span aria-hidden className="ev-n opacity-70">· 1 evidence</span></span>
-    </Ev>
+    </Ev></StatusTip>
   );
 }
 

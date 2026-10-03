@@ -33,6 +33,20 @@ export const GLOSSARY: Record<string, string> = {
   "variant": "A change in a gene's DNA.",
   "gene": "A stretch of DNA that carries the instructions for one protein.",
   "seizure": "A burst of abnormal electrical activity in the brain.",
+  "developmental and epileptic encephalopathy": "A condition where frequent seizures and the gene change itself both slow a child's development.",
+  "EEG": "A painless test that records the brain's electrical activity through small sensors on the scalp.",
+  "status epilepticus": "A seizure that lasts too long, or seizures that follow each other without recovery in between. It is an emergency.",
+  "burst suppression": "A severe EEG pattern: bursts of activity separated by near-silence.",
+  "hypsarrhythmia": "A chaotic EEG pattern often seen with infantile spasms.",
+  "MONDO": "A shared dictionary of diseases that links the different names used by other catalogues.",
+  "PMID": "The ID number of a paper in PubMed, the US library of medical research.",
+  "ClinicalTrials.gov": "The public US registry of clinical studies around the world.",
+  "de novo": "A gene change that is new in the child and was not inherited from either parent.",
+  "synapse": "The tiny gap where one brain cell passes a signal to the next.",
+  "neuron": "A brain cell that sends electrical and chemical signals.",
+  "ion channel": "A tiny gate in a cell's surface that lets charged particles in or out.",
+  "kinase": "An enzyme that switches other proteins on or off by adding a small chemical tag.",
+  "benign familial infantile seizures": "Seizures in the first year of life that run in families and usually stop on their own, with normal development.",
 };
 const keys = Object.keys(GLOSSARY).sort((a, b) => b.length - a.length);
 export const GLOSS_RE = new RegExp(`\\b(${keys.map((k) => k.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).join("|")})\\b`, "gi");

@@ -1,15 +1,12 @@
+import { Tip } from "@/components/Tip";
 import { GLOSS_RE, define } from "@/lib/glossary";
 
-/** Glossary tooltip: hover or keyboard focus shows a plain-language definition. */
+/** Glossary tooltip: hover, keyboard focus or tap shows a plain-language definition. */
 export function Term({ children, k }: { children: React.ReactNode; k?: string }) {
   const label = typeof children === "string" ? children : k ?? "";
   const def = define(k ?? label);
   if (!def) return <>{children}</>;
-  return (
-    <span className="term" tabIndex={0} role="note" aria-label={`${label}: ${def}`}>
-      {children}<span className="tip" aria-hidden="true">{def}</span>
-    </span>
-  );
+  return <Tip content={def} className="dotted">{children}</Tip>;
 }
 
 /** Wraps the first occurrence of each glossary term in running text. */
