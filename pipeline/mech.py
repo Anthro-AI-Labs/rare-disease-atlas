@@ -10,14 +10,47 @@ GENERIC = {"seizures", "seizure", "epilepsy", "epileptic", "encephalopathy", "di
 
 
 def claim_id(c):
-    """Stable edge id: independent of extraction order."""
+    """Stable edge id: independent of extraction order and of the entailment overlay (hash of the ORIGINAL extracted effect)."""
+    if c.get("claim_id"):
+        return c["claim_id"]
     h = hashlib.sha1(f"{c['pmid']}|{c['gene']}|{c['quoted_span']}|{c['variant_effect']}|{c['molecular_function']}".encode()).hexdigest()
     return "M" + h[:8]
 
 
-def load_claims():
+def base_confidence(mentions, population):
+    return (0.8 if population == "human" else 0.7) if mentions else 0.5
+
+
+def load_claims(overlay=True):
+    """Claims from mechanisms.json, with the entailment overlay (data/graph/entailment.json) applied:
+    population := population described by the span; entailment 'no' => variant_effect 'unclear' (context only, conf <= 0.4);
+    'partial' => confidence - 0.2; confidence is recomputed from the checked population. Original values are kept in extracted_*."""
     p = GRAPH / "mechanisms.json"
-    return json.loads(p.read_text())["claims"] if p.exists() else []
+    claims = json.loads(p.read_text())["claims"] if p.exists() else []
+    for c in claims:
+        c["claim_id"] = claim_id(c)
+        c["extracted_variant_effect"], c["extracted_population"] = c["variant_effect"], c["population"]
+        c["entailment"] = "not_checked" if c["variant_effect"] == "unclear" else None
+    ev = GRAPH / "entailment.json"
+    if overlay and ev.exists():
+        verd = json.loads(ev.read_text())["verdicts"]
+        for c in claims:
+            v = verd.get(c["claim_id"])
+            if c["variant_effect"] == "unclear":
+                c["confidence"] = min(base_confidence(c["span_mentions_gene"], c["population"]), 0.4)
+                continue
+            if v is None:
+                continue
+            c["entailment"], c["population"], c["entailment_rationale"] = v["entailment"], v["population"], v["rationale"]
+            conf = base_confidence(c["span_mentions_gene"], c["population"])
+            if v["entailment"] == "partial":
+                conf -= 0.2
+            if v["entailment"] == "no":
+                c["variant_effect"] = "unclear"
+            if c["variant_effect"] == "unclear":
+                conf = min(conf, 0.4)
+            c["confidence"] = round(conf, 2)
+    return claims
 
 
 def disease_index():

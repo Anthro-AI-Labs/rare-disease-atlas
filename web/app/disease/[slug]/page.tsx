@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { EvidenceBadge, Empty, refLink } from "@/components/Evidence";
+import { EvidenceBadge, EntailChip, Empty, refLink } from "@/components/Evidence";
 import { Investigators } from "@/components/Claim";
 import { ExplanationPanel } from "@/components/Explanation";
 import { diseaseView, diseases, idOf, load, slugOf } from "@/lib/graph";
@@ -25,6 +25,7 @@ export default async function DiseasePage({ params }: { params: Promise<{ slug: 
   const Claim = ({ m }: { m: (typeof mechanisms)[number] }) => (
     <li>
       <p className="font-medium">{m.mech.name} <span className="text-sm font-normal text-neutral-500">· {String(m.edge.population)} · {m.edge.disease_context === "unspecified" ? (sole ? "gene-level, attributed to this disease (only one in the slice)" : "gene-level, disease unspecified") : "about this disease"}{m.edge.linked_phenotype_or_disease ? ` · ${m.edge.linked_phenotype_or_disease}` : ""}</span>
+        <EntailChip e={m.edge} />
         {m.mech.variant_effect === "unclear" && <span className="ml-2 rounded border border-neutral-400 px-1 text-xs font-normal text-neutral-600">direction unclear: context only</span>}
         {m.edge.confidence <= 0.5 && <span title={rule} className="ml-2 rounded border border-red-700 px-1 text-xs font-normal text-red-800">low confidence {m.edge.confidence}</span>}
       </p>
@@ -34,7 +35,8 @@ export default async function DiseasePage({ params }: { params: Promise<{ slug: 
     </li>
   );
   const directional = mechanisms.filter((m) => m.mech.variant_effect !== "unclear");
-  const top3 = directional.slice(0, 3);
+  const top3 = [...directional].sort((a, b) => Number(b.edge.entailment === "yes") - Number(a.edge.entailment === "yes") || b.edge.confidence - a.edge.confidence).slice(0, 3);
+  const ent = { yes: mechanisms.filter((m) => m.edge.entailment === "yes").length, partial: mechanisms.filter((m) => m.edge.entailment === "partial").length };
   const rest = mechanisms.filter((m) => !top3.includes(m));
   const tr3 = trials.slice(0, 3);
   const Trial = ({ t }: { t: (typeof trials)[number] }) => (
@@ -120,10 +122,11 @@ export default async function DiseasePage({ params }: { params: Promise<{ slug: 
         <>
           <p className="mt-2 text-sm text-neutral-700">
             {mechanisms.length} claims. Variant effect: {Object.entries(effectCounts).sort((a, b) => b[1] - a[1]).map(([k, n]) => `${k.replace(/_/g, " ")} ${n}`).join(" · ")}.
+            Span check: {ent.yes} state the effect, {ent.partial} partially, {mechanisms.length - ent.yes - ent.partial} context only.
             <span title={rule} className="ml-1 cursor-help underline decoration-dotted">Confidence rule</span>
           </p>
           <p className="text-xs text-neutral-500">{rule}</p>
-          {top3.length > 0 && <><p className="mt-3 text-sm font-medium">Top {top3.length} by confidence (directional claims)</p>
+          {top3.length > 0 && <><p className="mt-3 text-sm font-medium">Top {top3.length} by confidence (directional claims; spans that state the effect rank first)</p>
             <ul className="mt-2 space-y-4">{top3.map((m) => <Claim key={m.edge.id} m={m} />)}</ul></>}
           {rest.length > 0 && <details className="mt-3"><summary className="cursor-pointer text-sm underline">All other claims ({rest.length}, incl. “unclear”)</summary>
             <ul className="mt-2 space-y-4">{rest.map((m) => <Claim key={m.edge.id} m={m} />)}</ul></details>}

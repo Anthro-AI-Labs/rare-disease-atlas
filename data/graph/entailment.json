@@ -1,0 +1,2597 @@
+{
+ "model": "gpt-5.4-mini",
+ "prompt_hash": "076fa00a48",
+ "stats": {
+  "checked": 506,
+  "skipped_unclear": 208,
+  "by_verdict": {
+   "yes": 362,
+   "no": 112,
+   "partial": 32
+  },
+  "by_gene": {
+   "CDKL5": {
+    "yes": 29,
+    "no": 13,
+    "partial": 1
+   },
+   "GNAO1": {
+    "yes": 23,
+    "no": 6
+   },
+   "KCNQ2": {
+    "yes": 57,
+    "no": 15,
+    "partial": 7
+   },
+   "KCNT1": {
+    "yes": 45,
+    "no": 8,
+    "partial": 3
+   },
+   "SCN1A": {
+    "yes": 39,
+    "no": 7,
+    "partial": 1
+   },
+   "SCN2A": {
+    "yes": 51,
+    "no": 19,
+    "partial": 11
+   },
+   "SCN8A": {
+    "yes": 39,
+    "no": 19,
+    "partial": 5
+   },
+   "STXBP1": {
+    "yes": 32,
+    "partial": 4,
+    "no": 12
+   },
+   "SYNGAP1": {
+    "yes": 47,
+    "no": 13
+   }
+  },
+  "population_changed": 277,
+  "population_checked": {
+   "not_stated": 224,
+   "animal": 107,
+   "in_vitro": 90,
+   "human": 85
+  }
+ },
+ "verdicts": {
+  "M01118803": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "States CDD is caused by loss-of-function variants in CDKL5."
+  },
+  "Md8501e71": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Explicitly states variants lead to impaired kinase activity or loss of function."
+  },
+  "M0b4af0de": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Sentence directly states CDKL5 loss-of-function mutations."
+  },
+  "Mdf22a527": {
+   "entailment": "no",
+   "population": "not_stated",
+   "rationale": "Sentence describes downstream channel effects in CDKL5 knockout, not CDKL5 variant loss of function itself."
+  },
+  "M6dbc98ba": {
+   "entailment": "yes",
+   "population": "animal",
+   "rationale": "KO means gene disruption causing loss of CDKL5 function in mice."
+  },
+  "Me5ac4af6": {
+   "entailment": "yes",
+   "population": "animal",
+   "rationale": "Cdkl5 knockout mice indicate gene loss and altered expression/phosphorylation consistent with loss of function."
+  },
+  "M5d0903bd": {
+   "entailment": "no",
+   "population": "animal",
+   "rationale": "Describes decreased KCC2 expression, not CDKL5 variant or gene-product functional loss."
+  },
+  "M9cdb2e63": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Directly states several pathogenic variants are loss-of-function."
+  },
+  "M36631eb1": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Explicitly states variants lead to impaired kinase activity or loss of function."
+  },
+  "Ma978a3bc": {
+   "entailment": "yes",
+   "population": "animal",
+   "rationale": "Explicitly states a loss-of-function mutation in rat Cdkl5."
+  },
+  "M9aa028a6": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Explicitly states loss-of-function variants in CDKL5."
+  },
+  "M74634298": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Explicitly states CDKL5 is caused by loss-of-function mutations."
+  },
+  "Mc53f63f5": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Explicitly states CDKL5 loss-of-function mutations cause disease."
+  },
+  "M7f473502": {
+   "entailment": "yes",
+   "population": "in_vitro",
+   "rationale": "Deletion or pathogenic mutant reduced virophagy, indicating reduced CDKL5 function."
+  },
+  "M5dd4728f": {
+   "entailment": "yes",
+   "population": "animal",
+   "rationale": "Knockout indicates loss of CDKL5 function."
+  },
+  "M53144355": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Explicitly states pathological loss-of-function mutations in CDKL5."
+  },
+  "M2294318a": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Explicitly states pathological loss-of-function mutations in CDKL5 cause the disorder."
+  },
+  "Mee870d4c": {
+   "entailment": "no",
+   "population": "not_stated",
+   "rationale": "Describes acute inhibition effects, not a variant causing reduced CDKL5 function or expression."
+  },
+  "M04555a4a": {
+   "entailment": "yes",
+   "population": "animal",
+   "rationale": "States loss of CDKL5 function directly and uses knockout neurons."
+  },
+  "Me8cd5b9a": {
+   "entailment": "no",
+   "population": "not_stated",
+   "rationale": "Describes CDKL5\u2019s role in endocytosis, not a variant-specific loss of function."
+  },
+  "Mf789259e": {
+   "entailment": "no",
+   "population": "not_stated",
+   "rationale": "States kinase activity is necessary and sufficient, but no variant or loss-of-function effect is described."
+  },
+  "Mbca8be2d": {
+   "entailment": "yes",
+   "population": "animal",
+   "rationale": "Kinase-inactive mutations fail to rescue function, indicating loss of CDKL5 function in knockout neurons."
+  },
+  "Mf6524880": {
+   "entailment": "yes",
+   "population": "human",
+   "rationale": "States pathogenic variants cause loss of catalytic activity or partial loss of function in patients."
+  },
+  "M08355c27": {
+   "entailment": "no",
+   "population": "not_stated",
+   "rationale": "States CDKL5 loss causes disease, not that a variant reduces CDKL5 function."
+  },
+  "M27fa50c6": {
+   "entailment": "yes",
+   "population": "in_vitro",
+   "rationale": "States increased autophosphorylation and target phosphorylation, indicating CDKL5 hyperactivation."
+  },
+  "M75a38aca": {
+   "entailment": "yes",
+   "population": "animal",
+   "rationale": "Explicitly states a loss-of-function model with a nonsense mutation in cdkl5."
+  },
+  "Mc41d578b": {
+   "entailment": "no",
+   "population": "animal",
+   "rationale": "Describes mutant zebrafish phenotypes, not a direct statement of reduced CDKL5 gene product function."
+  },
+  "M1044a268": {
+   "entailment": "yes",
+   "population": "animal",
+   "rationale": "States loss of CDKL5 reduced LTP, indicating reduced function."
+  },
+  "Md6b0b2b9": {
+   "entailment": "yes",
+   "population": "animal",
+   "rationale": "States CDKL5 loss reduces function-related synaptic plasticity in mutant mice."
+  },
+  "M7a38c371": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Directly states CDKL5 loss of function underlies the disorder."
+  },
+  "M7804e2ad": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "States CDKL5 variants have different impacts on the protein, implying both damaging and other effects."
+  },
+  "M1b99205f": {
+   "entailment": "partial",
+   "population": "human",
+   "rationale": "Truncating variants suggest loss, but sentence only links them to worse phenotype, not gene product function."
+  },
+  "M8bc46395": {
+   "entailment": "no",
+   "population": "human",
+   "rationale": "Describes loss of anticonvulsant effects in patients, not CDKL5 variant impact on gene product function."
+  },
+  "Meaf2ee41": {
+   "entailment": "yes",
+   "population": "human",
+   "rationale": "Directly states CDKL5 mutations in patients cause enzymatic loss of function."
+  },
+  "M607cb836": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Explicitly states loss-of-function mutations in CDKL5."
+  },
+  "Me38ab7e5": {
+   "entailment": "yes",
+   "population": "animal",
+   "rationale": "CDKL5 knockout implies loss of CDKL5 function, and the sentence links knockout neurons to altered dynamics."
+  },
+  "M6ea24f9d": {
+   "entailment": "no",
+   "population": "not_stated",
+   "rationale": "Describes CDKL5 function and seizure regulation, not a variant causing reduced function."
+  },
+  "M1531aecb": {
+   "entailment": "yes",
+   "population": "animal",
+   "rationale": "Explicitly says CDKL5 loss-of-function murine models."
+  },
+  "M98167635": {
+   "entailment": "no",
+   "population": "animal",
+   "rationale": "Describes reduced c-Fos and circuit hypoactivity, not direct gene product loss of function."
+  },
+  "Mfb8f1945": {
+   "entailment": "no",
+   "population": "animal",
+   "rationale": "Describes altered synaptic markers in mutants, but no direct statement of reduced CDKL5 function."
+  },
+  "M10f72eab": {
+   "entailment": "no",
+   "population": "animal",
+   "rationale": "Describes neuron density and connectivity in mutant tissue, not CDKL5 variant effect on gene product."
+  },
+  "M10476bdd": {
+   "entailment": "no",
+   "population": "animal",
+   "rationale": "Describes altered developmental phenotype in mice, not reduced CDKL5 gene product function."
+  },
+  "M5363d854": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "States CDKL5 loss-of-function mutations cause Rett syndrome, directly matching the claimed effect."
+  },
+  "Mdb58fe2b": {
+   "entailment": "yes",
+   "population": "animal",
+   "rationale": "Explicitly calls G203R a severe dominant negative GNAO1 variant."
+  },
+  "M348aec25": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Directly states E246K overrides wild-type G\u03b1o function, explaining a dominant effect."
+  },
+  "Mc7c0870d": {
+   "entailment": "yes",
+   "population": "in_vitro",
+   "rationale": "Mutant G\u03b1o-G203R lost an activity in HEK293T cells, supporting loss of function."
+  },
+  "Me09cc03d": {
+   "entailment": "yes",
+   "population": "in_vitro",
+   "rationale": "Sentence explicitly states G\u03b1o-G203R had a dominant-negative effect in primary neuronal culture."
+  },
+  "Meb348378": {
+   "entailment": "yes",
+   "population": "human",
+   "rationale": "Directly states LOF or partial LOF mutations were observed in patients."
+  },
+  "M495d6b07": {
+   "entailment": "no",
+   "population": "not_stated",
+   "rationale": "Describes normal gene function only; no variant effect mentioned."
+  },
+  "Mddd68f50": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Sentence explicitly calls the mutation partially dominant negative."
+  },
+  "Mf2026d98": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "States increased GTP uptake and aberrant effector interactions, consistent with gain of function."
+  },
+  "Ma75159aa": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "States variable hypomorphic effect on G\u03b1o-mediated signaling, implying reduced function."
+  },
+  "M53da28c0": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Sentence explicitly states heterozygous variants showed cell-specific dominant-negative behavior."
+  },
+  "Mcdc4441e": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Explicitly states a loss-of-function G\u0003ao protein."
+  },
+  "M60aea687": {
+   "entailment": "no",
+   "population": "animal",
+   "rationale": "Mentions overexpression causing cardiac dysfunction, not variant-specific increased gene product activity."
+  },
+  "Me481b36c": {
+   "entailment": "yes",
+   "population": "animal",
+   "rationale": "Sentence directly compares homozygous knock-in animals to null mutants, implying loss of function."
+  },
+  "M065be904": {
+   "entailment": "yes",
+   "population": "animal",
+   "rationale": "States strong hypomorphic effect for both variants and partial dominant-negative activity for one allele."
+  },
+  "Ma176213b": {
+   "entailment": "yes",
+   "population": "in_vitro",
+   "rationale": "States tested mutations cause strong loss of function defects in CRISPR alleles."
+  },
+  "M3c5e7d6c": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Sentence explicitly states mutations produced dominant negative effects."
+  },
+  "M0c565ec4": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "States mutations alter G\u03b1o via both dominant-negative and loss-of-function mechanisms."
+  },
+  "M301d2222": {
+   "entailment": "yes",
+   "population": "animal",
+   "rationale": "Sentence explicitly labels the mutation as GOF, directly matching gain of function."
+  },
+  "M991db475": {
+   "entailment": "no",
+   "population": "human",
+   "rationale": "Describes clinical phenotypes from mutations, not increased or constitutive GNAO1 function."
+  },
+  "Md112473f": {
+   "entailment": "yes",
+   "population": "human",
+   "rationale": "Sentence directly states children with loss-of-function mutations exhibit the disorder, implying reduced gene function."
+  },
+  "M3f714087": {
+   "entailment": "yes",
+   "population": "human",
+   "rationale": "Sentence explicitly states gain-of-function mutations are found in patients."
+  },
+  "M22a63d0a": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Sentence directly states the phenotype is associated with loss-of-function variants."
+  },
+  "M548db24a": {
+   "entailment": "no",
+   "population": "not_stated",
+   "rationale": "Describes disease phenotypes only; no variant effect on gene product is stated."
+  },
+  "Mf0f782e0": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "States both loss-of-function and gain-of-function GNAO1 alleles, matching a mixed effect."
+  },
+  "M12a97f78": {
+   "entailment": "yes",
+   "population": "in_vitro",
+   "rationale": "Sentence explicitly states reduced expression and loss of function."
+  },
+  "Mbe6aee2b": {
+   "entailment": "yes",
+   "population": "in_vitro",
+   "rationale": "Sentence explicitly says variants exhibit gain-of-function behavior with lower EC50 values."
+  },
+  "M5f85833e": {
+   "entailment": "no",
+   "population": "in_vitro",
+   "rationale": "Describes growth advantage and oncogenic potential, not a direct increase in GNAO1 function or activity."
+  },
+  "Me05332b6": {
+   "entailment": "yes",
+   "population": "animal",
+   "rationale": "States a gain-of-function knock-in mutation preventing Go turnoff, directly indicating increased signaling activity."
+  },
+  "Ma0937440": {
+   "entailment": "no",
+   "population": "not_stated",
+   "rationale": "Describes normal gene product function, not any variant effect or loss of function."
+  },
+  "Mb09c7c53": {
+   "entailment": "yes",
+   "population": "in_vitro",
+   "rationale": "Disabling the start codon enhances synthesis of potassium channels, directly indicating increased gene product production."
+  },
+  "M5535cd9e": {
+   "entailment": "no",
+   "population": "in_vitro",
+   "rationale": "Describes increased translation from uORF editing, not a variant effect on KCNQ2 protein function."
+  },
+  "M581dc4a9": {
+   "entailment": "no",
+   "population": "human",
+   "rationale": "States LOF as a disease label, not that variants reduce KCNQ2 function."
+  },
+  "Mddba61b7": {
+   "entailment": "no",
+   "population": "human",
+   "rationale": "Describes treatment response in LOF groups, not a variant effect on KCNQ2 function."
+  },
+  "Me55d253d": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Explicitly states a KCNQ2 gain-of-function mutation."
+  },
+  "M0d3df851": {
+   "entailment": "yes",
+   "population": "human",
+   "rationale": "Sentence explicitly calls the KCNQ2 mutation gain-of-function."
+  },
+  "Ma9b372f2": {
+   "entailment": "yes",
+   "population": "in_vitro",
+   "rationale": "Sentence explicitly states mixed loss- and gain-of-function phenotype from variant currents."
+  },
+  "M4f500642": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Sentence explicitly states KCNQ2 loss-of-function variants cause disease."
+  },
+  "Ma993fd34": {
+   "entailment": "yes",
+   "population": "in_vitro",
+   "rationale": "States KCNQ2 LOF variants cause reduced M-current density, directly indicating loss of function."
+  },
+  "M39b84491": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Large deletions are stated to cause haploinsufficiency, implying reduced gene function."
+  },
+  "Mf5e955fa": {
+   "entailment": "no",
+   "population": "human",
+   "rationale": "Mentions gene deletion and diagnosis, but no functional effect on KCNQ2 product is stated."
+  },
+  "Ma6b2bc09": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "States heterozygous loss-of-function KCNQ2 variants cause disorders."
+  },
+  "Mcb092615": {
+   "entailment": "yes",
+   "population": "animal",
+   "rationale": "Knockdown directly reduces KCNQ2 function, consistent with loss of function."
+  },
+  "Mfce8f22c": {
+   "entailment": "no",
+   "population": "not_stated",
+   "rationale": "Describes normal M-channel function, not a variant-induced loss of KCNQ2 function."
+  },
+  "M82096f03": {
+   "entailment": "yes",
+   "population": "in_vitro",
+   "rationale": "Knockdown indicates reduced gene function/expression, directly matching loss_of_function."
+  },
+  "Mcd1fc75c": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Explicitly states gain-of-function variants."
+  },
+  "M8dc0ad9d": {
+   "entailment": "yes",
+   "population": "human",
+   "rationale": "Sentence explicitly says LoF variants were linked to severe epilepsy."
+  },
+  "M0da6fb47": {
+   "entailment": "yes",
+   "population": "human",
+   "rationale": "Sentence explicitly labels variants as strong GoF and says they confer PIP2-insensitive regulation."
+  },
+  "Ma59bfa81": {
+   "entailment": "yes",
+   "population": "in_vitro",
+   "rationale": "States increased current density and GOF effect from electrophysiology."
+  },
+  "M702f7b26": {
+   "entailment": "yes",
+   "population": "in_vitro",
+   "rationale": "Sentence explicitly states the variant is a loss-of-function when expressed in cells."
+  },
+  "M3f6afc7c": {
+   "entailment": "yes",
+   "population": "in_vitro",
+   "rationale": "Directly states dominant-negative effect when coexpressed with wild-type KCNQ3."
+  },
+  "Mf8dd574f": {
+   "entailment": "yes",
+   "population": "in_vitro",
+   "rationale": "States gain-of-function effects upon coexpression with wild-type KCNQ2."
+  },
+  "Ma8d204cf": {
+   "entailment": "no",
+   "population": "not_stated",
+   "rationale": "States disease association only; no variant effect on channel function or expression."
+  },
+  "Mc4230377": {
+   "entailment": "no",
+   "population": "not_stated",
+   "rationale": "Lists possible functional categories, but states no specific variant\u2019s effect."
+  },
+  "M7742bba4": {
+   "entailment": "yes",
+   "population": "human",
+   "rationale": "Sentence explicitly classifies variants as dominant-negative."
+  },
+  "M9e8995c1": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Explicitly states dominant-negative loss-of-function variants in KCNQ2 cause disease."
+  },
+  "M9511f2b6": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Dominant-negative variants diminish M-current, directly indicating reduced KCNQ2 function."
+  },
+  "Md8bc48d0": {
+   "entailment": "partial",
+   "population": "in_vitro",
+   "rationale": "Shows reduced current density and altered gating, but no clear increased-function effect."
+  },
+  "Mc819f2d1": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "States de novo KCNQ2 variants most often cause loss-of-function in vitro effects."
+  },
+  "M144ecd1b": {
+   "entailment": "yes",
+   "population": "animal",
+   "rationale": "Ablation of Kcnq2 reduces M-type potassium current, directly indicating loss of function."
+  },
+  "Mbb61cc61": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Explicitly states heterozygous gain-of-function variants in KCNQ2."
+  },
+  "Mf5b34300": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Sentence explicitly calls p.L102V a gain-of-function variant."
+  },
+  "M1bf672db": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Sentence explicitly calls the variants loss-of-function."
+  },
+  "Mead7808f": {
+   "entailment": "no",
+   "population": "in_vitro",
+   "rationale": "Describes a drug increasing current of a variant, not the variant itself causing gain of function."
+  },
+  "M166d1e54": {
+   "entailment": "yes",
+   "population": "in_vitro",
+   "rationale": "Sentence directly says KCNQ2 pathogenic gain-of-function mutations have increased currents that are inhibited."
+  },
+  "Mbca3f138": {
+   "entailment": "yes",
+   "population": "in_vitro",
+   "rationale": "Sentence directly states a mild loss of function in a heterologous expression system."
+  },
+  "M59af7657": {
+   "entailment": "yes",
+   "population": "in_vitro",
+   "rationale": "Sentence explicitly says mutant channels show a strong gain-of-function effect."
+  },
+  "Ma7d183b1": {
+   "entailment": "yes",
+   "population": "animal",
+   "rationale": "Ablation of Kcnq2 reduces M-type potassium current, directly indicating loss of function."
+  },
+  "M4a566a21": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Sentence explicitly states gain-of-function variants."
+  },
+  "M4547cf68": {
+   "entailment": "yes",
+   "population": "human",
+   "rationale": "States patients have GoF variants and contrasts them with donepezil's effect in vitro."
+  },
+  "M7d3c2586": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "States both pathogenic loss-of-function and gain-of-function KCNQ2 mutations."
+  },
+  "M89d56324": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Explicitly states pathogenic loss-of-function KCNQ2 mutations."
+  },
+  "Mbf06aa78": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Sentence explicitly states human KCNQ2 gain-of-function mutations."
+  },
+  "M778306db": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Directly states gain-of-function variants."
+  },
+  "M3ea3e0be": {
+   "entailment": "yes",
+   "population": "in_vitro",
+   "rationale": "Sentence explicitly says mutant channels show increased current densities and a GoF phenotype."
+  },
+  "Mb890a679": {
+   "entailment": "yes",
+   "population": "in_vitro",
+   "rationale": "Sentence explicitly says 200 variants exhibited functional impairment, implying reduced function."
+  },
+  "M24da5206": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Sentence directly states dominant-negative effects on wild-type KCNQ2 subunits."
+  },
+  "M7dfdeb4d": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Directly states dominant-negative effect was identified as a primary mechanism."
+  },
+  "M05787647": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Haploinsufficiency directly indicates reduced gene product function."
+  },
+  "Md897da19": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "States KCNQ2 variants include loss-of-function variants."
+  },
+  "M22869cd9": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Sentence explicitly states gain-of-function variants in KCNQ2 exist."
+  },
+  "M8dca38c0": {
+   "entailment": "yes",
+   "population": "animal",
+   "rationale": "Explicitly calls the KCNQ2 mutation a dominant negative pore mutation in transgenic mice."
+  },
+  "Mc164392e": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Sentence explicitly states KCNQ2 gain-of-function pathogenic variants."
+  },
+  "M5ad30f96": {
+   "entailment": "no",
+   "population": "animal",
+   "rationale": "Describes neuron excitability changes, not increased KCNQ2 gene product activity."
+  },
+  "M9f0bba82": {
+   "entailment": "yes",
+   "population": "animal",
+   "rationale": "Directly calls R201C a GOF variant; expressed in forebrain pyramidal neurons."
+  },
+  "Mbe77be50": {
+   "entailment": "yes",
+   "population": "in_vitro",
+   "rationale": "States all variants were loss of function by M-current patch-clamp analysis."
+  },
+  "Md9cfe930": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Sentence directly states variants have dominant-negative effects in heteromeric channels."
+  },
+  "Mc0749b83": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Sentence explicitly states reduction of M-current through dominant-negative effects."
+  },
+  "Md8b436c4": {
+   "entailment": "yes",
+   "population": "in_vitro",
+   "rationale": "Explicitly calls R201C a gain-of-function variant in patient-derived hiPSC."
+  },
+  "M9270d90b": {
+   "entailment": "yes",
+   "population": "human",
+   "rationale": "Explicitly states KCNQ2 loss-of-function pathogenic variants in patients."
+  },
+  "Mf3aeeccd": {
+   "entailment": "yes",
+   "population": "animal",
+   "rationale": "Ablation of KCNQ2 channels indicates loss of channel function."
+  },
+  "M2b98bbfa": {
+   "entailment": "yes",
+   "population": "in_vitro",
+   "rationale": "Most variants failed to induce potassium current, directly indicating reduced function."
+  },
+  "Ma2391423": {
+   "entailment": "yes",
+   "population": "in_vitro",
+   "rationale": "Decreased currents directly indicate reduced channel function for these mutations."
+  },
+  "M0b72332f": {
+   "entailment": "yes",
+   "population": "human",
+   "rationale": "Explicitly states KCNQ2 loss-of-function mutations in DEE patients."
+  },
+  "M78fd2821": {
+   "entailment": "partial",
+   "population": "not_stated",
+   "rationale": "Mentions impaired M-currents and restoration by a modifier, implying dysfunction, but not a specific variant or direct loss of function."
+  },
+  "M6d73648f": {
+   "entailment": "partial",
+   "population": "human",
+   "rationale": "Truncating/NMD lesions suggest loss, but sentence does not directly state reduced KCNQ2 function/expression."
+  },
+  "Md1dba723": {
+   "entailment": "yes",
+   "population": "in_vitro",
+   "rationale": "States opposite effects: Y284C increased fragment amounts, Y284D decreased them versus wild type."
+  },
+  "Mf4fbe7dc": {
+   "entailment": "no",
+   "population": "not_stated",
+   "rationale": "Describes neuronal hyperexcitability and structural abnormalities, not a direct increase in KCNQ2 gene product function."
+  },
+  "M00c04669": {
+   "entailment": "partial",
+   "population": "in_vitro",
+   "rationale": "Shows structural instability in mutant channels, suggesting impairment, but no direct loss-of-function statement."
+  },
+  "M3afc93ee": {
+   "entailment": "no",
+   "population": "not_stated",
+   "rationale": "Mentions disease associations only; no statement that variants reduce KCNQ2 function or expression."
+  },
+  "M8398740d": {
+   "entailment": "no",
+   "population": "not_stated",
+   "rationale": "Describes disease association only; no stated reduction or loss of KCNQ2 function."
+  },
+  "M5f3f4cc9": {
+   "entailment": "partial",
+   "population": "in_vitro",
+   "rationale": "Describes altered gating consistent with reduced activity, but doesn't directly state loss of function."
+  },
+  "Me76ffb2f": {
+   "entailment": "partial",
+   "population": "not_stated",
+   "rationale": "Suggests functional impairment computationally, but does not directly state reduced or absent KCNQ2 function."
+  },
+  "M340fc1b8": {
+   "entailment": "yes",
+   "population": "animal",
+   "rationale": "RNAi-mediated knockout indicates reduced gene function from the fly model."
+  },
+  "M469654af": {
+   "entailment": "yes",
+   "population": "in_vitro",
+   "rationale": "Mutant transfection abolishes membrane expression and reduces current, indicating loss of function."
+  },
+  "Ma031d109": {
+   "entailment": "no",
+   "population": "not_stated",
+   "rationale": "Describes disease phenotype only; no variant effect on KCNQ2 product is stated."
+  },
+  "M0b5412aa": {
+   "entailment": "partial",
+   "population": "in_vitro",
+   "rationale": "Describes structural instability in simulated mutant channels, indirectly suggesting reduced function but not explicit loss."
+  },
+  "M3b7d2cb6": {
+   "entailment": "no",
+   "population": "not_stated",
+   "rationale": "Describes disease association only; no variant effect on KCNQ2 function is stated."
+  },
+  "M656aab48": {
+   "entailment": "no",
+   "population": "animal",
+   "rationale": "Describes a mouse model of dysfunction, but states no specific loss of function effect."
+  },
+  "Mfd28f836": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Directly states KCNT1 gain-of-function variants."
+  },
+  "M18165af3": {
+   "entailment": "yes",
+   "population": "in_vitro",
+   "rationale": "States both variants conferred gain-of-function phenotypes with greater current densities than wild type."
+  },
+  "M1e5fb938": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Explicitly states KCNT1 gain-of-function variants increase KNa1.1 channel activity."
+  },
+  "M4243a7e0": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Sentence explicitly states both gain- and loss-of-function KCNT mutations."
+  },
+  "Mfd516794": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "States gain-of-function mutations cause hyperactive KCNT1 channels."
+  },
+  "M376b2e37": {
+   "entailment": "no",
+   "population": "in_vitro",
+   "rationale": "Sentence reports drug effects on mutant channels, not that the variant itself increases channel function."
+  },
+  "M096edd2a": {
+   "entailment": "yes",
+   "population": "human",
+   "rationale": "Explicitly states KCNT1 gain-of-function pathogenic variant in a patient."
+  },
+  "M1e4d3fa3": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Sentence directly states KCNT1 mutations are gain-of-function."
+  },
+  "M37904ef0": {
+   "entailment": "partial",
+   "population": "animal",
+   "rationale": "Shows hyperexcitability in cultured neurons from a mutant animal, but not direct KCNT1 gain of function."
+  },
+  "M50efea18": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Explicitly states KCNT1 gain-of-function mutations are associated with disease."
+  },
+  "Mcbaec4c4": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Sentence explicitly states KCNT1 gain-of-function variants."
+  },
+  "M00e5b090": {
+   "entailment": "yes",
+   "population": "in_vitro",
+   "rationale": "Directly states all KCNT1 variants displayed gain-of-function effects in vitro."
+  },
+  "M12818871": {
+   "entailment": "no",
+   "population": "in_vitro",
+   "rationale": "Sentence says mutant channels have GoF features, but not that the variant itself causes gain of function."
+  },
+  "M68510605": {
+   "entailment": "no",
+   "population": "in_vitro",
+   "rationale": "Sentence says fluoxetine blocks channels and counteracts effects; it does not state variant-caused gain of function."
+  },
+  "M1ef952e1": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Sentence explicitly states KCNT1 gain-of-function variants."
+  },
+  "M51494074": {
+   "entailment": "yes",
+   "population": "human",
+   "rationale": "Sentence explicitly states gain-of-function mutants of hKCNT1 potassium channels."
+  },
+  "M4788ecd9": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Sentence directly states gain-of-function variants in KCNT1."
+  },
+  "M91bfad77": {
+   "entailment": "no",
+   "population": "animal",
+   "rationale": "Describes knockout mouse phenotype, not reduced KCNT1 function or expression."
+  },
+  "Me946ecf8": {
+   "entailment": "yes",
+   "population": "animal",
+   "rationale": "Kcnt1 reduction is stated directly; reduced gene product/function matches loss of function."
+  },
+  "M42759263": {
+   "entailment": "yes",
+   "population": "human",
+   "rationale": "Sentence explicitly states a gain-of-function KCNT1 pathogenic variant."
+  },
+  "M93b65d9e": {
+   "entailment": "no",
+   "population": "human",
+   "rationale": "Describes seizure improvement in patients, not an effect on KCNT1 function or activity."
+  },
+  "M78ded44d": {
+   "entailment": "no",
+   "population": "in_vitro",
+   "rationale": "Sentence describes ASO-treated neuronal phenotypes, not a variant increasing KCNT1 function."
+  },
+  "M92485230": {
+   "entailment": "no",
+   "population": "in_vitro",
+   "rationale": "Describes ASO knockdown feasibility in human neurons, not a KCNT1 variant effect or functional consequence."
+  },
+  "M4ea236bb": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Sentence explicitly states gain-of-function mutations induce disease."
+  },
+  "M2e1da307": {
+   "entailment": "partial",
+   "population": "not_stated",
+   "rationale": "Mentions a GOF mutant Y796H, but does not state its functional effect on KCNT1 directly."
+  },
+  "M5a337b14": {
+   "entailment": "yes",
+   "population": "animal",
+   "rationale": "Explicitly calls Kcnt1Y777H a GOF variant and describes its effects in mouse neurons."
+  },
+  "Mfcfea1d8": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Explicitly states pathogenic KCNT1 GOF variants."
+  },
+  "Mda84cf38": {
+   "entailment": "yes",
+   "population": "human",
+   "rationale": "Sentence explicitly says KCNT1 missense mutations are gain-of-function in patients."
+  },
+  "M85291409": {
+   "entailment": "yes",
+   "population": "in_vitro",
+   "rationale": "States mutation enhanced channel function by increasing open probability, a gain-of-function effect."
+  },
+  "M01350a65": {
+   "entailment": "partial",
+   "population": "animal",
+   "rationale": "Mutation caused hyperexcitability, suggesting gain, but no direct statement of increased KCNT1 function."
+  },
+  "M4c238ddb": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "States the mutation induced gain-of-function channel properties."
+  },
+  "Mc7f3274e": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Sentence directly states KCNT1 gain-of-function mutations are associated with disease."
+  },
+  "Mc8c9c66f": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Explicitly states KCNT1 gain-of-function variants cause disease."
+  },
+  "Me2cef057": {
+   "entailment": "yes",
+   "population": "in_vitro",
+   "rationale": "Sentence explicitly says the variants prompt GoF effects in KCNT1."
+  },
+  "Mb0b637a6": {
+   "entailment": "yes",
+   "population": "in_vitro",
+   "rationale": "Sentence explicitly states a strong gain-of-function effect for the KCNT1 variant in CHO cells."
+  },
+  "M7c95fce1": {
+   "entailment": "yes",
+   "population": "human",
+   "rationale": "Directly states gain-of-function mutations in humans."
+  },
+  "M13efc3d2": {
+   "entailment": "yes",
+   "population": "in_vitro",
+   "rationale": "States a constitutively active mutation, directly indicating increased channel activity."
+  },
+  "Ma447f8aa": {
+   "entailment": "no",
+   "population": "human",
+   "rationale": "Mentions mutations and human disease severity, but no stated increase in KCNT1 activity or function."
+  },
+  "Ma1093802": {
+   "entailment": "yes",
+   "population": "in_vitro",
+   "rationale": "States KCNT1 epilepsy mutations are gain of function and increase K+ current amplitudes."
+  },
+  "M21b6dfca": {
+   "entailment": "yes",
+   "population": "human",
+   "rationale": "States KCNT1 pathogenic mutant variants are gain-of-function."
+  },
+  "M6bf4475a": {
+   "entailment": "yes",
+   "population": "human",
+   "rationale": "Sentence explicitly states KCNT1 missense mutations are gain-of-function in patients."
+  },
+  "M92694f15": {
+   "entailment": "yes",
+   "population": "animal",
+   "rationale": "Sentence explicitly calls Y777H a GOF variant and assesses its effects in mice."
+  },
+  "M1f1a9dd5": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Explicitly states pathogenic KCNT1 GOF variants."
+  },
+  "M7db8d9c0": {
+   "entailment": "yes",
+   "population": "animal",
+   "rationale": "Increased KNa currents directly indicate a gain of function."
+  },
+  "Mba06f5bd": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Sentence explicitly links KCNT1 mutations to gain-of-function mutations."
+  },
+  "Mce9f3ada": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Directly states epilepsy syndromes are due to gain-of-function variants."
+  },
+  "Maf1cab78": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Explicitly states KCNT1 gain-of-function variants are associated with disease."
+  },
+  "Mb5b72ceb": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Sentence explicitly states KCNT1 variants showed strong gain of function effects."
+  },
+  "M6a9a6fba": {
+   "entailment": "yes",
+   "population": "human",
+   "rationale": "States KCNT1 variants in epilepsy patients cause GOF via increased current magnitude and current-voltage relationships."
+  },
+  "M7f5c8237": {
+   "entailment": "yes",
+   "population": "human",
+   "rationale": "Directly states GOF mutations in humans."
+  },
+  "M94f1e096": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Explicitly calls R455H a disease-causing gain-of-function mutation."
+  },
+  "Md685ec50": {
+   "entailment": "yes",
+   "population": "in_vitro",
+   "rationale": "Mutations increased KCNT1 current amplitude, directly indicating gain of function."
+  },
+  "Ma8a2d104": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Explicitly states gain-of-function KCNT1 mutations and increased potassium conductance."
+  },
+  "Mbca6bdfb": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Sentence directly states pathogenic KCNT1 variants, especially GOF variants, are associated with epileptic disorders."
+  },
+  "Mfccdb2c7": {
+   "entailment": "yes",
+   "population": "human",
+   "rationale": "States KCNT1 gain-of-function is associated with a human epilepsy syndrome."
+  },
+  "Mdff303ba": {
+   "entailment": "yes",
+   "population": "human",
+   "rationale": "Explicitly calls the KCNT1 variant loss-of-function and predicts nonsense-mediated decay."
+  },
+  "M430d724d": {
+   "entailment": "yes",
+   "population": "animal",
+   "rationale": "Haploinsufficient Scn1a+/\u2212 directly indicates reduced gene function."
+  },
+  "Mc35220cd": {
+   "entailment": "no",
+   "population": "animal",
+   "rationale": "Mentions Scn1a+/- mice and seizures, but no stated effect on gene product function."
+  },
+  "Macd278b3": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Sentence explicitly states SCN1A gain-of-function."
+  },
+  "Mfd68b9d3": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Haploinsufficiency directly indicates reduced gene dosage/function."
+  },
+  "M85b1c089": {
+   "entailment": "no",
+   "population": "animal",
+   "rationale": "Describes neuronal morphology in mice, not variant effect on SCN1A function or expression."
+  },
+  "M4dc424c3": {
+   "entailment": "yes",
+   "population": "human",
+   "rationale": "LOF is explicit; sentence directly refers to a loss-of-function group."
+  },
+  "Mbf909760": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "States DS is predominantly caused by heterozygous loss-of-function SCN1A variants."
+  },
+  "Mb9043aec": {
+   "entailment": "yes",
+   "population": "human",
+   "rationale": "States patients carry loss-of-function SCN1A variants."
+  },
+  "Md46c5f2f": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Explicitly states loss-of-function from misfolding and degradation of the channel protein."
+  },
+  "M8a9dcad0": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "States SCN1A haploinsufficiency causes DS, directly indicating reduced gene dosage/function."
+  },
+  "M507d0776": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Explicitly states SCN1A loss-of-function mutations cause haploinsufficiency."
+  },
+  "M6865b9ca": {
+   "entailment": "yes",
+   "population": "human",
+   "rationale": "Sentence directly states SCN1A loss-of-function mutations cause Dravet syndrome."
+  },
+  "M4f60e5cc": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Sentence explicitly says Dravet syndrome is caused by loss-of-function variants in SCN1A."
+  },
+  "M1b908d7b": {
+   "entailment": "yes",
+   "population": "human",
+   "rationale": "States SCN1A haploinsufficiency, directly indicating reduced gene product function."
+  },
+  "M192b1913": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "States heterozygous loss-of-function variants in SCN1A."
+  },
+  "M16435026": {
+   "entailment": "yes",
+   "population": "animal",
+   "rationale": "Scn1a haploinsufficiency directly indicates reduced gene function."
+  },
+  "M6664e057": {
+   "entailment": "yes",
+   "population": "human",
+   "rationale": "Directly states heterozygous loss-of-function mutations in SCN1A in patients."
+  },
+  "Md4b43a6f": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "States SCN1A loss-of-function variants cause disease, directly matching the claimed effect."
+  },
+  "Mb78f881b": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Explicitly states SCN1A mutations are loss-of-function."
+  },
+  "Mc8e748bf": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Explicitly states reduced NaV1.1 function, matching loss of function."
+  },
+  "M242c797a": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Sentence explicitly says SCN1A mutations are loss-of-function."
+  },
+  "M88b44a97": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Directly states DS is caused by loss-of-function variants in SCN1A."
+  },
+  "M41ad52e8": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Directly states SCN1A loss of function."
+  },
+  "M4b138bf8": {
+   "entailment": "yes",
+   "population": "in_vitro",
+   "rationale": "States an overall gain-of-function on Nav1.1-mediated currents for the variants versus wild type."
+  },
+  "Ma35d4270": {
+   "entailment": "yes",
+   "population": "in_vitro",
+   "rationale": "Sentence explicitly states overall gain-of-function on Nav1.1-mediated currents versus wild-type."
+  },
+  "M7f58d416": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Sentence explicitly predicts gain-of-function for the novel variants."
+  },
+  "M9b7f3142": {
+   "entailment": "yes",
+   "population": "human",
+   "rationale": "Explicitly states gain-of-function Nav1.1 variants in FHM3 patients."
+  },
+  "M56db075b": {
+   "entailment": "no",
+   "population": "not_stated",
+   "rationale": "States the disorder is part of a GOF spectrum, but no specific variant effect is described."
+  },
+  "M907bf646": {
+   "entailment": "no",
+   "population": "human",
+   "rationale": "Sentence only reports identified pathogenic variants and clustering; no increased or constitutive function stated."
+  },
+  "Ma4bc38b9": {
+   "entailment": "no",
+   "population": "not_stated",
+   "rationale": "Sentence refers to NDEEMA variants, not SCN1A, so no direct support for SCN1A gain of function."
+  },
+  "Mc991b3c6": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Haploinsufficient implies reduced gene dosage/function, consistent with loss of function."
+  },
+  "M1636fdc0": {
+   "entailment": "no",
+   "population": "human",
+   "rationale": "Describes presumed loss-of-function based on variant type and diagnosis, not direct evidence of gene product dysfunction."
+  },
+  "M94ce8750": {
+   "entailment": "yes",
+   "population": "human",
+   "rationale": "States SCN1A variants caused by gain-of-function in ten individuals."
+  },
+  "Me29d7d17": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "States SCN1A mutations lead to loss of function of NaV1.1."
+  },
+  "Mb5d558f7": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "States SCN gene haploinsufficiency, directly indicating reduced gene dosage/function."
+  },
+  "M4f6848b9": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "States SCN1A haploinsufficiency, directly indicating reduced gene function."
+  },
+  "M7adee201": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Explicitly states SCN1A loss-of-function mutations cause haploinsufficiency."
+  },
+  "M359e8175": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Sentence explicitly says functional studies showed mixed function properties for the variants."
+  },
+  "Mb5a4f1f6": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Sentence explicitly says complete loss-of-function for I1347N."
+  },
+  "Mc0b07394": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "States SCN1A pathogenic variants are loss-of-function."
+  },
+  "Mde02de2d": {
+   "entailment": "yes",
+   "population": "animal",
+   "rationale": "States SCN1a haploinsufficiency, directly indicating reduced gene function."
+  },
+  "Mf49193ae": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Haploinsufficiency directly indicates reduced SCN1A function/expression."
+  },
+  "M81a20b88": {
+   "entailment": "yes",
+   "population": "in_vitro",
+   "rationale": "Directly states Nav1.1 loss-of-function in patient-derived neural cells."
+  },
+  "Mdd3743a1": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Sentence directly states mixed gain and loss of function properties for the variants."
+  },
+  "M6dc6fade": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Explicitly states complete loss-of-function for I1347N."
+  },
+  "Mf1067c36": {
+   "entailment": "no",
+   "population": "not_stated",
+   "rationale": "Sentence states disease association, not reduced SCN1A function or expression."
+  },
+  "M5bd4419c": {
+   "entailment": "partial",
+   "population": "not_stated",
+   "rationale": "States SCN1A alterations can cause either gain- or loss-of-function, not specifically LoF for the claimed variant."
+  },
+  "Mdd9dd751": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Directly states SCN2A loss-of-function variants."
+  },
+  "M4006ee86": {
+   "entailment": "no",
+   "population": "animal",
+   "rationale": "Sentence describes phenotype and reduced potassium channel expression, not SCN2A loss of function."
+  },
+  "M89cec996": {
+   "entailment": "no",
+   "population": "animal",
+   "rationale": "Sentence describes rescue of hyperexcitability, not that Scn2a variants reduce gene product function."
+  },
+  "M167b73d1": {
+   "entailment": "no",
+   "population": "animal",
+   "rationale": "Sentence describes a mouse phenotype and rescue by hKv1.1 expression, not SCN2A variant effect."
+  },
+  "M05769bf4": {
+   "entailment": "no",
+   "population": "not_stated",
+   "rationale": "States phenotypes are not explained by simple heterozygous loss; no direct variant effect on function."
+  },
+  "Macaa923e": {
+   "entailment": "partial",
+   "population": "animal",
+   "rationale": "Premature termination codons impair synapse development in some cases, indirectly suggesting loss of function, but not clearly for all variants."
+  },
+  "M30b5f5fe": {
+   "entailment": "yes",
+   "population": "in_vitro",
+   "rationale": "States C258R causes mixed loss- and gain-of-function phenotype in NaV1.2 channels."
+  },
+  "Md58c8bdc": {
+   "entailment": "yes",
+   "population": "in_vitro",
+   "rationale": "States mutated channels show stronger cumulative inactivation, explicitly consistent with loss of function."
+  },
+  "M58fd7395": {
+   "entailment": "partial",
+   "population": "in_vitro",
+   "rationale": "Describes altered channel kinetics, but not clearly increased or constitutive activity."
+  },
+  "M1a6266f3": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Directly states SCN2A loss-of-function variant."
+  },
+  "Mf7772876": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Haploinsufficient targets imply reduced gene dosage/function, matching loss of function."
+  },
+  "M23cb6f14": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Sentence explicitly calls the variants SCN2A gain-of-function variants."
+  },
+  "Mc50c7e9c": {
+   "entailment": "no",
+   "population": "not_stated",
+   "rationale": "Mentions gain-of-function variants as a treatment target, but states no variant effect itself."
+  },
+  "M6cd4f1ee": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "States causal variants are gain-of-function with increased open probability or sodium current flux."
+  },
+  "Mfeb4afdc": {
+   "entailment": "yes",
+   "population": "in_vitro",
+   "rationale": "SCN2A haploinsufficiency directly indicates reduced gene dosage/function in isogenic neurons."
+  },
+  "M6ddeb52d": {
+   "entailment": "yes",
+   "population": "animal",
+   "rationale": "Reduced NaV1.2 protein and slowed action potential upstroke indicate loss of function."
+  },
+  "M662385bb": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Explicitly states NaV1.2 loss-of-function causes alterations in neuronal signaling."
+  },
+  "M0e8d1030": {
+   "entailment": "yes",
+   "population": "animal",
+   "rationale": "Haploinsufficiency reduced sodium current and eliminated current component, directly indicating loss of function."
+  },
+  "Mc2ca0601": {
+   "entailment": "partial",
+   "population": "in_vitro",
+   "rationale": "Greater firing in mutant neurons suggests increased excitability, but doesn't directly state increased channel function."
+  },
+  "M8e20b3ba": {
+   "entailment": "no",
+   "population": "human",
+   "rationale": "Mentions clinical cases only; no functional effect of variants on SCN2A is stated."
+  },
+  "M4b420dda": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Sentence explicitly says variants were biophysically characterized as gain-of-function."
+  },
+  "M518a733d": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Explicitly states loss of function mutations of ASD/NDD genes."
+  },
+  "M828243c3": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Sentence directly states NaV1.2 mutations have mixed gain- and loss-of-function effects."
+  },
+  "Mf61a8e9e": {
+   "entailment": "yes",
+   "population": "in_vitro",
+   "rationale": "States R853Q decreases current density and was classified as loss-of-function."
+  },
+  "Ma3838eed": {
+   "entailment": "yes",
+   "population": "human",
+   "rationale": "Directly states a mixed gain-of-function/loss-of-function effect in patients carrying the mutation."
+  },
+  "M64fc6676": {
+   "entailment": "yes",
+   "population": "in_vitro",
+   "rationale": "Sentence states decreased sodium conductance and reduced neuronal excitability, consistent with loss of function."
+  },
+  "M20a0483a": {
+   "entailment": "partial",
+   "population": "in_vitro",
+   "rationale": "Sentence says Igp increases excitability, but it only partially offsets a reduction and variant context is unclear."
+  },
+  "M4e173fb3": {
+   "entailment": "yes",
+   "population": "human",
+   "rationale": "Explicitly states complete loss-of-function due to truncating mutation and \u03b1-subunit disruption."
+  },
+  "Mfdb0b93d": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Directly states SCN2A loss-of-function variants."
+  },
+  "M0b6d7aa9": {
+   "entailment": "yes",
+   "population": "in_vitro",
+   "rationale": "Directly states most characterized variants caused total or partial loss of function."
+  },
+  "M8ae4dcb6": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Sentence explicitly says partial or total Nav1.2 loss-of-function variants were identified."
+  },
+  "Mf6e5b0fb": {
+   "entailment": "no",
+   "population": "human",
+   "rationale": "Describes a clinical epilepsy phenotype; no direct statement about gene product having mixed functional effects."
+  },
+  "Mfef61930": {
+   "entailment": "partial",
+   "population": "in_vitro",
+   "rationale": "States unchanged expression and altered function, but only reduced currents; not clearly both reduced and increased effects."
+  },
+  "M6f2be8b6": {
+   "entailment": "partial",
+   "population": "not_stated",
+   "rationale": "Suggests increased neuronal excitability, but only computationally and no reduced effect is stated."
+  },
+  "M0f5152e8": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Sentence explicitly states SCN2A gain-of-function variants."
+  },
+  "Mcf31715b": {
+   "entailment": "yes",
+   "population": "human",
+   "rationale": "Sentence directly states heterozygous loss-of-function mutations in SCN2A."
+  },
+  "Md1fabc1a": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Explicitly states Scn2a loss-of-function disorder and suggests increasing expression to normalize function."
+  },
+  "M28f93451": {
+   "entailment": "yes",
+   "population": "in_vitro",
+   "rationale": "Both variants reduce NaV1.2 protein levels, directly supporting loss of function."
+  },
+  "M900358f8": {
+   "entailment": "no",
+   "population": "in_vitro",
+   "rationale": "Sentence mentions gene deletions only, not reduced SCN2A function or expression."
+  },
+  "Mb8eada3a": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Haploinsufficiency directly indicates reduced gene function/expression."
+  },
+  "Md7f602b5": {
+   "entailment": "yes",
+   "population": "animal",
+   "rationale": "Directly states loss-of-function mutations reduce excitability, consistent with reduced gene product function."
+  },
+  "Mb7111543": {
+   "entailment": "yes",
+   "population": "animal",
+   "rationale": "Haploinsufficiency directly indicates reduced gene dosage/function and states weakened integration in vivo."
+  },
+  "Me62a33a1": {
+   "entailment": "yes",
+   "population": "animal",
+   "rationale": "Haploinsufficient directly indicates reduced gene dosage/function in mice."
+  },
+  "M3ed712af": {
+   "entailment": "no",
+   "population": "animal",
+   "rationale": "States no modulation in Scn2a+/- mice, not reduced gene product function."
+  },
+  "M4dfebd09": {
+   "entailment": "yes",
+   "population": "human",
+   "rationale": "Haploinsufficiency directly indicates reduced gene product function or dosage."
+  },
+  "M1daeb50d": {
+   "entailment": "yes",
+   "population": "animal",
+   "rationale": "States Scn2a haploinsufficiency and rescue by restoring expression, implying reduced function from the variant."
+  },
+  "M4a5288a7": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Haploinsufficiency directly implies reduced SCN2A function/expression."
+  },
+  "M93e8f73a": {
+   "entailment": "no",
+   "population": "animal",
+   "rationale": "Mentions CRISPRa treatment protecting Scn2a+/- mice; no variant-specific loss-of-function effect stated."
+  },
+  "M6631973c": {
+   "entailment": "yes",
+   "population": "in_vitro",
+   "rationale": "Haploinsufficiency directly indicates reduced SCN2A function/expression in human stem-cell-derived neurons."
+  },
+  "Mea31541b": {
+   "entailment": "no",
+   "population": "not_stated",
+   "rationale": "Describes disease association only; no variant effect on SCN2A function is stated."
+  },
+  "Mc593f98d": {
+   "entailment": "no",
+   "population": "animal",
+   "rationale": "Describes haploinsufficiency model and phenotype, not a direct statement of reduced gene product function."
+  },
+  "M14a2e791": {
+   "entailment": "no",
+   "population": "not_stated",
+   "rationale": "Mentions GOF and LOF classification generally, but does not state any specific variant has mixed effects."
+  },
+  "Ma3113808": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Directly states SCN2A gain-of-function mutation-related epilepsy."
+  },
+  "M8170ac87": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Sentence explicitly states variants known to result in gain-of-function."
+  },
+  "M558997c6": {
+   "entailment": "no",
+   "population": "not_stated",
+   "rationale": "Only describes gene location and cluster membership, not any variant effect on SCN2A function."
+  },
+  "Mf6cca936": {
+   "entailment": "partial",
+   "population": "in_vitro",
+   "rationale": "Altered channel properties and abnormal firing suggest effect, but gain of function is not explicitly stated."
+  },
+  "Mce9829f2": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Sentence explicitly states variants predicted to be gain-of-function."
+  },
+  "Mdbbce695": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Sentence explicitly states some variants are predicted to be loss-of-function."
+  },
+  "M3f31eb9a": {
+   "entailment": "yes",
+   "population": "human",
+   "rationale": "Sentence explicitly states patient variants exhibited a profound gain-of-functional change."
+  },
+  "M13d4d49b": {
+   "entailment": "yes",
+   "population": "in_vitro",
+   "rationale": "Explicitly says S863F significantly reduced current density as a loss-of-functional change."
+  },
+  "M1daf56a5": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Explicitly states SCN2A gain-of-function mutations are identified."
+  },
+  "Mc7565c38": {
+   "entailment": "yes",
+   "population": "human",
+   "rationale": "Sentence explicitly states missense gain-of-function variants."
+  },
+  "Maf48ef6b": {
+   "entailment": "yes",
+   "population": "human",
+   "rationale": "Explicitly states truncating, loss-of-function variants."
+  },
+  "Mf540183e": {
+   "entailment": "yes",
+   "population": "human",
+   "rationale": "Explicitly states SCN2A mutations are loss-of-function."
+  },
+  "Mf978aa61": {
+   "entailment": "no",
+   "population": "animal",
+   "rationale": "Describes mouse phenotype; no direct statement that the variant reduces SCN2A function."
+  },
+  "M95b8ce46": {
+   "entailment": "partial",
+   "population": "in_vitro",
+   "rationale": "Increased intrinsic excitability suggests gain of function, but only indirectly and in organoid neurons."
+  },
+  "M9ce45edb": {
+   "entailment": "no",
+   "population": "in_vitro",
+   "rationale": "Describes network hyperexcitability, not a direct increase in SCN2A gene product activity."
+  },
+  "M62e18f7d": {
+   "entailment": "partial",
+   "population": "in_vitro",
+   "rationale": "Increased intrinsic excitability suggests gain of function, but only indirectly and in organoid neurons."
+  },
+  "M7ef9f186": {
+   "entailment": "partial",
+   "population": "not_stated",
+   "rationale": "Suggests increased synaptic activity, but no direct statement about SCN2A variant/gene gain of function."
+  },
+  "M8f49cc07": {
+   "entailment": "no",
+   "population": "not_stated",
+   "rationale": "Describes increased synapse formation, not a direct effect on SCN2A product function or activity."
+  },
+  "Mfce5014c": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Explicitly states SCN2A gain-of-function variants cause the disorder."
+  },
+  "M855695f4": {
+   "entailment": "yes",
+   "population": "in_vitro",
+   "rationale": "Directly states increased persistent current and gain-of-function mechanism in voltage-clamp experiments."
+  },
+  "M703831bf": {
+   "entailment": "yes",
+   "population": "in_vitro",
+   "rationale": "Sentence directly states all studied SCN2A variants exhibit gain of function."
+  },
+  "M86f18558": {
+   "entailment": "partial",
+   "population": "animal",
+   "rationale": "Hyperexcitability suggests increased activity, but the sentence does not explicitly state gain of function."
+  },
+  "M1450c69e": {
+   "entailment": "no",
+   "population": "human",
+   "rationale": "Describes a genomic duplication including SCN2A, but no functional effect on gene product is stated."
+  },
+  "Mb6ba9b4a": {
+   "entailment": "no",
+   "population": "not_stated",
+   "rationale": "Describes altered gating and abnormal excitability, not reduced or absent SCN2A function."
+  },
+  "Mf641bbde": {
+   "entailment": "yes",
+   "population": "in_vitro",
+   "rationale": "States variants had biophysical properties consistent with gain-of-function and increased action potential firing in neurons."
+  },
+  "Me6b20be3": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Sentence directly states gain-of-function variants predominated."
+  },
+  "M44c6ec51": {
+   "entailment": "yes",
+   "population": "human",
+   "rationale": "States gain-of-function and mixed-function variants predominated."
+  },
+  "M89a5ee93": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Explicitly states moderate loss of function."
+  },
+  "Maa9e0eaf": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Sentence explicitly states severe and complete loss of function."
+  },
+  "Mbbef4d17": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Sentence explicitly states SCN8A gain-of-function variants lead to epilepsy syndromes."
+  },
+  "M2cada3c5": {
+   "entailment": "no",
+   "population": "human",
+   "rationale": "Compares clinical severity by gating alteration, but does not state increased channel activity or gain-of-function."
+  },
+  "M919d77a6": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Explicitly states a gain-of-function pathogenic variant in SCN8A."
+  },
+  "M55e94027": {
+   "entailment": "partial",
+   "population": "human",
+   "rationale": "Clinical response suggests possible gain-of-function, but the sentence does not directly demonstrate altered channel activity."
+  },
+  "Mce925d84": {
+   "entailment": "no",
+   "population": "not_stated",
+   "rationale": "States only that missense variants were identified; no functional effect is described."
+  },
+  "Mbce5e27c": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Sentence explicitly says variants were biophysically characterized as GOF."
+  },
+  "M8ac04bfa": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Sentence explicitly states SCN8A gain-of-function variants."
+  },
+  "M71caee27": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Impaired inactivation implies increased channel activity, directly supporting gain of function."
+  },
+  "M448ebdcf": {
+   "entailment": "yes",
+   "population": "in_vitro",
+   "rationale": "Reduced mutant transcripts and conversion to wild-type transcripts imply decreased mutant gene product/function."
+  },
+  "Md9feeb60": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Directly states SCN8A mutations are primarily loss-of-function variants."
+  },
+  "Md8a42991": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Sentence explicitly states loss-of-function mutations."
+  },
+  "M3406a2f9": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Explicitly states SCN8A mutations cause both gain- and loss-of-function in NaV1.6 function."
+  },
+  "Me498022d": {
+   "entailment": "yes",
+   "population": "human",
+   "rationale": "Sentence explicitly says 'GOF mutation,' directly indicating gain-of-function."
+  },
+  "Md30877bb": {
+   "entailment": "no",
+   "population": "human",
+   "rationale": "Describes clinical features associated with LOF mutation, not reduced SCN8A function or expression."
+  },
+  "M09a491b9": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Sentence directly states loss-of-function mutations in SCN8A."
+  },
+  "M9db63e7f": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Sentence explicitly states SCN8A gain-of-function mutations cause the condition."
+  },
+  "M0b37d9fe": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "States SCN8A has established loss-of-function-related disorders, directly supporting loss of function."
+  },
+  "M61152334": {
+   "entailment": "no",
+   "population": "human",
+   "rationale": "States GOF variants exist and associate with seizure risk, but not a gene-product functional effect."
+  },
+  "M4aba937f": {
+   "entailment": "yes",
+   "population": "human",
+   "rationale": "Directly states SCN8A loss-of-function variants."
+  },
+  "Me1644a2b": {
+   "entailment": "yes",
+   "population": "animal",
+   "rationale": "States gain-of-function mutations in Scn8a produce enhanced persistent sodium current."
+  },
+  "M9a9cf670": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Sentence explicitly calls A1534V a loss-of-function variant."
+  },
+  "M166a1938": {
+   "entailment": "no",
+   "population": "human",
+   "rationale": "Mentions disease association only; no variant effect on SCN8A function is stated."
+  },
+  "Mce7650e6": {
+   "entailment": "no",
+   "population": "human",
+   "rationale": "Sentence describes disease spectrum, not variant effects on SCN8A function."
+  },
+  "M9e1166ea": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Sentence explicitly mentions loss-of-function variants and associates them with a subgroup."
+  },
+  "Mf2b786b4": {
+   "entailment": "partial",
+   "population": "not_stated",
+   "rationale": "Mentions gain-of-function variants as a subgroup, but gives no direct effect for SCN8A variants here."
+  },
+  "Mbef68f31": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Explicitly states patient-derived SCN8A gain-of-function variants."
+  },
+  "M42cf0cfe": {
+   "entailment": "yes",
+   "population": "animal",
+   "rationale": "Increased persistent sodium current directly indicates enhanced channel activity, consistent with gain of function."
+  },
+  "Mb27a6abe": {
+   "entailment": "yes",
+   "population": "animal",
+   "rationale": "States enhanced persistent Na+ current due to gain-of-function mutations in Scn8a."
+  },
+  "M137ec918": {
+   "entailment": "no",
+   "population": "animal",
+   "rationale": "Describes increased seizure susceptibility in mice, not a direct gain-of-function effect on the gene product."
+  },
+  "M1ecc02cc": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Directly states SCN8A gain-of-function mutations."
+  },
+  "M3176f530": {
+   "entailment": "no",
+   "population": "human",
+   "rationale": "States DEEs can result from gain-of-function variants generally, but not that SCN8A variants are gain-of-function."
+  },
+  "Mf82d4fd5": {
+   "entailment": "yes",
+   "population": "animal",
+   "rationale": "Out-of-frame indels disrupt the transcript reading frame, implying reduced/absent gene product function."
+  },
+  "Me2125ca9": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Directly states gain-of-function mutations in SCN8A cause DEE."
+  },
+  "Mad71db4d": {
+   "entailment": "yes",
+   "population": "animal",
+   "rationale": "Directly states a heterozygous gain-of-function mutation in Scn8a."
+  },
+  "M703c2b73": {
+   "entailment": "no",
+   "population": "animal",
+   "rationale": "Mentions seizure prevention by inhibition in mice; no direct statement that the variant increases SCN8A/NaV1.6 function."
+  },
+  "M30ec2e7d": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Explicitly states gain-of-function with heightened ion channel activity."
+  },
+  "M7e879af6": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Mutations are said to cause increased persistent currents and hyperexcitability, directly indicating gain of function."
+  },
+  "M20dec4ff": {
+   "entailment": "no",
+   "population": "not_stated",
+   "rationale": "States GOF versus LOF is useful for treatment, but gives no variant effect for SCN8A."
+  },
+  "Mbc01bd1a": {
+   "entailment": "no",
+   "population": "not_stated",
+   "rationale": "Mentions GOF as a treatment category, but gives no variant effect on SCN8A itself."
+  },
+  "M8bbf183c": {
+   "entailment": "yes",
+   "population": "in_vitro",
+   "rationale": "Sentence states variants showed isoform-dependent effects and were not easily classified as gain- or loss-of-function."
+  },
+  "M7b540351": {
+   "entailment": "no",
+   "population": "in_vitro",
+   "rationale": "Shows reduced action potentials from mutant channel, but not both increased and decreased effects."
+  },
+  "M1192afb2": {
+   "entailment": "no",
+   "population": "human",
+   "rationale": "Mentions GOF variants as a category, but states prognosis/management, not the variant effect itself."
+  },
+  "M3ed936f1": {
+   "entailment": "yes",
+   "population": "human",
+   "rationale": "Explicitly states SCN8A gain-of-function mutations in patients."
+  },
+  "M80cb4f40": {
+   "entailment": "yes",
+   "population": "animal",
+   "rationale": "Cardiac-specific deletion reduces NaV1.6 activity, directly indicating loss of function."
+  },
+  "M42eb5f13": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Decreased Na+ current densities directly indicate reduced channel function."
+  },
+  "M033fd3e6": {
+   "entailment": "yes",
+   "population": "human",
+   "rationale": "States variants cause loss-of-function by decreasing Na+ current densities or shifting inactivation."
+  },
+  "M34eb9250": {
+   "entailment": "yes",
+   "population": "in_vitro",
+   "rationale": "Sentence explicitly states mixed gain- and loss-of-function effects in cells."
+  },
+  "M3b7f5cdb": {
+   "entailment": "partial",
+   "population": "in_vitro",
+   "rationale": "Sentence shows increased neuronal firing from p.Arg1629His, indirectly suggesting gain of function."
+  },
+  "M2823736d": {
+   "entailment": "partial",
+   "population": "not_stated",
+   "rationale": "States decreased effect for one variant, implying reduced function, but context is incomplete."
+  },
+  "M89677b21": {
+   "entailment": "yes",
+   "population": "in_vitro",
+   "rationale": "Directly states a loss-of-function variant in transfected cells."
+  },
+  "M5bb73a20": {
+   "entailment": "yes",
+   "population": "in_vitro",
+   "rationale": "Directly states a loss-of-function variant in transfected cells."
+  },
+  "Mc670973e": {
+   "entailment": "no",
+   "population": "human",
+   "rationale": "Mentions participants harboring GOF variants, but states no effect on SCN8A gene product."
+  },
+  "M07300f4f": {
+   "entailment": "no",
+   "population": "human",
+   "rationale": "Describes variants predicting clinical severity, not increased gene/product activity."
+  },
+  "Mb904e15c": {
+   "entailment": "no",
+   "population": "not_stated",
+   "rationale": "Describes clinical phenotypes only; no variant effect on gene product is stated."
+  },
+  "M33297575": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Sentence explicitly says two variants showed strong gain-of-function and increased neuronal firing."
+  },
+  "Mf1484ef6": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Explicitly states a variant showed a mild gain-of-function via defective fast inactivation."
+  },
+  "Md680944e": {
+   "entailment": "yes",
+   "population": "in_vitro",
+   "rationale": "Sentence explicitly states all variants induced loss-of-function with reduced current and neuronal firing."
+  },
+  "Mdda86c87": {
+   "entailment": "no",
+   "population": "human",
+   "rationale": "Mentions a deletion and clinical phenotype, but no direct statement of reduced SCN8A function."
+  },
+  "M48eb6933": {
+   "entailment": "no",
+   "population": "not_stated",
+   "rationale": "Sentence states gain-of-function, not loss-of-function, and gives no loss-of-function evidence."
+  },
+  "M7b266c86": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Sentence explicitly states complete loss-of-function and partial loss-of-function alleles."
+  },
+  "Md1807593": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "States two SCN8A variants both exhibit reduced channel activity, directly supporting mixed reduced-function effects."
+  },
+  "M91b6eb6c": {
+   "entailment": "no",
+   "population": "not_stated",
+   "rationale": "Sentence only links SCN8A variants to disease, not increased channel activity or other functional change."
+  },
+  "Maa897478": {
+   "entailment": "partial",
+   "population": "animal",
+   "rationale": "Hyperexcitability and seizures suggest increased function, but no direct statement that the variant itself is gain-of-function."
+  },
+  "M6d03ea65": {
+   "entailment": "yes",
+   "population": "human",
+   "rationale": "Explicitly states mutations lead to STXBP1 haploinsufficiency, indicating loss of function."
+  },
+  "M9419143f": {
+   "entailment": "yes",
+   "population": "animal",
+   "rationale": "Haploinsufficiency directly indicates reduced gene dosage/function in a mouse model."
+  },
+  "M710a50cd": {
+   "entailment": "partial",
+   "population": "human",
+   "rationale": "Suggests a possible dominant negative effect, but it is speculative and not directly demonstrated."
+  },
+  "M09610d0b": {
+   "entailment": "no",
+   "population": "not_stated",
+   "rationale": "Sentence names pathogenic variants and protein function, but does not state reduced or absent gene product function."
+  },
+  "Ma095c61a": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Haploinsufficiency directly indicates reduced gene dosage/function."
+  },
+  "Mf7e70f10": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "States STXBP1 variants cause disorders due to haploinsufficiency, implying loss of function."
+  },
+  "Ma389ab1a": {
+   "entailment": "yes",
+   "population": "in_vitro",
+   "rationale": "Patient-derived neurons showed markedly reduced STXBP1 protein and mRNA, explicitly comparable to loss-of-function variants."
+  },
+  "M7079f670": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "States mutations lead to haploinsufficiency, directly indicating reduced gene product function."
+  },
+  "M05c7bcf9": {
+   "entailment": "partial",
+   "population": "animal",
+   "rationale": "Shows reduced Munc18.1 expression in mice, but not a direct variant-specific functional effect."
+  },
+  "Me16f096f": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Haploinsufficiency directly indicates reduced gene dosage/function."
+  },
+  "M37d893de": {
+   "entailment": "no",
+   "population": "not_stated",
+   "rationale": "Describes normal gene function, not a variant's effect or reduced function."
+  },
+  "M56eee5db": {
+   "entailment": "partial",
+   "population": "in_vitro",
+   "rationale": "Knockdown suggests reduced STXBP1, but sentence shows network activity disruption, not direct gene-product loss/function."
+  },
+  "M5aa5e603": {
+   "entailment": "yes",
+   "population": "human",
+   "rationale": "Explicitly states heterozygous loss-of-function mutations in STXBP1."
+  },
+  "M0349eda2": {
+   "entailment": "no",
+   "population": "animal",
+   "rationale": "Sentence describes animal abnormalities only; it does not state reduced STXBP1 function or expression."
+  },
+  "M920cd9d3": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Haploinsufficiency directly indicates reduced gene function/expression."
+  },
+  "Mca543b3d": {
+   "entailment": "yes",
+   "population": "animal",
+   "rationale": "Haploinsufficient mouse model directly indicates reduced gene dosage/function."
+  },
+  "M5149905a": {
+   "entailment": "no",
+   "population": "human",
+   "rationale": "States disease causation only, without describing reduced STXBP1 function or expression."
+  },
+  "M6e473a02": {
+   "entailment": "yes",
+   "population": "animal",
+   "rationale": "States loss of STXBP1 contributes to disease pathogenesis, directly implying reduced gene function."
+  },
+  "M42d5a943": {
+   "entailment": "yes",
+   "population": "human",
+   "rationale": "Nonsense-mediated mRNA decay causing haploinsufficiency directly indicates loss of function."
+  },
+  "Mc777026d": {
+   "entailment": "yes",
+   "population": "animal",
+   "rationale": "Reduced STXBP1 protein abundance directly indicates decreased function/expression in mice."
+  },
+  "M5d6bf4bf": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "States pathogenic variants generally result in haploinsufficiency, implying reduced gene function."
+  },
+  "Mf59f987a": {
+   "entailment": "no",
+   "population": "not_stated",
+   "rationale": "Describes normal protein function, not any variant or loss of function."
+  },
+  "M2be3f61b": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Haploinsufficiency directly indicates reduced gene dosage/function."
+  },
+  "M29b36e3a": {
+   "entailment": "no",
+   "population": "in_vitro",
+   "rationale": "Mentions a proposed chaperone role only; no variant effect or loss of function stated."
+  },
+  "M093ebbab": {
+   "entailment": "yes",
+   "population": "animal",
+   "rationale": "Haploinsufficiency directly indicates reduced gene dosage/function of the STXBP1 ortholog."
+  },
+  "Mabbcc21f": {
+   "entailment": "no",
+   "population": "animal",
+   "rationale": "Describes increased \u03b1Syn aggregation and phenotype, not STXBP1 variant impact on gene product function."
+  },
+  "Mfb271a07": {
+   "entailment": "no",
+   "population": "not_stated",
+   "rationale": "Sentence discusses haploinsufficiency and neurotoxicity, not STXBP1 variant effects on gene product function."
+  },
+  "M3077aa07": {
+   "entailment": "partial",
+   "population": "in_vitro",
+   "rationale": "Variant neurons show increased release-related measures, but sentence does not directly state increased STXBP1 function."
+  },
+  "M5cc0f408": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "States haploinsufficiency as main mechanism and that it impairs neurotransmitter release."
+  },
+  "M34ef292b": {
+   "entailment": "yes",
+   "population": "animal",
+   "rationale": "Haploinsufficiency directly indicates reduced STXBP1 function."
+  },
+  "M8a924218": {
+   "entailment": "no",
+   "population": "human",
+   "rationale": "Describes disease association only; no statement that mutations reduce STXBP1 function or expression."
+  },
+  "M2391e07f": {
+   "entailment": "yes",
+   "population": "human",
+   "rationale": "States mutations lead to haploinsufficiency, directly matching loss of function."
+  },
+  "M11d8ed12": {
+   "entailment": "no",
+   "population": "not_stated",
+   "rationale": "States normal protein function, not any variant-induced loss of function."
+  },
+  "Mc5fbe14c": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Explicitly states STXBP1 loss-of-function mutations."
+  },
+  "M8fdbacb1": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Haploinsufficiency directly indicates reduced gene dosage/function."
+  },
+  "Ma57832d5": {
+   "entailment": "no",
+   "population": "in_vitro",
+   "rationale": "Describes impaired localization of Syntaxin1A in patient-derived neurons, not STXBP1 variant loss of function."
+  },
+  "M65ad4fdc": {
+   "entailment": "yes",
+   "population": "in_vitro",
+   "rationale": "Haploinsufficiency and shRNA interference indicate reduced STXBP1 function."
+  },
+  "M8465db9c": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "States haploinsufficiency and truncation of STXBP1 protein cause disease, directly matching loss of function."
+  },
+  "M7121a3aa": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Sentence explicitly states both haploinsufficiency and dominant-negative mechanisms."
+  },
+  "M8d9b294d": {
+   "entailment": "no",
+   "population": "not_stated",
+   "rationale": "Sentence mentions disease association only; no variant effect on STXBP1 function is stated."
+  },
+  "M4d1ef722": {
+   "entailment": "yes",
+   "population": "animal",
+   "rationale": "Haploinsufficiency directly indicates reduced gene dosage/function."
+  },
+  "M425f61b8": {
+   "entailment": "yes",
+   "population": "animal",
+   "rationale": "Haploinsufficiency directly indicates reduced gene dosage and reduced function."
+  },
+  "M58885a0c": {
+   "entailment": "yes",
+   "population": "in_vitro",
+   "rationale": "States L446F increases evoked synaptic transmission, directly supporting a gain-of-function effect."
+  },
+  "M426c58b6": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Sentence explicitly states the mutation causes a gain-of-function phenotype."
+  },
+  "Ma36e430b": {
+   "entailment": "yes",
+   "population": "human",
+   "rationale": "States de novo loss-of-function mutations in STXBP1 cause disease."
+  },
+  "M2bcdf086": {
+   "entailment": "yes",
+   "population": "animal",
+   "rationale": "Haplodeficiency indicates reduced gene dosage causing reduced function/expression."
+  },
+  "M26d69aac": {
+   "entailment": "yes",
+   "population": "animal",
+   "rationale": "Haplodeficiency indicates reduced gene dosage causing reduced excitatory transmission."
+  },
+  "M1ae0c78c": {
+   "entailment": "yes",
+   "population": "human",
+   "rationale": "Sentence explicitly labels STXBP1 variants as loss-of-function."
+  },
+  "Mbdd1c9a7": {
+   "entailment": "yes",
+   "population": "human",
+   "rationale": "Directly states heterozygous loss-of-function mutations."
+  },
+  "M86c2e8b1": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Directly states SYNGAP1 haploinsufficiency causes impairments, implying reduced gene function."
+  },
+  "Ma5cb12b9": {
+   "entailment": "yes",
+   "population": "animal",
+   "rationale": "Haploinsufficient levels directly indicate reduced gene product function/expression."
+  },
+  "M6b8e69f2": {
+   "entailment": "yes",
+   "population": "animal",
+   "rationale": "Haploinsufficiency directly indicates reduced gene dosage and reduced SynGAP-containing complexes."
+  },
+  "M6d27fdf6": {
+   "entailment": "no",
+   "population": "animal",
+   "rationale": "Describes rescue by re-expression, not a variant-caused loss of function."
+  },
+  "M1322fc61": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Haploinsufficiency directly indicates reduced gene product function or expression."
+  },
+  "M8fe99055": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Haploinsufficiency directly indicates reduced gene dosage/function."
+  },
+  "M1d1b16d3": {
+   "entailment": "yes",
+   "population": "in_vitro",
+   "rationale": "Disruption reproduces phenotypes, directly implying reduced SYNGAP1 function from loss of PDZ-mediated interaction."
+  },
+  "M085b8940": {
+   "entailment": "yes",
+   "population": "animal",
+   "rationale": "Haploinsufficiency explicitly indicates reduced SYNGAP1 function."
+  },
+  "M99352011": {
+   "entailment": "no",
+   "population": "animal",
+   "rationale": "Describes deficiency and behavioral phenotypes, not direct reduced gene product function."
+  },
+  "Me29487e6": {
+   "entailment": "yes",
+   "population": "animal",
+   "rationale": "Perturbing Syngap1 reduces developmental separability and dendritic maturation, indicating reduced gene function."
+  },
+  "M83a0c2a7": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "States heterozygous loss-of-function mutations in SYNGAP1 directly."
+  },
+  "M34c6ec25": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Haploinsufficiency directly indicates reduced gene function/expression."
+  },
+  "Mda9809a8": {
+   "entailment": "yes",
+   "population": "animal",
+   "rationale": "Haploinsufficient indicates reduced gene function in the mouse model."
+  },
+  "M9841baff": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Haploinsufficiency directly indicates reduced gene product function/expression."
+  },
+  "Mc0e5fac5": {
+   "entailment": "no",
+   "population": "not_stated",
+   "rationale": "Describes SYNGAP1 function, not any variant or disrupted-function effect."
+  },
+  "M5154849e": {
+   "entailment": "yes",
+   "population": "animal",
+   "rationale": "Haploinsufficiency directly indicates reduced gene function in mice."
+  },
+  "Mf4e20f93": {
+   "entailment": "yes",
+   "population": "animal",
+   "rationale": "Haploinsufficient mice imply reduced SYNGAP1 dosage/function, matching loss of function."
+  },
+  "Md1814dd1": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "States Syngap1 loss-of-function and restored protein abundance to wildtype levels."
+  },
+  "Mf184bfbd": {
+   "entailment": "yes",
+   "population": "human",
+   "rationale": "States heterozygous loss-of-function variants in SYNGAP1."
+  },
+  "M10a70649": {
+   "entailment": "yes",
+   "population": "in_vitro",
+   "rationale": "States SYNGAP1 loss-of-function variant lines and that CRISPRa rescued SYNGAP1."
+  },
+  "M7fb9b53f": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Haploinsufficiency directly indicates reduced gene function/expression."
+  },
+  "M51104f58": {
+   "entailment": "no",
+   "population": "animal",
+   "rationale": "Sentence describes therapeutic rescue of phenotypes, not a variant\u2019s effect on SYNGAP1 function."
+  },
+  "M46577987": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Haploinsufficiency directly indicates reduced gene function or expression."
+  },
+  "M36e5d265": {
+   "entailment": "no",
+   "population": "human",
+   "rationale": "Describes a syndrome caused by haploinsufficiency, but states no specific variant effect on SYNGAP1 product."
+  },
+  "M46d9bfb6": {
+   "entailment": "yes",
+   "population": "animal",
+   "rationale": "Haploinsufficiency directly indicates reduced gene function; sentence states decreased excitatory synaptic drive."
+  },
+  "M14b722ba": {
+   "entailment": "yes",
+   "population": "in_vitro",
+   "rationale": "States Syngap1 loss-of-function and restored normal SynGAP protein levels in haploinsufficient neurons."
+  },
+  "Mbbbad0d5": {
+   "entailment": "no",
+   "population": "not_stated",
+   "rationale": "Sentence only says expression increased; no variant effect or loss of function is stated."
+  },
+  "M2e79e5ec": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Frameshift causes premature stop and truncated protein, explicitly stating potential loss of function."
+  },
+  "Mcb3506f3": {
+   "entailment": "no",
+   "population": "not_stated",
+   "rationale": "Describes SYNGAP1 function, not any variant or disruption effect."
+  },
+  "M2e5eb881": {
+   "entailment": "yes",
+   "population": "animal",
+   "rationale": "States heterozygous loss-of-function of Syngap1 causes reduced function in mice."
+  },
+  "Mfc8814b2": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "States the syndrome is primarily due to loss-of-function mutations."
+  },
+  "Mfd92a0e2": {
+   "entailment": "no",
+   "population": "not_stated",
+   "rationale": "States disease association, not that mutations reduce SYNGAP1 function or expression."
+  },
+  "Mf939d88c": {
+   "entailment": "yes",
+   "population": "animal",
+   "rationale": "States Syngap1 haploinsufficiency, directly indicating reduced gene function."
+  },
+  "Md6fcabd0": {
+   "entailment": "yes",
+   "population": "animal",
+   "rationale": "Haploinsufficiency directly indicates reduced SYNGAP1 function/expression."
+  },
+  "Mdf833738": {
+   "entailment": "yes",
+   "population": "animal",
+   "rationale": "Haploinsufficiency directly indicates reduced gene dosage/function in a mouse model."
+  },
+  "Mf0536301": {
+   "entailment": "no",
+   "population": "animal",
+   "rationale": "Describes phenotype from SynGAP reduction, not variant effect on gene product."
+  },
+  "M28ba5896": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "States pathogenic variants are predicted to result in haploinsufficiency, a loss-of-function effect."
+  },
+  "M8cfa9d0e": {
+   "entailment": "no",
+   "population": "not_stated",
+   "rationale": "Discusses domain loss generally, not SYNGAP1 variants or specific gene product effect."
+  },
+  "Mb9b287a7": {
+   "entailment": "no",
+   "population": "animal",
+   "rationale": "Describes rat phenotypes from a deletion, not reduced SYNGAP1 function or expression."
+  },
+  "M246e07ff": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Haploinsufficiency directly indicates reduced gene dosage/function."
+  },
+  "M4b2d6447": {
+   "entailment": "no",
+   "population": "in_vitro",
+   "rationale": "Describes SYNGAP1-deficient neuron phenotypes, not direct reduced gene product function."
+  },
+  "M6d296953": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Directly states Syngap1 loss-of-function."
+  },
+  "M48480253": {
+   "entailment": "yes",
+   "population": "animal",
+   "rationale": "Explicitly states zebrafish syngap1a and syngap1b produced loss-of-function alleles at RNA and protein levels."
+  },
+  "M21531518": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "States heterozygous SYNGAP1 mutations often lead to loss of function."
+  },
+  "M8515b3f8": {
+   "entailment": "yes",
+   "population": "not_stated",
+   "rationale": "Haploinsufficiency directly indicates reduced gene dosage/function."
+  },
+  "M5b5edc9f": {
+   "entailment": "yes",
+   "population": "human",
+   "rationale": "Haploinsufficiency directly indicates reduced gene function in human brain development."
+  },
+  "Mdce1dc98": {
+   "entailment": "yes",
+   "population": "human",
+   "rationale": "Sentence explicitly states a loss-of-function variant was found in children."
+  },
+  "Mc92e4b58": {
+   "entailment": "yes",
+   "population": "in_vitro",
+   "rationale": "Haploinsufficiency directly implies reduced gene function in a human organoid model."
+  },
+  "M4a7d6565": {
+   "entailment": "yes",
+   "population": "animal",
+   "rationale": "States CRISPR/Cas9 indels produced loss-of-function alleles at RNA and protein levels."
+  },
+  "M0a8335dc": {
+   "entailment": "no",
+   "population": "animal",
+   "rationale": "States a causal behavioral phenotype, not reduced or absent SYNGAP1 function/expression."
+  },
+  "M3a0e0640": {
+   "entailment": "yes",
+   "population": "human",
+   "rationale": "Explicitly states de novo loss-of-function mutations in SYNGAP1."
+  },
+  "Mb6fe0761": {
+   "entailment": "yes",
+   "population": "animal",
+   "rationale": "States reduced Syngap1 mRNA and protein, consistent with loss of function."
+  },
+  "Mfdc3fffc": {
+   "entailment": "yes",
+   "population": "animal",
+   "rationale": "Haploinsufficiency directly indicates reduced gene function/expression."
+  },
+  "M891283ca": {
+   "entailment": "yes",
+   "population": "human",
+   "rationale": "Haploinsufficiency directly indicates reduced gene function in humans."
+  },
+  "M644cfb9c": {
+   "entailment": "yes",
+   "population": "animal",
+   "rationale": "Haploinsufficiency directly indicates reduced gene dosage/function."
+  },
+  "M6d543833": {
+   "entailment": "yes",
+   "population": "animal",
+   "rationale": "Haploinsufficiency directly states reduced gene function."
+  },
+  "Mff5de4fd": {
+   "entailment": "yes",
+   "population": "animal",
+   "rationale": "States reduced SynGAP causes impaired function, directly supporting loss of function."
+  },
+  "Md03f58d6": {
+   "entailment": "yes",
+   "population": "human",
+   "rationale": "Explicitly states de novo loss-of-function mutations in SYNGAP1."
+  },
+  "M1e0b3b37": {
+   "entailment": "yes",
+   "population": "animal",
+   "rationale": "Sentence directly states ~50% reduction in Syngap1 protein, indicating loss of function."
+  }
+ }
+}

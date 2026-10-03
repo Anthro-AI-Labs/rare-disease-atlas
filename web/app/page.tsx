@@ -21,7 +21,7 @@ export default function Home() {
         ))}
       </ul>
       <h2 className="mt-10 text-sm font-medium uppercase tracking-wide text-neutral-500">How reliable are the extracted claims?</h2>
-      <p className="mt-2 text-sm text-neutral-700">Manual review of random samples, reported per confidence tier (never one overall number). {g.meta.confidence_rule}</p>
+      <p className="mt-2 text-sm text-neutral-700">Manual review of random samples, reported per confidence tier (never one overall number). {g.meta.review_overall && `${g.meta.review_overall.reviewed} of ${g.meta.review_overall.sampled} sampled claims reviewed so far.`} {g.meta.confidence_rule} <Link className="underline" href="/methods">Methods &amp; limitations</Link></p>
       <table className="mt-2 w-full text-left text-sm"><thead><tr className="text-xs text-neutral-500"><th>Tier</th><th>Sampled</th><th>Reviewed</th><th>Correct</th><th>Precision</th></tr></thead>
         <tbody>{Object.entries(g.meta.review_precision_by_tier).map(([t, r]) => (
           <tr key={t} className="border-t border-neutral-200"><td className="py-1">{t}</td><td>{r.sampled}</td><td>{r.reviewed}</td><td>{r.correct}</td>

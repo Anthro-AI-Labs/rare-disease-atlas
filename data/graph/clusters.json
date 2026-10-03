@@ -83,7 +83,7 @@
         "gene": "SCN2A",
         "stability": 1.0,
         "uncertain": true,
-        "uncertain_reason": "Same-gene benign/severe pair co-clusters but disease-level evidence does not show the same variant effect (disease-level evidence: benign=1 directional claims (dominant None), severe=9 (dominant gain_of_function); minimum 3 each to compare.)"
+        "uncertain_reason": "Same-gene benign/severe pair co-clusters but disease-level evidence does not show the same variant effect (disease-level evidence: benign=1 directional claims (dominant None), severe=8 (dominant gain_of_function); minimum 3 each to compare.)"
       },
       {
         "id": "OMIM:613721",
@@ -92,7 +92,7 @@
         "gene": "SCN2A",
         "stability": 1.0,
         "uncertain": true,
-        "uncertain_reason": "Same-gene benign/severe pair co-clusters but disease-level evidence does not show the same variant effect (disease-level evidence: benign=1 directional claims (dominant None), severe=9 (dominant gain_of_function); minimum 3 each to compare.)"
+        "uncertain_reason": "Same-gene benign/severe pair co-clusters but disease-level evidence does not show the same variant effect (disease-level evidence: benign=1 directional claims (dominant None), severe=8 (dominant gain_of_function); minimum 3 each to compare.)"
       },
       {
         "id": "OMIM:614558",
@@ -101,7 +101,7 @@
         "gene": "SCN8A",
         "stability": 1.0,
         "uncertain": true,
-        "uncertain_reason": "Same-gene benign/severe pair co-clusters but disease-level evidence does not show the same variant effect (disease-level evidence: benign=1 directional claims (dominant None), severe=18 (dominant gain_of_function); minimum 3 each to compare.)"
+        "uncertain_reason": "Same-gene benign/severe pair co-clusters but disease-level evidence does not show the same variant effect (disease-level evidence: benign=1 directional claims (dominant None), severe=14 (dominant gain_of_function); minimum 3 each to compare.)"
       },
       {
         "id": "OMIM:617080",
@@ -110,7 +110,7 @@
         "gene": "SCN8A",
         "stability": 1.0,
         "uncertain": true,
-        "uncertain_reason": "Same-gene benign/severe pair co-clusters but disease-level evidence does not show the same variant effect (disease-level evidence: benign=1 directional claims (dominant None), severe=18 (dominant gain_of_function); minimum 3 each to compare.)"
+        "uncertain_reason": "Same-gene benign/severe pair co-clusters but disease-level evidence does not show the same variant effect (disease-level evidence: benign=1 directional claims (dominant None), severe=14 (dominant gain_of_function); minimum 3 each to compare.)"
       }
     ]
   }

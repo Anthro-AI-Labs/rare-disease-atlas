@@ -173,7 +173,7 @@ def test_every_llm_span_is_in_cached_abstract():
         if hit is None:
             pytest.skip("abstract cache not present")
         assert verify_span(e["quoted_span"], hit["value"]["abstract"]), e["id"]
-        assert e["confidence"] in (0.4, 0.5, 0.7, 0.8)
+        assert e["confidence"] in (0.3, 0.4, 0.5, 0.6, 0.7, 0.8)
         n += 1
     assert n >= 8
 
@@ -280,3 +280,132 @@ def test_investigator_match_labels():
             assert (e["match_level"] == "possible") == (e["status"] == "hypothesis")
     inv = [n for n in g["nodes"] if n["type"] == "investigator"]
     assert inv and all(len(n["genes"]) >= 2 for n in inv)
+
+
+# ---------- Phase 4: entailment overlay, validator extension, review tiers ----------
+def _overlay(tmp_path, monkeypatch, claims, verdicts):
+    import json, mech
+    monkeypatch.setattr(mech, "GRAPH", tmp_path)
+    (tmp_path / "mechanisms.json").write_text(json.dumps({"claims": claims}))
+    (tmp_path / "entailment.json").write_text(json.dumps({"verdicts": {mech.claim_id({**c, "claim_id": None}): v for c, v in zip(claims, verdicts)}}))
+    return mech.load_claims()
+
+
+def _c(n, effect="loss_of_function", mentions=True, pop="human", conf=0.8):
+    return {"gene": "G", "pmid": str(n), "variant_effect": effect, "molecular_function": "other", "linked_phenotype_or_disease": "",
+            "quoted_span": f"span number {n} " + "x" * 20, "disease_context": "unspecified", "population": pop,
+            "span_mentions_gene": mentions, "confidence": conf}
+
+
+def test_entailment_overlay_rules(tmp_path, monkeypatch):
+    claims = [_c(1), _c(2), _c(3), _c(4), _c(5, effect="unclear", conf=0.4), _c(6, mentions=False)]
+    v = lambda e, p: {"entailment": e, "population": p, "rationale": "r"}
+    out = _overlay(tmp_path, monkeypatch, claims, [v("yes", "human"), v("partial", "human"), v("no", "human"), v("yes", "in_vitro"),
+                                                   v("yes", "human"), v("yes", "human")])
+    yes_h, partial, no, yes_vitro, unclear, nomention = out
+    assert (yes_h["variant_effect"], yes_h["confidence"], yes_h["entailment"]) == ("loss_of_function", 0.8, "yes")
+    assert (partial["variant_effect"], partial["confidence"]) == ("loss_of_function", 0.6)          # 0.8 - 0.2
+    assert no["variant_effect"] == "unclear" and no["confidence"] <= 0.4 and no["extracted_variant_effect"] == "loss_of_function"
+    assert yes_vitro["population"] == "in_vitro" and yes_vitro["confidence"] == 0.7                    # span population, not extractor's
+    assert unclear["entailment"] == "not_checked" and unclear["confidence"] <= 0.4                     # unclear is never checked / raised
+    assert nomention["confidence"] == 0.5
+    import mech
+    assert mech.claim_id(no) == mech.claim_id({**_c(3), "claim_id": None})                              # id stays the original extraction id
+
+
+def test_unclear_after_no_is_excluded_from_profiles(tmp_path, monkeypatch):
+    import mech
+    claims = [_c(i) for i in range(1, 5)]
+    out = _overlay(tmp_path, monkeypatch, claims, [{"entailment": "no", "population": "human", "rationale": "r"}] * 4)
+    assert mech.profile(out) is None and mech.dominant_effect(out) is None
+
+
+def test_effect_assertions_and_negation():
+    from spans import effect_assertions as ea
+    assert ea("variants cause loss of function") == {"reduced"}
+    assert ea("gain-of-function variants") == {"increased"}
+    assert ea("too much activity, rather than a loss of function") == set()
+    assert ea("both LoF and gain of function were seen") == {"reduced", "increased"}
+    assert ea("STXBP1 causes seizures") == set()
+
+
+def test_validator_requires_entailed_claim_for_effect_steps():
+    from spans import validate_explanation
+    info = {"M1": {"variant_effect": "loss_of_function", "entailment": "no"}, "M2": {"variant_effect": "loss_of_function", "entailment": "yes"},
+            "M3": {"variant_effect": "gain_of_function", "entailment": "yes"}, "E1": None}
+    info = {k: v for k, v in info.items() if v}
+    mk = lambda text, ids: {"steps": [{"text": text, "edge_ids": ids}], "uncertainties": ["u"], "summary_plain": "s", "next_step": {"text": "ask", "edge_ids": ["E1"]}}
+    ids = ["M1", "M2", "M3", "E1"]
+    assert not validate_explanation(mk("This points to loss of function.", ["M1"]), ids, claim_info=info)[0]       # entailment=no
+    assert validate_explanation(mk("This points to loss of function.", ["M1", "M2"]), ids, claim_info=info)[0]
+    assert not validate_explanation(mk("This points to gain of function.", ["M2"]), ids, claim_info=info)[0]       # wrong class
+    assert validate_explanation(mk("It is similar to other diseases.", ["M1"]), ids, claim_info=info)[0]           # no effect asserted
+    both = mk("Evidence conflicts: loss of function versus gain of function.", ["M2", "M3"])
+    assert validate_explanation(both, ids, claim_info=info)[0]
+    assert not validate_explanation(mk("Evidence conflicts: loss of function versus gain of function.", ["M2"]), ids, claim_info=info)[0]
+
+
+def test_graph_entailment_consistency():
+    import json, common
+    p = common.GRAPH / "graph.json"
+    if not p.exists() or not (common.GRAPH / "entailment.json").exists():
+        pytest.skip("graph/entailment not built")
+    g = json.loads(p.read_text())
+    nodes = {n["id"]: n for n in g["nodes"]}
+    edges = {e["id"]: e for e in g["edges"]}
+    n_checked = 0
+    for e in g["edges"]:
+        if e["relation"] != "has_variant_effect":
+            continue
+        eff = nodes[e["target"]]["variant_effect"]
+        if e["entailment"] == "no":
+            assert eff == "unclear" and e["confidence"] <= 0.4
+        if e["entailment"] == "partial":
+            assert e["confidence"] in (0.3, 0.5, 0.6)
+        if e["entailment"] in ("yes", "partial"):
+            n_checked += 1
+            assert eff == e["extracted_variant_effect"]
+    assert n_checked > 100
+    for e in g["edges"]:                                    # shared-mechanism edges rest on directional (non-"unclear") claims only
+        if e["relation"] == "shares_mechanism_with":
+            assert e["supporting_edge_ids"]
+            assert all(nodes[edges[i]["target"]]["variant_effect"] != "unclear" for i in e["supporting_edge_ids"])
+
+
+def test_exported_explanations_assert_effects_only_with_entailed_claims():
+    import json, common
+    from spans import effect_assertions, REDUCED, INCREASED
+    p = common.GRAPH / "graph.json"
+    if not p.exists():
+        pytest.skip("graph not built")
+    g = json.loads(p.read_text())
+    nodes = {n["id"]: n for n in g["nodes"]}
+    edges = {e["id"]: e for e in g["edges"]}
+    for did, ex in g["explanations"].items():
+        for st in ex["steps"] + [ex["next_step"]]:
+            yes = [nodes[edges[i]["target"]]["variant_effect"] for i in st["edge_ids"] if edges[i]["relation"] == "has_variant_effect" and edges[i]["entailment"] == "yes"]
+            a = effect_assertions(st["text"])
+            if "reduced" in a: assert set(yes) & REDUCED, (did, st["text"])
+            if "increased" in a: assert set(yes) & INCREASED, (did, st["text"])
+
+
+def test_review_v2_uses_post_check_tiers():
+    import csv, json, common
+    p = common.CURATED / "evidence_review_v2.csv"
+    gp = common.GRAPH / "graph.json"
+    if not p.exists() or not gp.exists():
+        pytest.skip("not built")
+    g = json.loads(gp.read_text())
+    ids = {e["id"]: e for e in g["edges"]}
+    rows = list(csv.DictReader(p.open()))
+    tier = lambda c: "0.8" if c >= 0.8 else "0.7" if c >= 0.7 else "<0.7"
+    from collections import Counter
+    cnt = Counter(tier(ids[r["edge_id"]]["confidence"]) for r in rows)      # edge ids are stable hashes of the original claim
+    assert cnt == {"0.8": 8, "0.7": 8, "<0.7": 8}
+    assert len({ids[r["edge_id"]]["source"] for r in rows}) == 9
+
+
+def test_methods_and_10x_pages_exist():
+    import common
+    assert (common.ROOT / "web" / "app" / "methods" / "page.tsx").exists()
+    assert (common.ROOT / "web" / "app" / "10x" / "page.tsx").exists()

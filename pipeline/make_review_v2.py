@@ -1,5 +1,5 @@
-"""data/curated/evidence_review_v2.csv: 24 mechanism claims, random (seed 7) and stratified 8 per confidence tier
-(0.8 / 0.7 / <=0.5), covering all genes, excluding claims already in evidence_review.csv. Reviewer columns left empty.
+"""data/curated/evidence_review_v2.csv: 24 mechanism claims from the post-entailment graph, random (seed 7) and stratified 8 per confidence tier
+(0.8 / 0.7 / <0.7), covering all genes, excluding claims already in evidence_review.csv. Reviewer columns left empty.
 Verdict values: correct | partial | incorrect. Refuses to overwrite an existing file."""
 import csv, json, random, sys
 from common import GRAPH, CURATED
@@ -7,13 +7,13 @@ from curated import FILES, load
 from spans import norm
 
 out = CURATED / "evidence_review_v2.csv"
-if out.exists():
-    sys.exit("evidence_review_v2.csv exists; not overwriting")
+if out.exists() and any(r.get("verdict") for r in csv.DictReader(out.open())):
+    sys.exit("evidence_review_v2.csv already has verdicts; not overwriting")
 g = json.loads((GRAPH / "graph.json").read_text())
 done = {(r["pmid"], norm(r["quoted_span"])) for r in load("evidence_review")}
-tier = lambda c: "0.8" if c >= 0.8 else "0.7" if c >= 0.7 else "<=0.5"
+tier = lambda c: "0.8" if c >= 0.8 else "0.7" if c >= 0.7 else "<0.7"
 rng = random.Random(7)
-pool = {t: [] for t in ("0.8", "0.7", "<=0.5")}
+pool = {t: [] for t in ("0.8", "0.7", "<0.7")}
 for e in sorted((e for e in g["edges"] if e["relation"] == "has_variant_effect"), key=lambda e: e["id"]):
     if (e["references"][0].removeprefix("PMID:"), norm(e["quoted_span"])) not in done:
         pool[tier(e["confidence"])].append(e)

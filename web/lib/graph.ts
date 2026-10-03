@@ -8,7 +8,7 @@ export type Edge = {
   source_db: string; references: string[]; retrieved_at: string; confidence: number;
   contradicts?: string[]; quoted_span?: string; population?: string; linked_phenotype_or_disease?: string;
   shared_phenotypes?: { id: string; name: string; ic: number }[]; method_note?: string; note?: string;
-  frequency?: string; [k: string]: unknown;
+  frequency?: string; entailment?: string | null; entailment_rationale?: string; extracted_variant_effect?: string; extracted_population?: string; review_verdict?: string; [k: string]: unknown;
 };
 export type Node = { id: string; type: string; name?: string; role?: string; mondo?: string | null; [k: string]: unknown };
 export type Pair = { a: string; b: string; phenotype: number; mechanism: number | null; mechanism_available: boolean; combined: number;
@@ -25,9 +25,11 @@ export type Explanation = { summary_plain: string; steps: Step[]; uncertainties:
   attempts: number; first_try_pass: boolean; model: string | null; input_edge_ids: string[]; generated_at: string };
 export type Graph = {
   meta: { built_at: string; sources: { name: string; retrieved_at: string }[]; trial_stats: unknown;
-    mechanism_stats: { verified: number; extracted: number; span_drop_rate: number | null } | null;
     curated_counts: { patient_groups: number; assets: number };
     confidence_rule: string;
+    entailment_stats?: { checked: number; skipped_unclear: number; by_verdict: Record<string, number>; by_gene: Record<string, Record<string, number>>; population_checked: Record<string, number>; population_changed: number } | null;
+    review_overall?: { sampled: number; reviewed: number; correct: number; partial: number; incorrect: number; share_reviewed: number | null };
+    mechanism_stats: { verified: number; extracted: number; dropped_span: number; span_drop_rate: number | null; abstracts: number } | null;
     review_precision_by_tier: Record<string, { sampled: number; reviewed: number; correct: number; partial: number; incorrect: number; precision: number | null }>;
     pairs: Pair[];
     contradiction_findings: { disease: string; kind: "mixed" | "contradicted"; reduced: string[]; increased: string[] }[];

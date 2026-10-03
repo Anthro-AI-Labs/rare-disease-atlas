@@ -35,7 +35,7 @@ def path_edge_ids(g, did):
     if sole:
         claims += [e for e in g["edges"] if e["source"] == gene["source"] and e["relation"] == "has_variant_effect"
                    and e["disease_context"] == "unspecified" and nodes[e["target"]]["variant_effect"] != "unclear"]
-    claims.sort(key=lambda e: -e["confidence"])
+    claims.sort(key=lambda e: (e.get("entailment") != "yes", -e["confidence"]))
     ids += [e["id"] for e in claims[:3]]
     for e in claims:  # both sides of a conflict, if this disease has one
         if e["status"] == "contradicted":
@@ -64,9 +64,16 @@ def summarize(g, ids):
             "id": i, "relation": e["relation"], "source": nodes[e["source"]].get("name"), "target": nodes[e["target"]].get("name"),
             "evidence_type": e["evidence_type"], "status": e["status"], "confidence": e["confidence"], "references": e["references"],
             "quoted_span": e.get("quoted_span"), "population": e.get("population"), "disease_context": e.get("disease_context"),
+            "span_entails_effect": e.get("entailment"), "claimed_variant_effect": nodes[e["target"]].get("variant_effect"),
             "note": e.get("method_note") or e.get("note") or None,
             "shared_phenotypes": [p["name"] for p in e.get("shared_phenotypes", [])[:4]] or None}.items() if v})
     return out
+
+
+def claim_info(g):
+    nodes = {n["id"]: n for n in g["nodes"]}
+    return {e["id"]: {"variant_effect": nodes[e["target"]]["variant_effect"], "entailment": e.get("entailment")}
+            for e in g["edges"] if e["relation"] == "has_variant_effect"}
 
 
 def allowed_refs(g, ids):
@@ -108,7 +115,7 @@ def generate(client, model, g, did):
                                               messages=[{"role": "system", "content": PROMPT}, {"role": "user", "content": user}])
             return r.choices[0].message.parsed.model_dump()
         res = cached("llm_explain", key, go)
-        ok, errs = validate_explanation(res, ids, refs, require_full=True)
+        ok, errs = validate_explanation(res, ids, refs, require_full=True, claim_info=claim_info(g))
         if ok:
             return {**res, "source": "llm", "attempts": attempt, "first_try_pass": attempt == 1, "input_edge_ids": ids, "validation_errors": []}
     return {**template(g, did, ids), "source": "template", "attempts": 2, "first_try_pass": False, "input_edge_ids": ids,

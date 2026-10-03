@@ -15,12 +15,24 @@ export function refLink(r: string) {
   return null;
 }
 
+const ENT: Record<string, { label: string; cls: string }> = {
+  yes: { label: "span states it", cls: "border-emerald-700 text-emerald-800" },
+  partial: { label: "span partially supports it", cls: "border-amber-600 text-amber-800" },
+  no: { label: "context only: span does not state it", cls: "border-neutral-400 text-neutral-600" },
+  not_checked: { label: "context only: direction unclear", cls: "border-neutral-400 text-neutral-600" },
+};
+export function EntailChip({ e }: { e: Edge }) {
+  if (e.relation !== "has_variant_effect" || !e.entailment) return null;
+  const t = ENT[e.entailment];
+  return <span title={e.entailment_rationale || undefined} className={`ml-2 rounded border px-1 text-xs font-normal ${t.cls}`}>{t.label}</span>;
+}
+
 export function EvidenceBadge({ e }: { e: Edge }) {
   const t = TYPE[e.evidence_type];
   return (
     <details className="inline-block align-top text-xs">
       <summary className={`cursor-pointer rounded border px-1.5 py-0.5 ${t.cls}`}>
-        {t.label} · {e.status === "contradicted" ? "CONFLICTING EVIDENCE: expert review needed" : e.status}{e.status === "hypothesis" ? " (not evidence of shared mechanism)" : ""} · conf {e.confidence}
+        {e.review_verdict === "correct" ? "✓ manually verified · " : e.review_verdict === "incorrect" ? "✗ reviewer: incorrect · " : e.review_verdict === "partial" ? "reviewer: partial · " : ""}{t.label} · {e.status === "contradicted" ? "CONFLICTING EVIDENCE: expert review needed" : e.status}{e.status === "hypothesis" ? " (not evidence of shared mechanism)" : ""} · conf {e.confidence}
       </summary>
       <dl className="mt-1 max-w-xl space-y-0.5 rounded border border-neutral-200 p-2 text-neutral-700">
         {e.relation === "authored" && e.match_level === "possible" && <div className="font-medium text-amber-800">Possible match: same name on papers about different genes; no ORCID or affiliation match, so may be different people.</div>}
@@ -31,6 +43,10 @@ export function EvidenceBadge({ e }: { e: Edge }) {
             const u = refLink(r);
             return <span key={r}>{i ? ", " : ""}{u ? <a className="underline" href={u} target="_blank" rel="noreferrer">{r}</a> : r}</span>;
           }) : "none"}</dd></div>
+        {e.relation === "has_variant_effect" && e.entailment && (
+          <div><dt className="inline font-medium">Span check </dt><dd className="inline">{ENT[e.entailment].label}
+            {e.extracted_variant_effect && e.extracted_variant_effect !== String(load().nodes.get(e.target)?.variant_effect) ? `; extractor said ${e.extracted_variant_effect.replace(/_/g, " ")}, now ${String(load().nodes.get(e.target)?.variant_effect).replace(/_/g, " ")}` : ""}
+            {e.entailment_rationale ? ` — ${e.entailment_rationale}` : ""}. Population (from the span): {String(e.population).replace(/_/g, " ")}{e.extracted_population && e.extracted_population !== e.population ? `; extractor said ${e.extracted_population.replace(/_/g, " ")}` : ""}.</dd></div>)}
         {e.quoted_span && <div><dt className="inline font-medium">Quoted span </dt><dd className="inline italic">“{e.quoted_span}”</dd></div>}
         <div><dt className="inline font-medium">Contradictions </dt>
           <dd className="inline">{e.contradicts?.length ? <ul className="mt-1 list-disc pl-5">{e.contradicts.slice(0, 5).map((id) => {

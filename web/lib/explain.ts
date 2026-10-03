@@ -1,4 +1,5 @@
 import prompt from "./explain-prompt.json";
+import { effectAssertions } from "./effects";
 import { load, type Edge, type Explanation } from "./graph";
 
 const ID_RE = /\b(PMID:?\s*\d+|NCT\d{8}|OMIM:\d+|HP:\d{7}|MONDO:\d+)\b/g;
@@ -17,6 +18,7 @@ export function summarize(ids: string[]) {
     const e = edges.get(i)!;
     return { id: i, relation: e.relation, source: nodes.get(e.source)?.name, target: nodes.get(e.target)?.name, evidence_type: e.evidence_type, status: e.status,
       confidence: e.confidence, references: e.references, quoted_span: e.quoted_span, population: e.population, disease_context: e.disease_context,
+      span_entails_effect: e.entailment, claimed_variant_effect: nodes.get(e.target)?.variant_effect,
       note: e.method_note ?? e.note ?? undefined };
   });
 }
@@ -31,6 +33,16 @@ export function validate(x: Raw, ids: string[]): string[] {
     const lab = (s as { label?: string }).label ?? `step ${k}`;
     if (!s.edge_ids?.length) errs.push(`${lab}: no edge_ids`);
     for (const i of s.edge_ids ?? []) if (!allowed.has(i)) errs.push(`${lab}: unknown edge id ${i}`);
+  });
+  // a step asserting a variant effect must cite >= 1 claim whose span entails (entailment = yes) that effect class
+  const { nodes: nd } = load();
+  steps.forEach((s, k) => {
+    const lab = (s as { label?: string }).label ?? `step ${k}`;
+    const yes = (s.edge_ids ?? []).map((i) => edges.get(i)).filter((e): e is Edge => !!e && e.relation === "has_variant_effect" && e.entailment === "yes")
+      .map((e) => String(nd.get(e.target)?.variant_effect));
+    const a = effectAssertions(s.text);
+    if (a.reduced && !yes.some((v) => ["loss_of_function", "dominant_negative", "mixed"].includes(v))) errs.push(`${lab}: asserts a reduced-function effect but cites no claim with entailment=yes for it`);
+    if (a.increased && !yes.some((v) => ["gain_of_function", "mixed"].includes(v))) errs.push(`${lab}: asserts an increased-function effect but cites no claim with entailment=yes for it`);
   });
   for (const t of [x.summary_plain, ...(x.uncertainties ?? []), ...steps.map((s) => s.text)])
     for (const m of t.match(ID_RE) ?? []) { const n = m.replace(/\s/g, "").replace(/^PMID:?/, "PMID:"); if (!refs.has(n)) errs.push(`identifier not in input: ${m}`); }
