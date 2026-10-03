@@ -5,7 +5,6 @@ import { diseases, load, slugOf } from "@/lib/graph";
 export default function Home() {
   const { g } = load();
   const ds = diseases();
-  const items = ds.map((d) => ({ slug: slugOf(d.id), name: d.name!, gene: d.gene, omim: d.id, mondo: d.mondo, role: d.role }));
   return (
     <main className="mx-auto max-w-3xl px-4 py-10">
       <h1 className="text-2xl font-semibold">Rare Disease Atlas</h1>
@@ -13,7 +12,7 @@ export default function Home() {
         Connects rare diseases by mechanism and phenotype, with evidence behind every link. Current slice: 8 developmental
         &amp; epileptic encephalopathy genes, three benign same-gene counterexamples and one contrast (SCN1A / Dravet).
       </p>
-      <div className="mt-6"><Search items={items} /></div>
+      <div className="mt-6"><Search /></div>
       <h2 className="mt-10 text-sm font-medium uppercase tracking-wide text-neutral-500">Diseases in the slice</h2>
       <ul className="mt-2 columns-1 gap-8 text-sm sm:columns-2">
         {ds.map((d) => (

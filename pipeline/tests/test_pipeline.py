@@ -188,3 +188,95 @@ def test_contradicted_edges_reference_existing_opposing_edges():
     for e in g["edges"]:
         if e["status"] == "contradicted":
             assert e["contradicts"] and set(e["contradicts"]) <= ids
+
+
+def test_explanation_validator_rejects_invented_ids_and_checks_next_step():
+    from spans import validate_explanation
+    refs = {"PMID:111", "OMIM:1"}
+    good = {"summary_plain": "See PMID: 111.", "steps": [{"text": "x PMID:111", "edge_ids": ["E1"]}], "uncertainties": ["u"],
+            "next_step": {"text": "ask", "edge_ids": ["E1"]}}
+    assert validate_explanation(good, ["E1"], refs, require_full=True)[0]
+    bad_pmid = {**good, "summary_plain": "Reported in PMID 999."}
+    assert not validate_explanation(bad_pmid, ["E1"], refs)[0]
+    bad_nct = {**good, "steps": [{"text": "trial NCT12345678", "edge_ids": ["E1"]}]}
+    assert not validate_explanation(bad_nct, ["E1"], refs)[0]
+    bad_next = {**good, "next_step": {"text": "ask", "edge_ids": ["E9"]}}
+    assert not validate_explanation(bad_next, ["E1"], refs)[0]
+    assert not validate_explanation({**good, "uncertainties": []}, ["E1"], refs, require_full=True)[0]
+
+
+def test_exported_explanations_cite_only_input_edges():
+    import json, common
+    p = common.GRAPH / "graph.json"
+    if not p.exists():
+        pytest.skip("graph not built")
+    g = json.loads(p.read_text())
+    ids = {e["id"] for e in g["edges"]}
+    assert g["explanations"], "no explanations exported"
+    for did, ex in g["explanations"].items():
+        cited = {i for s in ex["steps"] + [ex["next_step"]] for i in s["edge_ids"]}
+        assert cited <= ids and cited <= set(ex["input_edge_ids"]) and ex["uncertainties"], did
+
+
+def test_search_resolves_synonyms_symptoms_genes_mechanisms():
+    import json
+    import common
+    p = common.ROOT / "web" / "public" / "data" / "search.json"
+    if not p.exists():
+        pytest.skip("search index not built")
+    items = json.loads(p.read_text())
+    types = {i["type"] for i in items}
+    assert {"disease", "gene", "symptom", "mechanism"} <= types
+    dee4 = next(i for i in items if i["id"] == "OMIM:612164")
+    assert "EIEE4" in dee4["aliases"] and "STXBP1" in dee4["aliases"]          # MONDO synonym + gene symbol resolve to the disease
+    seiz = next(i for i in items if i["type"] == "symptom" and i["label"] == "Seizure")
+    assert len(seiz["diseases"]) >= 8                                          # propagated HPO annotations
+
+
+def test_curated_usable_splits_genes_and_rejects_bad_rows():
+    import curated
+    rows = [{"gene": "STXBP1; kcnq2", "organization_name": "Org", "url": "not a url"}, {"gene": "", "organization_name": "x"},
+            {"gene": "BRCA1", "organization_name": "y"}, {"gene": "SCN2A", "organization_name": ""}]
+    ok, bad = curated.usable("patient_groups", rows, {"STXBP1", "KCNQ2", "SCN2A"})
+    assert [r["gene"] for r in ok] == ["STXBP1", "KCNQ2"] and all(r["url"] == "" for r in ok)
+    assert len(bad) == 3
+
+
+def test_curated_data_lights_up_routes(monkeypatch, tmp_path):
+    """Fixture rows (clearly fake, .test domain) must produce serves edges and a *supported* route when one group serves two diseases."""
+    import csv, curated, export
+    monkeypatch.setattr(curated, "CURATED", tmp_path)
+    with open(tmp_path / "patient_groups.csv", "w", newline="") as f:
+        w = csv.writer(f); w.writerow(["gene", "organization_name", "url"]); w.writerow(["STXBP1;KCNQ2", "FIXTURE GROUP", "https://fixture.test"])
+    g = export.build()
+    serves = [e for e in g["edges"] if e["relation"] == "serves"]
+    assert {e["target"] for e in serves} == {"OMIM:612164", "OMIM:613720"}
+    gap = g["meta"]["gaps"]["OMIM:612164"]
+    assert any(r["connection"] == "shared_patient_group" and r["connection_status"] == "supported" for r in gap["routes"])
+    assert gap["route_status"] == "supported"
+    assert not any("patient group" in m for m in gap["missing"])
+
+
+def test_same_gene_only_routes_are_hypothesis():
+    import json, common
+    p = common.GRAPH / "graph.json"
+    if not p.exists():
+        pytest.skip("graph not built")
+    g = json.loads(p.read_text())
+    for gap in g["meta"]["gaps"].values():
+        for r in gap["routes"]:
+            if r["connection"] in ("same_gene", "computed"):
+                assert r["connection_status"] == "hypothesis"
+
+
+def test_investigator_match_labels():
+    import json, common
+    p = common.GRAPH / "graph.json"
+    if not p.exists():
+        pytest.skip("graph not built")
+    g = json.loads(p.read_text())
+    for e in g["edges"]:
+        if e["relation"] == "authored":
+            assert (e["match_level"] == "possible") == (e["status"] == "hypothesis")
+    inv = [n for n in g["nodes"] if n["type"] == "investigator"]
+    assert inv and all(len(n["genes"]) >= 2 for n in inv)

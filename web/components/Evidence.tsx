@@ -20,9 +20,10 @@ export function EvidenceBadge({ e }: { e: Edge }) {
   return (
     <details className="inline-block align-top text-xs">
       <summary className={`cursor-pointer rounded border px-1.5 py-0.5 ${t.cls}`}>
-        {t.label} · {e.status === "contradicted" ? "CONTRADICTED" : e.status}{e.status === "hypothesis" ? " (not evidence of shared mechanism)" : ""} · conf {e.confidence}
+        {t.label} · {e.status === "contradicted" ? "CONFLICTING EVIDENCE: expert review needed" : e.status}{e.status === "hypothesis" ? " (not evidence of shared mechanism)" : ""} · conf {e.confidence}
       </summary>
       <dl className="mt-1 max-w-xl space-y-0.5 rounded border border-neutral-200 p-2 text-neutral-700">
+        {e.relation === "authored" && e.match_level === "possible" && <div className="font-medium text-amber-800">Possible match: same name on papers about different genes; no ORCID or affiliation match, so may be different people.</div>}
         <div><dt className="inline font-medium">Edge </dt><dd className="inline">{e.id} · {e.relation}</dd></div>
         <div><dt className="inline font-medium">Source </dt><dd className="inline">{e.source_db} (retrieved {e.retrieved_at})</dd></div>
         <div><dt className="inline font-medium">References </dt>
@@ -37,7 +38,7 @@ export function EvidenceBadge({ e }: { e: Edge }) {
             return <li key={id}>{id}: {o ? `${String(o.target).replace("MECH:", "")} — “${o.quoted_span}” (${o.references[0]})` : "?"}</li>;
           })}{e.contradicts.length > 5 && <li>…and {e.contradicts.length - 5} more</li>}</ul>
             : "none found (disease-level check: opposing effects each backed by ≥2 PMIDs)"}</dd></div>
-        {e.status === "contradicted" && <div className="font-medium text-red-800">Disease-level claims with opposing variant effects exist from different PMIDs.</div>}
+        {e.status === "contradicted" && <div className="font-medium text-red-800">Conflicting evidence: disease-level claims with opposing variant effects exist from different PMIDs. Expert review needed; onset or variant dependence is only a hypothesis.</div>}
         {e.method_note && <div className="italic">{e.method_note}</div>}
         {e.note && <div className="italic">{e.note}</div>}
       </dl>

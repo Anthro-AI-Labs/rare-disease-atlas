@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { EvidenceBadge, Empty, refLink } from "@/components/Evidence";
+import { Investigators } from "@/components/Claim";
+import { ExplanationPanel } from "@/components/Explanation";
 import { diseaseView, diseases, idOf, load, slugOf } from "@/lib/graph";
 
 export function generateStaticParams() {
@@ -17,8 +19,8 @@ export default async function DiseasePage({ params }: { params: Promise<{ slug: 
   const { slug } = await params;
   const v = diseaseView(idOf(slug));
   if (!v) notFound();
-  const { g, nodes } = load();
-  const { d, cluster, related, phenotypes, mechanisms, geneLevel, mechOtherCount, effectCounts, sole, trials, orgs, assets, causes, pairInfo, findings, gap } = v;
+  const { g, nodes, edges: edgeMap } = load();
+  const { d, cluster, related, phenotypes, mechanisms, geneLevel, mechOtherCount, effectCounts, sole, trials, orgs, assets, causes, pairInfo, findings, gap, invs } = v;
   const rule = g.meta.confidence_rule;
   const Claim = ({ m }: { m: (typeof mechanisms)[number] }) => (
     <li>
@@ -55,6 +57,11 @@ export default async function DiseasePage({ params }: { params: Promise<{ slug: 
       </p>
       <div className="mt-2"><EvidenceBadge e={causes} /></div>
 
+      <p className="mt-3"><Link href={`/disease/${slug}/action`} className="rounded border border-neutral-900 px-3 py-1.5 text-sm hover:bg-neutral-900 hover:text-white">Patient action view →</Link></p>
+
+      <H>Plain-language explanation</H>
+      <ExplanationPanel ex={g.explanations[d.id]} />
+
       <H>Route to a next step</H>
       <p className="mt-2"><span className={`rounded border px-2 py-0.5 text-sm ${STATUS_CLS[gap.route_status]}`}>{STATUS_TXT[gap.route_status]}</span></p>
       <p className="mt-2 text-sm text-neutral-700">{gap.suggested_question}</p>
@@ -79,6 +86,7 @@ export default async function DiseasePage({ params }: { params: Promise<{ slug: 
       {pairInfo.map((p) => (
         <div key={p.counterexample} className="mt-2 rounded border border-neutral-200 p-2 text-sm">
           <b>Same-gene benign/severe pair ({p.gene}): {p.status}.</b>
+          {p.directional_benign < 3 || p.directional_severe < 3 ? <p className="text-amber-800">Insufficient disease-level evidence (finding): {p.directional_benign} directional claim(s) for the benign form, {p.directional_severe} for the severe form; at least 3 each are needed to compare variant effects.</p> : null}
           <p className="text-neutral-600">{p.evidence_note}</p>
         </div>))}
 
@@ -95,12 +103,19 @@ export default async function DiseasePage({ params }: { params: Promise<{ slug: 
       )}
 
       <H>Mechanism claims (from PubMed abstracts)</H>
-      {findings.map((f) => (
-        <p key={f.disease} className={`mt-2 rounded border p-2 text-sm ${f.kind === "contradicted" ? "border-red-700 text-red-800" : "border-sky-700 text-sky-800"}`}>
-          {f.kind === "contradicted" ? "Contradiction: " : "Mixed (a finding, not a contradiction): "}
-          {f.reduced.length} reduced-function and {f.increased.length} increased-function claims for this disease from different PMIDs
-          {f.kind === "mixed" ? ", tied to different phenotypes." : "; both sides share the same phenotypes, so they conflict."}
-        </p>))}
+      {findings.map((f) => f.kind === "contradicted" ? (
+        <div key={f.disease} className="mt-2 rounded border border-red-700 p-3 text-sm">
+          <p className="font-medium text-red-800">Conflicting evidence: expert review needed</p>
+          <p className="mt-1 text-neutral-700">Claims for this disease point in opposite directions, from different PMIDs, and the quoted phrases are tied to overlapping phenotypes. We do not resolve the conflict.</p>
+          <p className="mt-1 text-neutral-700"><b>Hypothesis, not a conclusion:</b> the direction of effect may depend on age at onset, the specific variant, or the experimental system.</p>
+          <div className="mt-2 grid gap-3 sm:grid-cols-2">{([["Reduced function (loss of function / dominant negative)", f.reduced], ["Increased function (gain of function)", f.increased]] as const).map(([lab, ids]) => (
+            <div key={lab}><p className="font-medium">{lab}</p><ul className="mt-1 space-y-2">{ids.slice(0, 4).map((i) => { const e = edgeMap.get(i)!; return (
+              <li key={i} className="text-xs"><span className="italic">“{e.quoted_span}”</span> <a className="underline" target="_blank" rel="noreferrer" href={`https://pubmed.ncbi.nlm.nih.gov/${e.references[0].slice(5)}/`}>{e.references[0]}</a> · {String(e.population)} · conf {e.confidence}</li>); })}
+              {ids.length > 4 && <li className="text-xs text-neutral-500">…and {ids.length - 4} more claims</li>}</ul></div>))}</div>
+        </div>
+      ) : (
+        <p key={f.disease} className="mt-2 rounded border border-sky-700 p-2 text-sm text-sky-800">Mixed (a finding, not a conflict): {f.reduced.length} reduced-function and {f.increased.length} increased-function claims are tied to different phenotypes.</p>
+      ))}
       {mechanisms.length === 0 ? <Empty>no mechanism claims for this disease in the graph{geneLevel.length ? `; ${geneLevel.length} gene-level claims for ${d.gene} are listed below` : ""}.</Empty> : (
         <>
           <p className="mt-2 text-sm text-neutral-700">
@@ -127,6 +142,10 @@ export default async function DiseasePage({ params }: { params: Promise<{ slug: 
             <ul className="mt-2 space-y-3">{trials.slice(3).map((t) => <Trial key={t.edge.id} t={t} />)}</ul></details>}
         </>
       )}
+
+      <H>Researchers on this gene&apos;s literature who also publish on other genes</H>
+      <Investigators items={invs} />
+      <p className="mt-1 text-xs text-neutral-500">Lead authors (first/last two) of the PubMed papers behind the claims; shared across ≥ 2 genes. Names are not identities: unlabeled matches have an ORCID or affiliation match, the rest are “possible match”.</p>
 
       <H>Patient groups and shared assets</H>
       {orgs.length + assets.length === 0 ? <Empty>no curated patient groups or assets on file for {d.gene} (data/curated/patient_groups.csv and assets.csv are empty or missing).</Empty> : (

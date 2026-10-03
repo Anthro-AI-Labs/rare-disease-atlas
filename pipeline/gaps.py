@@ -11,13 +11,16 @@ def build_gaps(nodes, edges, pairs, meta_in):
     diseases = [n for n in nodes.values() if n["type"] == "disease"]
     gene_of = {e["target"]: e["source"] for e in by_rel["causes"]}
     trials_by_d, orgs_by_d = {}, {}
+    org_src, asset_src, serve_edge, asset_edge = {}, {}, {}, {}
     for e in by_rel.get("studied_in", []):
         trials_by_d.setdefault(e["target"], []).append(e["id"])
     for e in by_rel.get("serves", []):
         orgs_by_d.setdefault(e["target"], []).append(e["id"])
+        org_src.setdefault(e["target"], set()).add(e["source"]); serve_edge[(e["target"], e["source"])] = e["id"]
     assets_by_g = {}
     for e in by_rel.get("has_asset", []):
         assets_by_g.setdefault(e["source"], []).append(e["id"])
+        asset_src.setdefault(e["source"], set()).add(e["target"]); asset_edge[(e["source"], e["target"])] = e["id"]
     claims = meta_in["claims"]
     spec = meta_in["specific"]
     out = {}
@@ -44,16 +47,30 @@ def build_gaps(nodes, edges, pairs, meta_in):
                 rel.append((p["combined"], o, p))
         rel.sort(key=lambda x: -x[0])
         routes = []
-        for comb, o, p in rel[:3]:
+        def route(comb, o):
             same_gene = ALL[o] == gene
             ids = [e["id"] for e in by_rel.get("phenotypically_similar_to", []) if {e["source"], e["target"]} == {did, o}]
             ids += [e["id"] for e in by_rel.get("shares_mechanism_with", []) if {e["source"], e["target"]} == {did, o}]
-            ids += [e["id"] for e in by_rel["causes"] if e["target"] in (did, o)] if same_gene else []
+            if same_gene:
+                ids += [e["id"] for e in by_rel["causes"] if e["target"] in (did, o)]
+            shared_orgs = org_src.get(did, set()) & org_src.get(o, set())
+            shared_assets = asset_src.get(gid, set()) & asset_src.get(gene_of[o], set())
+            if shared_orgs or shared_assets:  # curated, manually verified shared community/asset => supported connection
+                conn = "shared_patient_group" if shared_orgs else "shared_asset"
+                status_c = "supported"
+                ids += [serve_edge[(x, g)] for x in (did, o) for g in shared_orgs] + [asset_edge[(x, a)] for x in (gid, gene_of[o]) for a in shared_assets if (x, a) in asset_edge]
+            else:  # same gene is a curated fact but not evidence of a shared route (lead decision): hypothesis
+                conn, status_c = ("same_gene" if same_gene else "computed"), "hypothesis"
             leads = {"trials": trials_by_d.get(o, []), "patient_groups": orgs_by_d.get(o, []),
                      "assets": assets_by_g.get(gene_of[o], []) if not same_gene else []}
-            routes.append({"to": o, "combined_similarity": round(comb, 3), "connection": "same_gene" if same_gene else "computed",
-                           "connection_status": "supported" if same_gene else "hypothesis", "edge_ids": ids, "leads": leads,
-                           "n_leads": sum(len(v) for v in leads.values())})
+            return {"to": o, "combined_similarity": round(comb, 3), "connection": conn, "connection_status": status_c,
+                    "edge_ids": ids, "leads": leads, "n_leads": sum(len(v) for v in leads.values())}
+        for comb, o, p in rel[:3]:
+            routes.append(route(comb, o))
+        have = {r["to"] for r in routes}
+        for comb, o, p in rel[3:]:
+            if o not in have and (org_src.get(did, set()) & org_src.get(o, set()) or asset_src.get(gid, set()) & asset_src.get(gene_of[o], set())):
+                routes.append(route(comb, o))
         if any(r["connection_status"] == "supported" and r["n_leads"] for r in routes):
             status = "supported"
         elif any(r["n_leads"] for r in routes):
@@ -70,8 +87,8 @@ def build_gaps(nodes, edges, pairs, meta_in):
         if not trials_by_d.get(did):
             missing.append(f"No ClinicalTrials.gov record naming {gene} linked to this disease.")
         if routes and all(r["connection_status"] == "hypothesis" for r in routes):
-            missing.append("No literature or curated evidence directly linking this disease to the related diseases; the links are computed similarity only.")
-        top = next((r for r in routes if r["connection"] == "computed"), None)
+            missing.append("No curated shared patient group or asset linking this disease to a related disease; links are computed similarity or same-gene only (hypothesis).")
+        top = next((r for r in routes if r["connection"] in ("computed", "same_gene")), None)
         if top:
             on = nodes[top["to"]]["name"]
             q = f"Do {d['name']} and {on} share the same variant effect in human patients? Needs expert review of the cited PMIDs."

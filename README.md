@@ -45,5 +45,10 @@ cd web && vercel link && vercel deploy --prod
 ```
 See `docs/PLAN.md` (roadmap), `docs/DECISIONS.md`, `docs/RESEARCH.md`, `DATA_SOURCES.md`.
 
+## Search, explanations, live API
+- Global search (diseases + MONDO synonyms, genes, HPO symptoms + synonyms, mechanisms, patient groups) reads `web/public/data/search.json`, built by `make graph`.
+- `pipeline/explain.py` pre-generates validated plain-language explanations for every disease (needs `OPENAI_API_KEY`, `OPENAI_MODEL`; falls back to a template). `POST /api/explain` returns them, or explains a *new* set of edge ids live (`{"edgeIds":[...]}`), rate-limited to 5/min/IP. Set `OPENAI_API_KEY` and `OPENAI_MODEL` as Vercel environment variables (server-side only) to enable the live route; without them it answers 503 and everything else works.
+- Curated `patient_groups.csv` / `assets.csv` can be partial: rows missing `gene` + name, or naming genes outside the slice, are skipped and counted. `gene` may list several genes separated by `;`. Rebuild with `make graph` and the Patient action view lights up.
+
 ## Evidence review
 `python pipeline/make_review_v2.py` writes `data/curated/evidence_review_v2.csv` (24 random claims, 8 per confidence tier). Fill `verdict` with `correct`, `partial` or `incorrect`; `make graph` then reports precision per tier on the home page. `evidence_review.csv` (v1) is a priority sample and is not used for precision.

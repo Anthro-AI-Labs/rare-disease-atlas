@@ -1,0 +1,1353 @@
+{
+ "investigators": [
+  {
+   "id": "INV:george-a",
+   "name": "George Alfred L",
+   "match_level": "orcid",
+   "orcid": "0000-0002-3993-966X",
+   "genes": [
+    "KCNQ2",
+    "SCN1A",
+    "SCN2A",
+    "SCN8A",
+    "SYNGAP1"
+   ],
+   "pmids": [
+    "37884512",
+    "38651838",
+    "38771640",
+    "39707911",
+    "40766585",
+    "41250984",
+    "41279753",
+    "41718449",
+    "41885191",
+    "41929043",
+    "42239050",
+    "42611988"
+   ],
+   "affiliation_example": "Department of Pharmacology, Northwestern University Feinberg School of Medicine, Chicago, IL, USA."
+  },
+  {
+   "id": "INV:hammer-m",
+   "name": "Hammer Michael F",
+   "match_level": "orcid",
+   "orcid": "0000-0003-0172-429X",
+   "genes": [
+    "KCNQ2",
+    "KCNT1",
+    "SCN1A",
+    "SCN2A",
+    "SCN8A"
+   ],
+   "pmids": [
+    "37585367",
+    "38466077",
+    "39556335",
+    "41151066"
+   ],
+   "affiliation_example": "BIO5 Institute, University of Arizona, Tucson, Arizona, USA."
+  },
+  {
+   "id": "INV:mller-r",
+   "name": "M\u00f8ller Rikke S",
+   "match_level": "orcid",
+   "orcid": "0000-0002-9664-1448",
+   "genes": [
+    "KCNQ2",
+    "SCN1A",
+    "SCN2A",
+    "SCN8A"
+   ],
+   "pmids": [
+    "31625145",
+    "34356067",
+    "34431999",
+    "38241158",
+    "38251463",
+    "39812613",
+    "41925334"
+   ],
+   "affiliation_example": "Department of Epilepsy Genetics and Personalized Medicine, Danish Epilepsy Centre, Dianalund, Denmark."
+  },
+  {
+   "id": "INV:scheffer-i",
+   "name": "Scheffer Ingrid E",
+   "match_level": "orcid",
+   "orcid": "0000-0002-2311-2174",
+   "genes": [
+    "SCN1A",
+    "SCN2A",
+    "SCN8A",
+    "STXBP1"
+   ],
+   "pmids": [
+    "36750385",
+    "38845412",
+    "40694750",
+    "41712149",
+    "42559425"
+   ],
+   "affiliation_example": "From the Epilepsy Research Centre (A.M.D., A.L.S., S.R.-H., I.E.S.), Department of Medicine, The University of Melbourne, Austin Health; Melbourne Medical School (L.C.), Faculty of Medicine, Dentistry and Health Sciences, The University of Melbourne, Parkville; The Florey Institute of Neurosciences and Mental Health (L.C., I.E.S.), Melbourne; and Department of Paediatrics (I.E.S.), The University of Melbourne, Royal Children's Hospital, and Murdoch Children's Research Institute, Victoria, Australia. i.scheffer@unimelb.edu.au."
+  },
+  {
+   "id": "INV:zhang-j",
+   "name": "Zhang Jingliang",
+   "match_level": "possible",
+   "orcid": "",
+   "genes": [
+    "SCN2A",
+    "SCN8A",
+    "STXBP1",
+    "SYNGAP1"
+   ],
+   "pmids": [
+    "39456768",
+    "40885846",
+    "41162233",
+    "41767012",
+    "42818052"
+   ],
+   "affiliation_example": "Department of Cell Biology, and Genetics, Institute of Molecular Medicine, and Oncology, Chongqing Medical University, Chongqing 400016, China."
+  },
+  {
+   "id": "INV:zhang-y",
+   "name": "Zhang Yajuan",
+   "match_level": "affiliation",
+   "orcid": "0009-0005-5840-7094",
+   "genes": [
+    "KCNQ2",
+    "SCN1A",
+    "SCN2A",
+    "SCN8A"
+   ],
+   "pmids": [
+    "35431799",
+    "38142737",
+    "41617776",
+    "42179731",
+    "42450024"
+   ],
+   "affiliation_example": "Department of Pediatrics, Peking University First Hospital, Beijing, China."
+  },
+  {
+   "id": "INV:helbig-i",
+   "name": "Helbig Ingo",
+   "match_level": "orcid",
+   "orcid": "0000-0001-8486-0558",
+   "genes": [
+    "KCNQ2",
+    "SCN1A",
+    "SCN8A",
+    "STXBP1"
+   ],
+   "pmids": [
+    "38898886",
+    "40228184",
+    "41867217",
+    "42428076"
+   ],
+   "affiliation_example": "Division of Neurology, Department of Biomedical and Health Informatics, The Children's Hospital of Philadelphia, Philadelphia, PA, USA."
+  },
+  {
+   "id": "INV:petrou-s",
+   "name": "Petrou Steven",
+   "match_level": "affiliation",
+   "orcid": "",
+   "genes": [
+    "KCNQ2",
+    "KCNT1",
+    "SCN1A",
+    "SCN2A"
+   ],
+   "pmids": [
+    "36173683",
+    "38939966",
+    "39733957",
+    "42085324"
+   ],
+   "affiliation_example": "The Florey Institute of Neuroscience and Mental Health, The University of Melbourne, Parkville, Victoria, Australia."
+  },
+  {
+   "id": "INV:liu-y",
+   "name": "Liu Yuanyuan",
+   "match_level": "possible",
+   "orcid": "",
+   "genes": [
+    "KCNQ2",
+    "SCN2A",
+    "SCN8A"
+   ],
+   "pmids": [
+    "34431999",
+    "38251463",
+    "41279137",
+    "41654290",
+    "42433021",
+    "42800573"
+   ],
+   "affiliation_example": "Department of Neurology and Epileptology, Hertie Institute for Clinical Brain Research, University of Tuebingen, 72072 Tuebingen, Germany."
+  },
+  {
+   "id": "INV:thompson-c",
+   "name": "Thompson Christopher H",
+   "match_level": "orcid",
+   "orcid": "0000-0003-3713-630X",
+   "genes": [
+    "SCN1A",
+    "SCN2A",
+    "SCN8A"
+   ],
+   "pmids": [
+    "38651838",
+    "38771640",
+    "39707911",
+    "41279753",
+    "41718449",
+    "41885191"
+   ],
+   "affiliation_example": "Department of Pharmacology, Northwestern University Feinberg School of Medicine, Chicago, IL 60611, USA."
+  },
+  {
+   "id": "INV:wu-j",
+   "name": "Wu Jing",
+   "match_level": "orcid",
+   "orcid": "0000-0002-2684-6122",
+   "genes": [
+    "KCNQ2",
+    "KCNT1",
+    "STXBP1"
+   ],
+   "pmids": [
+    "30488659",
+    "36437393",
+    "36824888",
+    "37442907",
+    "38370631",
+    "38457342"
+   ],
+   "affiliation_example": "Institute of Genomic Medicine, Wenzhou Medical University, Wenzhou, China."
+  },
+  {
+   "id": "INV:yang-y",
+   "name": "Yang Yang",
+   "match_level": "orcid",
+   "orcid": "0000-0001-6417-3654",
+   "genes": [
+    "KCNQ2",
+    "SCN2A",
+    "SCN8A"
+   ],
+   "pmids": [
+    "35431799",
+    "39971736",
+    "40894722",
+    "41162233",
+    "42530523",
+    "42818052"
+   ],
+   "affiliation_example": "Department of Pediatrics, Peking University First Hospital, Beijing, China."
+  },
+  {
+   "id": "INV:sahin-m",
+   "name": "Sahin Mustafa",
+   "match_level": "orcid",
+   "orcid": "0000-0001-7044-2953",
+   "genes": [
+    "CDKL5",
+    "KCNQ2",
+    "SCN1A"
+   ],
+   "pmids": [
+    "39605742",
+    "40930428",
+    "41015095",
+    "42612424",
+    "42814106"
+   ],
+   "affiliation_example": "F.M. Kirby Neurobiology Department, Boston Children's Hospital, Boston, MA, USA; Department of Neurology, Boston Children's Hospital, Harvard Medical School, Boston, MA, USA; Human Neuron Core, Rosamund Stone Zander Translational Neuroscience Center, Boston Children's Hospital, Boston, MA, USA."
+  },
+  {
+   "id": "INV:hill-s",
+   "name": "Hill Sophie F",
+   "match_level": "affiliation",
+   "orcid": "0000-0002-8331-9812",
+   "genes": [
+    "KCNT1",
+    "SCN1A",
+    "SCN8A"
+   ],
+   "pmids": [
+    "37901435",
+    "38969233",
+    "39158034",
+    "42127220"
+   ],
+   "affiliation_example": "Neuroscience Graduate Program, University of Michigan, Ann Arbor, MI, United States."
+  },
+  {
+   "id": "INV:li-y",
+   "name": "Li Yang",
+   "match_level": "affiliation",
+   "orcid": "0009-0003-1243-7795",
+   "genes": [
+    "GNAO1",
+    "KCNQ2",
+    "SCN2A"
+   ],
+   "pmids": [
+    "34093402",
+    "37497102",
+    "37705601",
+    "41988220"
+   ],
+   "affiliation_example": "National Health Center and Chinese Academy of Medical Sciences Key Laboratory of Medical Neurobiology, National Clinical Research Center for Child Health, Children's Hospital, Zhejiang University School of Medicine, Hangzhou, China."
+  },
+  {
+   "id": "INV:maljevic-s",
+   "name": "Maljevic Snezana",
+   "match_level": "affiliation",
+   "orcid": "0000-0003-1876-5872",
+   "genes": [
+    "KCNQ2",
+    "KCNT1",
+    "SCN1A"
+   ],
+   "pmids": [
+    "36173683",
+    "39733957",
+    "40998073",
+    "42085324"
+   ],
+   "affiliation_example": "The Florey Institute of Neuroscience and Mental Health, The University of Melbourne, Parkville, Victoria, Australia."
+  },
+  {
+   "id": "INV:brunklaus-a",
+   "name": "Brunklaus Andreas",
+   "match_level": "orcid",
+   "orcid": "0000-0002-7728-6903",
+   "genes": [
+    "SCN1A",
+    "SCN2A",
+    "SCN8A"
+   ],
+   "pmids": [
+    "31904126",
+    "41925334",
+    "42040244"
+   ],
+   "affiliation_example": "Paediatric Neurosciences Research Group, Royal Hospital for Children & School of Medicine, University of Glasgow, Glasgow, UK."
+  },
+  {
+   "id": "INV:samanta-d",
+   "name": "Samanta Debopam",
+   "match_level": "affiliation",
+   "orcid": "0000-0002-5154-8717",
+   "genes": [
+    "KCNT1",
+    "SCN2A",
+    "STXBP1"
+   ],
+   "pmids": [
+    "40310132",
+    "42462387",
+    "42485940"
+   ],
+   "affiliation_example": "Division of Child Neurology, University of Arkansas for Medical Sciences, Little Rock, AR 72202, USA."
+  },
+  {
+   "id": "INV:vanoye-c",
+   "name": "Vanoye Carlos G",
+   "match_level": "affiliation",
+   "orcid": "",
+   "genes": [
+    "KCNQ2",
+    "SCN2A",
+    "SCN8A"
+   ],
+   "pmids": [
+    "38651838",
+    "38771640",
+    "41250984"
+   ],
+   "affiliation_example": "Department of Pharmacology, Northwestern University Feinberg School of Medicine, Chicago, IL 60611, USA."
+  },
+  {
+   "id": "INV:jiang-y",
+   "name": "Jiang Yuwu",
+   "match_level": "affiliation",
+   "orcid": "",
+   "genes": [
+    "KCNT1",
+    "SCN1A",
+    "SCN2A"
+   ],
+   "pmids": [
+    "39370580",
+    "41617776"
+   ],
+   "affiliation_example": "Department of Pediatrics, Peking University First Hospital, Beijing, China."
+  },
+  {
+   "id": "INV:riva-a",
+   "name": "Riva Antonella",
+   "match_level": "affiliation",
+   "orcid": "0000-0001-9152-5571",
+   "genes": [
+    "SCN1A",
+    "SCN2A",
+    "SCN8A"
+   ],
+   "pmids": [
+    "41630925",
+    "42268240"
+   ],
+   "affiliation_example": "Department of Neurosciences, Rehabilitation, Ophthalmology, Genetics, Maternal and Child Health, University of Genoa, Italy."
+  },
+  {
+   "id": "INV:taglialatela-m",
+   "name": "Taglialatela Maurizio",
+   "match_level": "orcid",
+   "orcid": "0000-0002-8202-0560",
+   "genes": [
+    "KCNQ2",
+    "KCNT1"
+   ],
+   "pmids": [
+    "38241158",
+    "38644974",
+    "38782404",
+    "39602259",
+    "39981956",
+    "40292751",
+    "42249507"
+   ],
+   "affiliation_example": "Section of Pharmacology, Department of Neuroscience, University of Naples \"Federico II\", Naples, Italy."
+  },
+  {
+   "id": "INV:verhage-m",
+   "name": "Verhage M",
+   "match_level": "orcid",
+   "orcid": "0000-0002-6085-7503",
+   "genes": [
+    "SCN2A",
+    "STXBP1"
+   ],
+   "pmids": [
+    "31855252",
+    "38484778",
+    "40181518",
+    "41781723",
+    "42311236",
+    "42768145"
+   ],
+   "affiliation_example": "Department of Clinical Genetics, Center for Neurogenomics and Cognitive Research (CNCR), University Medical Center Amsterdam, De Boelelaan 1085, 1081 HV Amsterdam, The Netherlands."
+  },
+  {
+   "id": "INV:gao-z",
+   "name": "Gao Zhao-Bing",
+   "match_level": "affiliation",
+   "orcid": "0000-0001-8931-5508",
+   "genes": [
+    "KCNQ2",
+    "SCN2A"
+   ],
+   "pmids": [
+    "36932231",
+    "40003973",
+    "40095209",
+    "42745013"
+   ],
+   "affiliation_example": "School of Pharmacy, Zunyi Medical University, Zunyi, 563000, China. zbgao@simm.ac.cn."
+  },
+  {
+   "id": "INV:goldberg-e",
+   "name": "Goldberg Ethan M",
+   "match_level": "orcid",
+   "orcid": "0000-0002-7404-735X",
+   "genes": [
+    "SCN1A",
+    "SCN2A"
+   ],
+   "pmids": [
+    "39707911",
+    "41867217",
+    "42127220",
+    "42257687"
+   ],
+   "affiliation_example": "Division of Neurology, Department of Pediatrics, The Children's Hospital of Philadelphia, Philadelphia, Pennsylvania, USA."
+  },
+  {
+   "id": "INV:meisler-m",
+   "name": "Meisler Miriam H",
+   "match_level": "affiliation",
+   "orcid": "",
+   "genes": [
+    "KCNT1",
+    "SCN8A"
+   ],
+   "pmids": [
+    "31625145",
+    "37901435",
+    "38969233",
+    "39158034"
+   ],
+   "affiliation_example": "Department of Human Genetics, University of Michigan, Ann Arbor, Michigan."
+  },
+  {
+   "id": "INV:milh-m",
+   "name": "Milh Mathieu",
+   "match_level": "orcid",
+   "orcid": "0000-0002-2454-8543",
+   "genes": [
+    "KCNQ2",
+    "SCN2A"
+   ],
+   "pmids": [
+    "40632471",
+    "40884527",
+    "42190144",
+    "42610455"
+   ],
+   "affiliation_example": "Aix Marseille Univ, Inserm, MMG, U1251, Marseille, France."
+  },
+  {
+   "id": "INV:moyses-oliveira-m",
+   "name": "Moyses-Oliveira Mariana",
+   "match_level": "possible",
+   "orcid": "0000-0002-3233-932X",
+   "genes": [
+    "SCN2A",
+    "SYNGAP1"
+   ],
+   "pmids": [
+    "38958060",
+    "39733667",
+    "41279137",
+    "42433021"
+   ],
+   "affiliation_example": "Sleep Institute, Associa\u00e7\u00e3o Fundo de Incentivo \u00e0 Pesquisa, S\u00e3o Paulo, Brazil."
+  },
+  {
+   "id": "INV:prosser-b",
+   "name": "Prosser Benjamin L",
+   "match_level": "orcid",
+   "orcid": "0000-0003-3696-9131",
+   "genes": [
+    "STXBP1",
+    "SYNGAP1"
+   ],
+   "pmids": [
+    "38898886",
+    "39229131",
+    "41279390",
+    "42448791"
+   ],
+   "affiliation_example": "Department of Physiology, Perelman School of Medicine, University of Pennsylvania, Philadelphia, PA, USA."
+  },
+  {
+   "id": "INV:bayat-a",
+   "name": "Bayat Allan",
+   "match_level": "orcid",
+   "orcid": "0000-0003-4986-8006",
+   "genes": [
+    "KCNQ2",
+    "SCN2A"
+   ],
+   "pmids": [
+    "34356067",
+    "38241158",
+    "39962862"
+   ],
+   "affiliation_example": "Department of Regional Health Research, University of Southern Denmark, DK-5230 Odense, Denmark."
+  },
+  {
+   "id": "INV:buttermore-e",
+   "name": "Buttermore Elizabeth D",
+   "match_level": "affiliation",
+   "orcid": "",
+   "genes": [
+    "CDKL5",
+    "KCNQ2"
+   ],
+   "pmids": [
+    "39605742",
+    "40930428",
+    "42612424"
+   ],
+   "affiliation_example": "F.M. Kirby Neurobiology Department, Boston Children's Hospital, Boston, MA, USA; Department of Neurology, Boston Children's Hospital, Harvard Medical School, Boston, MA, USA; Human Neuron Core, Rosamund Stone Zander Translational Neuroscience Center, Boston Children's Hospital, Boston, MA, USA. Electronic address: elizabeth.buttermore@childrens.harvard.edu."
+  },
+  {
+   "id": "INV:feng-j",
+   "name": "Feng Jinhua",
+   "match_level": "possible",
+   "orcid": "",
+   "genes": [
+    "KCNQ2",
+    "SCN2A"
+   ],
+   "pmids": [
+    "34093402",
+    "37497102",
+    "42221008"
+   ],
+   "affiliation_example": "Pediatric Department, Second Affiliated Hospital, Zhejiang University School of Medicine, Hangzhou, China."
+  },
+  {
+   "id": "INV:howell-k",
+   "name": "Howell Katherine B",
+   "match_level": "orcid",
+   "orcid": "0000-0002-5469-8411",
+   "genes": [
+    "KCNQ2",
+    "SCN2A"
+   ],
+   "pmids": [
+    "40694750",
+    "41642117",
+    "42081271"
+   ],
+   "affiliation_example": "Murdoch Children's Research Institute, Melbourne, Australia."
+  },
+  {
+   "id": "INV:kind-p",
+   "name": "Kind Peter C",
+   "match_level": "affiliation",
+   "orcid": "",
+   "genes": [
+    "CDKL5",
+    "SYNGAP1"
+   ],
+   "pmids": [
+    "36759195",
+    "38877552",
+    "39269903"
+   ],
+   "affiliation_example": "Centre for Discovery Brain Sciences, University of Edinburgh, Edinburgh, EH8 9XD, United Kingdom."
+  },
+  {
+   "id": "INV:li-j",
+   "name": "Li Jing'e",
+   "match_level": "possible",
+   "orcid": "",
+   "genes": [
+    "KCNQ2",
+    "SYNGAP1"
+   ],
+   "pmids": [
+    "39814994",
+    "40885846",
+    "41988220"
+   ],
+   "affiliation_example": "Shanghai Key Laboratory of Regulatory Biology, Institute of Biomedical Sciences and School of Life Sciences, East China Normal University, Shanghai, China."
+  },
+  {
+   "id": "INV:mantegazza-m",
+   "name": "Mantegazza Massimo",
+   "match_level": "orcid",
+   "orcid": "0000-0002-1070-7929",
+   "genes": [
+    "SCN1A",
+    "SCN2A"
+   ],
+   "pmids": [
+    "31501495",
+    "40887751",
+    "42040244"
+   ],
+   "affiliation_example": "Universit\u00e9 C\u00f4te d'Azur, 660 Route des Lucioles, 06560, Valbonne - Sophia Antipolis, France. mantegazza@ipmc.cnrs.fr."
+  },
+  {
+   "id": "INV:robinson-m",
+   "name": "Robinson Morgan",
+   "match_level": "affiliation",
+   "orcid": "0000-0003-4719-196X",
+   "genes": [
+    "SCN2A",
+    "SCN8A"
+   ],
+   "pmids": [
+    "40894722",
+    "41162233",
+    "42530523"
+   ],
+   "affiliation_example": "Borch Department of Medicinal Chemistry and Molecular Pharmacology, College of Pharmacy, Purdue University, West Lafayette, IN, USA; Department of Chemical Engineering, College of Engineering, Purdue University, West Lafayette, IN, USA; Purdue Institute for Integrative Neuroscience, Purdue University, West Lafayette, IN, USA."
+  },
+  {
+   "id": "INV:srensen-j",
+   "name": "S\u00f8rensen Jakob B",
+   "match_level": "affiliation",
+   "orcid": "0000-0001-5465-3769",
+   "genes": [
+    "SCN2A",
+    "STXBP1"
+   ],
+   "pmids": [
+    "38086378",
+    "40181518",
+    "41781723"
+   ],
+   "affiliation_example": "Department of Neuroscience, University of Copenhagen, Blegdamsvej 3, 2200 Copenhagen N, Denmark."
+  },
+  {
+   "id": "INV:wang-y",
+   "name": "Wang Yingying",
+   "match_level": "possible",
+   "orcid": "",
+   "genes": [
+    "KCNQ2",
+    "KCNT1"
+   ],
+   "pmids": [
+    "38142737",
+    "38289338",
+    "41051877"
+   ],
+   "affiliation_example": "Department of Neurology, Children's Hospital of Fudan University, Shanghai 201102, China. Electronic address: yiwang@shmu.edu.cn."
+  },
+  {
+   "id": "INV:yang-s",
+   "name": "Yang Shi-Bing",
+   "match_level": "orcid",
+   "orcid": "0000-0001-8061-3963",
+   "genes": [
+    "KCNQ2",
+    "SYNGAP1"
+   ],
+   "pmids": [
+    "38171555",
+    "39971736",
+    "42220125"
+   ],
+   "affiliation_example": "Institute of Biomedical Sciences, Academia Sinica, Taipei, Taiwan."
+  },
+  {
+   "id": "INV:zhang-x",
+   "name": "Zhang Xue",
+   "match_level": "possible",
+   "orcid": "0009-0004-0249-0581",
+   "genes": [
+    "KCNQ2",
+    "SCN8A"
+   ],
+   "pmids": [
+    "38311555",
+    "39570101",
+    "39832895"
+   ],
+   "affiliation_example": "Postgraduate Training Base of Jinzhou Medical University, Linyi People's Hospital, Linyi, Shandong 276003, China. taishanjiaoxia39@163.com."
+  },
+  {
+   "id": "INV:aiba-i",
+   "name": "Aiba Isamu",
+   "match_level": "affiliation",
+   "orcid": "0000-0003-2564-0234",
+   "genes": [
+    "KCNQ2",
+    "SCN8A"
+   ],
+   "pmids": [
+    "39416109",
+    "40177888"
+   ],
+   "affiliation_example": "Department of Neurology, Baylor College of Medicine Houston TX 77030."
+  },
+  {
+   "id": "INV:ben-shalom-r",
+   "name": "Ben-Shalom Roy",
+   "match_level": "possible",
+   "orcid": "",
+   "genes": [
+    "KCNT1",
+    "SCN8A"
+   ],
+   "pmids": [
+    "38519006",
+    "40777472"
+   ],
+   "affiliation_example": "Neurology Department, MIND Institute, University of California, Davis, Sacramento, CA, United States. Electronic address: rbenshalom@ucdavis.edu."
+  },
+  {
+   "id": "INV:berg-a",
+   "name": "Berg Anne T",
+   "match_level": "orcid",
+   "orcid": "0000-0002-0298-5523",
+   "genes": [
+    "KCNQ2",
+    "SCN2A"
+   ],
+   "pmids": [
+    "38651838",
+    "41250984"
+   ],
+   "affiliation_example": "Department of Neurology, Northwestern University Feinberg School of Medicine, Chicago, IL 60611, USA."
+  },
+  {
+   "id": "INV:chen-x",
+   "name": "Chen Xiaoli",
+   "match_level": "possible",
+   "orcid": "0000-0002-6638-4364",
+   "genes": [
+    "STXBP1",
+    "SYNGAP1"
+   ],
+   "pmids": [
+    "30488659",
+    "38171555"
+   ],
+   "affiliation_example": "Institute of Genomic Medicine, Wenzhou Medical University, Wenzhou, China."
+  },
+  {
+   "id": "INV:davidson-b",
+   "name": "Davidson Beverly L",
+   "match_level": "affiliation",
+   "orcid": "",
+   "genes": [
+    "STXBP1",
+    "SYNGAP1"
+   ],
+   "pmids": [
+    "39229131",
+    "42448791"
+   ],
+   "affiliation_example": "Center for Epilepsy and Neurodevelopmental Disorders (ENDD), University of Pennsylvania Perelman School of Medicine and Children's Hospital of Philadelphia, Philadelphia, PA 19104, USA."
+  },
+  {
+   "id": "INV:desnous-b",
+   "name": "Desnous B\u00e9atrice",
+   "match_level": "affiliation",
+   "orcid": "0000-0003-2571-8564",
+   "genes": [
+    "KCNQ2",
+    "SCN2A"
+   ],
+   "pmids": [
+    "40884527",
+    "42190144"
+   ],
+   "affiliation_example": "Pediatric Neurology Department, La Timone Children Hospital, APHM, Marseille, France."
+  },
+  {
+   "id": "INV:dickinson-b",
+   "name": "Dickinson Bryan C",
+   "match_level": "orcid",
+   "orcid": "0000-0002-9616-1911",
+   "genes": [
+    "SCN1A",
+    "SYNGAP1"
+   ],
+   "pmids": [
+    "37884512",
+    "41693565"
+   ],
+   "affiliation_example": "Department of Chemistry, The University of Chicago, Chicago, IL, USA. dickinson@uchicago.edu."
+  },
+  {
+   "id": "INV:felix-a",
+   "name": "Felix Alex J",
+   "match_level": "orcid",
+   "orcid": "0000-0002-7145-7169",
+   "genes": [
+    "STXBP1",
+    "SYNGAP1"
+   ],
+   "pmids": [
+    "39229131",
+    "42448791"
+   ],
+   "affiliation_example": "Department of Physiology, University of Pennsylvania Perelman School of Medicine, Philadelphia, PA 19104, USA."
+  },
+  {
+   "id": "INV:gan-j",
+   "name": "Gan Jing",
+   "match_level": "possible",
+   "orcid": "",
+   "genes": [
+    "KCNT1",
+    "SYNGAP1"
+   ],
+   "pmids": [
+    "39870847",
+    "41767012"
+   ],
+   "affiliation_example": "Jiangsu Province Key Laboratory of Anesthesiology, Xuzhou Medical University, Xuzhou, 221004, China."
+  },
+  {
+   "id": "INV:jackson-a",
+   "name": "Jackson Alexander C",
+   "match_level": "possible",
+   "orcid": "0000-0001-7489-3946",
+   "genes": [
+    "KCNQ2",
+    "KCNT1"
+   ],
+   "pmids": [
+    "39871703",
+    "41419331"
+   ],
+   "affiliation_example": "Atalanta Therapeutics, Boston, Massachusetts, USA."
+  },
+  {
+   "id": "INV:kang-h",
+   "name": "Kang Hoon-Chul",
+   "match_level": "affiliation",
+   "orcid": "",
+   "genes": [
+    "KCNT1",
+    "SCN8A"
+   ],
+   "pmids": [
+    "29455050",
+    "42314303"
+   ],
+   "affiliation_example": "Division of Pediatric Neurology, Epilepsy Research Institute, Severance Children's Hospital, Department of Pediatrics, Yonsei University College of Medicine, 03722 Yonsei-ro 50-1, Seodaemun-gu, Seoul, Republic of Korea. Electronic address: hipo0207@yuhs.ac."
+  },
+  {
+   "id": "INV:kim-j",
+   "name": "Kim Jun Hee",
+   "match_level": "possible",
+   "orcid": "",
+   "genes": [
+    "SCN2A",
+    "STXBP1"
+   ],
+   "pmids": [
+    "38360746",
+    "42382984"
+   ],
+   "affiliation_example": "Department of Neuroscience, Baylor College of Medicine, Houston, Texas 77030."
+  },
+  {
+   "id": "INV:ko-a",
+   "name": "Ko Ara",
+   "match_level": "affiliation",
+   "orcid": "",
+   "genes": [
+    "KCNT1",
+    "SCN8A"
+   ],
+   "pmids": [
+    "29455050",
+    "42314303"
+   ],
+   "affiliation_example": "Division of Pediatric Neurology, Epilepsy Research Institute, Severance Children's Hospital, Department of Pediatrics, Yonsei University College of Medicine, 03722 Yonsei-ro 50-1, Seodaemun-gu, Seoul, Republic of Korea."
+  },
+  {
+   "id": "INV:li-s",
+   "name": "Li Siyu",
+   "match_level": "possible",
+   "orcid": "",
+   "genes": [
+    "KCNQ2",
+    "SCN8A"
+   ],
+   "pmids": [
+    "42220125",
+    "42800573"
+   ],
+   "affiliation_example": "Genetics Laboratory and Department of Biomedical Sciences, Chung Shan Medical University, Taichung, Taiwan."
+  },
+  {
+   "id": "INV:li-x",
+   "name": "Li Xiangyu",
+   "match_level": "possible",
+   "orcid": "",
+   "genes": [
+    "CDKL5",
+    "SYNGAP1"
+   ],
+   "pmids": [
+    "38654472",
+    "40885846"
+   ],
+   "affiliation_example": "Department of Neurology, Perelman School of Medicine, University of Pennsylvania, Philadelphia, Pennsylvania, USA."
+  },
+  {
+   "id": "INV:li-z",
+   "name": "Li Zhiping",
+   "match_level": "possible",
+   "orcid": "0000-0001-7996-9911",
+   "genes": [
+    "KCNT1",
+    "SCN8A"
+   ],
+   "pmids": [
+    "39445572",
+    "40033685"
+   ],
+   "affiliation_example": "State Key Laboratory of Natural and Biomimetic Drugs, School of Pharmaceutical Sciences, Peking University, Beijing 100191, China."
+  },
+  {
+   "id": "INV:liu-r",
+   "name": "Liu Ru",
+   "match_level": "affiliation",
+   "orcid": "",
+   "genes": [
+    "KCNQ2",
+    "KCNT1"
+   ],
+   "pmids": [
+    "36437393",
+    "37442907"
+   ],
+   "affiliation_example": "Hubei Key Laboratory of Nanomedicine for Neurodegenerative Diseases, School of Chemistry, Chemical Engineering and Life Sciences, Wuhan University of Technology, 122 Loushi Rd, Wuhan, 430070, China."
+  },
+  {
+   "id": "INV:liu-z",
+   "name": "Liu Zhiyong",
+   "match_level": "possible",
+   "orcid": "",
+   "genes": [
+    "KCNQ2",
+    "STXBP1"
+   ],
+   "pmids": [
+    "30488659",
+    "41810174"
+   ],
+   "affiliation_example": "Institute of Genomic Medicine, Wenzhou Medical University, Wenzhou, China."
+  },
+  {
+   "id": "INV:malik-a",
+   "name": "Malik Anna R",
+   "match_level": "possible",
+   "orcid": "0000-0001-7732-0756",
+   "genes": [
+    "SCN2A",
+    "SCN8A"
+   ],
+   "pmids": [
+    "38846250",
+    "39810752"
+   ],
+   "affiliation_example": "Pediatrics, Jawaharlal Nehru Medical College, Datta Meghe Institute of Higher Education and Research, Wardha, IND."
+  },
+  {
+   "id": "INV:mao-m",
+   "name": "Mao Miaomiao",
+   "match_level": "affiliation",
+   "orcid": "",
+   "genes": [
+    "KCNQ2",
+    "SCN1A"
+   ],
+   "pmids": [
+    "39733957",
+    "42085324"
+   ],
+   "affiliation_example": "The Florey Institute of Neuroscience and Mental Health, Parkville, Victoria 3052, Australia."
+  },
+  {
+   "id": "INV:miao-p",
+   "name": "Miao Pu",
+   "match_level": "affiliation",
+   "orcid": "0000-0001-5165-2613",
+   "genes": [
+    "KCNQ2",
+    "SCN2A"
+   ],
+   "pmids": [
+    "34093402",
+    "41051877"
+   ],
+   "affiliation_example": "Pediatric Department, Second Affiliated Hospital, Zhejiang University School of Medicine, Hangzhou, China."
+  },
+  {
+   "id": "INV:nelson-a",
+   "name": "Nelson Andrew T",
+   "match_level": "possible",
+   "orcid": "0000-0002-2591-0428",
+   "genes": [
+    "SCN1A",
+    "SCN2A"
+   ],
+   "pmids": [
+    "40963013",
+    "42127220"
+   ],
+   "affiliation_example": "Weill Institute for Neurosciences, University of California San Francisco, San Francisco, CA, USA."
+  },
+  {
+   "id": "INV:ning-y",
+   "name": "Ning Yao",
+   "match_level": "affiliation",
+   "orcid": "",
+   "genes": [
+    "KCNQ2",
+    "SCN8A"
+   ],
+   "pmids": [
+    "39416109",
+    "40177888"
+   ],
+   "affiliation_example": "Department of Neurology, Baylor College of Medicine Houston TX 77030."
+  },
+  {
+   "id": "INV:noebels-j",
+   "name": "Noebels Jeffrey L",
+   "match_level": "affiliation",
+   "orcid": "",
+   "genes": [
+    "KCNQ2",
+    "SCN8A"
+   ],
+   "pmids": [
+    "39416109",
+    "40177888"
+   ],
+   "affiliation_example": "Department of Neurology, Baylor College of Medicine Houston TX 77030."
+  },
+  {
+   "id": "INV:olson-h",
+   "name": "Olson Heather E",
+   "match_level": "possible",
+   "orcid": "0000-0002-5385-0119",
+   "genes": [
+    "CDKL5",
+    "KCNQ2"
+   ],
+   "pmids": [
+    "37096745",
+    "38411242"
+   ],
+   "affiliation_example": "Epilepsy Genetics Program, Boston Children's Hospital, Boston, Massachusetts, USA."
+  },
+  {
+   "id": "INV:sharma-a",
+   "name": "Sharma Alok",
+   "match_level": "possible",
+   "orcid": "",
+   "genes": [
+    "SCN2A",
+    "STXBP1"
+   ],
+   "pmids": [
+    "42311236",
+    "42747551"
+   ],
+   "affiliation_example": "Department of Functional Genomics, Center for Neurogenomics and Cognitive Research (CNCR), Vrije Universiteit Amsterdam, Amsterdam, the Netherlands, vu.nl."
+  },
+  {
+   "id": "INV:silverman-j",
+   "name": "Silverman Jill L",
+   "match_level": "possible",
+   "orcid": "0000-0001-9357-5476",
+   "genes": [
+    "CDKL5",
+    "KCNT1"
+   ],
+   "pmids": [
+    "35445702",
+    "40777472"
+   ],
+   "affiliation_example": "MIND Institute, University of California Davis School of Medicine, Sacramento, CA, USA."
+  },
+  {
+   "id": "INV:tang-s",
+   "name": "Tang Siyang",
+   "match_level": "possible",
+   "orcid": "",
+   "genes": [
+    "KCNQ2",
+    "SCN2A"
+   ],
+   "pmids": [
+    "34093402",
+    "37497102"
+   ],
+   "affiliation_example": "National Health Center and Chinese Academy of Medical Sciences Key Laboratory of Medical Neurobiology, National Clinical Research Center for Child Health, Children's Hospital, Zhejiang University School of Medicine, Hangzhou, China."
+  },
+  {
+   "id": "INV:villard-l",
+   "name": "Villard Laurent",
+   "match_level": "affiliation",
+   "orcid": "0000-0001-6657-5008",
+   "genes": [
+    "KCNQ2",
+    "SCN2A"
+   ],
+   "pmids": [
+    "40632471",
+    "42190144"
+   ],
+   "affiliation_example": "Aix Marseille Univ, Inserm, MMG, U1251, Marseille, France."
+  },
+  {
+   "id": "INV:wang-d",
+   "name": "Wang Dandan",
+   "match_level": "possible",
+   "orcid": "0009-0003-5556-3521",
+   "genes": [
+    "GNAO1",
+    "STXBP1"
+   ],
+   "pmids": [
+    "34508586",
+    "41263692"
+   ],
+   "affiliation_example": "Center for Integrative Brain Research, Seattle Children's Research Institute, Seattle, WA 98101, USA."
+  },
+  {
+   "id": "INV:wang-h",
+   "name": "Wang Hong",
+   "match_level": "possible",
+   "orcid": "",
+   "genes": [
+    "KCNT1",
+    "SCN1A"
+   ],
+   "pmids": [
+    "39595574",
+    "42450024"
+   ],
+   "affiliation_example": "Department of Pharmacology, Yale University School of Medicine, New Haven, CT 06520, USA."
+  },
+  {
+   "id": "INV:wang-l",
+   "name": "Wang Long",
+   "match_level": "possible",
+   "orcid": "",
+   "genes": [
+    "KCNQ2",
+    "SCN2A"
+   ],
+   "pmids": [
+    "38460523",
+    "42745013"
+   ],
+   "affiliation_example": "Department Physiology and Biophysics, University of Miami Miller School of Medicine, Miami, FL 33136, USA."
+  },
+  {
+   "id": "INV:wang-q",
+   "name": "Wang Qun",
+   "match_level": "possible",
+   "orcid": "",
+   "genes": [
+    "CDKL5",
+    "KCNT1"
+   ],
+   "pmids": [
+    "34544833",
+    "36437393"
+   ],
+   "affiliation_example": "Jan and Dan Duncan Neurological Research Institute, Texas Children's Hospital, Houston, Texas 77030."
+  },
+  {
+   "id": "INV:wang-x",
+   "name": "Wang Xueying",
+   "match_level": "affiliation",
+   "orcid": "0000-0002-3189-361X",
+   "genes": [
+    "KCNQ2",
+    "SCN2A"
+   ],
+   "pmids": [
+    "39570101",
+    "40236662"
+   ],
+   "affiliation_example": "Department of Medical Genetics and Prenatal Diagnosis, Affiliated Maternity and Child Health Care Hospital of Nantong University, Nantong, Jiangsu, China."
+  },
+  {
+   "id": "INV:wirrell-e",
+   "name": "Wirrell Elaine C",
+   "match_level": "orcid",
+   "orcid": "0000-0003-3015-8282",
+   "genes": [
+    "SCN1A",
+    "SCN8A"
+   ],
+   "pmids": [
+    "38802994",
+    "41237355"
+   ],
+   "affiliation_example": "Child and Adolescent Neurology, Mayo Clinic, Rochester, Minnesota, USA."
+  },
+  {
+   "id": "INV:wu-h",
+   "name": "Wu Hao",
+   "match_level": "possible",
+   "orcid": "",
+   "genes": [
+    "KCNQ2",
+    "SCN2A"
+   ],
+   "pmids": [
+    "39570101",
+    "41264237"
+   ],
+   "affiliation_example": "Department of Neonatology, Affiliated Maternity and Child Health Care Hospital of Nantong University, Nantong, Jiangsu, China."
+  },
+  {
+   "id": "INV:wu-s",
+   "name": "Wu Sijia",
+   "match_level": "possible",
+   "orcid": "0000-0002-5208-3253",
+   "genes": [
+    "KCNQ2",
+    "STXBP1"
+   ],
+   "pmids": [
+    "40003973",
+    "41883162"
+   ],
+   "affiliation_example": "Institute of Basic Medical Sciences, College of Medical, National Cheng Kung University, Tainan City 701401, Taiwan."
+  },
+  {
+   "id": "INV:yang-l",
+   "name": "Yang Liang",
+   "match_level": "affiliation",
+   "orcid": "",
+   "genes": [
+    "KCNQ2",
+    "SCN2A"
+   ],
+   "pmids": [
+    "40236662",
+    "41757108"
+   ],
+   "affiliation_example": "Department of Paediatrics, The Second Affiliated Hospital of Xi'an Jiaotong University, Xi'an, China."
+  },
+  {
+   "id": "INV:yang-z",
+   "name": "Yang Zhixian",
+   "match_level": "possible",
+   "orcid": "",
+   "genes": [
+    "KCNQ2",
+    "SCN1A"
+   ],
+   "pmids": [
+    "39814994",
+    "42546484"
+   ],
+   "affiliation_example": "Department of Biophysics and Department of Neurology of the Fourth Affiliated Hospital, Zhejiang University School of Medicine, Hangzhou, China."
+  },
+  {
+   "id": "INV:zhu-y",
+   "name": "Zhu Yudan",
+   "match_level": "possible",
+   "orcid": "",
+   "genes": [
+    "SCN8A",
+    "SYNGAP1"
+   ],
+   "pmids": [
+    "39967850",
+    "40033685"
+   ],
+   "affiliation_example": "Institute for NanoBioTechnology, Johns Hopkins University, Baltimore, MD 21218, USA."
+  }
+ ],
+ "stats": {
+  "papers_with_authors": 366,
+  "persons_total": 1041,
+  "shared_ge2_genes_total": 81,
+  "kept": 81,
+  "by_level": {
+   "orcid": 23,
+   "affiliation": 28,
+   "possible": 30
+  }
+ },
+ "lead_authors": "first 2 + last 2"
+}

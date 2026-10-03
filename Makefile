@@ -18,6 +18,9 @@ mechanisms:
 trials:
 	$(PY) pipeline/fetch_assets.py
 graph: base trials mechanisms cluster
+	$(PY) pipeline/network.py
+	$(PY) pipeline/export.py
+	$(PY) pipeline/explain.py
 	$(PY) pipeline/export.py
 test:
 	$(PY) -m pytest -q pipeline/tests
