@@ -1,32 +1,34 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import Link from "next/link";
+import { Inter, Space_Grotesk } from "next/font/google";
+import { EvidenceProvider } from "@/components/EvidenceDrawer";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+const space = Space_Grotesk({ variable: "--font-space", subsets: ["latin"], weight: ["500", "600", "700"] });
+const inter = Inter({ variable: "--font-inter", subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Rare Disease Atlas",
-  description: "Evidence-backed connections between rare diseases by mechanism and phenotype.",
+  description: "Find connections between rare diseases by biology and symptoms, with the evidence behind every link.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-    >
-      <body className="min-h-full flex flex-col">
-        <nav className="mx-auto flex w-full max-w-3xl gap-4 px-4 pt-4 text-sm text-neutral-500"><a href="/" className="font-medium text-neutral-900">Rare Disease Atlas</a><a className="underline" href="/methods">Methods &amp; limitations</a><a className="underline" href="/10x">The 10× case</a></nav>
-        {children}
-        <footer className="mx-auto w-full max-w-3xl px-4 py-8 text-xs text-neutral-500"><b>Not medical advice.</b> Research prototype: computed links are hypotheses, not evidence of shared mechanism. Every claim shows its source.</footer>
+    <html lang="en" className={`${space.variable} ${inter.variable} h-full antialiased`}>
+      <body className="flex min-h-full flex-col">
+        <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[60] focus:rounded-lg focus:bg-accent focus:px-4 focus:py-2 focus:text-base">Skip to content</a>
+        <header className="mx-auto flex w-full max-w-5xl flex-wrap items-center justify-between gap-x-4 gap-y-1 px-5 py-4">
+          <Link href="/" className="whitespace-nowrap font-heading text-base font-semibold text-ink hover:text-accent sm:text-lg">Rare Disease Atlas</Link>
+          <nav aria-label="Main" className="flex gap-4 whitespace-nowrap text-sm text-muted sm:gap-5" >
+            <Link className="hover:text-accent" href="/explore">Explore</Link>
+            <Link className="hover:text-accent" href="/methods">Methods</Link>
+            <Link className="hover:text-accent" href="/10x">10× case</Link>
+          </nav>
+        </header>
+        <EvidenceProvider><div id="main" className="flex-1">{children}</div></EvidenceProvider>
+        <footer className="mx-auto w-full max-w-5xl px-5 py-8 text-xs text-muted">
+          Not medical advice. A research prototype: links between diseases are hypotheses unless marked supported, and every claim shows its source.
+        </footer>
       </body>
     </html>
   );

@@ -409,3 +409,25 @@ def test_methods_and_10x_pages_exist():
     import common
     assert (common.ROOT / "web" / "app" / "methods" / "page.tsx").exists()
     assert (common.ROOT / "web" / "app" / "10x" / "page.tsx").exists()
+
+
+def test_edges_lite_covers_every_edge_for_the_drawer():
+    import json, common
+    gp, lp = common.GRAPH / "graph.json", common.ROOT / "web" / "public" / "data" / "edges.json"
+    if not gp.exists() or not lp.exists():
+        pytest.skip("not built")
+    g, lite = json.loads(gp.read_text()), json.loads(lp.read_text())
+    assert set(lite) == {e["id"] for e in g["edges"]}
+    for i, e in lite.items():
+        assert e["status"] in ("supported", "contradicted", "hypothesis") and "relation" in e
+        for c in e.get("contradicts", []):
+            assert c in lite                                   # drawer can show both sides of a conflict
+
+
+def test_glossary_regex_and_live_flag_files_exist():
+    import common
+    web = common.ROOT / "web"
+    assert "loss of function" in (web / "lib" / "glossary.ts").read_text()
+    route = (web / "app" / "api" / "explain" / "route.ts").read_text()
+    assert "export async function GET" in route and "live:" in route          # UI hides the live feature when not configured
+    assert "503" in route

@@ -3,7 +3,7 @@ import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 
 type Item = { type: string; id: string; label: string; aliases: string[]; href: string; sub: string };
-const GROUPS: [string, string][] = [["disease", "Diseases"], ["gene", "Genes"], ["symptom", "Symptoms (HPO)"], ["mechanism", "Mechanisms"], ["patient_group", "Patient groups"]];
+const GROUPS: [string, string][] = [["disease", "Diseases"], ["gene", "Genes"], ["symptom", "Symptoms"], ["mechanism", "Biology (mechanisms)"], ["patient_group", "Patient groups"]];
 const norm = (s: string) => s.toLowerCase().normalize("NFKD").replace(/[̀-ͯ]/g, "").replace(/[^a-z0-9]+/g, " ").trim();
 
 function score(it: Item & { _l: string; _a: string[] }, q: string, toks: string[]) {
@@ -16,7 +16,7 @@ function score(it: Item & { _l: string; _a: string[] }, q: string, toks: string[
   return 0;
 }
 
-export default function Search() {
+export default function Search({ big = false }: { big?: boolean }) {
   const [items, setItems] = useState<(Item & { _l: string; _a: string[] })[] | null>(null);
   const [err, setErr] = useState(false);
   const [q, setQ] = useState("");
@@ -28,26 +28,27 @@ export default function Search() {
     if (!items || !nq) return null;
     const toks = nq.split(" ");
     const hits = items.map((i) => ({ i, s: score(i, nq, toks) })).filter((x) => x.s > 0).sort((a, b) => b.s - a.s);
-    return GROUPS.map(([t, label]) => ({ t, label, rows: hits.filter((h) => h.i.type === t).slice(0, 6) }));
+    return GROUPS.map(([t, label]) => ({ t, label, rows: hits.filter((h) => h.i.type === t).slice(0, 5) }));
   }, [items, nq]);
   const total = res?.reduce((n, g) => n + g.rows.length, 0) ?? 0;
   return (
     <div>
-      <input autoFocus value={q} onChange={(e) => setQ(e.target.value)} aria-label="Search diseases, genes, symptoms, mechanisms or patient groups"
-        placeholder="Search a disease, gene, symptom, mechanism or patient group, e.g. STXBP1, EIEE4, hypsarrhythmia, gain of function"
-        className="w-full rounded border border-neutral-300 px-3 py-2 text-base outline-none focus:border-neutral-900" />
-      {err && <p className="mt-2 text-sm text-red-800">Search index could not be loaded.</p>}
+      <label htmlFor="search" className="sr-only">Search a disease, gene or symptom</label>
+      <input id="search" type="search" value={q} onChange={(e) => setQ(e.target.value)} autoComplete="off"
+        placeholder="Search a disease, gene or symptom, e.g. STXBP1, seizures"
+        className={`w-full rounded-full border border-line bg-surface px-6 text-ink placeholder:text-muted outline-none transition-shadow focus:border-accent focus:shadow-[0_0_28px_-6px_var(--accent)] ${big ? "py-5 text-xl" : "py-3 text-base"}`} />
+      {err && <p className="mt-3 text-sm text-muted">The search index could not be loaded. You can still browse the diseases below.</p>}
       {res && (
-        <div className="mt-3 space-y-4">
-          {total === 0 && <p className="rounded border border-dashed border-neutral-300 p-3 text-sm text-neutral-600">Gap: no match. Searched {items!.length} entries (diseases and their MONDO synonyms, genes, HPO symptom terms and synonyms, mechanisms, curated patient groups) within the 8-gene slice.</p>}
+        <div className="mt-4 space-y-5" role="region" aria-label="Search results" aria-live="polite">
+          {total === 0 && <p className="card p-5 text-muted">Nothing found. We searched {items!.length} entries (diseases and their synonyms, genes, symptoms, mechanisms and patient groups) in the 8-gene slice. Try a gene symbol such as STXBP1.</p>}
           {res.filter((g) => g.rows.length).map((g) => (
-            <section key={g.t}><h3 className="text-xs font-medium uppercase tracking-wide text-neutral-500">{g.label}</h3>
-              <ul className="mt-1 divide-y divide-neutral-200 rounded border border-neutral-200">
+            <section key={g.t}><h3 className="mb-2 text-xs font-semibold uppercase tracking-widest text-muted">{g.label}</h3>
+              <ul className="grid gap-2">
                 {g.rows.map(({ i }) => {
                   const via = !i._l.includes(nq) ? i.aliases.find((a) => norm(a).includes(nq)) : null;
-                  return (<li key={i.id}><Link href={i.href} className="block p-3 hover:bg-neutral-50">
-                    <span className="flex justify-between gap-3"><span>{i.label}</span><span className="shrink-0 text-sm text-neutral-500">{i.sub}</span></span>
-                    {via && <span className="text-xs text-neutral-500">matched synonym: {via}</span>}</Link></li>);
+                  return (<li key={i.id}><Link href={i.href} className="card block px-5 py-3">
+                    <span className="flex flex-wrap items-baseline justify-between gap-x-4"><span className="font-medium text-ink">{i.label}</span><span className="text-sm text-muted">{i.sub}</span></span>
+                    {via && <span className="text-xs text-muted">also known as: {via}</span>}</Link></li>);
                 })}
               </ul></section>))}
         </div>

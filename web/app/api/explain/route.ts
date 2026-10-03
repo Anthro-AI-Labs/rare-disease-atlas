@@ -7,6 +7,11 @@ import { load } from "@/lib/graph";
 const hits = new Map<string, number[]>();
 export const maxDuration = 60;
 
+// Lets the UI decide whether to show the live feature at all (never an error state for visitors).
+export async function GET() {
+  return NextResponse.json({ live: Boolean(process.env.OPENAI_API_KEY && process.env.OPENAI_MODEL) });
+}
+
 export async function POST(req: Request) {
   const ip = req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ?? "anon";
   const now = Date.now();

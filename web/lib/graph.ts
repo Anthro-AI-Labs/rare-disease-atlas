@@ -38,6 +38,7 @@ export type Graph = {
     explanation_stats?: { diseases?: number; llm?: number; first_try_pass?: number; template_fallback?: number };
     network_stats?: { kept: number; by_level: Record<string, number> } | null;
     curated_skipped?: string[];
+    share_mechanism_min_ui: number;
   };
   explanations: Record<string, Explanation>;
   nodes: Node[]; edges: Edge[];
@@ -206,4 +207,32 @@ export function actionView(id: string) {
   if (lowConf) review.push(`${lowConf} of ${v.mechanisms.length} mechanism claims for this disease have confidence ≤ 0.5 (span does not name the gene, or direction unclear).`);
   const ex = g.explanations[id];
   return { v, gap, rel, communities, assets, review, explanation: ex };
+}
+
+export type GNode = { id: string; gene: string; name: string; cluster: number; role: string; route: "supported" | "hypothesis" | "none"; uncertain: boolean; conflict: boolean; href: string };
+export type GLink = { a: string; b: string; kind: "hyp" | "gene" | "sup"; w: number; mech: boolean };
+
+/** Disease graph: nodes coloured by route status; dashed amber = computed hypothesis link; solid grey = same gene; solid green = curated shared route. */
+export function graphData() {
+  const { g } = load();
+  const ds = diseases();
+  const cl = new Map<string, { c: number; unc: boolean }>();
+  for (const c of g.clusters) for (const m of c.members) cl.set(m.id, { c: c.cluster, unc: m.uncertain });
+  const conflict = new Set(g.meta.contradiction_findings.filter((f) => f.kind === "contradicted").map((f) => f.disease));
+  const nodes: GNode[] = ds.map((d) => ({ id: d.id, gene: d.gene, name: d.name!, cluster: cl.get(d.id)?.c ?? 0, role: String(d.role), route: g.meta.gaps[d.id].route_status,
+    uncertain: !!cl.get(d.id)?.unc, conflict: conflict.has(d.id), href: `/disease/${slugOf(d.id)}` }));
+  const links = new Map<string, GLink>();
+  const key = (a: string, b: string) => [a, b].sort().join("|");
+  for (const p of g.meta.pairs) {
+    const hasEdge = g.edges.some((e) => (e.relation === "phenotypically_similar_to" || e.relation === "shares_mechanism_with") && ((e.source === p.a && e.target === p.b) || (e.source === p.b && e.target === p.a)));
+    const sameGene = ds.find((d) => d.id === p.a)!.gene === ds.find((d) => d.id === p.b)!.gene;
+    if (hasEdge) links.set(key(p.a, p.b), { a: p.a, b: p.b, kind: "hyp", w: p.combined, mech: p.mechanism_available && (p.mechanism ?? 0) >= g.meta.share_mechanism_min_ui });
+    else if (sameGene) links.set(key(p.a, p.b), { a: p.a, b: p.b, kind: "gene", w: p.combined, mech: false });
+    if (hasEdge && sameGene) links.get(key(p.a, p.b))!.kind = "hyp";
+  }
+  for (const gp of Object.values(g.meta.gaps)) for (const r of gp.routes) if (r.connection_status === "supported") {
+    const a = Object.entries(g.meta.gaps).find(([, v]) => v === gp)![0];
+    links.set(key(a, r.to), { a, b: r.to, kind: "sup", w: r.combined_similarity, mech: false });
+  }
+  return { nodes, links: [...links.values()] };
 }

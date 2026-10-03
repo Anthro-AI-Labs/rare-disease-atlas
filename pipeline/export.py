@@ -209,7 +209,7 @@ def build():
                       "mechanism_stats": mech_json["stats"] if mech_json else None,
                       "review_precision_by_tier": review, "pairs": comb, "contradiction_findings": findings, "gaps": gaps,
                       "cluster_report": json.loads((GRAPH / "cluster_report.json").read_text()),
-                      "curated_skipped": skipped, "explanation_stats": {**(ex_file["stats"] if ex_file else {}), "stale_dropped": ex_stale}, "network_stats": net["stats"] if net else None, "share_mechanism_min": SHARE_MECH_MIN,
+                      "curated_skipped": skipped, "share_mechanism_min_ui": SHARE_MECH_MIN, "explanation_stats": {**(ex_file["stats"] if ex_file else {}), "stale_dropped": ex_stale}, "network_stats": net["stats"] if net else None, "share_mechanism_min": SHARE_MECH_MIN,
                       "confidence_rule": "LLM claims: 0.8 if the quoted span names the gene and the span-check says it describes human subjects; 0.7 if it names the gene but describes cells, animals or no stated population; 0.5 if the span does not name the gene. A second check sees only the span: entailment 'partial' lowers confidence by 0.2; 'no' sets the variant effect to unclear (context only, at most 0.4, excluded from similarity and profiles).",
                       "entailment_stats": (jload("entailment.json") or {}).get("stats"),
                       "review_overall": review_overall,
@@ -226,6 +226,24 @@ def main():
     web = ROOT / "web" / "public" / "data"
     web.mkdir(parents=True, exist_ok=True)
     shutil.copy(GRAPH / "graph.json", web / "graph.json")
+    nm = {n["id"]: n for n in g["nodes"]}
+    def ref_title(r):
+        n = nm.get(r)
+        return (n or {}).get("name") or ""
+    lite = {}
+    for e in g["edges"]:
+        lite[e["id"]] = {k: v for k, v in {
+            "id": e["id"], "relation": e["relation"], "source": nm[e["source"]].get("name"), "target": nm[e["target"]].get("name"),
+            "evidence_type": e["evidence_type"], "status": e["status"], "confidence": e["confidence"], "source_db": e["source_db"],
+            "retrieved_at": e["retrieved_at"], "references": e["references"], "ref_titles": {r: ref_title(r) for r in e["references"] if ref_title(r)},
+            "quoted_span": e.get("quoted_span"), "population": e.get("population"), "entailment": e.get("entailment"),
+            "entailment_rationale": e.get("entailment_rationale"), "extracted_variant_effect": e.get("extracted_variant_effect"),
+            "variant_effect": nm[e["target"]].get("variant_effect") if e["relation"] == "has_variant_effect" else None,
+            "disease_context": e.get("disease_context"), "contradicts": e.get("contradicts") or None,
+            "note": e.get("note") or e.get("method_note") or None, "review_verdict": e.get("review_verdict"),
+            "match_level": e.get("match_level"), "shared_phenotypes": [p["name"] for p in e.get("shared_phenotypes", [])[:5]] or None,
+            "shared_mechanisms": e.get("shared_mechanisms"), "frequency": e.get("frequency") or None}.items() if v not in (None, "", [])}
+    (web / "edges.json").write_text(json.dumps(lite, separators=(",", ":")))
     items = search_index.build({n["id"]: n for n in g["nodes"]}, g["edges"], None)
     (web / "search.json").write_text(json.dumps(items, separators=(",", ":")))
     print(f"search index: {len(items)} entries")
