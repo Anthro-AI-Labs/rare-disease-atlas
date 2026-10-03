@@ -62,7 +62,7 @@ button.chip:hover, button.chip:focus-visible, a.chip:hover { box-shadow: 0 0 16p
 @keyframes fadein { from { opacity: 0; } to { opacity: 1; } }
 .drawer { animation: slidein .22s ease-out; }
 .scrim { animation: fadein .2s ease-out; }
-@media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }
+@media (prefers-reduced-motion: reduce) { html:not(.force-motion) * { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }
 .chip-btn { display: inline-block; background: none; border: 0; padding: 0; cursor: pointer; color: inherit; font: inherit; }
 
 /* ---------- v3: depth levels ---------- */
@@ -98,3 +98,18 @@ html[data-depth="simple"] .more:not([data-ov="open"]) > .more-body, .more[data-o
 .tip-box a { color: var(--accent); text-decoration: underline; }
 .tip-box .tip-sub { display: block; margin-top: .3rem; color: var(--muted); font-size: .74rem; }
 @keyframes tipin { from { opacity: 0; transform: translateY(3px); } to { opacity: 1; transform: none; } }
+
+/* ---------- v3: scenes (transform + opacity only) ---------- */
+.scene-draw { animation: sdraw .6s cubic-bezier(.2,.7,.2,1) both; }
+.scene-draw.scene-pulse { animation: sdraw .6s cubic-bezier(.2,.7,.2,1) both, spulse 3.2s ease-in-out infinite; }
+@keyframes sdraw { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+@keyframes spulse { 0%, 100% { opacity: .5; } 50% { opacity: 1; } }
+.line-ok { border-top: 2.5px solid var(--ok); box-shadow: 0 0 10px color-mix(in srgb, var(--ok) 70%, transparent); }
+.line-hyp { border-top: 2.5px dashed var(--hyp); }
+.line-conf { border-top: 2.5px dotted var(--conf); }
+.star { border-radius: 999px; display: grid; place-items: center; font-family: var(--font-heading); font-weight: 700; color: var(--ink);
+  background: radial-gradient(circle at 50% 40%, color-mix(in srgb, var(--g) 35%, var(--surface2)), var(--surface2) 70%); border: 2px solid var(--g);
+  box-shadow: 0 0 36px -4px color-mix(in srgb, var(--g) 70%, transparent), 0 0 80px -20px var(--g); }
+.sat { border-radius: 999px; display: grid; place-items: center; font-family: var(--font-heading); font-weight: 700; font-size: .8rem; color: var(--ink); background: var(--surface2); border: 2px solid var(--g); }
+.sat:hover, .sat[aria-pressed="true"] { box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 55%, transparent); }
+.hollow { border: 2px dashed var(--muted); background: transparent; color: var(--muted); }

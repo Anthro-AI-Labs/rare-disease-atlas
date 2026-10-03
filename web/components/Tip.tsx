@@ -28,7 +28,7 @@ export function Tip({ content, children, tap = true, focusable = true, className
   }, [open]);
 
   useEffect(() => {
-    if (!open) { setPos(null); return; }
+    if (!open) return;
     const esc = (e: KeyboardEvent) => { if (e.key === "Escape") setOpen(false); };
     const away = (e: PointerEvent) => { if (!ref.current?.contains(e.target as Node) && !tipRef.current?.contains(e.target as Node)) setOpen(false); };
     const off = () => setOpen(false);

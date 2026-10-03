@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Script from "next/script";
 import { Inter, Space_Grotesk } from "next/font/google";
 import { DepthToggle } from "@/components/Depth";
 import { EvidenceProvider } from "@/components/EvidenceDrawer";
@@ -17,8 +18,8 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" data-depth="simple" suppressHydrationWarning className={`${space.variable} ${inter.variable} h-full antialiased`}>
-      <head><script dangerouslySetInnerHTML={{ __html: DEPTH_BOOT }} /></head>
       <body className="flex min-h-full flex-col">
+        <Script id="depth-boot" strategy="beforeInteractive">{DEPTH_BOOT}</Script>
         <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[60] focus:rounded-lg focus:bg-accent focus:px-4 focus:py-2 focus:text-base">Skip to content</a>
         <header className="mx-auto flex w-full max-w-5xl flex-wrap items-center gap-x-4 gap-y-1 px-5 py-4">
           <Link href="/" className="whitespace-nowrap font-heading text-base font-semibold text-ink hover:text-accent sm:text-lg">Rare Disease Atlas</Link>

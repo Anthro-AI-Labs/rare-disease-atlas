@@ -9,12 +9,14 @@ import { Empty, EvidenceBadge, refLink } from "@/components/Evidence";
 import { Ev } from "@/components/EvidenceDrawer";
 import { strip } from "@/components/Explanation";
 import PairExplain from "@/components/PairExplain";
+import { SceneA, SceneB, SceneC } from "@/components/scenes";
+import SceneD from "@/components/scenes/SceneD";
 import StepNav from "@/components/StepNav";
 import { DiseaseName, GeneName, StatusTip } from "@/components/Names";
 import { Glossed, Term } from "@/components/Term";
 import { diseases, graphData, idOf, load, slugOf } from "@/lib/graph";
 import { ROUTE } from "@/lib/status";
-import { diseaseTip, story } from "@/lib/story";
+import { diseaseTip, geneTip, story } from "@/lib/story";
 
 export function generateStaticParams() {
   return diseases().map((d) => ({ slug: slugOf(d.id) }));
@@ -36,7 +38,7 @@ export default async function DiseasePage({ params }: { params: Promise<{ slug: 
   if (!diseases().some((d) => d.id === id)) notFound();
   const s = story(id);
   const a = s.a;
-  const { g, nodes } = load();
+  const { g } = load();
   const { v, gap, rel, communities, assets, review, explanation: ex } = a;
   const { d, cluster, mechanisms, geneLevel, mechOtherCount, effectCounts, sole, trials, phenotypes, pairInfo, findings, invs, causes } = v;
   const rule = g.meta.confidence_rule;
@@ -45,12 +47,17 @@ export default async function DiseasePage({ params }: { params: Promise<{ slug: 
   const recruiting = trials.filter((t) => t.study.status === "RECRUITING");
   const shownTrials = [...recruiting, ...trials.filter((t) => t.study.status !== "RECRUITING")];
   const gapAll = gap.missing;
-  const lc = (t: string) => (t.length > 1 && t[1] === t[1].toUpperCase() && t[1] !== t[1].toLowerCase() ? t : t.charAt(0).toLowerCase() + t.slice(1));
   const causesIds = (other: string) => g.edges.filter((e) => e.relation === "causes" && (e.target === id || e.target === other)).map((e) => e.id);
   const directional = mechanisms.filter((m) => m.mech.variant_effect !== "unclear");
   const top3 = [...directional].sort((x, y) => Number(y.edge.entailment === "yes") - Number(x.edge.entailment === "yes") || y.edge.confidence - x.edge.confidence).slice(0, 3);
   const rest = mechanisms.filter((m) => !top3.includes(m));
   const ent = { yes: mechanisms.filter((m) => m.edge.entailment === "yes").length, partial: mechanisms.filter((m) => m.edge.entailment === "partial").length };
+  const center = { gene: d.gene, common: s.common, tone: route.kind, gt: s.gene };
+  const satViews = s.sats.map((x) => ({ id: x.id, gene: x.gene, common: x.common, status: x.status, why: x.why, edgeIds: x.edgeIds, href: x.href, dt: diseaseTip(x.id), gt: geneTip(x.gene) }));
+  const ord = [...s.active, ...s.studies.filter((t) => !s.active.includes(t))];
+  const exists = { gene: d.gene, tone: route.kind, groups: s.groups.map((x) => ({ name: x.name, url: x.url })), registries: s.registries.map((x) => ({ name: x.name })),
+    studies: ord.map((t) => ({ id: t.id, name: t.name, url: t.url })), activeCount: s.active.length, totalStudies: s.studies.length,
+    helpUrl: `https://github.com/Anthro-AI-Labs/rare-disease-atlas/issues/new?title=${encodeURIComponent(`Suggest a patient group or registry for ${d.gene}`)}` };
   const mechLine = (r: (typeof rel)[number]) => {
     const { here, there } = r.effects;
     if (!here.dominant || !there.dominant) return "Not enough disease-specific papers yet to compare the underlying change in the gene.";
@@ -85,8 +92,9 @@ export default async function DiseasePage({ params }: { params: Promise<{ slug: 
       <StepNav steps={STEPS} />
 
       <Step id="disease" n={1} title="Your disease">
+        <SceneA />
         {ex ? (
-          <div className="card p-6 sm:p-8">
+          <div className="card mt-5 p-6 sm:p-8">
             <p className="text-xl leading-relaxed sm:text-2xl"><Glossed text={strip(ex.summary_plain)} /></p>
             <div className="mt-5 flex flex-wrap items-center gap-3 text-sm text-muted">
               <EvidenceBadge e={causes} label="Gene–disease link" />
@@ -96,29 +104,8 @@ export default async function DiseasePage({ params }: { params: Promise<{ slug: 
         ) : <Empty>no summary is available for this disease yet.</Empty>}
       </Step>
 
-      <Step id="shared" n={2} title="Who shares your biology" sub="Diseases that look alike on symptoms and, where papers allow, in the kind of gene change. These links are worked out by a program, so they are hypotheses to discuss, not findings.">
-        {rel.length === 0 ? <Empty>no related disease is close enough to show.</Empty> : (
-          <ul className="grid gap-5">{rel.map((r) => {
-            const c = r.route.connection_status === "supported" ? { kind: "ok" as const, label: "Supported route" } : { kind: "hyp" as const, label: "Hypothesis" };
-            return (
-              <li key={r.to.id} className="card p-6">
-                <div className="flex flex-wrap items-start justify-between gap-3">
-                  <div>
-                    <Link href={`/disease/${slugOf(r.to.id)}`} className="font-heading text-2xl font-semibold text-ink hover:text-accent">{diseases().find((x) => x.id === r.to.id)?.gene}</Link>
-                    <p className="text-sm text-muted"><DiseaseName t={diseaseTip(r.to.id)} /></p>
-                  </div>
-                  <div className="flex flex-wrap gap-2">
-                    {r.route.connection === "same_gene" && <Chip kind="ctx">Same gene</Chip>}
-                    <StatusTip kind={c.kind}><Ev ids={r.route.edge_ids} title={`Evidence: link to ${r.to.name}`}><span className={`chip chip-${c.kind} cursor-pointer`}>{c.label}<span aria-hidden className="ev-n opacity-70">· {r.route.edge_ids.length} evidence</span></span></Ev></StatusTip>
-                  </div>
-                </div>
-                <p className="mt-4 text-lg"><b className="font-semibold">Why:</b> both involve {r.shared.slice(0, 2).map((p) => lc(p.name)).join(" and ") || "overlapping features"}. {mechLine(r)}</p>
-                <details className="mt-3 text-sm text-muted"><summary>What differs</summary>
-                  <p className="mt-2"><b className="text-ink">Only in {d.gene}:</b> {r.onlyHere.map((p) => p.name).join("; ") || "nothing listed"}.</p>
-                  <p className="mt-1"><b className="text-ink">Only in {diseases().find((x) => x.id === r.to.id)?.gene}:</b> {r.onlyThere.map((p) => p.name).join("; ") || "nothing listed"}.</p></details>
-                <PairExplain edgeIds={[...new Set([...r.route.edge_ids, ...causesIds(r.to.id)])]} label={r.to.name!} />
-              </li>);
-          })}</ul>)}
+      <Step id="shared" n={2} title="Who shares your biology" sub="Conditions that look alike on symptoms and, where papers allow, in the kind of gene change. A program works these links out, so they are ideas to discuss, not findings.">
+        <SceneB center={center} sats={satViews} />
         {pairInfo.map((p) => (
           <div key={p.counterexample} className="mt-5 rounded-2xl border border-conf/40 bg-conf/5 p-5">
             <p className="font-semibold text-conf">Same gene, mild and severe forms ({p.gene}): {p.status === "uncertain membership" ? "grouping uncertain" : p.status}</p>
@@ -128,11 +115,37 @@ export default async function DiseasePage({ params }: { params: Promise<{ slug: 
           <div key={f.disease} className="mt-5 rounded-2xl border border-conf/40 bg-conf/5 p-5">
             <p className="font-semibold text-conf">Conflicting evidence: expert review needed</p>
             <p className="mt-1 text-sm">Papers disagree on whether the gene change reduces or increases function. We do not settle it. It may depend on age at onset, the exact variant or the lab system — that is only a guess.</p>
-            <p className="mt-2"><Ev ids={[...f.reduced.slice(0, 3), ...f.increased.slice(0, 3)]} title="Both sides of the conflict"><span className="chip chip-conf cursor-pointer">See both sides<span aria-hidden className="ev-n opacity-70">· {Math.min(3, f.reduced.length) + Math.min(3, f.increased.length)} evidence</span></span></Ev></p>
+            <p className="mt-2"><StatusTip kind="conf"><Ev ids={[...f.reduced.slice(0, 3), ...f.increased.slice(0, 3)]} title="Both sides of the conflict"><span className="chip chip-conf cursor-pointer">See both sides<span aria-hidden className="ev-n opacity-70">· {Math.min(3, f.reduced.length) + Math.min(3, f.increased.length)} evidence</span></span></Ev></StatusTip></p>
           </div>))}
+        {rel.length > 0 && <More label="details for each related condition" className="mt-5">
+          <ul className="grid gap-5">{rel.map((r) => {
+            const c = r.route.connection_status === "supported" ? { kind: "ok" as const, label: "Supported route" } : { kind: "hyp" as const, label: "Hypothesis" };
+            const sat = s.sats.find((x) => x.id === r.to.id)!;
+            return (
+              <li key={r.to.id} className="card p-6">
+                <div className="flex flex-wrap items-start justify-between gap-3">
+                  <div>
+                    <Link href={`/disease/${slugOf(r.to.id)}`} className="font-heading text-2xl font-semibold text-ink hover:text-accent">{sat.gene}</Link>
+                    <p className="text-sm text-muted"><DiseaseName t={diseaseTip(r.to.id)} /></p>
+                  </div>
+                  <div className="flex flex-wrap gap-2">
+                    {r.route.connection === "same_gene" && <Chip kind="ctx">Same gene</Chip>}
+                    <StatusTip kind={c.kind}><Ev ids={r.route.edge_ids} title={`Evidence: link to ${r.to.name}`}><span className={`chip chip-${c.kind} cursor-pointer`}>{c.label}<span aria-hidden className="ev-n opacity-70">· {r.route.edge_ids.length} evidence</span></span></Ev></StatusTip>
+                  </div>
+                </div>
+                <p className="mt-4 text-lg"><b className="font-semibold">Why:</b> {sat.why} {mechLine(r)}</p>
+                <details className="mt-3 text-sm text-muted"><summary>What differs</summary>
+                  <p className="mt-2"><b className="text-ink">Only in {d.gene}:</b> {r.onlyHere.map((p) => p.name).join("; ") || "nothing listed"}.</p>
+                  <p className="mt-1"><b className="text-ink">Only in {sat.gene}:</b> {r.onlyThere.map((p) => p.name).join("; ") || "nothing listed"}.</p></details>
+                <PairExplain edgeIds={[...new Set([...r.route.edge_ids, ...causesIds(r.to.id)])]} label={r.to.name!} />
+              </li>);
+          })}</ul>
+        </More>}
       </Step>
 
       <Step id="exists" n={3} title="What already exists" sub="Patient groups, registries and studies that could be useful. Only items with a source are listed.">
+        <SceneC data={exists} />
+        <More label="the full list of groups, registries and studies" className="mt-5">
         <div className="grid gap-5 md:grid-cols-3">
           <div className="card p-5"><h3 className="text-lg font-semibold">Patient groups</h3>
             {communities.length ? <ul className="mt-3 space-y-3">{communities.map(({ org, via, edge }) => (<li key={edge.id}><Link href={`/org/${org.id.slice(4)}`} className="font-medium">{org.name}</Link><span className="block text-sm text-muted">via {via}{org.country ? ` · ${String(org.country)}` : ""}</span><span className="mt-1 inline-block"><EvidenceBadge e={edge} /></span></li>))}</ul>
@@ -147,16 +160,11 @@ export default async function DiseasePage({ params }: { params: Promise<{ slug: 
               {shownTrials.length > 3 && <details className="mt-3 text-sm"><summary className="text-muted">{shownTrials.length - 3} more</summary><ul className="mt-2 space-y-2">{shownTrials.slice(3).map((t) => (<li key={t.edge.id}><a target="_blank" rel="noreferrer" href={String(t.study.url)}>{t.study.name}</a> <span className="text-muted">· {t.study.id} · {String(t.study.status).toLowerCase().replace(/_/g, " ")}</span></li>))}</ul></details>}
             </>) : <p className="mt-3 text-sm text-muted">No registry record names {d.gene} in its title, conditions or keywords.</p>}</div>
         </div>
+        </More>
       </Step>
 
       <Step id="next" n={4} title="Your next step">
-        {ex ? (
-          <div className="card p-6 sm:p-8">
-            <p className="text-xl leading-relaxed sm:text-2xl"><Glossed text={strip(ex.next_step.text)} /></p>
-            <p className="mt-4"><Ev ids={ex.next_step.edge_ids} title="Evidence for the next step"><span className="chip chip-accent cursor-pointer">{ex.next_step.edge_ids.length} pieces of evidence behind this</span></Ev></p>
-            <p className="mt-3 text-sm text-muted">A suggestion to discuss with an expert, not advice.</p>
-          </div>
-        ) : <Empty>no next step has been generated.</Empty>}
+        <SceneD text={s.next.text} />
         <div className="mt-6 rounded-2xl border border-conf/40 bg-conf/5 p-6">
           <h3 className="text-xl font-semibold text-conf">Needs <Term k="expert review">expert review</Term></h3>
           {review.length ? <ul className="mt-3 list-disc space-y-1.5 pl-5">{review.map((r) => <li key={r}><Glossed text={r} /></li>)}</ul> : <p className="mt-2 text-muted">Nothing flagged.</p>}
@@ -165,6 +173,13 @@ export default async function DiseasePage({ params }: { params: Promise<{ slug: 
           <div className="card mt-6 p-6"><h3 className="text-lg font-semibold">What is missing</h3>
             <ul className="mt-2 list-disc space-y-1 pl-5 text-muted">{gapAll.map((m) => <li key={m}>{m}</li>)}</ul>
             <p className="mt-3 text-sm text-muted">Question to take to an expert: {gap.suggested_question}</p></div>)}
+        {ex && <More label="a longer suggestion written from the evidence" className="mt-6">
+          <div className="card p-6 sm:p-8">
+            <p className="text-lg leading-relaxed"><Glossed text={strip(ex.next_step.text)} /></p>
+            <p className="mt-4"><Ev ids={ex.next_step.edge_ids} title="Evidence for the next step"><span className="chip chip-accent cursor-pointer">{ex.next_step.edge_ids.length} pieces of evidence behind this</span></Ev></p>
+            <p className="mt-3 text-sm text-muted">Written by AI from the cited evidence and checked automatically. A suggestion to discuss with an expert, not advice.</p>
+          </div>
+        </More>}
       </Step>
 
       <section className="mt-16 border-t border-line pt-8">
