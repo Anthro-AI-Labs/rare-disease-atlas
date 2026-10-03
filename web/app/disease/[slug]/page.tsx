@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { Answer } from "@/components/Answer";
 import ClusterGraph from "@/components/ClusterGraph";
+import { More } from "@/components/Depth";
 import { Chip } from "@/components/Chip";
 import { Claim, Investigators } from "@/components/Claim";
 import { Empty, EvidenceBadge, refLink } from "@/components/Evidence";
@@ -9,8 +11,9 @@ import { strip } from "@/components/Explanation";
 import PairExplain from "@/components/PairExplain";
 import StepNav from "@/components/StepNav";
 import { Glossed, Term } from "@/components/Term";
-import { actionView, diseases, graphData, idOf, load, slugOf } from "@/lib/graph";
+import { diseases, graphData, idOf, load, slugOf } from "@/lib/graph";
 import { ROUTE } from "@/lib/status";
+import { story } from "@/lib/story";
 
 export function generateStaticParams() {
   return diseases().map((d) => ({ slug: slugOf(d.id) }));
@@ -30,7 +33,8 @@ export default async function DiseasePage({ params }: { params: Promise<{ slug: 
   const { slug } = await params;
   const id = idOf(slug);
   if (!diseases().some((d) => d.id === id)) notFound();
-  const a = actionView(id);
+  const s = story(id);
+  const a = s.a;
   const { g, nodes } = load();
   const { v, gap, rel, communities, assets, review, explanation: ex } = a;
   const { d, cluster, mechanisms, geneLevel, mechOtherCount, effectCounts, sole, trials, phenotypes, pairInfo, findings, invs, causes } = v;
@@ -62,13 +66,20 @@ export default async function DiseasePage({ params }: { params: Promise<{ slug: 
           {d.role === "counterexample" && <Chip kind="ctx">benign form of a gene that also causes a severe disease</Chip>}
           <Ev ids={g.meta.gaps[id].routes.flatMap((r) => r.edge_ids).slice(0, 10).concat([causes.id])} title="Evidence for this route"><span className={`chip chip-${route.kind} cursor-pointer`}>{route.label}</span></Ev>
         </div>
-        <h1 className="mt-4 max-w-4xl text-4xl font-bold leading-tight sm:text-5xl">{d.name}</h1>
+        <h1 className="mt-4 max-w-4xl text-4xl font-bold leading-tight sm:text-5xl">{s.common}</h1>
+        <p className="mt-2 text-lg text-muted">{d.name}</p>
       </header>
 
-      <div className="card mt-8 p-4 sm:p-6">
-        <p className="mb-2 text-sm text-muted">Where this disease sits among its neighbours. Select a circle to open it.</p>
-        <ClusterGraph nodes={gn} links={gl} focusId={id} height={380} />
-      </div>
+      <Answer segs={s.answer} tone={s.relKind} note={<>
+        <span className="only-simple">Simple view. Open any part below for more, or switch to Detailed at the top.</span>
+        <span className="only-detailed">Detailed view: the map and the number of evidence items are shown.</span></>} />
+
+      <More label="the map of related conditions" className="mt-6">
+        <div className="card p-4 sm:p-6">
+          <p className="mb-2 text-sm text-muted">Where this disease sits among its neighbours. Select a circle to open it.</p>
+          <ClusterGraph nodes={gn} links={gl} focusId={id} height={380} />
+        </div>
+      </More>
 
       <StepNav steps={STEPS} />
 
@@ -97,7 +108,7 @@ export default async function DiseasePage({ params }: { params: Promise<{ slug: 
                   </div>
                   <div className="flex flex-wrap gap-2">
                     {r.route.connection === "same_gene" && <Chip kind="ctx">Same gene</Chip>}
-                    <Ev ids={r.route.edge_ids} title={`Evidence: link to ${r.to.name}`}><span className={`chip chip-${c.kind} cursor-pointer`}>{c.label}<span aria-hidden className="opacity-70">· evidence</span></span></Ev>
+                    <Ev ids={r.route.edge_ids} title={`Evidence: link to ${r.to.name}`}><span className={`chip chip-${c.kind} cursor-pointer`}>{c.label}<span aria-hidden className="ev-n opacity-70">· {r.route.edge_ids.length} evidence</span></span></Ev>
                   </div>
                 </div>
                 <p className="mt-4 text-lg"><b className="font-semibold">Why:</b> both involve {r.shared.slice(0, 2).map((p) => lc(p.name)).join(" and ") || "overlapping features"}. {mechLine(r)}</p>
@@ -116,7 +127,7 @@ export default async function DiseasePage({ params }: { params: Promise<{ slug: 
           <div key={f.disease} className="mt-5 rounded-2xl border border-conf/40 bg-conf/5 p-5">
             <p className="font-semibold text-conf">Conflicting evidence: expert review needed</p>
             <p className="mt-1 text-sm">Papers disagree on whether the gene change reduces or increases function. We do not settle it. It may depend on age at onset, the exact variant or the lab system — that is only a guess.</p>
-            <p className="mt-2"><Ev ids={[...f.reduced.slice(0, 3), ...f.increased.slice(0, 3)]} title="Both sides of the conflict"><span className="chip chip-conf cursor-pointer">See both sides · evidence</span></Ev></p>
+            <p className="mt-2"><Ev ids={[...f.reduced.slice(0, 3), ...f.increased.slice(0, 3)]} title="Both sides of the conflict"><span className="chip chip-conf cursor-pointer">See both sides<span aria-hidden className="ev-n opacity-70">· {Math.min(3, f.reduced.length) + Math.min(3, f.increased.length)} evidence</span></span></Ev></p>
           </div>))}
       </Step>
 

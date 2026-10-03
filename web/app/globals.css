@@ -67,3 +67,26 @@ button.chip:hover, button.chip:focus-visible, a.chip:hover { box-shadow: 0 0 16p
 .scrim { animation: fadein .2s ease-out; }
 @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }
 .chip-btn { display: inline-block; background: none; border: 0; padding: 0; cursor: pointer; color: inherit; font: inherit; }
+
+/* ---------- v3: depth levels ---------- */
+/* Level 1 (simple) hides researcher-only bits; every block can still be opened one by one (.more). */
+html[data-depth="simple"] .only-detailed { display: none !important; }
+html[data-depth="detailed"] .only-simple { display: none !important; }
+html[data-depth="simple"] .ev-n { display: none; }
+.more-body { margin-top: 1rem; }
+html[data-depth="simple"] .more:not([data-ov="open"]) > .more-body, .more[data-ov="closed"] > .more-body { display: none; }
+.more-btn { display: inline-flex; align-items: center; gap: .5rem; border-radius: 999px; border: 1px solid var(--line); background: var(--surface); padding: .45rem 1rem; font-size: .88rem; font-weight: 600; color: var(--ink); transition: border-color .2s, box-shadow .2s; }
+.more-btn:hover { border-color: var(--accent); color: var(--ink); box-shadow: 0 0 16px -6px var(--accent); }
+.more-caret { display: inline-block; color: var(--accent); transition: transform .2s; }
+.more-btn[aria-expanded="true"] .more-caret { transform: rotate(90deg); }
+
+/* ---------- v3: neon hierarchy ----------
+   L1 (one per screen): the answer sentence. L2: the next-step card. L3: status chips and links (faint). Body text: none.
+   Glow colour = status colour of what it marks (set through --g). */
+.tone-ok { --g: var(--ok); } .tone-hyp { --g: var(--hyp); } .tone-conf { --g: var(--conf); } .tone-ctx { --g: var(--ctx); } .tone-accent { --g: var(--accent); }
+.glow-1 { border-color: color-mix(in srgb, var(--g) 55%, var(--line)); box-shadow: 0 0 0 1px color-mix(in srgb, var(--g) 25%, transparent), 0 0 60px -10px color-mix(in srgb, var(--g) 55%, transparent), inset 0 0 40px -20px color-mix(in srgb, var(--g) 40%, transparent); }
+.glow-2 { border-color: color-mix(in srgb, var(--g) 45%, var(--line)); box-shadow: 0 0 32px -10px color-mix(in srgb, var(--g) 45%, transparent); }
+.chip-ok, .chip-hyp, .chip-conf, .chip-accent { box-shadow: 0 0 10px -5px currentColor; }
+/* Key nouns in prose: bold + thin neon underline in their status colour. */
+.hl { font-weight: 700; color: var(--ink); background-image: linear-gradient(var(--g), var(--g)); background-size: 100% 2px; background-position: 0 100%; background-repeat: no-repeat; padding-bottom: 1px;
+  text-shadow: 0 0 14px color-mix(in srgb, var(--g) 45%, transparent); box-decoration-break: clone; -webkit-box-decoration-break: clone; }

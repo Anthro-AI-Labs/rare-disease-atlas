@@ -10,7 +10,7 @@ export type Edge = {
   shared_phenotypes?: { id: string; name: string; ic: number }[]; method_note?: string; note?: string;
   frequency?: string; entailment?: string | null; entailment_rationale?: string; extracted_variant_effect?: string; extracted_population?: string; review_verdict?: string; [k: string]: unknown;
 };
-export type Node = { id: string; type: string; name?: string; role?: string; mondo?: string | null; [k: string]: unknown };
+export type Node = { id: string; type: string; name?: string; role?: string; mondo?: string | null; definition?: string; definition_url?: string | null; [k: string]: unknown };
 export type Pair = { a: string; b: string; phenotype: number; mechanism: number | null; mechanism_available: boolean; combined: number;
   shared_phenotypes: { id: string; name: string; ic: number }[]; shared_mechanism_keys: string[] };
 export type CounterPair = { counterexample: string; core: string; gene: string; status: string; evidence_note: string; same_cluster_freq: number;

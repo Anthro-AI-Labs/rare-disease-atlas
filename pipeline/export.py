@@ -27,8 +27,28 @@ def slug(s):
     return re.sub(r"[^a-z0-9]+", "-", s.lower()).strip("-")
 
 
+def mondo_definitions(ids):
+    """MONDO `def:` text + its first xref URL for the slice diseases (offline, from data/raw/mondo.obo; skipped if absent)."""
+    p, out, cur = ROOT / "data" / "raw" / "mondo.obo", {}, None
+    if not p.exists():
+        return out
+    for line in p.open():
+        if line.startswith("id: "):
+            cur = line[4:].strip() if line[4:].strip() in ids else None
+        elif cur and line.startswith("def: "):
+            m = re.match(r'def: "(.*)" \[(.*)\]', line.strip())
+            if m:
+                url = next((u for u in m.group(2).split(", ") if u.startswith("http")), None)
+                out[cur] = {"definition": m.group(1).replace('\\"', '"'), "definition_url": url}
+    return out
+
+
 def build():
     nodes = {n["id"]: n for n in jl("nodes.jsonl")}
+    defs = mondo_definitions({n.get("mondo") for n in nodes.values() if n.get("type") == "disease"})
+    for n in nodes.values():
+        if n.get("type") == "disease" and n.get("mondo") in defs:
+            n.update(defs[n["mondo"]], definition_source="MONDO")
     edges = jl("edges.jsonl")
     for e in edges:  # base edges: curated -> supported; computed -> hypothesis (rule 3)
         e["status"] = "hypothesis" if e["evidence_type"] == "computed" else "supported"

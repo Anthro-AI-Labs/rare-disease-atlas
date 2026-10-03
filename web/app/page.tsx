@@ -2,6 +2,7 @@ import Link from "next/link";
 import ClusterGraph from "@/components/ClusterGraph";
 import Search from "@/components/Search";
 import { Chip } from "@/components/Chip";
+import { Persona } from "@/components/Depth";
 import { Term } from "@/components/Term";
 import { diseases, graphData, slugOf } from "@/lib/graph";
 
@@ -18,6 +19,7 @@ export default function Home() {
           Every link has a badge you can read at a glance, and every badge opens the evidence behind it.
         </p>
         <div className="mt-8 max-w-2xl"><Search big /></div>
+        <div className="mt-6 max-w-2xl"><Persona /></div>
         <div className="mt-6 flex flex-wrap items-center gap-3">
           <Link href="/disease/OMIM_612164" className="btn btn-accent">Start with STXBP1 <span aria-hidden>→</span></Link>
           <Link href="/explore" className="btn btn-ghost">Explore the map</Link>
