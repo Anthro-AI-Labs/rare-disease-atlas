@@ -1,0 +1,6 @@
+requests
+networkx
+pydantic>=2
+openai>=1.50
+python-dotenv
+pytest

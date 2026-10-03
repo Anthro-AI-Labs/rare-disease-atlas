@@ -1,0 +1,89 @@
+[
+  {
+    "cluster": 0,
+    "members": [
+      {
+        "id": "OMIM:612164",
+        "name": "Developmental and epileptic encephalopathy 4",
+        "role": "core",
+        "gene": "STXBP1"
+      },
+      {
+        "id": "OMIM:613720",
+        "name": "Epileptic encephalopathy, early infantile, 7",
+        "role": "core",
+        "gene": "KCNQ2"
+      },
+      {
+        "id": "OMIM:614959",
+        "name": "Developmental and epileptic encephalopathy 14",
+        "role": "core",
+        "gene": "KCNT1"
+      },
+      {
+        "id": "OMIM:615473",
+        "name": "Developmental and epileptic encephalopathy 17",
+        "role": "core",
+        "gene": "GNAO1"
+      }
+    ]
+  },
+  {
+    "cluster": 1,
+    "members": [
+      {
+        "id": "OMIM:300672",
+        "name": "Developmental and epileptic encephalopathy 2",
+        "role": "core",
+        "gene": "CDKL5"
+      },
+      {
+        "id": "OMIM:607208",
+        "name": "Epileptic encephalopathy, early infantile, 6 (Dravet syndrome)",
+        "role": "contrast",
+        "gene": "SCN1A"
+      },
+      {
+        "id": "OMIM:612621",
+        "name": "Intellectual developmental disorder, autosomal dominant 5",
+        "role": "core",
+        "gene": "SYNGAP1"
+      },
+      {
+        "id": "OMIM:614558",
+        "name": "Epileptic encephalopathy, early infantile, 13",
+        "role": "core",
+        "gene": "SCN8A"
+      }
+    ]
+  },
+  {
+    "cluster": 2,
+    "members": [
+      {
+        "id": "OMIM:121200",
+        "name": "Seizures, benign familial neonatal, 1",
+        "role": "counterexample",
+        "gene": "KCNQ2"
+      },
+      {
+        "id": "OMIM:607745",
+        "name": "Seizures, benign familial infantile, 3",
+        "role": "counterexample",
+        "gene": "SCN2A"
+      },
+      {
+        "id": "OMIM:613721",
+        "name": "Epileptic encephalopathy, early infantile, 11",
+        "role": "core",
+        "gene": "SCN2A"
+      },
+      {
+        "id": "OMIM:617080",
+        "name": "Seizures, benign familial infantile, 5",
+        "role": "counterexample",
+        "gene": "SCN8A"
+      }
+    ]
+  }
+]

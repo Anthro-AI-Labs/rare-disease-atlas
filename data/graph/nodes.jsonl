@@ -1,0 +1,134 @@
+{"id": "OMIM:612164", "type": "disease", "name": "Developmental and epileptic encephalopathy 4", "role": "core", "mondo": "MONDO:0012812", "n_phenotypes": 24}
+{"id": "HGNC_SYMBOL:STXBP1", "type": "gene", "name": "STXBP1", "ncbi_gene": "NCBIGene:6812"}
+{"id": "HP:0002069", "type": "phenotype", "name": "Bilateral tonic-clonic seizure", "ic": 3.266}
+{"id": "HP:0002521", "type": "phenotype", "name": "Hypsarrhythmia", "ic": 4.321}
+{"id": "HP:0002188", "type": "phenotype", "name": "Delayed CNS myelination", "ic": 3.945}
+{"id": "HP:0002123", "type": "phenotype", "name": "Generalized myoclonic seizure", "ic": 4.528}
+{"id": "HP:0001151", "type": "phenotype", "name": "Impaired horizontal smooth pursuit", "ic": 7.265}
+{"id": "HP:0002187", "type": "phenotype", "name": "Profound intellectual disability", "ic": 4.572}
+{"id": "HP:0001252", "type": "phenotype", "name": "Hypotonia", "ic": 1.534}
+{"id": "HP:0006808", "type": "phenotype", "name": "Cerebral hypomyelination", "ic": 6.095}
+{"id": "HP:0010864", "type": "phenotype", "name": "Severe intellectual disability", "ic": 3.299}
+{"id": "HP:0007105", "type": "phenotype", "name": "Infantile encephalopathy", "ic": 7.265}
+{"id": "HP:0002059", "type": "phenotype", "name": "Cerebral atrophy", "ic": 2.803}
+{"id": "HP:0002510", "type": "phenotype", "name": "Spastic tetraplegia", "ic": 4.55}
+{"id": "HP:0001344", "type": "phenotype", "name": "Absent speech", "ic": 3.145}
+{"id": "HP:0002133", "type": "phenotype", "name": "Status epilepticus", "ic": 4.073}
+{"id": "HP:0002376", "type": "phenotype", "name": "Developmental regression", "ic": 3.437}
+{"id": "HP:0002079", "type": "phenotype", "name": "Hypoplasia of the corpus callosum", "ic": 3.079}
+{"id": "HP:0001266", "type": "phenotype", "name": "Choreoathetosis", "ic": 4.5}
+{"id": "HP:0010818", "type": "phenotype", "name": "Generalized tonic seizure", "ic": 5.419}
+{"id": "HP:0010851", "type": "phenotype", "name": "EEG with burst suppression", "ic": 5.437}
+{"id": "HP:0011344", "type": "phenotype", "name": "Severe global developmental delay", "ic": 3.842}
+{"id": "HP:0011097", "type": "phenotype", "name": "Epileptic spasm", "ic": 4.037}
+{"id": "HP:0200134", "type": "phenotype", "name": "Epileptic encephalopathy", "ic": 4.557}
+{"id": "HP:0001258", "type": "phenotype", "name": "Spastic paraplegia", "ic": 4.169}
+{"id": "HP:0001337", "type": "phenotype", "name": "Tremor", "ic": 2.85}
+{"id": "OMIM:613721", "type": "disease", "name": "Epileptic encephalopathy, early infantile, 11", "role": "core", "mondo": "MONDO:0013388", "n_phenotypes": 11}
+{"id": "HGNC_SYMBOL:SCN2A", "type": "gene", "name": "SCN2A", "ncbi_gene": "NCBIGene:6326"}
+{"id": "HP:0002487", "type": "phenotype", "name": "Hyperkinetic movements", "ic": 5.419}
+{"id": "HP:0002283", "type": "phenotype", "name": "Global brain atrophy", "ic": 5.093}
+{"id": "HP:0001263", "type": "phenotype", "name": "Global developmental delay", "ic": 1.498}
+{"id": "HP:0000717", "type": "phenotype", "name": "Autism", "ic": 4.092}
+{"id": "HP:0007334", "type": "phenotype", "name": "Bilateral tonic-clonic seizure with focal onset", "ic": 5.352}
+{"id": "OMIM:614558", "type": "disease", "name": "Epileptic encephalopathy, early infantile, 13", "role": "core", "mondo": "MONDO:0013801", "n_phenotypes": 27}
+{"id": "HGNC_SYMBOL:SCN8A", "type": "gene", "name": "SCN8A", "ncbi_gene": "NCBIGene:6334"}
+{"id": "HP:0002121", "type": "phenotype", "name": "Generalized non-motor (absence) seizure", "ic": 4.106}
+{"id": "HP:0010841", "type": "phenotype", "name": "Multifocal epileptiform discharges", "ic": 5.55}
+{"id": "HP:0001270", "type": "phenotype", "name": "Motor delay", "ic": 2.26}
+{"id": "HP:0011167", "type": "phenotype", "name": "Focal tonic seizure", "ic": 6.518}
+{"id": "HP:0020221", "type": "phenotype", "name": "Clonic seizure", "ic": 4.963}
+{"id": "HP:0001249", "type": "phenotype", "name": "Intellectual disability", "ic": 1.335}
+{"id": "HP:0000253", "type": "phenotype", "name": "Progressive microcephaly", "ic": 4.867}
+{"id": "HP:0000252", "type": "phenotype", "name": "Microcephaly", "ic": 1.871}
+{"id": "HP:0006813", "type": "phenotype", "name": "Focal hemiclonic seizure", "ic": 6.467}
+{"id": "HP:0002373", "type": "phenotype", "name": "Febrile seizure (within the age range of 3 months to 6 years)", "ic": 4.275}
+{"id": "HP:0010850", "type": "phenotype", "name": "EEG with spike-wave complexes", "ic": 5.473}
+{"id": "HP:0011169", "type": "phenotype", "name": "Generalized clonic seizure", "ic": 6.629}
+{"id": "HP:0033258", "type": "phenotype", "name": "Sudden unexpected death in epilepsy", "ic": 7.065}
+{"id": "HP:0000729", "type": "phenotype", "name": "Autistic behavior", "ic": 2.951}
+{"id": "HP:0032792", "type": "phenotype", "name": "Tonic seizure", "ic": 4.363}
+{"id": "HP:0000722", "type": "phenotype", "name": "Compulsive behaviors", "ic": 4.344}
+{"id": "OMIM:613720", "type": "disease", "name": "Epileptic encephalopathy, early infantile, 7", "role": "core", "mondo": "MONDO:0013387", "n_phenotypes": 9}
+{"id": "HGNC_SYMBOL:KCNQ2", "type": "gene", "name": "KCNQ2", "ncbi_gene": "NCBIGene:3785"}
+{"id": "HP:0001332", "type": "phenotype", "name": "Dystonia", "ic": 2.826}
+{"id": "HP:0001250", "type": "phenotype", "name": "Seizure", "ic": 1.414}
+{"id": "HP:0001285", "type": "phenotype", "name": "Spastic tetraparesis", "ic": 4.963}
+{"id": "OMIM:614959", "type": "disease", "name": "Developmental and epileptic encephalopathy 14", "role": "core", "mondo": "MONDO:0013989", "n_phenotypes": 31}
+{"id": "HGNC_SYMBOL:KCNT1", "type": "gene", "name": "KCNT1", "ncbi_gene": "NCBIGene:57582"}
+{"id": "HP:0002169", "type": "phenotype", "name": "Clonus", "ic": 4.231}
+{"id": "HP:0002266", "type": "phenotype", "name": "Focal clonic seizure", "ic": 5.591}
+{"id": "HP:0002120", "type": "phenotype", "name": "Cerebral cortical atrophy", "ic": 3.669}
+{"id": "HP:0001290", "type": "phenotype", "name": "Generalized hypotonia", "ic": 2.856}
+{"id": "HP:0032773", "type": "phenotype", "name": "Focal autonomic seizure with palpitations/tachycardia/bradycardia/asystole", "ic": 8.769}
+{"id": "HP:0012444", "type": "phenotype", "name": "Brain atrophy", "ic": 2.586}
+{"id": "HP:0032677", "type": "phenotype", "name": "Generalized-onset motor seizure", "ic": 3.982}
+{"id": "HP:0033725", "type": "phenotype", "name": "Thin corpus callosum", "ic": 2.418}
+{"id": "HP:0011182", "type": "phenotype", "name": "Interictal epileptiform activity", "ic": 3.587}
+{"id": "HP:0000817", "type": "phenotype", "name": "Reduced eye contact", "ic": 4.692}
+{"id": "HP:0001347", "type": "phenotype", "name": "Hyperreflexia", "ic": 2.576}
+{"id": "HP:0008936", "type": "phenotype", "name": "Axial hypotonia", "ic": 3.528}
+{"id": "HP:0006915", "type": "phenotype", "name": "Inability to walk by childhood/adolescence", "ic": 7.16}
+{"id": "HP:0002171", "type": "phenotype", "name": "Gliosis", "ic": 4.79}
+{"id": "HP:0012736", "type": "phenotype", "name": "Profound global developmental delay", "ic": 5.186}
+{"id": "HP:0011154", "type": "phenotype", "name": "Focal autonomic seizure", "ic": 7.265}
+{"id": "HP:0011153", "type": "phenotype", "name": "Focal motor seizure", "ic": 4.799}
+{"id": "HP:0002529", "type": "phenotype", "name": "Neuronal loss in central nervous system", "ic": 5.701}
+{"id": "HP:0001257", "type": "phenotype", "name": "Spasticity", "ic": 2.272}
+{"id": "HP:0002445", "type": "phenotype", "name": "Tetraplegia", "ic": 5.455}
+{"id": "OMIM:612621", "type": "disease", "name": "Intellectual developmental disorder, autosomal dominant 5", "role": "core", "mondo": "MONDO:0012960", "n_phenotypes": 19}
+{"id": "HGNC_SYMBOL:SYNGAP1", "type": "gene", "name": "SYNGAP1", "ncbi_gene": "NCBIGene:8831"}
+{"id": "HP:0000473", "type": "phenotype", "name": "Torticollis", "ic": 4.65}
+{"id": "HP:0002353", "type": "phenotype", "name": "EEG abnormality", "ic": 2.995}
+{"id": "HP:0002342", "type": "phenotype", "name": "Moderate intellectual disability", "ic": 3.857}
+{"id": "HP:0002463", "type": "phenotype", "name": "Language impairment", "ic": 2.1}
+{"id": "HP:0000486", "type": "phenotype", "name": "Strabismus", "ic": 2.18}
+{"id": "HP:0011150", "type": "phenotype", "name": "Myoclonic absence seizure", "ic": 7.065}
+{"id": "HP:0002307", "type": "phenotype", "name": "Drooling", "ic": 4.375}
+{"id": "HP:0005988", "type": "phenotype", "name": "Congenital muscular torticollis", "ic": 6.897}
+{"id": "OMIM:300672", "type": "disease", "name": "Developmental and epileptic encephalopathy 2", "role": "core", "mondo": "MONDO:0010396", "n_phenotypes": 31}
+{"id": "HGNC_SYMBOL:CDKL5", "type": "gene", "name": "CDKL5", "ncbi_gene": "NCBIGene:6792"}
+{"id": "HP:0002883", "type": "phenotype", "name": "Hyperventilation", "ic": 6.028}
+{"id": "HP:0002540", "type": "phenotype", "name": "Inability to walk", "ic": 3.338}
+{"id": "HP:0001773", "type": "phenotype", "name": "Short foot", "ic": 4.169}
+{"id": "HP:0000463", "type": "phenotype", "name": "Anteverted nares", "ic": 3.01}
+{"id": "HP:0002020", "type": "phenotype", "name": "Gastroesophageal reflux", "ic": 3.26}
+{"id": "HP:0010845", "type": "phenotype", "name": "EEG with generalized slow activity", "ic": 6.371}
+{"id": "HP:0012469", "type": "phenotype", "name": "Infantile spasms", "ic": 4.375}
+{"id": "HP:0100704", "type": "phenotype", "name": "Cerebral visual impairment", "ic": 4.169}
+{"id": "HP:0011220", "type": "phenotype", "name": "Prominent forehead", "ic": 3.557}
+{"id": "HP:0000337", "type": "phenotype", "name": "Broad forehead", "ic": 3.898}
+{"id": "HP:0000733", "type": "phenotype", "name": "Motor stereotypy", "ic": 3.642}
+{"id": "HP:0002019", "type": "phenotype", "name": "Constipation", "ic": 3.216}
+{"id": "HP:0000179", "type": "phenotype", "name": "Thick lower lip vermilion", "ic": 4.439}
+{"id": "HP:0002650", "type": "phenotype", "name": "Scoliosis", "ic": 2.042}
+{"id": "HP:0002197", "type": "phenotype", "name": "Generalized-onset seizure", "ic": 3.338}
+{"id": "HP:0000490", "type": "phenotype", "name": "Deeply set eye", "ic": 3.461}
+{"id": "HP:0001182", "type": "phenotype", "name": "Tapered finger", "ic": 4.02}
+{"id": "HP:0031165", "type": "phenotype", "name": "Multifocal seizures", "ic": 6.204}
+{"id": "HP:0200055", "type": "phenotype", "name": "Small hand", "ic": 4.344}
+{"id": "HP:0001336", "type": "phenotype", "name": "Myoclonus", "ic": 3.461}
+{"id": "OMIM:615473", "type": "disease", "name": "Developmental and epileptic encephalopathy 17", "role": "core", "mondo": "MONDO:0014199", "n_phenotypes": 14}
+{"id": "HGNC_SYMBOL:GNAO1", "type": "gene", "name": "GNAO1", "ncbi_gene": "NCBIGene:2775"}
+{"id": "HP:0002072", "type": "phenotype", "name": "Chorea", "ic": 3.769}
+{"id": "HP:0002305", "type": "phenotype", "name": "Athetosis", "ic": 4.154}
+{"id": "OMIM:607745", "type": "disease", "name": "Seizures, benign familial infantile, 3", "role": "counterexample", "mondo": "MONDO:0011904", "n_phenotypes": 7}
+{"id": "HP:0002384", "type": "phenotype", "name": "Focal impaired awareness seizure", "ic": 4.465}
+{"id": "HP:0002372", "type": "phenotype", "name": "Normal interictal EEG", "ic": 8.076}
+{"id": "HP:0012759", "type": "phenotype", "name": "Neurodevelopmental abnormality", "ic": 0.928}
+{"id": "HP:0000961", "type": "phenotype", "name": "Cyanosis", "ic": 4.387}
+{"id": "HP:0002104", "type": "phenotype", "name": "Apnea", "ic": 4.016}
+{"id": "OMIM:617080", "type": "disease", "name": "Seizures, benign familial infantile, 5", "role": "counterexample", "mondo": "MONDO:0014903", "n_phenotypes": 3}
+{"id": "HP:0007166", "type": "phenotype", "name": "Paroxysmal dyskinesia", "ic": 6.467}
+{"id": "OMIM:121200", "type": "disease", "name": "Seizures, benign familial neonatal, 1", "role": "counterexample", "mondo": "MONDO:0007365", "n_phenotypes": 6}
+{"id": "HP:0002411", "type": "phenotype", "name": "Myokymia", "ic": 5.936}
+{"id": "OMIM:607208", "type": "disease", "name": "Epileptic encephalopathy, early infantile, 6 (Dravet syndrome)", "role": "contrast", "mondo": "MONDO:0100079", "n_phenotypes": 25}
+{"id": "HGNC_SYMBOL:SCN1A", "type": "gene", "name": "SCN1A", "ncbi_gene": "NCBIGene:6323"}
+{"id": "HP:0001251", "type": "phenotype", "name": "Ataxia", "ic": 2.187}
+{"id": "HP:0032794", "type": "phenotype", "name": "Myoclonic seizure", "ic": 3.775}
+{"id": "HP:0001268", "type": "phenotype", "name": "Mental deterioration", "ic": 3.276}
+{"id": "HP:0010819", "type": "phenotype", "name": "Atonic seizure", "ic": 4.963}
+{"id": "HP:0005484", "type": "phenotype", "name": "Secondary microcephaly", "ic": 3.868}
+{"id": "HP:0007256", "type": "phenotype", "name": "Abnormal pyramidal sign", "ic": 3.047}
+{"id": "HP:0002349", "type": "phenotype", "name": "Focal aware seizure", "ic": 6.467}
+{"id": "HP:0020216", "type": "phenotype", "name": "Visually-induced seizure", "ic": 6.978}
