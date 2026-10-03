@@ -15,7 +15,7 @@ export default async function DiseasePage({ params }: { params: Promise<{ slug: 
   const { slug } = await params;
   const v = diseaseView(idOf(slug));
   if (!v) notFound();
-  const { d, cluster, similar, phenotypes, mechanisms, trials, orgs, assets, causes } = v;
+  const { d, cluster, mechOtherCount, similar, phenotypes, mechanisms, trials, orgs, assets, causes } = v;
   return (
     <main className="mx-auto max-w-3xl px-4 py-8">
       <Link href="/" className="text-sm text-neutral-500 underline">← Search</Link>
@@ -29,9 +29,11 @@ export default async function DiseasePage({ params }: { params: Promise<{ slug: 
       <H>Cluster (computed grouping — hypothesis)</H>
       {cluster ? (
         <ul className="mt-2 text-sm">{cluster.members.map((m) => (
-          <li key={m.id}>{m.id === d.id ? <b>{m.gene} · {m.name}</b> : <Link className="underline" href={`/disease/${slugOf(m.id)}`}>{m.gene} · {m.name}</Link>}</li>))}</ul>
+          <li key={m.id}>{m.id === d.id ? <b>{m.gene} · {m.name}</b> : <Link className="underline" href={`/disease/${slugOf(m.id)}`}>{m.gene} · {m.name}</Link>}
+          {m.uncertain && <span title={m.uncertain_reason} className="ml-2 rounded border border-amber-600 px-1 text-xs text-amber-800">uncertain membership</span>}
+          <span className="text-xs text-neutral-400"> · stability {m.stability}</span></li>))}</ul>
       ) : <Empty>this disease is not in any cluster.</Empty>}
-      <p className="mt-1 text-xs text-neutral-500">Louvain on phenotype similarity only (single seed); mechanism and stability checks arrive in Phase 2.</p>
+      <p className="mt-1 text-xs text-neutral-500">kNN (k=3) + Louvain on phenotype similarity only; stability = how often two members co-cluster across 30 seeds. Mechanism overlap is not yet used. “Uncertain” members (hover for reason) are flagged, not hidden.</p>
 
       <H>Related diseases and why (inferred from phenotypes — hypothesis)</H>
       {similar.length === 0 ? <Empty>no phenotype-similarity edge above the threshold; no supported or inferred link to show.</Empty> : (
@@ -46,14 +48,24 @@ export default async function DiseasePage({ params }: { params: Promise<{ slug: 
 
       <H>Mechanism claims (from PubMed abstracts)</H>
       {mechanisms.length === 0 ? <Empty>no mechanism claims in the graph for {d.gene} yet (extraction not run or none passed quoted-span verification).</Empty> : (
-        <ul className="mt-2 space-y-4">{mechanisms.map(({ edge, mech, pub }) => (
-          <li key={edge.id}>
-            <p className="font-medium">{mech.name} <span className="text-sm font-normal text-neutral-500">· {edge.population}{edge.linked_phenotype_or_disease ? ` · ${edge.linked_phenotype_or_disease}` : ""}</span></p>
+        (() => {
+          const sorted = [...mechanisms].sort((x, y) => y.edge.confidence - x.edge.confidence);
+          const row = ({ edge, mech, pub }: (typeof mechanisms)[number]) => <li key={edge.id}>
+            <p className="font-medium">{mech.name} <span className="text-sm font-normal text-neutral-500">· {edge.population} · {edge.disease_context === "unspecified" ? "gene-level, disease unspecified" : "about this disease"}{edge.linked_phenotype_or_disease ? ` · ${edge.linked_phenotype_or_disease}` : ""}</span>
+              {edge.confidence < 0.7 && <span className="ml-2 rounded border border-red-700 px-1 text-xs font-normal text-red-800">low confidence: quoted span does not name {d.gene}</span>}</p>
             <blockquote className="mt-1 border-l-2 border-neutral-300 pl-3 text-sm italic text-neutral-700">“{edge.quoted_span}”</blockquote>
             <p className="mt-1 text-sm">{pub ? <a className="underline" target="_blank" rel="noreferrer" href={String(pub.url)}>{edge.references[0]}</a> : edge.references[0]}{pub?.name ? ` — ${pub.name}` : ""}</p>
             <div className="mt-1"><EvidenceBadge e={edge} /></div>
-          </li>))}</ul>
+          </li>;
+          return <>
+            <p className="mt-2 text-xs text-neutral-500">{mechanisms.length} claims, highest confidence first. Confidence: 0.8 span names the gene and is from human patients; 0.7 names the gene, not human; 0.5 span does not name the gene.</p>
+            <ul className="mt-2 space-y-4">{sorted.slice(0, 8).map(row)}</ul>
+            {sorted.length > 8 && <details className="mt-3"><summary className="cursor-pointer text-sm underline">Show {sorted.length - 8} more</summary><ul className="mt-2 space-y-4">{sorted.slice(8).map(row)}</ul></details>}
+          </>;
+        })()
       )}
+
+      {mechOtherCount > 0 && <p className="mt-2 text-xs text-neutral-500">{mechOtherCount} further {d.gene} claim(s) concern other {d.gene}-related diseases and are shown on those pages.</p>}
 
       <H>Clinical trials mentioning {d.gene}</H>
       {trials.length === 0 ? <Empty>no ClinicalTrials.gov record names {d.gene} in its title, conditions or keywords.</Empty> : (

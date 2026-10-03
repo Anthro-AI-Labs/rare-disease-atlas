@@ -16,7 +16,7 @@ export type Graph = {
     mechanism_stats: { verified: number; extracted: number; span_drop_rate: number | null } | null;
     curated_counts: { patient_groups: number; assets: number } };
   nodes: Node[]; edges: Edge[];
-  clusters: { cluster: number; members: { id: string; name: string; role: string; gene: string }[] }[];
+  clusters: { cluster: number; members: { id: string; name: string; role: string; gene: string; stability: number; uncertain: boolean; uncertain_reason?: string }[] }[];
 };
 
 let cache: { g: Graph; nodes: Map<string, Node> } | null = null;
@@ -51,8 +51,11 @@ export function diseaseView(id: string) {
   const phenotypes = g.edges.filter((e) => e.source === id && e.relation === "has_phenotype")
     .map((e) => ({ edge: e, p: nodes.get(e.target)! }))
     .sort((a, b) => ((b.p.ic as number) ?? 0) - ((a.p.ic as number) ?? 0));
-  const mechanisms = g.edges.filter((e) => e.source === geneId && e.relation === "has_variant_effect")
+  const geneMech = g.edges.filter((e) => e.source === geneId && e.relation === "has_variant_effect")
     .map((e) => ({ edge: e, mech: nodes.get(e.target)!, pub: nodes.get(e.references[0]) }));
+  // claims about this disease, or gene-level ("unspecified"); claims about this gene's other diseases are counted, not shown
+  const mechanisms = geneMech.filter((m) => m.edge.disease_context === d.name || m.edge.disease_context === "unspecified");
+  const mechOtherCount = geneMech.length - mechanisms.length;
   const trials = g.edges.filter((e) => e.target === id && e.relation === "studied_in")
     .map((e) => ({ edge: e, study: nodes.get(e.source)! }));
   const orgs = g.edges.filter((e) => e.target === id && e.relation === "serves")
@@ -60,5 +63,5 @@ export function diseaseView(id: string) {
   const assets = g.edges.filter((e) => e.source === geneId && e.relation === "has_asset")
     .map((e) => ({ edge: e, asset: nodes.get(e.target)! }));
   const causes = g.edges.find((e) => e.relation === "causes" && e.target === id)!;
-  return { d, cluster, similar, phenotypes, mechanisms, trials, orgs, assets, causes };
+  return { d, cluster, mechOtherCount, similar, phenotypes, mechanisms, trials, orgs, assets, causes };
 }

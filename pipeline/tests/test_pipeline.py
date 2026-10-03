@@ -54,3 +54,47 @@ def test_exported_graph_valid_if_present():
             assert e["status"] == "hypothesis"
         if e["evidence_type"] == "llm_extracted":
             assert e["quoted_span"]
+
+
+def _cluster_report():
+    import json, common
+    p = common.GRAPH / "cluster_report.json"
+    if not p.exists():
+        pytest.skip("graph not built")
+    return json.loads(p.read_text()), json.loads((common.GRAPH / "clusters.json").read_text())
+
+
+def test_counterexample_never_silently_clusters_with_own_gene_dee():
+    """Benign counterexample must be in a different cluster from its gene's DEE, or both must be flagged uncertain."""
+    rep, clusters = _cluster_report()
+    members = {m["id"]: m for c in clusters for m in c["members"]}
+    cl = {m["id"]: c["cluster"] for c in clusters for m in c["members"]}
+    assert rep["counterexample_pairs"]
+    for pr in rep["counterexample_pairs"]:
+        a, b = pr["counterexample"], pr["core"]
+        if cl[a] == cl[b]:
+            assert members[a]["uncertain"] and members[b]["uncertain"], f"{pr['gene']} benign/DEE co-cluster unflagged"
+
+
+def test_cluster_stability_reported_over_30_seeds():
+    rep, clusters = _cluster_report()
+    assert rep["seeds"] == 30 and all("stability" in m for c in clusters for m in c["members"])
+
+
+def test_every_llm_span_is_in_cached_abstract():
+    import json, common
+    from spans import verify_span
+    p = common.GRAPH / "graph.json"
+    if not p.exists():
+        pytest.skip("graph not built")
+    n = 0
+    for e in json.loads(p.read_text())["edges"]:
+        if e["evidence_type"] != "llm_extracted":
+            continue
+        _, hit = common.cache_get("pubmed_abs", e["references"][0].removeprefix("PMID:"))
+        if hit is None:
+            pytest.skip("abstract cache not present")
+        assert verify_span(e["quoted_span"], hit["value"]["abstract"]), e["id"]
+        assert e["confidence"] in (0.5, 0.7, 0.8)
+        n += 1
+    assert n >= 8

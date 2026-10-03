@@ -1,0 +1,31 @@
+{
+  "k": 3,
+  "seeds": 30,
+  "stable_min": 0.8,
+  "method": "kNN(k=3) on phenotype similarity + Louvain",
+  "mean_stability": 1.0,
+  "n_uncertain": 2,
+  "counterexample_pairs": [
+    {
+      "counterexample": "OMIM:607745",
+      "core": "OMIM:613721",
+      "gene": "SCN2A",
+      "same_cluster_freq": 1.0,
+      "same_cluster_reference": true
+    },
+    {
+      "counterexample": "OMIM:617080",
+      "core": "OMIM:614558",
+      "gene": "SCN8A",
+      "same_cluster_freq": 0.0,
+      "same_cluster_reference": false
+    },
+    {
+      "counterexample": "OMIM:121200",
+      "core": "OMIM:613720",
+      "gene": "KCNQ2",
+      "same_cluster_freq": 0.0,
+      "same_cluster_reference": false
+    }
+  ]
+}

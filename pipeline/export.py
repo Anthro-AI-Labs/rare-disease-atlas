@@ -75,7 +75,7 @@ def build():
                                                    "year": c["year"], "url": f"https://pubmed.ncbi.nlm.nih.gov/{c['pmid']}/"})
             add("M", source=f"HGNC_SYMBOL:{c['gene'].upper()}", target=mid, relation="has_variant_effect",
                 evidence_type="llm_extracted", source_db=f"PubMed abstract + {mech['model']}",
-                references=[f"PMID:{c['pmid']}"], confidence=0.6 if c["population"] == "human" else 0.5,
+                references=[f"PMID:{c['pmid']}"], confidence=c["confidence"], span_mentions_gene=c["span_mentions_gene"], disease_context=c["disease_context"],
                 status="supported", quoted_span=c["quoted_span"], population=c["population"],
                 linked_phenotype_or_disease=c["linked_phenotype_or_disease"])
 

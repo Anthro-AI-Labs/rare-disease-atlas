@@ -13,17 +13,29 @@ MolFunction = Literal["sodium_channel", "potassium_channel", "synaptic_vesicle_r
                       "kinase_signaling", "g_protein_signaling", "other"]
 
 
-class Claim(BaseModel):
-    gene: str
-    variant_effect: VariantEffect
-    molecular_function: MolFunction
-    linked_phenotype_or_disease: str
-    population: Literal["human", "animal", "in_vitro"]
-    quoted_span: str  # must be copied verbatim from the abstract
+def disease_names(gene):
+    """Disease names (from the built base graph, i.e. config.py ALL) for one gene; the only allowed disease_context values."""
+    names = [n["name"] for n in map(json.loads, (GRAPH / "nodes.jsonl").open())
+             if n["type"] == "disease" and ALL.get(n["id"]) == gene]
+    return sorted(set(names))
 
 
-class Claims(BaseModel):
-    claims: list[Claim]
+def claims_model(gene):
+    """Per-gene structured-output schema: disease_context is an enum of that gene's diseases + 'unspecified'."""
+    ctx = Literal[tuple(disease_names(gene) + ["unspecified"])]
+
+    class Claim(BaseModel):
+        gene: str
+        variant_effect: VariantEffect
+        molecular_function: MolFunction
+        disease_context: ctx  # which disease/phenotype of this gene the claim is about
+        linked_phenotype_or_disease: str  # free text as stated in the abstract
+        population: Literal["human", "animal", "in_vitro"]
+        quoted_span: str  # must be copied verbatim from the abstract
+
+    class Claims(BaseModel):
+        claims: list[Claim]
+    return Claims
 
 
 SYSTEM = """You extract gene-level mechanism claims from ONE PubMed abstract.
@@ -31,7 +43,8 @@ Return only claims explicitly stated in the abstract about the target gene's var
 (variant_effect) and the molecular function of the gene product (molecular_function).
 quoted_span MUST be a verbatim contiguous excerpt (15-300 chars) copied exactly from the abstract that supports the claim.
 Use "unclear" when the direction is not stated; never infer beyond the text. population = human patients,
-animal model, or in_vitro (cells/electrophysiology). If no mechanism claim is stated, return an empty list."""
+animal model, or in_vitro (cells/electrophysiology). disease_context: choose the listed disease the claim concerns (severe vs benign forms of a gene differ); use "unspecified" if the abstract does not say.
+If no mechanism claim is stated, return an empty list."""
 PROMPT_HASH = hashlib.sha256(SYSTEM.encode()).hexdigest()[:10]
 QUERY = ('{g}[tiab] AND (loss-of-function OR gain-of-function OR haploinsufficiency OR dominant-negative '
          'OR "functional analysis")')
@@ -65,13 +78,17 @@ def fetch_abstracts(pmids):
 
 
 def extract(client, model, gene, rec):
+    allowed = disease_names(gene) + ["unspecified"]
+    key_hash = hashlib.sha256((SYSTEM + "|".join(allowed)).encode()).hexdigest()[:10]
+
     def go():
         resp = client.chat.completions.parse(
-            model=model, response_format=Claims,
+            model=model, response_format=claims_model(gene),
             messages=[{"role": "system", "content": SYSTEM},
-                      {"role": "user", "content": f"Target gene: {gene}\nTitle: {rec['title']}\nAbstract: {rec['abstract']}"}])
+                      {"role": "user", "content": f"Target gene: {gene}\nAllowed disease_context values: {json.dumps(allowed)}\n"
+                                                  f"Title: {rec['title']}\nAbstract: {rec['abstract']}"}])
         return [c.model_dump() for c in resp.choices[0].message.parsed.claims]
-    return cached("llm_claims", f"{rec['pmid']}|{gene}|{PROMPT_HASH}|{model}", go)
+    return cached("llm_claims", f"{rec['pmid']}|{gene}|{key_hash}|{model}", go)
 
 
 def main():
@@ -94,8 +111,12 @@ def main():
                     stats["dropped_gene"] += 1; continue
                 if not verify_span(c["quoted_span"], rec["abstract"]):
                     stats["dropped_span"] += 1; continue
+                mentions = gene.lower() in c["quoted_span"].lower()
+                conf = (0.8 if c["population"] == "human" else 0.7) if mentions else 0.5
                 stats["verified"] += 1; g["verified"] += 1
-                kept.append({**c, "pmid": pmid, "year": rec["year"], "title": rec["title"]})
+                stats["span_mentions_gene"] = stats.get("span_mentions_gene", 0) + mentions
+                kept.append({**c, "pmid": pmid, "year": rec["year"], "title": rec["title"],
+                             "span_mentions_gene": mentions, "confidence": conf})
     stats["span_drop_rate"] = round(stats["dropped_span"] / stats["extracted"], 3) if stats["extracted"] else None
     out = {"retrieved_at": datetime.date.today().isoformat(), "model": model, "prompt_hash": PROMPT_HASH,
            "claims": kept, "stats": stats}

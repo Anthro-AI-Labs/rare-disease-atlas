@@ -9,3 +9,8 @@
 - Web reads graph.json at build time (SSG, `generateStaticParams`); Next 16 `params` is a Promise.
 - `extract_mechanisms.py` exits with a notice (not error) when OpenAI env is unset so `make graph` still works.
 - Dead end: moving the stub `web/` aside was blocked; scaffolded Next in scratchpad and copied in instead.
+- Claim.disease_context is a per-gene enum (that gene's HPO disease names + "unspecified"); built dynamically; allowed list is in the LLM cache key. Disease pages show claims for that disease + gene-level "unspecified" only.
+- Confidence for LLM claims: 0.8 span names gene & human; 0.7 names gene, non-human; 0.5 otherwise (172/561 are 0.5, labelled low-confidence in UI).
+- Clustering: complete-graph Louvain replaced by kNN(k=3)+Louvain, 30-seed co-assignment stability. SCN2A BFIS3 still co-clusters with SCN2A DEE11 (freq 1.0, phenotype-only): both flagged "uncertain", not hidden.
+- Model gpt-5.4-mini; 333 abstracts → 596 claims → 561 verified (35 span drops, 0 gene-mismatch); full rerun from cache 0.5s.
+- data/curated/evidence_review.csv drafted by pipeline/make_review_sample.py (reviewer columns empty). All 20 are span_mentions_gene=false AND non-human (priority rule exhausted the pool).
