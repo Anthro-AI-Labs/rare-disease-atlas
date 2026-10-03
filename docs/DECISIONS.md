@@ -4,3 +4,8 @@
 - NCBI: omit `api_key` param when unset (empty value returns "API key invalid"); throttle 3 req/s no key, 10 with.
 - ClinicalTrials.gov gene search is free text, so studies are labelled "mentions gene", not "studies disease".
 - Python deps in `venv/`; Python 3.14 works with pinned-free requirements.
+- ClinicalTrials.gov: of 198 gene-term hits (CDKL5 alone 118, mostly noise), only records naming the gene in title/conditions/keywords enter the graph; studies link to non-counterexample diseases of that gene.
+- Edge `status` is assigned at export: computed → hypothesis (rule 3), curated/manual/llm → supported.
+- Web reads graph.json at build time (SSG, `generateStaticParams`); Next 16 `params` is a Promise.
+- `extract_mechanisms.py` exits with a notice (not error) when OpenAI env is unset so `make graph` still works.
+- Dead end: moving the stub `web/` aside was blocked; scaffolded Next in scratchpad and copied in instead.

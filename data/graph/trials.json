@@ -1,0 +1,4195 @@
+{
+ "retrieved_at": "2026-10-03",
+ "studies": [
+  {
+   "nct": "NCT05485831",
+   "title": "Epidyolex\u00ae in Lennox Gastaut, Dravet Syndrome and Tuberous Sclerosis Complex: an Observational Study in ITALY",
+   "status": "ACTIVE_NOT_RECRUITING",
+   "phases": [],
+   "conditions": [
+    "Lennox Gastaut Syndrome",
+    "Dravet Syndrome",
+    "Tuberous Sclerosis Complex"
+   ],
+   "keywords": [
+    "seizures",
+    "Epidyolex",
+    "cannabidiol oral solution"
+   ]
+  },
+  {
+   "nct": "NCT02983695",
+   "title": "Cannabinoid Therapy for Pediatric Epilepsy",
+   "status": "COMPLETED",
+   "phases": [
+    "PHASE1"
+   ],
+   "conditions": [
+    "Epilepsy"
+   ],
+   "keywords": []
+  },
+  {
+   "nct": "NCT02224573",
+   "title": "An Open Label Extension Study of Cannabidiol (GWP42003-P) in Children and Adults With Dravet or Lennox-Gastaut Syndromes",
+   "status": "COMPLETED",
+   "phases": [
+    "PHASE3"
+   ],
+   "conditions": [
+    "Epilepsy",
+    "Dravet Syndrome",
+    "Lennox-Gastaut Syndrome"
+   ],
+   "keywords": [
+    "Cannabidiol",
+    "CBD",
+    "GWP42003-P",
+    "GWPCARE5"
+   ]
+  },
+  {
+   "nct": "NCT06924827",
+   "title": "A Study to Investigate the Transition of Children From 'Artisanal\" Cannabidiol (CBD) to Epidiolex",
+   "status": "NOT_YET_RECRUITING",
+   "phases": [
+    "PHASE4"
+   ],
+   "conditions": [
+    "Dravet Syndrome (DS)",
+    "Lennox-Gastaut Syndrome (LGS)"
+   ],
+   "keywords": [
+    "Cannabidiol (CBD)",
+    "Epidiolex",
+    "Seizures",
+    "Epilepsy",
+    "Lennox-Gastaut Syndrome (LGS)",
+    "Dravet Syndrome (DS)"
+   ]
+  },
+  {
+   "nct": "NCT06660394",
+   "title": "A Phase 3, Placebo-Controlled Study to Investigate LP352 in Children and Adults With Dravet Syndrome (DS)",
+   "status": "ACTIVE_NOT_RECRUITING",
+   "phases": [
+    "PHASE3"
+   ],
+   "conditions": [
+    "Dravet Syndrome"
+   ],
+   "keywords": [
+    "Antiseizure medication",
+    "Epilepsy",
+    "Neurodevelopmental disorders",
+    "Developmental and epileptic encephalopathy",
+    "LP352",
+    "Seizures",
+    "DEEp SEA",
+    "Bexicaserin"
+   ]
+  },
+  {
+   "nct": "NCT03650452",
+   "title": "A Phase 2, Multicenter, Randomized, Double-blind, Placebo-controlled Study to Evaluate the Efficacy, Safety, and Tolerability of TAK-935 (OV935) as an Adjunctive Therapy in Pediatric Participants With Developmental and/or Epileptic Encephalopathies",
+   "status": "COMPLETED",
+   "phases": [
+    "PHASE2"
+   ],
+   "conditions": [
+    "Epilepsy",
+    "Dravet Syndrome",
+    "Lennox-Gastaut Syndrome"
+   ],
+   "keywords": [
+    "Drug Therapy",
+    "Brain Diseases",
+    "Central Nervous System Diseases",
+    "Tuberous Sclerosis",
+    "CDKL5 deficiency disorder",
+    "Dup15Q syndrome",
+    "Anoxic brain injury",
+    "Infantile spams",
+    "West syndrome",
+    "Cortical dysplasia",
+    "SCN1A",
+    "OV-935",
+    "Cholesterol 24S-hydroxylase inhibitor",
+    "Seizure",
+    "Anti-epileptic drug",
+    "Anticonvulsants",
+    "Nervous System Diseases",
+    "Drop seizure",
+    "Atonic seizure"
+   ]
+  },
+  {
+   "nct": "NCT05364021",
+   "title": "Study to Investigate LP352 in Subjects With Developmental and Epileptic Encephalopathies",
+   "status": "COMPLETED",
+   "phases": [
+    "PHASE1",
+    "PHASE2"
+   ],
+   "conditions": [
+    "Developmental and Epileptic Encephalopathy",
+    "Dravet Syndrome",
+    "Lennox Gastaut Syndrome"
+   ],
+   "keywords": [
+    "CDKL5 deficiency disorder",
+    "developmental and epileptic encephalopathy",
+    "Dravet Syndrome",
+    "epilepsy",
+    "Lennox-Gastaut Syndrome",
+    "treatment resistant epilepsy",
+    "tuberous sclerosis complex"
+   ]
+  },
+  {
+   "nct": "NCT01662453",
+   "title": "Risk Factors for Sudden Unexplained Death in Epilepsy",
+   "status": "RECRUITING",
+   "phases": [],
+   "conditions": [
+    "SUDEP"
+   ],
+   "keywords": [
+    "epilepsy",
+    "seizures",
+    "mortality",
+    "sudep",
+    "risk factors"
+   ]
+  },
+  {
+   "nct": "NCT03635073",
+   "title": "A Study of Soticlestat in Adults and Children With Rare Epilepsies",
+   "status": "TERMINATED",
+   "phases": [
+    "PHASE2"
+   ],
+   "conditions": [
+    "Epilepsy",
+    "Dravet Syndrome (DS)",
+    "Lennox-Gastaut Syndrome (LGS)"
+   ],
+   "keywords": [
+    "Soticlestat",
+    "Drug Therapy"
+   ]
+  },
+  {
+   "nct": "NCT00299312",
+   "title": "Genetic and Physical Characteristics of Rett Syndrome",
+   "status": "COMPLETED",
+   "phases": [],
+   "conditions": [
+    "Rett Syndrome",
+    "MECP2 Duplication Disorder",
+    "Rett-related Disorder"
+   ],
+   "keywords": [
+    "Loss of Purposeful Hand Use Syndrome",
+    "Loss of Communication",
+    "Stereotypic Hand Movements",
+    "MECP2 mutation",
+    "MECP2 duplication",
+    "CDKL5 mutation",
+    "FOXG1 mutation"
+   ]
+  },
+  {
+   "nct": "NCT05419492",
+   "title": "A Clinical Study to Evaluate the Safety and Efficacy of ETX101 in Infants and Children With SCN1A-Positive Dravet Syndrome",
+   "status": "RECRUITING",
+   "phases": [
+    "PHASE1",
+    "PHASE2"
+   ],
+   "conditions": [
+    "Dravet Syndrome"
+   ],
+   "keywords": [
+    "Dravet",
+    "SCN1A",
+    "DEE",
+    "developmental and epileptic encephalopathy",
+    "Dravet Syndrome",
+    "SCN1A-positive",
+    "SCN1A+"
+   ]
+  },
+  {
+   "nct": "NCT03936777",
+   "title": "A Study to Investigate the Long-Term Safety of ZX008 (Fenfluramine Hydrochloride) Oral Solution in Children and Adults With Epileptic Encephalopathy Including Dravet Syndrome and Lennox-Gastaut Syndrome",
+   "status": "COMPLETED",
+   "phases": [
+    "PHASE3"
+   ],
+   "conditions": [
+    "Dravet Syndrome",
+    "Lennox Gastaut Syndrome",
+    "Epileptic Encephalopathy"
+   ],
+   "keywords": []
+  },
+  {
+   "nct": "NCT02705677",
+   "title": "Biobanking of Rett Syndrome and Related Disorders",
+   "status": "COMPLETED",
+   "phases": [],
+   "conditions": [
+    "Rett Syndrome",
+    "MECP2 Duplication",
+    "CDKL5",
+    "FOXG1 Disorders"
+   ],
+   "keywords": []
+  },
+  {
+   "nct": "NCT06663163",
+   "title": "The Association Between Fever and CDKL5 Deficiency Disorder: a Nationwide Survey",
+   "status": "COMPLETED",
+   "phases": [],
+   "conditions": [
+    "CDKL5 Deficiency Disorder"
+   ],
+   "keywords": [
+    "CDKL5",
+    "Drug Resistant Epilepsy",
+    "Survey Research"
+   ]
+  },
+  {
+   "nct": "NCT07176832",
+   "title": "Bioavailability of Stiripentol After Single Oral Dose of Capsule vs Suspension in Healthy Subjects (STILIQ)",
+   "status": "COMPLETED",
+   "phases": [
+    "PHASE1"
+   ],
+   "conditions": [
+    "Dravet Syndrome",
+    "Epilepsy",
+    "Childhood",
+    "Epileptic Encephalopathy",
+    "Pediatric Epilepsy"
+   ],
+   "keywords": [
+    "Stiripentol",
+    "Diacomit",
+    "Oral Suspension",
+    "Bioavailability",
+    "Pharmacokinetics",
+    "Antiepileptic Drug",
+    "Crossover Study",
+    "Healthy Volunteers",
+    "Pediatric Epilepsy",
+    "Dravet Syndrome Treatment"
+   ]
+  },
+  {
+   "nct": "NCT05626634",
+   "title": "Open-label, Long-term Safety Study of LP352 in Subjects With Developmental and Epileptic Encephalopathy",
+   "status": "COMPLETED",
+   "phases": [
+    "PHASE2"
+   ],
+   "conditions": [
+    "Developmental and Epileptic Encephalopathy",
+    "Dravet Syndrome",
+    "Lennox-Gastaut Syndrome"
+   ],
+   "keywords": [
+    "CDKL5 deficiency disorder",
+    "developmental and epileptic encephalopathy",
+    "Dravet Syndrome",
+    "epilepsy",
+    "Lennox-Gastaut Syndrome",
+    "treatment resistant epilepsy",
+    "tuberous sclerosis complex"
+   ]
+  },
+  {
+   "nct": "NCT02239276",
+   "title": "Expanded Access Use of Stiripentol in Dravet Syndrome or Sodium Channel Mutation Epileptic Encephalopathies",
+   "status": "NO_LONGER_AVAILABLE",
+   "phases": [],
+   "conditions": [
+    "Dravet Syndrome",
+    "Epileptic Encephalopathies Associated With SCN1A Mutations"
+   ],
+   "keywords": [
+    "Stiripentol",
+    "Dravet syndrome",
+    "Epilepsy",
+    "Epileptic Encephalopathies"
+   ]
+  },
+  {
+   "nct": "NCT02229032",
+   "title": "Genetic Analysis Between Charlotte's Web Responders Versus Non- Responders in a Dravet Population",
+   "status": "COMPLETED",
+   "phases": [],
+   "conditions": [
+    "Dravet Syndrome"
+   ],
+   "keywords": [
+    "Dravet Syndrome",
+    "cannabidiol therapy",
+    "Charlotte's Web"
+   ]
+  },
+  {
+   "nct": "NCT05163314",
+   "title": "A Study of Soticlestat as an Add-on Therapy in Children and Adults With Dravet Syndrome or Lennox-Gastaut Syndrome",
+   "status": "TERMINATED",
+   "phases": [
+    "PHASE3"
+   ],
+   "conditions": [
+    "Dravet Syndrome (DS)",
+    "Lennox Gastaut Syndrome (LGS)"
+   ],
+   "keywords": [
+    "Drug Therapy"
+   ]
+  },
+  {
+   "nct": "NCT02758626",
+   "title": "Ataluren for Nonsense Mutation in CDKL5 and Dravet Syndrome",
+   "status": "COMPLETED",
+   "phases": [
+    "PHASE2"
+   ],
+   "conditions": [
+    "Epilepsy"
+   ],
+   "keywords": []
+  },
+  {
+   "nct": "NCT05651204",
+   "title": "GABA Biomarkers in Dravet Syndrome",
+   "status": "RECRUITING",
+   "phases": [],
+   "conditions": [
+    "Dravet Syndrome"
+   ],
+   "keywords": []
+  },
+  {
+   "nct": "NCT02738281",
+   "title": "Natural History of Rett Syndrome & Related Disorders",
+   "status": "COMPLETED",
+   "phases": [],
+   "conditions": [
+    "Rett Syndrome",
+    "MECP2 Duplication dIsorder",
+    "CDKL5 Disorder",
+    "FOXG1 Syndrome"
+   ],
+   "keywords": []
+  },
+  {
+   "nct": "NCT04537832",
+   "title": "Natural History Study of Infants and Children With Developmental and Epileptic Encephalopathies",
+   "status": "TERMINATED",
+   "phases": [],
+   "conditions": [
+    "Dravet Syndrome"
+   ],
+   "keywords": [
+    "severe myoclonic epilepsy",
+    "epilepsy",
+    "severe myoclonic epilepsy of infancy",
+    "SMEI",
+    "SCN1A related seizure disorder",
+    "epileptic encephalopathy",
+    "developmental and epileptic encephalopathies",
+    "DEE"
+   ]
+  },
+  {
+   "nct": "NCT03655223",
+   "title": "Early Check: Expanded Screening in Newborns",
+   "status": "ACTIVE_NOT_RECRUITING",
+   "phases": [],
+   "conditions": [
+    "Spinal Muscular Atrophy",
+    "Fragile X Syndrome",
+    "Fragile X - Premutation",
+    "Duchenne Muscular Dystrophy",
+    "Hyperinsulinemic Hypoglycemia, Familial 1",
+    "Diabetes Mellitus",
+    "Adrenoleukodystrophy, Neonatal",
+    "Medium-chain Acyl-CoA Dehydrogenase Deficiency",
+    "Very Long Chain Acyl Coa Dehydrogenase Deficiency",
+    "Beta-ketothiolase Deficiency",
+    "Severe Combined Immunodeficiency Due to Adenosine Deaminase Deficiency",
+    "Primary Hyperoxaluria Type 1",
+    "Congenital Bile Acid Synthesis Defect Type 2",
+    "Pyridoxine-Dependent Epilepsy",
+    "Hereditary Fructose Intolerance",
+    "Hypophosphatasia",
+    "Hyperargininemia",
+    "Mucopolysaccharidosis Type 6",
+    "Argininosuccinic Aciduria",
+    "Citrullinemia, Type I",
+    "Wilson Disease",
+    "Maple Syrup Urine Disease, Type 1A",
+    "Maple Syrup Urine Disease, Type 1B",
+    "Biotinidase Deficiency",
+    "Neonatal Severe Primary Hyperparathyroidism",
+    "Intrinsic Factor Deficiency",
+    "Usher Syndrome Type 1D/F Digenic (Diagnosis)",
+    "Cystic Fibrosis",
+    "Stickler Syndrome Type 2",
+    "Stickler Syndrome Type 1",
+    "Alport Syndrome, Autosomal Recessive",
+    "Alport Syndrome, X-Linked",
+    "Carbamoyl Phosphate Synthetase I Deficiency Disease",
+    "Carnitine Palmitoyl Transferase 1A Deficiency",
+    "Carnitine Palmitoyltransferase II Deficiency",
+    "Cystinosis",
+    "Chronic Granulomatous Disease",
+    "Cerebrotendinous Xanthomatoses",
+    "Maple Syrup Urine Disease, Type 2",
+    "Severe Combined Immunodeficiency Due to DCLRE1C Deficiency",
+    "Thyroid Dyshormonogenesis 6",
+    "Thyroid Dyshormonogenesis 5",
+    "Supravalvar Aortic Stenosis",
+    "Factor X Deficiency",
+    "Hemophilia A",
+    "Hemophilia B",
+    "Tyrosinemia, Type I",
+    "Fructose 1,6 Bisphosphatase Deficiency",
+    "Glycogen Storage Disease Type I",
+    "G6PD Deficiency",
+    "Glycogen Storage Disease II",
+    "Galactokinase Deficiency",
+    "Mucopolysaccharidosis Type IV A",
+    "Galactosemias",
+    "Guanidinoacetate Methyltransferase Deficiency",
+    "Agat Deficiency",
+    "Glutaryl-CoA Dehydrogenase Deficiency",
+    "Gtp Cyclohydrolase I Deficiency",
+    "Hyperinsulinism-Hyperammonemia Syndrome",
+    "Primary Hyperoxaluria Type 2",
+    "3-Hydroxyacyl-CoA Dehydrogenase Deficiency",
+    "Long-chain 3-hydroxyacyl-CoA Dehydrogenase Deficiency",
+    "Mitochondrial Trifunctional Protein Deficiency",
+    "Sickle Cell Disease",
+    "Beta-Thalassemia",
+    "Holocarboxylase Synthetase Deficiency",
+    "3-Hydroxy-3-Methylglutaric Aciduria",
+    "Primary Hyperoxaluria Type 3",
+    "Hermansky-Pudlak Syndrome 1",
+    "Hermansky-Pudlak Syndrome 4",
+    "Apparent Mineralocorticoid Excess",
+    "HSDB",
+    "CBAS1",
+    "Mucopolysaccharidosis Type 2",
+    "Mucopolysaccharidosis Type 1",
+    "Severe Combined Immunodeficiency, X Linked",
+    "Severe Combined Immunodeficiency Due to IL-7Ralpha Deficiency",
+    "Diabetes Mellitus, Permanent Neonatal",
+    "Isovaleric Acidemia",
+    "Severe Combined Immunodeficiency T-Cell Negative B-Cell Positive Due to Janus Kinase-3 Deficiency (Disorder)",
+    "Jervell and Lange-Nielsen Syndrome 2",
+    "Hyperinsulinemic Hypoglycemia, Familial, 2",
+    "Diabetes Mellitus, Permanent Neonatal, With Neurologic Features",
+    "Jervell and Lange-Nielsen Syndrome 1",
+    "Lysosomal Acid Lipase Deficiency",
+    "CblF",
+    "3-Methylcrotonyl CoA Carboxylase 1 Deficiency",
+    "3-Methylcrotonyl CoA Carboxylase 2 Deficiency",
+    "Waardenburg Syndrome Type 2A",
+    "Methylmalonic Aciduria cblA Type",
+    "Methylmalonic Aciduria cblB Type",
+    "Methylmalonic Aciduria and Homocystinuria Type cblC",
+    "MAHCD",
+    "Methylmalonic Aciduria Due to Methylmalonyl-CoA Mutase Deficiency",
+    "Congenital Disorder of Glycosylation Type 1B",
+    "Mthfr Deficiency",
+    "Methylcobalamin Deficiency Type Cbl G (Disorder)",
+    "Methylcobalamin Deficiency Type cblE",
+    "Usher Syndrome, Type 1B",
+    "N-acetylglutamate Synthase Deficiency",
+    "Ornithine Transcarbamylase Deficiency",
+    "Phenylketonurias",
+    "Waardenburg Syndrome Type 1",
+    "Congenital Hypothyroidism",
+    "Propionic Acidemia",
+    "Usher Syndrome, Type 1F",
+    "Pancreatic Agenesis 1",
+    "Hereditary Hypophosphatemic Rickets",
+    "Glycogen Storage Disease IXB",
+    "Glycogen Storage Disease IXC",
+    "MOWS",
+    "Epilepsy, Early-Onset, Vitamin B6-Dependent",
+    "Pyridoxal Phosphate-Responsive Seizures",
+    "Pituitary Hormone Deficiency, Combined, 1",
+    "Ptsd",
+    "Dihydropteridine Reductase Deficiency",
+    "Severe Combined Immunodeficiency Due to RAG1 Deficiency",
+    "Severe Combined Immunodeficiency Due to RAG2 Deficiency",
+    "Retinoblastoma",
+    "Multiple Endocrine Neoplasia Type 2B",
+    "Pseudohypoaldosteronism, Type I",
+    "Liddle Syndrome",
+    "Biotin-Responsive Basal Ganglia Disease",
+    "SCD",
+    "DIAR1",
+    "GSD1C",
+    "Acrodermatitis Enteropathica",
+    "Thyroid Dyshormonogenesis 1",
+    "Riboflavin Transporter Deficiency",
+    "Waardenburg Syndrome, Type 2E",
+    "SRD",
+    "Congenital Lipoid Adrenal Hyperplasia Due to STAR Deficiency",
+    "Barth Syndrome",
+    "Adrenocorticotropic Hormone Deficiency",
+    "Transcobalamin II Deficiency",
+    "Thyroid Dyshormonogenesis 3",
+    "Segawa Syndrome, Autosomal Recessive",
+    "Autosomal Recessive Nonsyndromic Hearing Loss",
+    "Thyroid Dyshormonogenesis 2A",
+    "Congenital Isolated Thyroid Stimulating Hormone Deficiency",
+    "Hypothyroidism Due to TSH Receptor Mutations",
+    "Usher Syndrome Type 1C",
+    "Usher Syndrome Type 1G (Diagnosis)",
+    "Von Willebrand Disease, Type 3",
+    "Combined Immunodeficiency Due to ZAP70 Deficiency",
+    "Adenine Phosphoribosyltransferase Deficiency",
+    "Metachromatic Leukodystrophy",
+    "Canavan Disease",
+    "Menkes Disease",
+    "Carbonic Anhydrase VA Deficiency",
+    "Developmental and Epileptic Encephalopathy 2",
+    "17 Alpha-Hydroxylase Deficiency",
+    "Smith-Lemli-Opitz Syndrome",
+    "Krabbe Disease",
+    "Glutathione Synthetase Deficiency",
+    "Mucopolysaccharidosis Type 7",
+    "Rett Syndrome",
+    "Molybdenum Cofactor Deficiency, Type A",
+    "Niemann-Pick Disease, Type C1",
+    "Niemann-Pick Disease Type C2",
+    "Ornithine Aminotransferase Deficiency",
+    "3-Phosphoglycerate Dehydrogenase Deficiency",
+    "Leber Congenital Amaurosis 2",
+    "Dravet Syndrome",
+    "Mucopolysaccharidosis Type 3 A",
+    "Ornithine Translocase Deficiency",
+    "Carnitine-acylcarnitine Translocase Deficiency",
+    "Glucose Transporter Type 1 Deficiency Syndrome",
+    "Creatine Transporter Deficiency",
+    "Niemann-Pick Disease Type A",
+    "Pitt Hopkins Syndrome",
+    "Tuberous Sclerosis 1",
+    "Tuberous Sclerosis 2",
+    "Ataxia With Isolated Vitamin E Deficiency",
+    "Angelman Syndrome",
+    "Prader-Willi Syndrome",
+    "Homocystinuria",
+    "Permanent Neonatal Diabetes Mellitus",
+    "Transient Neonatal Diabetes Mellitus",
+    "Factor VII Deficiency",
+    "Glycogen Storage Disease Type IXA1",
+    "Glycogen Storage Disease, Type IXA2",
+    "Glycogen Storage Disease IC",
+    "Glycogen Storage Disease Type IB",
+    "Central Hypoventilation Syndrome With or Without Hirschsprung Disease"
+   ],
+   "keywords": [
+    "Newborn Screening",
+    "Rare Disorders",
+    "Genetic Counseling",
+    "Families",
+    "Development",
+    "Risk",
+    "Genetic Sequencing"
+   ]
+  },
+  {
+   "nct": "NCT02885090",
+   "title": "New Genes Involved in Molecular Etiology of Rett Syndrome Through DNA Microarray Comparative Genomic Hybridization",
+   "status": "COMPLETED",
+   "phases": [
+    "NA"
+   ],
+   "conditions": [
+    "Rett Syndrome"
+   ],
+   "keywords": []
+  },
+  {
+   "nct": "NCT06118255",
+   "title": "A Study to Evaluate Safety, Tolerability, and Pharmacokinetics of Fenfluramine (Hydrochloride) in Infants 1 Year to Less Than 2 Years of Age With Dravet Syndrome",
+   "status": "COMPLETED",
+   "phases": [
+    "PHASE3"
+   ],
+   "conditions": [
+    "Dravet Syndrome"
+   ],
+   "keywords": [
+    "Dravet syndrome",
+    "pediatrics",
+    "Fintepla",
+    "fenfluramine"
+   ]
+  },
+  {
+   "nct": "NCT04611438",
+   "title": "Research on Cognitive Effect of Cannabidiol on Dravet Syndrome and Lennox-Gastaut SyndromeGastaut Syndrome",
+   "status": "UNKNOWN",
+   "phases": [
+    "PHASE3"
+   ],
+   "conditions": [
+    "Dravet Syndrome",
+    "Lennox Gastaut Syndrome"
+   ],
+   "keywords": [
+    "cannabidiol",
+    "pediatric",
+    "Dravet syndrome",
+    "Lennox-Gastaut syndrome"
+   ]
+  },
+  {
+   "nct": "NCT06447675",
+   "title": "Efficacy and Safety Evaluation of Hyperthermic Baths in the Treatment of Seizures in CDKL5 Deficiency Disorder",
+   "status": "COMPLETED",
+   "phases": [
+    "NA"
+   ],
+   "conditions": [
+    "CDKL5 Deficiency Disorder"
+   ],
+   "keywords": [
+    "Hyperthermic Baths",
+    "Drug Resistant Epilepsy",
+    "CDKL5"
+   ]
+  },
+  {
+   "nct": "NCT04485104",
+   "title": "Assessment of Adjunctive Cannabidiol Oral Solution (GWP42003-P) in Children With Tuberous Sclerosis Complex (TSC), Dravet Syndrome (DS), or Lennox-Gastaut Syndrome (LGS) Who Experience Inadequately-controlled Seizures",
+   "status": "TERMINATED",
+   "phases": [
+    "PHASE3"
+   ],
+   "conditions": [
+    "Seizure in Participants With Tuberous Sclerosis Complex",
+    "Seizure in Participants With Dravet Syndrome",
+    "Seizure in Participants With Lennox-Gastaut Syndrome"
+   ],
+   "keywords": [
+    "Epilepsy",
+    "Seizures",
+    "Infantile Spasms",
+    "Pediatric",
+    "Children",
+    "Infants",
+    "Cannabidiol oral solution",
+    "GWP42003-P",
+    "Tuberous Sclerosis Complex",
+    "TSC",
+    "Tuberous Sclerosis",
+    "Cannabidiol",
+    "Epidiolex",
+    "CBD",
+    "Seizure",
+    "Child",
+    "TSC1",
+    "TSC2",
+    "Tuberous Sclerosis 1",
+    "Tuberous Sclerosis 2",
+    "Lennox-Gastaut Syndrome",
+    "Dravet Syndrome"
+   ]
+  },
+  {
+   "nct": "NCT02682927",
+   "title": "A Trial of Two Fixed Doses of ZX008 (Fenfluramine HCl) in Children and Young Adults With Dravet Syndrome",
+   "status": "COMPLETED",
+   "phases": [
+    "PHASE3"
+   ],
+   "conditions": [
+    "Dravet Syndrome",
+    "Seizure Disorder"
+   ],
+   "keywords": [
+    "seizure",
+    "tonic-atonic",
+    "clonic",
+    "epilepsy",
+    "myoclonic",
+    "encephalopathy"
+   ]
+  },
+  {
+   "nct": "NCT06872125",
+   "title": "A Double-blind Study Evaluating the Efficacy, Safety, and Tolerability of Zorevunersen in Patients With Dravet Syndrome",
+   "status": "RECRUITING",
+   "phases": [
+    "PHASE3"
+   ],
+   "conditions": [
+    "Dravet Syndrome"
+   ],
+   "keywords": [
+    "Pediatric epilepsy",
+    "Epileptic Encephalopathies",
+    "Refractory Myoclonic Epilepsy",
+    "Severe Myoclonic Epilepsy in Infancy",
+    "STK-001"
+   ]
+  },
+  {
+   "nct": "NCT07592650",
+   "title": "Applicability and Effectiveness of Remote Occupational Therapy",
+   "status": "COMPLETED",
+   "phases": [],
+   "conditions": [
+    "Dravet Syndrome"
+   ],
+   "keywords": [
+    "Dravet",
+    "occupational therapy"
+   ]
+  },
+  {
+   "nct": "NCT07112365",
+   "title": "The FINTEPLA as an Anti-SUDEP Therapy in Dravet Syndrome Project",
+   "status": "RECRUITING",
+   "phases": [
+    "PHASE4"
+   ],
+   "conditions": [
+    "Dravet Syndrome"
+   ],
+   "keywords": [
+    "epilepsy",
+    "Sudden Unexpected Death in Epilepsy (SUDEP)"
+   ]
+  },
+  {
+   "nct": "NCT02091375",
+   "title": "Antiepileptic Efficacy Study of GWP42003-P in Children and Young Adults With Dravet Syndrome (GWPCARE1)",
+   "status": "COMPLETED",
+   "phases": [
+    "PHASE3"
+   ],
+   "conditions": [
+    "Epilepsy",
+    "Dravet Syndrome"
+   ],
+   "keywords": [
+    "Cannabidiol",
+    "CBD",
+    "Epidiolex",
+    "GWP42003-P"
+   ]
+  },
+  {
+   "nct": "NCT07635862",
+   "title": "Clinical Trial Evaluating the Effects of Ganaxolone in Children With Autism",
+   "status": "NOT_YET_RECRUITING",
+   "phases": [
+    "PHASE2"
+   ],
+   "conditions": [
+    "Autism in Children",
+    "Autistic Disorder in Children and Adolescents",
+    "Autism Spectrum Disorder"
+   ],
+   "keywords": [
+    "Autism",
+    "Ganaxolone",
+    "Autism disorder in children and adolescents",
+    "Ztalmy",
+    "GABA",
+    "Insistance on Sameness",
+    "Emotional Regulation Difficulties",
+    "Irritability"
+   ]
+  },
+  {
+   "nct": "NCT02224703",
+   "title": "GWPCARE2 A Study to Investigate the Efficacy and Safety of Cannabidiol (GWP42003-P) in Children and Young Adults With Dravet Syndrome",
+   "status": "COMPLETED",
+   "phases": [
+    "PHASE3"
+   ],
+   "conditions": [
+    "Epilepsy",
+    "Dravet Syndrome"
+   ],
+   "keywords": [
+    "Cannabidiol",
+    "CBD",
+    "GWP42003-P",
+    "Epidiolex"
+   ]
+  },
+  {
+   "nct": "NCT03467113",
+   "title": "A Study to Assess the Safety and Tolerability of ZX008 in Children and Young Adults With Dravet Syndrome or Lennox Gastaut Syndrome Currently Taking Cannabidiol",
+   "status": "COMPLETED",
+   "phases": [
+    "PHASE1"
+   ],
+   "conditions": [
+    "Dravet Syndrome",
+    "Lennox Gastaut Syndrome"
+   ],
+   "keywords": [
+    "Dravet Syndrome",
+    "LGS"
+   ]
+  },
+  {
+   "nct": "NCT05249556",
+   "title": "Double-blind, Randomized, Placebo-controlled Trial of Ganaxolone in CDKL5 Deficiency Patients 6 Months to Less Than 2 Years Old",
+   "status": "NOT_YET_RECRUITING",
+   "phases": [
+    "PHASE3"
+   ],
+   "conditions": [
+    "CDKL5 Deficiency Disorder"
+   ],
+   "keywords": []
+  },
+  {
+   "nct": "NCT04486768",
+   "title": "International CDKL5 Registry",
+   "status": "SUSPENDED",
+   "phases": [],
+   "conditions": [
+    "CDKL5 Deficiency Disorder (CDD)"
+   ],
+   "keywords": [
+    "CDKL5",
+    "CDD",
+    "CDKL5 Disorder",
+    "CDKL5 Deficiency",
+    "pediatric epilepsy",
+    "epilepsy",
+    "CDKL5 Registry",
+    "CDKL5 Patient Registry",
+    "CDD Registry",
+    "CDD Patient Registry"
+   ]
+  },
+  {
+   "nct": "NCT05472389",
+   "title": "Neurodevelopmental Impact of Epilepsy on Autonomic Function in Dravet Syndrome",
+   "status": "ACTIVE_NOT_RECRUITING",
+   "phases": [
+    "NA"
+   ],
+   "conditions": [
+    "Dravet Syndrome",
+    "Epilepsy"
+   ],
+   "keywords": [
+    "Dravet Syndrome",
+    "Epilepsy"
+   ]
+  },
+  {
+   "nct": "NCT04614506",
+   "title": "Transcranial Magnetic Stimulation to Measure Cortical Excitability in Dravet Syndrome",
+   "status": "UNKNOWN",
+   "phases": [],
+   "conditions": [
+    "Dravet Syndrome"
+   ],
+   "keywords": []
+  },
+  {
+   "nct": "NCT05140122",
+   "title": "LEONIDaS Caregivers Study",
+   "status": "WITHDRAWN",
+   "phases": [],
+   "conditions": [
+    "Dravet Syndrome",
+    "Depression",
+    "Anxiety"
+   ],
+   "keywords": []
+  },
+  {
+   "nct": "NCT05026398",
+   "title": "Fenfluramine and Cognition",
+   "status": "COMPLETED",
+   "phases": [
+    "PHASE4"
+   ],
+   "conditions": [
+    "Cognitive Function"
+   ],
+   "keywords": [
+    "Drug",
+    "Cognition",
+    "Dravet Syndrome",
+    "5-HT",
+    "Sigma-1",
+    "Healthy Volunteers"
+   ]
+  },
+  {
+   "nct": "NCT05823753",
+   "title": "Cannabidiol to Reduce Anxiety Reactivity",
+   "status": "COMPLETED",
+   "phases": [
+    "PHASE2"
+   ],
+   "conditions": [
+    "Social Anxiety",
+    "Social Anxiety Disorder"
+   ],
+   "keywords": [
+    "Cannabidiol (CBD)",
+    "Social Anxiety"
+   ]
+  },
+  {
+   "nct": "NCT06504511",
+   "title": "SCN1A Horizons A Natural History Study of SCN1A-related Epilepsies in the United Kingdom",
+   "status": "UNKNOWN",
+   "phases": [],
+   "conditions": [
+    "SCN1A",
+    "Dravet Syndrome",
+    "Epilepsy"
+   ],
+   "keywords": [
+    "Epilepsy",
+    "SCN1A",
+    "Natural History",
+    "Developmental Outcome"
+   ]
+  },
+  {
+   "nct": "NCT01607073",
+   "title": "Verapamil as Therapy for Children and Young Adults With Dravet Syndrome",
+   "status": "COMPLETED",
+   "phases": [
+    "PHASE2"
+   ],
+   "conditions": [
+    "Dravet Syndrome"
+   ],
+   "keywords": [
+    "Dravet",
+    "seizures",
+    "verapamil"
+   ]
+  },
+  {
+   "nct": "NCT06371794",
+   "title": "EXploring novEl Molecular Determinants of DRAvet Syndrome Phenotype Heterogeneity",
+   "status": "UNKNOWN",
+   "phases": [
+    "NA"
+   ],
+   "conditions": [
+    "Dravet Syndrome"
+   ],
+   "keywords": []
+  },
+  {
+   "nct": "NCT05064878",
+   "title": "A Phase 3 Study to Examine the Efficacy and Safety of ZX008 in Subjects With CDKL5 Deficiency Disorder.",
+   "status": "ACTIVE_NOT_RECRUITING",
+   "phases": [
+    "PHASE3"
+   ],
+   "conditions": [
+    "CDKL5 Deficiency Disorder",
+    "Generalized Tonic Clonic Seizure",
+    "Epileptic Spasm",
+    "Refractory Seizures"
+   ],
+   "keywords": [
+    "CDD",
+    "CDKL5",
+    "fenfluramine"
+   ]
+  },
+  {
+   "nct": "NCT04462770",
+   "title": "A Study of EPX-100 (Clemizole Hydrochloride) in Participants With Dravet Syndrome",
+   "status": "RECRUITING",
+   "phases": [
+    "PHASE3"
+   ],
+   "conditions": [
+    "Dravet Syndrome"
+   ],
+   "keywords": [
+    "Clemizole hydrochloride",
+    "Convulsive seizure",
+    "Pediatric epilepsy",
+    "Dravet syndrome"
+   ]
+  },
+  {
+   "nct": "NCT03572933",
+   "title": "Study of Adjunctive Ganaxolone Treatment in Children and Young Adults With CDKL5 Deficiency Disorder",
+   "status": "COMPLETED",
+   "phases": [
+    "PHASE3"
+   ],
+   "conditions": [
+    "CDKL5 Deficiency Disorder"
+   ],
+   "keywords": [
+    "refractory seizures",
+    "genetic pediatric encephalopathies",
+    "epilepsy in children",
+    "seizure disorder"
+   ]
+  },
+  {
+   "nct": "NCT05635266",
+   "title": "Tissue Repository Providing Annotated Biospecimens for Approved Investigator-directed Biomedical Research Initiatives",
+   "status": "UNKNOWN",
+   "phases": [],
+   "conditions": [
+    "Age-Related Macular Degeneration",
+    "Allergies",
+    "Alpha-Gal Syndrome",
+    "Alzheimer Disease",
+    "Amyloidosis",
+    "Ankylosing Spondylitis",
+    "Arthritis",
+    "Alopecia Areata",
+    "Asthma",
+    "Atopic Dermatitis",
+    "Autism",
+    "Autoimmune Hepatitis",
+    "Behcet's Disease",
+    "Beta-Thalassemia",
+    "Cancer",
+    "Celiac Disease",
+    "Kidney Diseases",
+    "COPD",
+    "Crohn Disease",
+    "Cystic Fibrosis",
+    "Diabetes",
+    "Dravet Syndrome",
+    "DMD",
+    "Fibromyalgia",
+    "Graves Disease",
+    "Thyroid Diseases",
+    "Hepatitis",
+    "Hidradenitis Suppurativa",
+    "ITP",
+    "Leukemia",
+    "ALS",
+    "Lupus or SLE",
+    "Lymphoma",
+    "Multiple Sclerosis",
+    "Myasthenia Gravis",
+    "Heart Diseases",
+    "Parkinson Disease",
+    "Pemphigus Vulgaris",
+    "Cirrhosis",
+    "Psoriasis",
+    "Schizophrenia",
+    "Scleroderma",
+    "Sickle Cell Disease",
+    "Stroke",
+    "Ulcerative Colitis",
+    "Vasculitis",
+    "Vitiligo"
+   ],
+   "keywords": []
+  },
+  {
+   "nct": "NCT06908226",
+   "title": "A Study to Investigate LP352 in Children and Adults With Developmental and Epileptic Encephalopathy (DEE)",
+   "status": "ENROLLING_BY_INVITATION",
+   "phases": [
+    "PHASE3"
+   ],
+   "conditions": [
+    "Developmental and Epileptic Encephalopathy"
+   ],
+   "keywords": [
+    "Developmental and Epileptic Encephalopathy",
+    "LP352",
+    "Bexicaserin",
+    "Seizures",
+    "DEEp OLE",
+    "Antiseizure medications",
+    "Epilepsy",
+    "Neurodevelopmental disorders",
+    "Dravet syndrome",
+    "Lennox-gastaut syndrome"
+   ]
+  },
+  {
+   "nct": "NCT03780127",
+   "title": "ZX008 Expanded Access Protocol",
+   "status": "APPROVED_FOR_MARKETING",
+   "phases": [],
+   "conditions": [
+    "Dravet Syndrome"
+   ],
+   "keywords": []
+  },
+  {
+   "nct": "NCT03299842",
+   "title": "A Study to Assess the Usability of the Embrace Seizure Detection Watch in Children and Young Adults With Dravet Syndrome",
+   "status": "TERMINATED",
+   "phases": [
+    "PHASE3"
+   ],
+   "conditions": [
+    "Dravet Syndrome"
+   ],
+   "keywords": [
+    "seizure",
+    "tonic clonic",
+    "epilepsy",
+    "myoclonic",
+    "encephalopathy"
+   ]
+  },
+  {
+   "nct": "NCT02885389",
+   "title": "Molecular Genetics in Infantile Spasms",
+   "status": "COMPLETED",
+   "phases": [],
+   "conditions": [
+    "Infantile Spasms",
+    "West Syndrome"
+   ],
+   "keywords": [
+    "Infantile spasms",
+    "West syndrome",
+    "variant",
+    "mutation",
+    "CNV",
+    "sequencing"
+   ]
+  },
+  {
+   "nct": "NCT04721691",
+   "title": "Efficacy of Epidiolex in Patients With Electrical Status Epilepticus of Sleep (ESES).",
+   "status": "COMPLETED",
+   "phases": [
+    "PHASE1"
+   ],
+   "conditions": [
+    "Electrical Status Epilepticus of Slow-Wave Sleep"
+   ],
+   "keywords": [
+    "Neurology",
+    "Pediatric",
+    "ESES"
+   ]
+  },
+  {
+   "nct": "NCT07233239",
+   "title": "A Study to Evaluate the Efficacy and Safety of Cannabidiol Oral Solution (CBD-OS [GWP42003-P, JZP926]) for the Treatment of Focal-Onset Seizures",
+   "status": "RECRUITING",
+   "phases": [
+    "PHASE1"
+   ],
+   "conditions": [
+    "Focal Seizures"
+   ],
+   "keywords": [
+    "Focal Seizures"
+   ]
+  },
+  {
+   "nct": "NCT04069689",
+   "title": "Study of Safety and Pharmacokinetics of Oral Doses of EPX-100 in Healthy Subjects.",
+   "status": "COMPLETED",
+   "phases": [
+    "PHASE1"
+   ],
+   "conditions": [
+    "Dravet Syndrome"
+   ],
+   "keywords": [
+    "Clemizole"
+   ]
+  },
+  {
+   "nct": "NCT05044819",
+   "title": "Assessment of Potential for Chronic Liver Injury in Participants Treated With Epidiolex (Cannabidiol) Oral Solution",
+   "status": "ACTIVE_NOT_RECRUITING",
+   "phases": [
+    "PHASE4"
+   ],
+   "conditions": [
+    "Lennox Gastaut Syndrome",
+    "Dravet Syndrome",
+    "Tuberous Sclerosis Complex"
+   ],
+   "keywords": [
+    "Liver injury",
+    "Liver fibrosis",
+    "Epidiolex",
+    "Cannabidiol"
+   ]
+  },
+  {
+   "nct": "NCT03649919",
+   "title": "Multi-center Clinical Study on the Diagnosis and Treatment Management of Rare Neurological Disease in Children",
+   "status": "WITHDRAWN",
+   "phases": [],
+   "conditions": [
+    "Xlsma",
+    "DMD",
+    "X-ALD",
+    "TSC"
+   ],
+   "keywords": []
+  },
+  {
+   "nct": "NCT07531745",
+   "title": "ASCEND: Safety and Tolerability of ION337 for the Treatment of Dravet Syndrome",
+   "status": "RECRUITING",
+   "phases": [
+    "PHASE1",
+    "PHASE2"
+   ],
+   "conditions": [
+    "Dravet Syndrome"
+   ],
+   "keywords": [
+    "Dravet syndrome"
+   ]
+  },
+  {
+   "nct": "NCT05560282",
+   "title": "Fenfluramine for Adult Dravet Patients",
+   "status": "TERMINATED",
+   "phases": [
+    "PHASE3"
+   ],
+   "conditions": [
+    "Dravet Syndrome",
+    "Dravet Syndrome, Intractable"
+   ],
+   "keywords": []
+  },
+  {
+   "nct": "NCT05126914",
+   "title": "Multicentre Real-life Follow-up Study of Rare Epileptic Syndromes in Children and Adolescents",
+   "status": "RECRUITING",
+   "phases": [],
+   "conditions": [
+    "Epilepsy",
+    "West Syndrome",
+    "Dravet Syndrome"
+   ],
+   "keywords": []
+  },
+  {
+   "nct": "NCT05982717",
+   "title": "A Study to Gather Information About Overall Occurrence and New Cases of Dravet and Lennox-Gastaut Syndromes in Children, Teenagers and Adults in Spain",
+   "status": "COMPLETED",
+   "phases": [],
+   "conditions": [
+    "Dravet Syndrome (DS)",
+    "Lennox-Gastaut Syndrome (LGS)"
+   ],
+   "keywords": [
+    "Drug Therapy"
+   ]
+  },
+  {
+   "nct": "NCT02358538",
+   "title": "Open-Label PoC Trial of Ganaxolone in Children With PCDH19 Female Pediatric Epilepsy and Other Rare Genetic Epilepsies",
+   "status": "COMPLETED",
+   "phases": [
+    "PHASE2"
+   ],
+   "conditions": [
+    "Epilepsy"
+   ],
+   "keywords": [
+    "PCDH19",
+    "ganaxolone",
+    "neurosteroid",
+    "CDKL5",
+    "LGS",
+    "CSWS"
+   ]
+  },
+  {
+   "nct": "NCT03861871",
+   "title": "Fenfluramine in CDKL5 Deficiency Disorder (CDD)",
+   "status": "COMPLETED",
+   "phases": [
+    "PHASE2"
+   ],
+   "conditions": [
+    "CDD"
+   ],
+   "keywords": [
+    "CKDL5 Deficiency Disorder"
+   ]
+  },
+  {
+   "nct": "NCT06283212",
+   "title": "A Clinical Study to Evaluate the Safety and Efficacy of ETX101, an AAV9-Delivered Gene Therapy in Children With SCN1A-positive Dravet Syndrome",
+   "status": "ACTIVE_NOT_RECRUITING",
+   "phases": [
+    "PHASE1",
+    "PHASE2"
+   ],
+   "conditions": [
+    "Dravet Syndrome"
+   ],
+   "keywords": []
+  },
+  {
+   "nct": "NCT02091206",
+   "title": "A Dose-ranging Pharmacokinetics and Safety Study of GWP42003-P in Children With Dravet Syndrome (GWPCARE1)",
+   "status": "COMPLETED",
+   "phases": [
+    "PHASE2"
+   ],
+   "conditions": [
+    "Epilepsy",
+    "Dravet Syndrome"
+   ],
+   "keywords": [
+    "Cannabidiol",
+    "CBD",
+    "Epidiolex",
+    "GWP42003-P"
+   ]
+  },
+  {
+   "nct": "NCT04437004",
+   "title": "Treatment of Dravet Syndrome With Fenfluramine (Expanded Access Protocol)",
+   "status": "APPROVED_FOR_MARKETING",
+   "phases": [],
+   "conditions": [
+    "Dravet Syndrome"
+   ],
+   "keywords": []
+  },
+  {
+   "nct": "NCT06448663",
+   "title": "Targeting the Gut to Improve Seizure Control in CDKL5 Deficiency Disorder (CDD)",
+   "status": "UNKNOWN",
+   "phases": [
+    "NA"
+   ],
+   "conditions": [
+    "CDKL5"
+   ],
+   "keywords": [
+    "epilepsy, gut microbiota, sleep disorders"
+   ]
+  },
+  {
+   "nct": "NCT07675746",
+   "title": "A Study to Evaluate the Safety and Pharmacokinetics of RC001 in Children With Dravet Syndrome",
+   "status": "RECRUITING",
+   "phases": [
+    "EARLY_PHASE1"
+   ],
+   "conditions": [
+    "Dravet Syndrome (DS)"
+   ],
+   "keywords": [
+    "Dravet syndrome",
+    "Developmental and epileptic encephalopathy",
+    "RC001",
+    "Oligonucleotide drugs",
+    "ADAR RNA editing",
+    "SCN1A gene"
+   ]
+  },
+  {
+   "nct": "NCT03077308",
+   "title": "Rare Diseases Clinical Research Network: Neurophysiological Correlates",
+   "status": "COMPLETED",
+   "phases": [],
+   "conditions": [
+    "Rett Syndrome, Preserved Speech Variant",
+    "Mecp2 Duplication Syndrome",
+    "Rett-related Disorders"
+   ],
+   "keywords": [
+    "Auditory ERP, Visual ERP, EEG"
+   ]
+  },
+  {
+   "nct": "NCT05161494",
+   "title": "Gait in Rare Diseases",
+   "status": "COMPLETED",
+   "phases": [],
+   "conditions": [
+    "Tuberous Sclerosis",
+    "STXBP1 Encephalopathy With Epilepsy"
+   ],
+   "keywords": [
+    "gait",
+    "movement disorders",
+    "biomechanics",
+    "kinematics"
+   ]
+  },
+  {
+   "nct": "NCT02174094",
+   "title": "Clobazam as Adjunctive Therapy in Paediatric Patients Aged \u22651 to \u226416 Years With Dravet Syndrome",
+   "status": "WITHDRAWN",
+   "phases": [
+    "PHASE3"
+   ],
+   "conditions": [
+    "Dravet Syndrome"
+   ],
+   "keywords": []
+  },
+  {
+   "nct": "NCT07225231",
+   "title": "Clinical Utility of Reduced EEG Home Monitoring in Fenfluramine Titration for Dravet and LGS",
+   "status": "NOT_YET_RECRUITING",
+   "phases": [
+    "NA"
+   ],
+   "conditions": [
+    "Dravet Syndrome (DS)",
+    "Lennox Gastaut Syndrome (LGS)"
+   ],
+   "keywords": []
+  },
+  {
+   "nct": "NCT02187809",
+   "title": "Safety and Tolerability of Clobazam as Adjunctive Therapy in Paediatric Patients Aged \u22651 to \u226416 Years With Dravet Syndrome",
+   "status": "TERMINATED",
+   "phases": [
+    "PHASE3"
+   ],
+   "conditions": [
+    "Dravet Syndrome"
+   ],
+   "keywords": []
+  },
+  {
+   "nct": "NCT05544058",
+   "title": "Retrospective Non-interventional Study of Stiripentol Use in Dravet Patients in the USA",
+   "status": "COMPLETED",
+   "phases": [],
+   "conditions": [
+    "Dravet Syndrome"
+   ],
+   "keywords": []
+  },
+  {
+   "nct": "NCT04740476",
+   "title": "An Open-Label Extension Study of STK-001 for Patients With Dravet Syndrome",
+   "status": "ACTIVE_NOT_RECRUITING",
+   "phases": [
+    "PHASE2"
+   ],
+   "conditions": [
+    "Dravet Syndrome"
+   ],
+   "keywords": [
+    "Pediatric epilepsy",
+    "Epileptic Encephalopathies",
+    "Refractory Myoclonic Epilepsy",
+    "Severe Myoclonic Epilepsy in Infancy"
+   ]
+  },
+  {
+   "nct": "NCT02896608",
+   "title": "Neuronal Excitability of HCN1 Channel Mutations in Dravet Syndrome",
+   "status": "COMPLETED",
+   "phases": [],
+   "conditions": [
+    "Dravet Syndrome"
+   ],
+   "keywords": []
+  },
+  {
+   "nct": "NCT06192589",
+   "title": "Clinical Study to Evaluate Cannabidiol Liver Enzyme Elevations and Drug Interactions",
+   "status": "COMPLETED",
+   "phases": [
+    "PHASE1"
+   ],
+   "conditions": [
+    "Cannabidiol",
+    "Drug Induced Liver Injury",
+    "Drug Interaction"
+   ],
+   "keywords": [
+    "Cannabidiol",
+    "CBD",
+    "Liver enzyme elevation",
+    "Drug interactions"
+   ]
+  },
+  {
+   "nct": "NCT04940624",
+   "title": "A Study of Soticlestat as an Add-on Therapy in Children and Young Adults With Dravet Syndrome",
+   "status": "COMPLETED",
+   "phases": [
+    "PHASE3"
+   ],
+   "conditions": [
+    "Dravet Syndrome (DS)"
+   ],
+   "keywords": [
+    "Drug Therapy"
+   ]
+  },
+  {
+   "nct": "NCT03857451",
+   "title": "Treatment of Gait Disorders in Children With Dravet Syndrome",
+   "status": "COMPLETED",
+   "phases": [],
+   "conditions": [
+    "Dravet Syndrome",
+    "Severe Myoclonic Epilepsy of Infancy"
+   ],
+   "keywords": [
+    "Dravet syndrome",
+    "severe myoclonic epilepsy of infancy",
+    "intellectual disabilities",
+    "movement disorders",
+    "gait",
+    "biomechanics"
+   ]
+  },
+  {
+   "nct": "NCT02318602",
+   "title": "Cannabidiol Oral Solution as an Adjunctive Treatment for Treatment-resistant Seizure Disorder",
+   "status": "COMPLETED",
+   "phases": [
+    "PHASE3"
+   ],
+   "conditions": [
+    "Seizures"
+   ],
+   "keywords": [
+    "Lennox-Gastaut syndrome",
+    "Dravet syndrome",
+    "Treatment-resistant seizures"
+   ]
+  },
+  {
+   "nct": "NCT07013331",
+   "title": "A PET-MRI Study of Serotoninergic Brainstem Pathway in Patients With Dravet Syndrome",
+   "status": "RECRUITING",
+   "phases": [
+    "NA"
+   ],
+   "conditions": [
+    "Epilepsy",
+    "Dravet Syndrome",
+    "Drug Resistant Epilepsy",
+    "Healthy Controls"
+   ],
+   "keywords": [
+    "epilepsy",
+    "Dravet syndrome",
+    "drug-resistant focal epilepsy",
+    "serotonin",
+    "PET-MRI",
+    "MPPF",
+    "SUDEP"
+   ]
+  },
+  {
+   "nct": "NCT02823145",
+   "title": "An Open-Label Extension Trial to Assess the Long-Term Safety of ZX008 (Fenfluramine Hydrochloride HCl) Oral Solution in Children and Young Adults With Dravet Syndrome",
+   "status": "COMPLETED",
+   "phases": [
+    "PHASE3"
+   ],
+   "conditions": [
+    "Dravet Syndrome"
+   ],
+   "keywords": [
+    "seizure",
+    "tonic clonic",
+    "epilepsy",
+    "myoclonic",
+    "encephalopathy"
+   ]
+  },
+  {
+   "nct": "NCT07413211",
+   "title": "Genetic Developmental and Epileptic Encephalopathy Natural History Study for Clinical Trial Readiness",
+   "status": "RECRUITING",
+   "phases": [],
+   "conditions": [
+    "MEF2C",
+    "DEE"
+   ],
+   "keywords": [
+    "MEF2C Haploinsufficiency Syndrome (MCHS)",
+    "Developmental and Epileptic Encephalopathy"
+   ]
+  },
+  {
+   "nct": "NCT06422377",
+   "title": "A Study Evaluating Soticlestat in Participants With Dravet Syndrome or Lennox-Gastaut Syndrome Who Have Been Exposed to Fenfluramine",
+   "status": "TERMINATED",
+   "phases": [
+    "PHASE3"
+   ],
+   "conditions": [
+    "Dravet Syndrome (DS)",
+    "Lennox-Gastaut Syndrome (LGS)"
+   ],
+   "keywords": [
+    "Drug Therapy"
+   ]
+  },
+  {
+   "nct": "NCT07602205",
+   "title": "Efficacy and Safety of Daily Home-based Hyperthermic Baths for Reducing Epileptic Seizures in CDKL5 Deficiency Disorder: A PROBE Clinical Trial",
+   "status": "NOT_YET_RECRUITING",
+   "phases": [
+    "NA"
+   ],
+   "conditions": [
+    "CDKL5 Deficiency Disorder"
+   ],
+   "keywords": [
+    "CDKL5 Deficiency Disorder",
+    "fever",
+    "epilepsy",
+    "home-based hyperthermic baths",
+    "genotype-phenotype"
+   ]
+  },
+  {
+   "nct": "NCT04678479",
+   "title": "Ganaxolone Expanded Access Program Compassionate Use",
+   "status": "NO_LONGER_AVAILABLE",
+   "phases": [],
+   "conditions": [
+    "CDKL5 Disorder"
+   ],
+   "keywords": []
+  },
+  {
+   "nct": "NCT06149663",
+   "title": "Intermediate-Size Expanded Access Protocol (EAP) for LP352",
+   "status": "AVAILABLE",
+   "phases": [],
+   "conditions": [
+    "Dravet Syndrome",
+    "Lennox Gastaut Syndrome",
+    "Developmental and Epileptic Encephalopathies"
+   ],
+   "keywords": [
+    "CDKL5 deficiency disorder",
+    "developmental and epileptic encephalopathy",
+    "Dravet Syndrome",
+    "epilepsy",
+    "Lennox Gastaut Syndrome",
+    "treatment resistant epilepsy",
+    "tuberous sclerosis complex"
+   ]
+  },
+  {
+   "nct": "NCT02318563",
+   "title": "Cannabidiol Oral Solution as an Adjunctive Therapy for Treatment of Participants With Inadequately Controlled Dravet Syndrome",
+   "status": "WITHDRAWN",
+   "phases": [
+    "PHASE3"
+   ],
+   "conditions": [
+    "Dravet Syndrome"
+   ],
+   "keywords": [
+    "Treatment-resistant seizures"
+   ]
+  },
+  {
+   "nct": "NCT06967727",
+   "title": "Registry and Natural History of Epilepsy-Dyskinesia Syndromes",
+   "status": "RECRUITING",
+   "phases": [],
+   "conditions": [
+    "Epilepsy-Dyskinesia",
+    "Epilepsy",
+    "Dyskinesia",
+    "EDS",
+    "Epilepsy-Dyskinesia Syndomes",
+    "Epilepsy in Children",
+    "Dyskinesias",
+    "Movement Disorders in Children",
+    "Neurologic Disorder",
+    "Chorea",
+    "Myoclonus",
+    "Ataxia",
+    "Dystonia Disorder",
+    "Movement Disorders"
+   ],
+   "keywords": [
+    "epilepsy",
+    "Epilepsy-Dyskinesia",
+    "Epilepsy-Dyskinesia Syndrome",
+    "Dyskinesia",
+    "movement disorders",
+    "epileptic encephalopathy",
+    "neurogenetics",
+    "PRRT2",
+    "ATP1A3",
+    "GNAO1",
+    "MECP2",
+    "CACNA1A",
+    "CDKL5",
+    "FOXG1",
+    "SCN1A",
+    "SCN8A",
+    "SLC2A1",
+    "STXBP1",
+    "UBA5",
+    "ADCY5"
+   ]
+  },
+  {
+   "nct": "NCT01835314",
+   "title": "Compassionate Use of Stiripentol in Dravet Syndrome",
+   "status": "NO_LONGER_AVAILABLE",
+   "phases": [],
+   "conditions": [
+    "Dravet Syndrome"
+   ],
+   "keywords": []
+  },
+  {
+   "nct": "NCT07251673",
+   "title": "Longitudinal Study of Phenotypic and Developmental Severity in Patients With Dravet Syndrome With SCN1A Gene Mutation",
+   "status": "RECRUITING",
+   "phases": [],
+   "conditions": [
+    "Dravet Syndrome"
+   ],
+   "keywords": [
+    "Dravet syndrom",
+    "epilepsy"
+   ]
+  },
+  {
+   "nct": "NCT02815540",
+   "title": "The Effects of Cannabidiol (CBD) on Electrical and Autonomic Cardiac Function in Children With Severe Epilepsy",
+   "status": "TERMINATED",
+   "phases": [
+    "PHASE1",
+    "PHASE2"
+   ],
+   "conditions": [
+    "Lennox-Gastaut Syndrome",
+    "Dravet Syndrome"
+   ],
+   "keywords": []
+  },
+  {
+   "nct": "NCT03254680",
+   "title": "Turmeric as Treatment in Epilepsy",
+   "status": "WITHDRAWN",
+   "phases": [
+    "NA"
+   ],
+   "conditions": [
+    "Epilepsy",
+    "Dravet Syndrome",
+    "Lennox-Gastaut Syndrome",
+    "Tuberous Sclerosis",
+    "Focal Seizures"
+   ],
+   "keywords": [
+    "Turmeric Oil",
+    "antiseizure medications",
+    "ar-turmerone"
+   ]
+  },
+  {
+   "nct": "NCT02415686",
+   "title": "Cardiac Arrhythmias in Dravet Syndrome",
+   "status": "COMPLETED",
+   "phases": [],
+   "conditions": [
+    "Epilepsy"
+   ],
+   "keywords": [
+    "Dravet syndrome",
+    "Sudden Unexpected Death in Epilepsy (SUDEP)",
+    "Arrhythmias"
+   ]
+  },
+  {
+   "nct": "NCT06585605",
+   "title": "A Retrospective Survey-based Multicenter Study to Delineate the Molecular and Phenotypic Spectrum of Epilepsy-dyskinesia Syndromes",
+   "status": "RECRUITING",
+   "phases": [],
+   "conditions": [
+    "Epilepsy in Children",
+    "Dyskinesias",
+    "Movement Disorders in Children",
+    "Neurologic Disorder",
+    "Chorea",
+    "Myoclonus",
+    "Ataxia",
+    "Epilepsy",
+    "Dystonia Disorder",
+    "Movement Disorders"
+   ],
+   "keywords": [
+    "epilepsy-dyskinesia syndrome",
+    "movement disorders",
+    "epileptic encephalopathy",
+    "dyskinesia",
+    "dystonia",
+    "neurogenetics",
+    "PRRT2",
+    "ATP1A3",
+    "MECP2",
+    "CACNA1A",
+    "CDKL5",
+    "FOXG1",
+    "GNAO1",
+    "SCN1A",
+    "SCN8A",
+    "SLC2A1",
+    "STXBP1",
+    "UBA5"
+   ]
+  },
+  {
+   "nct": "NCT04457687",
+   "title": "Extended Access Program With Lorcaserin For The Treatment of Dravet Syndrome and Other Refractory Epilepsies",
+   "status": "AVAILABLE",
+   "phases": [],
+   "conditions": [
+    "Epilepsies, Myoclonic",
+    "Drug Resistant Epilepsy"
+   ],
+   "keywords": [
+    "Extended Access Program",
+    "Expanded Access Program",
+    "Dravet Syndrome",
+    "Refractory Epilepsies",
+    "Lorcaserin"
+   ]
+  },
+  {
+   "nct": "NCT02926898",
+   "title": "A 2-Part Study to Investigate the Dose-Ranging Safety and Pharmacokinetics, Followed by the Efficacy and Safety of ZX008 (Fenfluramine Hydrochloride) Oral Solution as an Adjunctive Therapy in Children \u2265 2 Years Old and Young Adults With Dravet Syndrome",
+   "status": "COMPLETED",
+   "phases": [
+    "PHASE3"
+   ],
+   "conditions": [
+    "Dravet Syndrome"
+   ],
+   "keywords": [
+    "Seizure",
+    "Tonic clonic",
+    "Epilepsy",
+    "Myoclonic",
+    "Encephalopathy"
+   ]
+  },
+  {
+   "nct": "NCT07723976",
+   "title": "A Study to Evaluate the Safety and Efficacy of CBD-OS in Participants With DEE",
+   "status": "NOT_YET_RECRUITING",
+   "phases": [
+    "PHASE3"
+   ],
+   "conditions": [
+    "Developmental and Epileptic Encephalopathy (DEE)"
+   ],
+   "keywords": [
+    "Developmental and Epileptic Encephalopathy",
+    "JZP926-OS",
+    "CBD-OS"
+   ]
+  },
+  {
+   "nct": "NCT03694275",
+   "title": "A Multicenter, Open-label, Pilot Study of Soticlestat (TAK-935/OV935) in Participants With 15Q Duplication Syndrome (Dup 15q) or Cyclin-Dependent Kinase-Like 5 (CDKL5) Deficiency Disorder (ARCADE STUDY)",
+   "status": "COMPLETED",
+   "phases": [
+    "PHASE2"
+   ],
+   "conditions": [
+    "15q Duplication Syndrome",
+    "CDKL5 Deficiency Disease"
+   ],
+   "keywords": [
+    "Drug Therapy",
+    "15q Duplication Syndrome (Dup15q)",
+    "CDKL5 Deficiency Disorder (CDD)",
+    "Brain Diseases",
+    "Epilepsy",
+    "Central Nervous System Diseases",
+    "Autism",
+    "Cholesterol 24S-hydroxylase inhibitor",
+    "Anti-epilepsy drug",
+    "Anticonvulsants"
+   ]
+  },
+  {
+   "nct": "NCT05373719",
+   "title": "Observational Study in Patients With Cyclin-dependent Kinase-like 5 Deficiency Disorder",
+   "status": "ACTIVE_NOT_RECRUITING",
+   "phases": [],
+   "conditions": [
+    "Cyclin-Dependent Kinase-Like 5 Deficiency Disorder"
+   ],
+   "keywords": [
+    "Cyclin-Dependent Kinase-Like 5 Deficiency Disorder",
+    "CDKL5",
+    "CDD"
+   ]
+  },
+  {
+   "nct": "NCT06401538",
+   "title": "BMB-101 in Absence Epilepsy and DEE",
+   "status": "RECRUITING",
+   "phases": [
+    "PHASE2"
+   ],
+   "conditions": [
+    "Absence Epilepsy",
+    "Jeavons Syndrome",
+    "Dravet Syndrome",
+    "Lennox Gastaut Syndrome"
+   ],
+   "keywords": []
+  },
+  {
+   "nct": "NCT02286986",
+   "title": "Cannabidiol (CBD) to 27 Patients (Aged 2 Years - 19 Years) With Drug Resistant Epilepsy",
+   "status": "COMPLETED",
+   "phases": [
+    "PHASE1"
+   ],
+   "conditions": [
+    "Epilepsy"
+   ],
+   "keywords": [
+    "Epilepsy",
+    "Dravet syndrome",
+    "Seizures",
+    "Intractable Epilepsy",
+    "Medically Refractory Epilepsy"
+   ]
+  },
+  {
+   "nct": "NCT06738732",
+   "title": "CBD Delivery with the A-Synaptic GT4 Transdermal Delivery System in with Dravet Syndrome And/or Lennox-Gastaut Syndrome",
+   "status": "NOT_YET_RECRUITING",
+   "phases": [
+    "PHASE1",
+    "PHASE2"
+   ],
+   "conditions": [
+    "Lennox-Gastaut Syndrome (LGS)",
+    "Dravet Syndrome (DS)"
+   ],
+   "keywords": [
+    "CBD",
+    "transdermal"
+   ]
+  },
+  {
+   "nct": "NCT04572243",
+   "title": "A Study of Lorcaserin as Adjunctive Treatment in Participants With Dravet Syndrome",
+   "status": "TERMINATED",
+   "phases": [
+    "PHASE3"
+   ],
+   "conditions": [
+    "Epilepsies, Myoclonic"
+   ],
+   "keywords": [
+    "Dravet Syndrome",
+    "Lorcaserin",
+    "E2023",
+    "Epilepsy",
+    "Seizures"
+   ]
+  },
+  {
+   "nct": "NCT07801404",
+   "title": "Biomarkers of Neurodegeneration, Synaptic Plasticity and Neuroinflammation in Dravet Syndrome",
+   "status": "NOT_YET_RECRUITING",
+   "phases": [],
+   "conditions": [
+    "Dravet Syndrome (DS)"
+   ],
+   "keywords": []
+  },
+  {
+   "nct": "NCT06395792",
+   "title": "A Study on Dravet Syndrome (DS) and Lennox-Gastaut Syndrome (LGS) in Children, Teenagers and Adults in Portugal",
+   "status": "WITHDRAWN",
+   "phases": [],
+   "conditions": [
+    "Dravet Syndrome (DS)",
+    "Lennox-Gastaut Syndrome (LGS)"
+   ],
+   "keywords": [
+    "Drug Therapy"
+   ]
+  },
+  {
+   "nct": "NCT03024827",
+   "title": "Cannabidiol in Children With Refractory Epileptic Encephalopathy",
+   "status": "UNKNOWN",
+   "phases": [
+    "PHASE1"
+   ],
+   "conditions": [
+    "Epileptic Encephalopathy"
+   ],
+   "keywords": [
+    "Infantile Spasms",
+    "Lennox Gastaut Syndrome",
+    "Doose Syndrome",
+    "Continuous Spike Wave in Sleep",
+    "Landau-Kleffner Syndrome",
+    "Dravet Syndrome",
+    "Malignant Migrating Partial Seizures of Infancy (MMPSI)"
+   ]
+  },
+  {
+   "nct": "NCT01533506",
+   "title": "Stiripentol in Dravet Syndrome",
+   "status": "NO_LONGER_AVAILABLE",
+   "phases": [],
+   "conditions": [
+    "Dravet Syndrome"
+   ],
+   "keywords": [
+    "treatment with stiripentol"
+   ]
+  },
+  {
+   "nct": "NCT05558371",
+   "title": "International CDKL5 Clinical Research Network",
+   "status": "RECRUITING",
+   "phases": [],
+   "conditions": [
+    "CDKL5",
+    "CDKL5 Deficiency Disorder",
+    "CDD"
+   ],
+   "keywords": []
+  },
+  {
+   "nct": "NCT07651293",
+   "title": "Using Fenfluramine to Test the Serotonin Deficiency Theory of Depression",
+   "status": "NOT_YET_RECRUITING",
+   "phases": [
+    "NA"
+   ],
+   "conditions": [
+    "Depression - Major Depressive Disorder"
+   ],
+   "keywords": [
+    "Major Depressive Disorder",
+    "Serotonin",
+    "PET",
+    "Fenfluramine",
+    "[11C]Cimbi-36",
+    "SSRI",
+    "Serotonin Deficiency Theory of Depression"
+   ]
+  },
+  {
+   "nct": "NCT04442295",
+   "title": "An Open-Label Study to Investigate the Safety of Single and Multiple Ascending Doses in Children and Adolescents With Dravet Syndrome",
+   "status": "COMPLETED",
+   "phases": [
+    "PHASE1",
+    "PHASE2"
+   ],
+   "conditions": [
+    "Dravet Syndrome"
+   ],
+   "keywords": [
+    "Pediatric epilepsy",
+    "Epileptic Encephalopathies",
+    "Refractory Myoclonic Epilepsy",
+    "Severe Myoclonic Epilepsy in Infancy"
+   ]
+  },
+  {
+   "nct": "NCT01983722",
+   "title": "Treatment Plan to Provide Expanded Access to Stiripentol for Patients With Dravet Syndrome",
+   "status": "APPROVED_FOR_MARKETING",
+   "phases": [],
+   "conditions": [
+    "Dravet Syndrome"
+   ],
+   "keywords": []
+  },
+  {
+   "nct": "NCT06112275",
+   "title": "A Clinical Study to Evaluate the Safety and Efficacy of ETX101, an AAV9-Delivered Gene Therapy in Children With SCN1A-positive Dravet Syndrome (Australia Only)",
+   "status": "ACTIVE_NOT_RECRUITING",
+   "phases": [
+    "PHASE1",
+    "PHASE2"
+   ],
+   "conditions": [
+    "Dravet Syndrome"
+   ],
+   "keywords": [
+    "Dravet",
+    "SCN1A",
+    "DEE",
+    "developmental and epileptic encephalopathy",
+    "Dravet Syndrome",
+    "SCN1A-positive",
+    "SCN1A+"
+   ]
+  },
+  {
+   "nct": "NCT06598449",
+   "title": "Assessment of Safety of the Use of Fenfluramine in Children With Dravet Syndrome Under 24 Months of Age",
+   "status": "RECRUITING",
+   "phases": [
+    "PHASE4"
+   ],
+   "conditions": [
+    "Dravet Syndrome (DS)",
+    "Children Under 2 Years"
+   ],
+   "keywords": [
+    "Fenfluramine",
+    "Dravet Syndrome",
+    "Children under 2 years"
+   ]
+  },
+  {
+   "nct": "NCT02910297",
+   "title": "The Pharmacokinetics of Cannabidiol (CBD) and Its Effects in Children With Severe Epilepsy",
+   "status": "WITHDRAWN",
+   "phases": [],
+   "conditions": [
+    "Dravet Syndrome",
+    "Lennox Gastaut Syndrome"
+   ],
+   "keywords": [
+    "cannabidiol",
+    "Dravet Syndrome",
+    "Lennox Gastaut Syndrome"
+   ]
+  },
+  {
+   "nct": "NCT07363603",
+   "title": "Tianasen (ASO-GNAO1) for GNAO1-Encephalopathy With Epilepsy and Movement Disorders.",
+   "status": "RECRUITING",
+   "phases": [
+    "PHASE1",
+    "PHASE2"
+   ],
+   "conditions": [
+    "GNAO1",
+    "Epilepsy",
+    "Hyperkinesis"
+   ],
+   "keywords": [
+    "GNAO1",
+    "Epilepsy",
+    "hyperkinesis"
+   ]
+  },
+  {
+   "nct": "NCT06999096",
+   "title": "Long-read Genome Sequencing for the Molecular Diagnosis of Dystonia",
+   "status": "RECRUITING",
+   "phases": [
+    "NA"
+   ],
+   "conditions": [
+    "Dystonia",
+    "Movement Disorders",
+    "Combined Dystonia",
+    "Complex Dystonia"
+   ],
+   "keywords": [
+    "Dystonia",
+    "Genome Sequencing",
+    "Long-read Sequencing",
+    "Molecular diagnosis",
+    "Neurogenetics"
+   ]
+  },
+  {
+   "nct": "NCT06912841",
+   "title": "Deep Brain Stimulation (DBS) MatchMaker",
+   "status": "ENROLLING_BY_INVITATION",
+   "phases": [],
+   "conditions": [
+    "TOR1A",
+    "PANK2",
+    "HPRT1",
+    "EIF2AK2",
+    "SOX2",
+    "KMT2B",
+    "GABRB2",
+    "ADCY5",
+    "UBA5",
+    "GNAO1",
+    "SGCE",
+    "TNPO2",
+    "GNB1",
+    "PLA2G6",
+    "Movement Disorders",
+    "Dystonia",
+    "Chorea"
+   ],
+   "keywords": [
+    "Deep Brain Stimulation",
+    "DBS",
+    "movement disorders",
+    "dystonia",
+    "genetic"
+   ]
+  },
+  {
+   "nct": "NCT06412653",
+   "title": "Prospective Pilot Trial to Address Feasibility and Safety of Oral Zinc in GNAO1 Associated Disorders",
+   "status": "COMPLETED",
+   "phases": [
+    "PHASE2"
+   ],
+   "conditions": [
+    "GNAO1",
+    "Dystonia",
+    "Epilepsy",
+    "Development Delay",
+    "Developmental and Epileptic Encephalopathy 17",
+    "Neurodevelopmental Disorder With Involuntary Movements",
+    "Choreoathetosis"
+   ],
+   "keywords": [
+    "GNAO1"
+   ]
+  },
+  {
+   "nct": "NCT04950946",
+   "title": "GNAO1 Natural History Study",
+   "status": "UNKNOWN",
+   "phases": [],
+   "conditions": [
+    "GNAO1"
+   ],
+   "keywords": [
+    "Natural History Study",
+    "pediatric",
+    "neurology",
+    "movement disorder",
+    "epilepsy",
+    "GNAO1"
+   ]
+  },
+  {
+   "nct": "NCT03043560",
+   "title": "Study to Treat Major Depressive Disorder With a New Medication",
+   "status": "COMPLETED",
+   "phases": [
+    "PHASE2"
+   ],
+   "conditions": [
+    "Depressive Disorder",
+    "Anhedonia"
+   ],
+   "keywords": [
+    "depression",
+    "anhedonia",
+    "reward"
+   ]
+  },
+  {
+   "nct": "NCT04639310",
+   "title": "XEN496 (Ezogabine) in Children With KCNQ2 Developmental and Epileptic Encephalopathy",
+   "status": "TERMINATED",
+   "phases": [
+    "PHASE3"
+   ],
+   "conditions": [
+    "Epilepsy",
+    "Epilepsy in Children",
+    "Epilepsy; Seizure",
+    "Disease",
+    "Brain Diseases",
+    "Central Nervous System Diseases",
+    "Nervous System Diseases",
+    "Epileptic Syndromes"
+   ],
+   "keywords": [
+    "XEN496",
+    "Ezogabine",
+    "Retigabine",
+    "Encephalopathy",
+    "Seizure",
+    "KCNQ2"
+   ]
+  },
+  {
+   "nct": "NCT05157737",
+   "title": "Clinical Phenotype and Omics Study of KCNQ2-related Epilepsy",
+   "status": "UNKNOWN",
+   "phases": [],
+   "conditions": [
+    "KCNQ2-related Epilepsy"
+   ],
+   "keywords": [
+    "KCNQ2-related epilepsy",
+    "Benign familial neonatal seizures",
+    "Developmental and epileptic encephalopathy",
+    "Genotype-phenotype association",
+    "Brain network",
+    "Omics study"
+   ]
+  },
+  {
+   "nct": "NCT03934268",
+   "title": "A Cohort Study on the Prognosis of Neonatal KCNQ2 Gene-associated Epileptic Encephalopathy",
+   "status": "UNKNOWN",
+   "phases": [],
+   "conditions": [
+    "Seizures",
+    "Seizure Disorder",
+    "Seizure Newborn",
+    "Seizures, Generalized",
+    "Epileptic Encephalopathy",
+    "Epileptic Encephalopathy, Neonatal-onset",
+    "Epileptic Encephalopathy, Infant-onset",
+    "KCNQ2"
+   ],
+   "keywords": []
+  },
+  {
+   "nct": "NCT05450822",
+   "title": "Precision Medicine in the Treatment of Epilepsy",
+   "status": "RECRUITING",
+   "phases": [],
+   "conditions": [
+    "Epilepsy"
+   ],
+   "keywords": [
+    "epilepsy",
+    "precision medicine",
+    "treatment targets",
+    "biomarkers",
+    "high density EEG",
+    "gut microbiome",
+    "longitudinal",
+    "levetiracetam",
+    "lamotrigine",
+    "neuroimaging",
+    "machine learning",
+    "treatment response",
+    "PET",
+    "MRI",
+    "Psychometrics"
+   ]
+  },
+  {
+   "nct": "NCT04827901",
+   "title": "XEN1101 for Major Depressive Disorder",
+   "status": "COMPLETED",
+   "phases": [
+    "PHASE2"
+   ],
+   "conditions": [
+    "Major Depressive Disorder"
+   ],
+   "keywords": [
+    "depression",
+    "anhedonia",
+    "major depressive disorder",
+    "investigational medication",
+    "potassium channel",
+    "KCNQ"
+   ]
+  },
+  {
+   "nct": "NCT04912856",
+   "title": "An Open-Label Extension of the Study XEN496 (Ezogabine) in Children With KCNQ2-DEE",
+   "status": "TERMINATED",
+   "phases": [
+    "PHASE3"
+   ],
+   "conditions": [
+    "Epilepsy",
+    "Epilepsy in Children",
+    "Epilepsy; Seizure",
+    "Disease",
+    "Brain Diseases",
+    "Central Nervous System Diseases",
+    "Nervous System Diseases",
+    "Epileptic Syndromes"
+   ],
+   "keywords": [
+    "XEN496",
+    "Ezogabine",
+    "Retigabine",
+    "Encephalopathy",
+    "Seizure",
+    "KCNQ2",
+    "EPIK"
+   ]
+  },
+  {
+   "nct": "NCT04802135",
+   "title": "Creation of a Register of Patients With Neonatal-onset Epileptic Encephalopathy",
+   "status": "RECRUITING",
+   "phases": [],
+   "conditions": [
+    "Epileptic Encephalopathy"
+   ],
+   "keywords": [
+    "EOEE",
+    "epilepsy",
+    "KCNQ2"
+   ]
+  },
+  {
+   "nct": "NCT04924153",
+   "title": "A Natural History Study of Participants With Potassium Sodium-Activated Channel Subfamily T Member 1 (KCNT1)-Related Epilepsy",
+   "status": "COMPLETED",
+   "phases": [],
+   "conditions": [
+    "KCNT1-Related Epilepsy"
+   ],
+   "keywords": [
+    "Epilepsy of Infancy with Migrating Focal Seizures (EIMFS)",
+    "Early-Onset Epileptic Encephalopathy (EOEE)",
+    "Sleep-Related Hypermotor Epilepsy (SHE)",
+    "Autosomal Dominant Nocturnal Frontal Lobe Epilepsy (ADNFLE)"
+   ]
+  },
+  {
+   "nct": "NCT07600736",
+   "title": "A Study to Investigate the Safety, Tolerability, Pharmacokinetics, and Clinical Activity of ABS-1230 in Pediatric and Young Adult Participants With KCNT1-related Epilepsy",
+   "status": "RECRUITING",
+   "phases": [
+    "PHASE2"
+   ],
+   "conditions": [
+    "KCNT1-Related Epilepsy"
+   ],
+   "keywords": []
+  },
+  {
+   "nct": "NCT07156201",
+   "title": "A Study to Investigate the Safety, Tolerability, and Pharmacokinetics of ABS-1230 Given Orally Compared With Placebo in Healthy Participants Aged 18 to 55 Years",
+   "status": "RECRUITING",
+   "phases": [
+    "PHASE1"
+   ],
+   "conditions": [
+    "KCNT1-Related Epilepsy"
+   ],
+   "keywords": []
+  },
+  {
+   "nct": "NCT07227857",
+   "title": "A First-in-human Study of S230815 in Pediatric Participants With KCNT1-related Developmental and Epileptic Encephalopathy",
+   "status": "RECRUITING",
+   "phases": [
+    "PHASE1",
+    "PHASE2"
+   ],
+   "conditions": [
+    "Epileptic Encephalopathy"
+   ],
+   "keywords": []
+  },
+  {
+   "nct": "NCT00142363",
+   "title": "Cohorts and Collections: Clinical and Genetic Study of Parkinson's Disease and Epilepsies",
+   "status": "TERMINATED",
+   "phases": [],
+   "conditions": [
+    "Parkinson's Disease",
+    "Epilepsy"
+   ],
+   "keywords": [
+    "Parkinson's disease",
+    "Parkin",
+    "Epilepsy",
+    "Phenotype-genotype correlations",
+    "Ionic channels"
+   ]
+  },
+  {
+   "nct": "NCT04166305",
+   "title": "Drug Resistant Epilepsy: Clinical and Genetic Study",
+   "status": "UNKNOWN",
+   "phases": [],
+   "conditions": [
+    "Epilepsy, Drug Resistant"
+   ],
+   "keywords": [
+    "Epilepsy, genetic and drug resistant"
+   ]
+  },
+  {
+   "nct": "NCT01238250",
+   "title": "Online Study of People Who Have Genetic Changes and Features of Autism: Simons Searchlight",
+   "status": "RECRUITING",
+   "phases": [],
+   "conditions": [
+    "16P11.2 Deletion Syndrome",
+    "16p11.2 Duplications",
+    "1Q21.1 Deletion",
+    "1Q21.1 Microduplication Syndrome (Disorder)",
+    "ACTL6B",
+    "ADNP",
+    "AHDC1",
+    "ANK2",
+    "ANKRD11",
+    "ARID1B",
+    "ASH1L",
+    "BCL11A",
+    "CHAMP1",
+    "CHD2",
+    "CHD8",
+    "CSNK2A1",
+    "CTBP1",
+    "CTNNB1 Gene Mutation",
+    "CUL3",
+    "DDX3X",
+    "DNMT3A",
+    "DSCAM",
+    "DYRK1A",
+    "FOXP1",
+    "GRIN2A",
+    "GRIN2B",
+    "HIVEP2-Related Intellectual Disability",
+    "HNRNPH2",
+    "KATNAL2",
+    "KDM5B",
+    "KDM6B",
+    "KMT2C Gene Mutation",
+    "KMT2E",
+    "KMT5B",
+    "MBD5",
+    "MED13L",
+    "PACS1",
+    "PPP2R5D-Related Intellectual Disability",
+    "PTCHD1",
+    "REST",
+    "SCN2A Encephalopathy",
+    "SETBP1 Gene Mutation",
+    "SETD5",
+    "SMARCA4 Gene Mutation",
+    "SMARCC2",
+    "STXBP1 Encephalopathy With Epilepsy",
+    "SYNGAP1-Related Intellectual Disability",
+    "TBR1",
+    "ARHGEF9",
+    "HNRNPU",
+    "PPP3CA",
+    "PPP2R1A",
+    "SLC6A1",
+    "2p16.3 Deletions",
+    "5q35 Deletions",
+    "5q35 Duplications",
+    "7q11.23 Duplications",
+    "15Q13.3 Deletion Syndrome",
+    "16p11.2 Triplications",
+    "16P12.2 Microdeletion",
+    "16P13.11 Microdeletion Syndrome (Disorder)",
+    "17Q12 Microdeletion Syndrome (Disorder)",
+    "17Q12 Duplication Syndrome",
+    "17Q21.31 Deletion Syndrome",
+    "17q21.3 Duplications",
+    "ACTB",
+    "ADSL",
+    "AFF2",
+    "ALDH5A1",
+    "ANK3",
+    "ARX",
+    "ATRX Gene Mutation",
+    "AUTS2 Syndrome",
+    "BCKDK",
+    "BRSK2",
+    "CACNA1C",
+    "CAPRIN1",
+    "CASK",
+    "CASZ1",
+    "CHD3",
+    "CIC",
+    "CNOT3",
+    "CREBBP Gene Mutation",
+    "CSDE1",
+    "CTCF",
+    "DEAF1",
+    "DHCR7",
+    "DLG4",
+    "EBF3",
+    "EHMT1",
+    "EP300 Gene Mutation",
+    "GIGYF1",
+    "GRIN1",
+    "GRIN2D",
+    "IQSEC2-Related Syndromic Intellectual Disability",
+    "IRF2BPL",
+    "KANSL1",
+    "KCNB1",
+    "KDM3B",
+    "NEXMIF",
+    "KMT2A",
+    "MBOAT7",
+    "MEIS2",
+    "MYT1L",
+    "NAA15",
+    "NBEA",
+    "NCKAP1",
+    "NIPBL",
+    "NLGN2",
+    "NLGN3",
+    "NLGN4X",
+    "NR4A2",
+    "NRXN1",
+    "NRXN2",
+    "NSD1 Gene Mutation",
+    "PHF21A",
+    "PHF3",
+    "PHIP",
+    "PSMD12",
+    "RELN",
+    "RERE",
+    "RFX3",
+    "RIMS1",
+    "RORB",
+    "SCN1A",
+    "SETD2 Gene Mutation",
+    "SHANK2",
+    "SIN3A",
+    "SLC9A6",
+    "SON",
+    "SOX5",
+    "SPAST",
+    "SRCAP",
+    "TAOK1",
+    "TANC2",
+    "TCF20",
+    "TLK2",
+    "TRIO",
+    "TRIP12",
+    "UPF3B",
+    "USP9X",
+    "VPS13B",
+    "WAC",
+    "WDFY3",
+    "ZBTB20",
+    "ZNF292",
+    "ZNF462",
+    "2Q37 Deletion Syndrome",
+    "9q34 Duplications",
+    "15q15 Deletions",
+    "15Q24 Deletion",
+    "NR3C2",
+    "SYNCRIP",
+    "2q37.3 Deletion",
+    "6q16 Deletion",
+    "15q11.2 BP1-BP2 Deletion",
+    "16p13.3 Deletion",
+    "17Q11.2 Microduplication Syndrome (Disorder)",
+    "17p13.3",
+    "Xq28 Duplication",
+    "CLCN4",
+    "CSNK2B",
+    "DYNC1H1",
+    "EIF3F",
+    "GNB1",
+    "MED13",
+    "MEF2C",
+    "RALGAPB",
+    "SCN1B",
+    "YY1",
+    "Xp11.22 Duplication",
+    "PACS2",
+    "MAOA",
+    "MAOB",
+    "HNRNPC",
+    "HNRNPD",
+    "HNRNPK",
+    "HNRNPR",
+    "HNRNPUL2",
+    "5P Deletion Syndrome",
+    "TCF7L2 Gene Mutation",
+    "HECW2",
+    "PPM1D",
+    "RNU4-2",
+    "SNAP25",
+    "FOXP2",
+    "ITSN1"
+   ],
+   "keywords": [
+    "16p11.2",
+    "16p11.2 del",
+    "16p11.2 deletion",
+    "16p11.2 dup",
+    "16p11.2 duplication",
+    "chromosome 16",
+    "chromosome 16p",
+    "chromosome 16p11",
+    "chromosome 16p11.2",
+    "1q21.1",
+    "1q21.1 del",
+    "1q21.1 deletion",
+    "1q21.1 dup",
+    "1q21.1 duplication",
+    "chromosome 1",
+    "chromosome 1q",
+    "chromosome 1q21",
+    "chromosome 1q21.1",
+    "genetic mutation",
+    "genetic variant",
+    "gene variant",
+    "ADNP",
+    "ANKRD11",
+    "ARID1B",
+    "ASXL3",
+    "ACTL6B",
+    "AHDC1",
+    "BAF190",
+    "ANK2",
+    "ASH1L",
+    "BCL11A",
+    "CHD2",
+    "CHD8",
+    "CTNNB1",
+    "CUL3",
+    "DYRK1A",
+    "FOXP1",
+    "GRIN2B",
+    "KDM6B",
+    "KMT2E",
+    "MBD5",
+    "MED13L",
+    "REST",
+    "SCN2A",
+    "SMARCC2",
+    "SYNGAP1",
+    "HIVEP2",
+    "HNRNPH2",
+    "PPP2R5D",
+    "CHAMP1",
+    "CSNK2A1",
+    "CTBP1",
+    "DDX3X",
+    "DNMT3A",
+    "DSCAM",
+    "GRIN2A",
+    "KATNAL2",
+    "KDM5B",
+    "KMT2C",
+    "KMT5B",
+    "SUV420H1",
+    "PACS1",
+    "PTCHD1",
+    "SETBP1",
+    "SETD5",
+    "SMARCA4",
+    "STXBP1",
+    "TBR1",
+    "ARHGEF9",
+    "HNRNPU",
+    "PPP2B",
+    "PPP2R1A",
+    "SLC6A1",
+    "PACS2",
+    "MAOA",
+    "MAOB",
+    "HNRNPC",
+    "HNRNPD",
+    "HNRNPK",
+    "HNRNPR",
+    "HNRNPUL2",
+    "5P Deletion Syndrome",
+    "TCF7L2",
+    "HECW2",
+    "PPM1D",
+    "RNU4-2",
+    "SNAP25",
+    "FOXP2",
+    "ITSN1"
+   ]
+  },
+  {
+   "nct": "NCT07019922",
+   "title": "A Clinical Trial of Elsunersen in Pediatric SCN2A-DEE to Assess Efficacy and Safety",
+   "status": "RECRUITING",
+   "phases": [
+    "PHASE3"
+   ],
+   "conditions": [
+    "Epileptic Encephalopathy",
+    "SCN2A Encephalopathy"
+   ],
+   "keywords": [
+    "epilepsis",
+    "early onset scn2a",
+    "epileptic encephalopathy",
+    "scn2a",
+    "gain of function",
+    "seizure"
+   ]
+  },
+  {
+   "nct": "NCT05407727",
+   "title": "A Prospective, Remote Observational Study in Pediatric Participants With Early-Onset SCN2A-Developmental and Epileptic Encephalopathy",
+   "status": "COMPLETED",
+   "phases": [],
+   "conditions": [
+    "SCN2A-DEE",
+    "Epilepsy"
+   ],
+   "keywords": [
+    "SCN2A-DEE",
+    "Epilepsy",
+    "SCN2A variant",
+    "Pediatric epilepsy",
+    "Electroencephalogram",
+    "Developmental and Epileptic Encephalopathy",
+    "DEE"
+   ]
+  },
+  {
+   "nct": "NCT05818553",
+   "title": "A Clinical Trial of PRAX-562 in Subjects With Developmental and Epileptic Encephalopathies (DEE)",
+   "status": "ACTIVE_NOT_RECRUITING",
+   "phases": [
+    "PHASE2",
+    "PHASE3"
+   ],
+   "conditions": [
+    "SCN2A Encephalopathy",
+    "SCN8A Encephalopathy"
+   ],
+   "keywords": [
+    "Pediatric epilepsy",
+    "NaV1.2 Voltage-Gated Sodium Channel",
+    "SCN2A variant",
+    "SCN8A variant",
+    "Developmental and epileptic encephalopathy"
+   ]
+  },
+  {
+   "nct": "NCT02505477",
+   "title": "Treatment of Cognitive and Negative Symptoms in Schizophrenia With N-acetylcysteine",
+   "status": "COMPLETED",
+   "phases": [
+    "PHASE4"
+   ],
+   "conditions": [
+    "Schizophrenia",
+    "Cognitive Deficits",
+    "Schizophrenia; Negative Type"
+   ],
+   "keywords": [
+    "schiozphrenia",
+    "cognition",
+    "negative symptoms",
+    "glutamate",
+    "glutathione",
+    "N-acetylcysteine"
+   ]
+  },
+  {
+   "nct": "NCT06314490",
+   "title": "Personalized Antisense Oligonucleotide Therapy for Rare Pediatric Genetic Disease: SCN2A",
+   "status": "ACTIVE_NOT_RECRUITING",
+   "phases": [
+    "PHASE1",
+    "PHASE2"
+   ],
+   "conditions": [
+    "Genetic Disease"
+   ],
+   "keywords": []
+  },
+  {
+   "nct": "NCT07494331",
+   "title": "Exploring the Physiological Mechanisms of Austism Through Organoids",
+   "status": "NOT_YET_RECRUITING",
+   "phases": [],
+   "conditions": [
+    "Autism Spectrum Disorder (ASD"
+   ],
+   "keywords": [
+    "ASD",
+    "organoid"
+   ]
+  },
+  {
+   "nct": "NCT05737784",
+   "title": "A Clinical Trial of PRAX-222 in Pediatric Participants With Early Onset SCN2A Developmental and Epileptic Encephalopathy",
+   "status": "ACTIVE_NOT_RECRUITING",
+   "phases": [
+    "PHASE1",
+    "PHASE2"
+   ],
+   "conditions": [
+    "SCN2A-DEE",
+    "Epilepsy"
+   ],
+   "keywords": [
+    "Antisense Oligonucleotide",
+    "NaV1.2 Voltage-Gated Sodium Channel",
+    "Voltage-Gated Sodium Channel Blockers",
+    "SCN2A variant",
+    "Pediatric epilepsy",
+    "Developmental and Epileptic Encephalopathy",
+    "DEE"
+   ]
+  },
+  {
+   "nct": "NCT06674070",
+   "title": "SCN2A Polymorphisms Are Associated With Response to Valproic Acid in Paediatric Population(Pakistan)",
+   "status": "COMPLETED",
+   "phases": [],
+   "conditions": [
+    "Epilepsy"
+   ],
+   "keywords": []
+  },
+  {
+   "nct": "NCT07031661",
+   "title": "A Cohort Study of Disease Prediction Model for High-risk Population With Bipolar Disorder",
+   "status": "RECRUITING",
+   "phases": [],
+   "conditions": [
+    "High-risk",
+    "Bipolar Disorder",
+    "Atypical Depression"
+   ],
+   "keywords": [
+    "bipolar disorder",
+    "high-risk",
+    "offspring",
+    "atypical depression",
+    "cohort study",
+    "prediction model"
+   ]
+  },
+  {
+   "nct": "NCT03907124",
+   "title": "Clinical Utility of Pharmacogenomics of Psychotropic Medications",
+   "status": "WITHDRAWN",
+   "phases": [
+    "PHASE4"
+   ],
+   "conditions": [
+    "Psychiatric Disorders",
+    "Pain"
+   ],
+   "keywords": [
+    "Utility",
+    "Pharmacogenomics",
+    "Psychotropic",
+    "Medications"
+   ]
+  },
+  {
+   "nct": "NCT05226780",
+   "title": "Extension Study to Evaluate How Safe and Tolerable NBI-921352 is as an Adjunctive Therapy for Participants With SCN8A-DEE",
+   "status": "TERMINATED",
+   "phases": [
+    "PHASE2"
+   ],
+   "conditions": [
+    "SCN8A Developmental and Epileptic Encephalopathy Syndrome"
+   ],
+   "keywords": [
+    "Epilepsy",
+    "Sodium channel",
+    "voltage-gated",
+    "type VIII",
+    "alpha subunit (SCN8A)",
+    "NaV1.6 inhibitor"
+   ]
+  },
+  {
+   "nct": "NCT04873869",
+   "title": "Study to Evaluate NBI-921352 as Adjunctive Therapy in Subjects With SCN8A Developmental and Epileptic Encephalopathy Syndrome (SCN8A-DEE)",
+   "status": "TERMINATED",
+   "phases": [
+    "PHASE2"
+   ],
+   "conditions": [
+    "SCN8A Developmental and Epileptic Encephalopathy Syndrome"
+   ],
+   "keywords": [
+    "Epilepsy",
+    "Sodium channel",
+    "voltage-gated",
+    "type VIII",
+    "alpha subunit (SCN8A)",
+    "NaV1.6 inhibitor"
+   ]
+  },
+  {
+   "nct": "NCT06625112",
+   "title": "A Multicentric European Study to Promote Clinical Trial Readiness for STXBP1-related Disorders",
+   "status": "RECRUITING",
+   "phases": [],
+   "conditions": [
+    "STXBP1 Encephalopathy With Epilepsy"
+   ],
+   "keywords": [
+    "European",
+    "STXBP1",
+    "European STXBP1 Consortium",
+    "ESCO",
+    "STXBP1-RD",
+    "Syntaxin Binding Protein",
+    "epileptic encephalopathy",
+    "epilepsy",
+    "natural history study",
+    "registry"
+   ]
+  },
+  {
+   "nct": "NCT05232630",
+   "title": "Fenfluramine for the Treatment of Different Types of Developmental and Epileptic Encephalopathies: a Pilot Trial Exploring Epileptic and Non-epileptic Outcomes",
+   "status": "COMPLETED",
+   "phases": [
+    "PHASE4"
+   ],
+   "conditions": [
+    "Refractory Epilepsy",
+    "SYNGAP1 Encephalopathy",
+    "STXBP1 Encephalopathy With Epilepsy",
+    "Inv Dup(15) Encephalopathy",
+    "Multifocal or Bilateral Malformations of Cortical Development",
+    "Continuous Spike and Waves During Slow Sleep"
+   ],
+   "keywords": [
+    "refractory epilepsy",
+    "SYNGAP1",
+    "STXBP1",
+    "Inv Dup(15)",
+    "developmental and epileptic encephalopathies",
+    "DEEs",
+    "Epilepsy",
+    "Drug Resistant Epilepsy",
+    "Intractable epilepsy",
+    "Nervous System Diseases",
+    "Genetic Diseases, Inborn"
+   ]
+  },
+  {
+   "nct": "NCT05462054",
+   "title": "Natural History Study in Pediatric Patients with STXBP1 Encephalopathy with Epilepsy",
+   "status": "WITHDRAWN",
+   "phases": [],
+   "conditions": [
+    "STXBP1 Encephalopathy with Epilepsy"
+   ],
+   "keywords": [
+    "STXBP1",
+    "Epilepsy",
+    "Seizures",
+    "Epileptic encephalopathy",
+    "Genetic Diseases, Inborn"
+   ]
+  },
+  {
+   "nct": "NCT06555965",
+   "title": "STXBP1 and SYNGAP1 Related Disorders Natural History Study",
+   "status": "RECRUITING",
+   "phases": [],
+   "conditions": [
+    "Genetic Disease",
+    "STXBP1 Encephalopathy With Epilepsy",
+    "SYNGAP1-Related Intellectual Disability"
+   ],
+   "keywords": [
+    "STXBP1",
+    "Natural History",
+    "Clinical Research",
+    "SYNGAP1"
+   ]
+  },
+  {
+   "nct": "NCT06356233",
+   "title": "Phenotyping and Identification of Biological Markers in STXBP1 Encephalopathy",
+   "status": "NOT_YET_RECRUITING",
+   "phases": [],
+   "conditions": [
+    "STXBP1 Encephalopathy With Epilepsy"
+   ],
+   "keywords": [
+    "STXBP1"
+   ]
+  },
+  {
+   "nct": "NCT04937062",
+   "title": "Phenylbutyrate for Monogenetic Developmental and Epileptic Encephalopathy",
+   "status": "ACTIVE_NOT_RECRUITING",
+   "phases": [
+    "EARLY_PHASE1"
+   ],
+   "conditions": [
+    "STXBP1 Encephalopathy With Epilepsy, SLC6A1 Neurodevelopmental Disorder",
+    "Developmental and Epileptic Encephalopathy"
+   ],
+   "keywords": [
+    "phenylbutyrate, developmental and epileptic encephalopathy"
+   ]
+  },
+  {
+   "nct": "NCT06983158",
+   "title": "A Clinical Trial of CAP-002 Gene Therapy in Pediatric Patients With Syntaxin-Binding Protein 1 (STXBP1) Encephalopathy",
+   "status": "TERMINATED",
+   "phases": [
+    "PHASE1",
+    "PHASE2"
+   ],
+   "conditions": [
+    "Developmental and Epileptic Encephalopathy"
+   ],
+   "keywords": [
+    "STXBP1",
+    "Gene therapy"
+   ]
+  },
+  {
+   "nct": "NCT04395495",
+   "title": "RASopathy Biorepository",
+   "status": "RECRUITING",
+   "phases": [],
+   "conditions": [
+    "RAS Mutation",
+    "Neurofibromatosis 1",
+    "Noonan Syndrome",
+    "Noonan Syndrome With Multiple Lentigines",
+    "Noonan Neurofibromatosis Syndrome",
+    "Cardiofaciocutaneous Syndrome",
+    "Costello Syndrome",
+    "Legius Syndrome",
+    "Smith-Kingsmore Syndrome",
+    "MTOR Gene Mutation",
+    "GATOR-1 Gene Mutation",
+    "SYNGAP1-Related Intellectual Disability",
+    "DLG4",
+    "MAPK1 Gene Mutation"
+   ],
+   "keywords": []
+  }
+ ],
+ "links": [
+  {
+   "nct": "NCT05485831",
+   "gene": "CDKL5",
+   "gene_in_record": false
+  },
+  {
+   "nct": "NCT02983695",
+   "gene": "CDKL5",
+   "gene_in_record": false
+  },
+  {
+   "nct": "NCT02224573",
+   "gene": "CDKL5",
+   "gene_in_record": false
+  },
+  {
+   "nct": "NCT06924827",
+   "gene": "CDKL5",
+   "gene_in_record": false
+  },
+  {
+   "nct": "NCT06660394",
+   "gene": "CDKL5",
+   "gene_in_record": false
+  },
+  {
+   "nct": "NCT03650452",
+   "gene": "CDKL5",
+   "gene_in_record": true
+  },
+  {
+   "nct": "NCT05364021",
+   "gene": "CDKL5",
+   "gene_in_record": true
+  },
+  {
+   "nct": "NCT01662453",
+   "gene": "CDKL5",
+   "gene_in_record": false
+  },
+  {
+   "nct": "NCT03635073",
+   "gene": "CDKL5",
+   "gene_in_record": false
+  },
+  {
+   "nct": "NCT00299312",
+   "gene": "CDKL5",
+   "gene_in_record": true
+  },
+  {
+   "nct": "NCT05419492",
+   "gene": "CDKL5",
+   "gene_in_record": false
+  },
+  {
+   "nct": "NCT03936777",
+   "gene": "CDKL5",
+   "gene_in_record": false
+  },
+  {
+   "nct": "NCT02705677",
+   "gene": "CDKL5",
+   "gene_in_record": true
+  },
+  {
+   "nct": "NCT06663163",
+   "gene": "CDKL5",
+   "gene_in_record": true
+  },
+  {
+   "nct": "NCT07176832",
+   "gene": "CDKL5",
+   "gene_in_record": false
+  },
+  {
+   "nct": "NCT05626634",
+   "gene": "CDKL5",
+   "gene_in_record": true
+  },
+  {
+   "nct": "NCT02239276",
+   "gene": "CDKL5",
+   "gene_in_record": false
+  },
+  {
+   "nct": "NCT02229032",
+   "gene": "CDKL5",
+   "gene_in_record": false
+  },
+  {
+   "nct": "NCT05163314",
+   "gene": "CDKL5",
+   "gene_in_record": false
+  },
+  {
+   "nct": "NCT02758626",
+   "gene": "CDKL5",
+   "gene_in_record": true
+  },
+  {
+   "nct": "NCT05651204",
+   "gene": "CDKL5",
+   "gene_in_record": false
+  },
+  {
+   "nct": "NCT02738281",
+   "gene": "CDKL5",
+   "gene_in_record": true
+  },
+  {
+   "nct": "NCT04537832",
+   "gene": "CDKL5",
+   "gene_in_record": false
+  },
+  {
+   "nct": "NCT03655223",
+   "gene": "CDKL5",
+   "gene_in_record": false
+  },
+  {
+   "nct": "NCT02885090",
+   "gene": "CDKL5",
+   "gene_in_record": false
+  },
+  {
+   "nct": "NCT06118255",
+   "gene": "CDKL5",
+   "gene_in_record": false
+  },
+  {
+   "nct": "NCT04611438",
+   "gene": "CDKL5",
+   "gene_in_record": false
+  },
+  {
+   "nct": "NCT06447675",
+   "gene": "CDKL5",
+   "gene_in_record": true
+  },
+  {
+   "nct": "NCT04485104",
+   "gene": "CDKL5",
+   "gene_in_record": false
+  },
+  {
+   "nct": "NCT02682927",
+   "gene": "CDKL5",
+   "gene_in_record": false
+  },
+  {
+   "nct": "NCT06872125",
+   "gene": "CDKL5",
+   "gene_in_record": false
+  },
+  {
+   "nct": "NCT07592650",
+   "gene": "CDKL5",
+   "gene_in_record": false
+  },
+  {
+   "nct": "NCT07112365",
+   "gene": "CDKL5",
+   "gene_in_record": false
+  },
+  {
+   "nct": "NCT02091375",
+   "gene": "CDKL5",
+   "gene_in_record": false
+  },
+  {
+   "nct": "NCT07635862",
+   "gene": "CDKL5",
+   "gene_in_record": false
+  },
+  {
+   "nct": "NCT02224703",
+   "gene": "CDKL5",
+   "gene_in_record": false
+  },
+  {
+   "nct": "NCT03467113",
+   "gene": "CDKL5",
+   "gene_in_record": false
+  },
+  {
+   "nct": "NCT05249556",
+   "gene": "CDKL5",
+   "gene_in_record": true
+  },
+  {
+   "nct": "NCT04486768",
+   "gene": "CDKL5",
+   "gene_in_record": true
+  },
+  {
+   "nct": "NCT05472389",
+   "gene": "CDKL5",
+   "gene_in_record": false
+  },
+  {
+   "nct": "NCT04614506",
+   "gene": "CDKL5",
+   "gene_in_record": false
+  },
+  {
+   "nct": "NCT05140122",
+   "gene": "CDKL5",
+   "gene_in_record": false
+  },
+  {
+   "nct": "NCT05026398",
+   "gene": "CDKL5",
+   "gene_in_record": false
+  },
+  {
+   "nct": "NCT05823753",
+   "gene": "CDKL5",
+   "gene_in_record": false
+  },
+  {
+   "nct": "NCT06504511",
+   "gene": "CDKL5",
+   "gene_in_record": false
+  },
+  {
+   "nct": "NCT01607073",
+   "gene": "CDKL5",
+   "gene_in_record": false
+  },
+  {
+   "nct": "NCT06371794",
+   "gene": "CDKL5",
+   "gene_in_record": false
+  },
+  {
+   "nct": "NCT05064878",
+   "gene": "CDKL5",
+   "gene_in_record": true
+  },
+  {
+   "nct": "NCT04462770",
+   "gene": "CDKL5",
+   "gene_in_record": false
+  },
+  {
+   "nct": "NCT03572933",
+   "gene": "CDKL5",
+   "gene_in_record": true
+  },
+  {
+   "nct": "NCT05635266",
+   "gene": "CDKL5",
+   "gene_in_record": false
+  },
+  {
+   "nct": "NCT06908226",
+   "gene": "CDKL5",
+   "gene_in_record": false
+  },
+  {
+   "nct": "NCT03780127",
+   "gene": "CDKL5",
+   "gene_in_record": false
+  },
+  {
+   "nct": "NCT03299842",
+   "gene": "CDKL5",
+   "gene_in_record": false
+  },
+  {
+   "nct": "NCT02885389",
+   "gene": "CDKL5",
+   "gene_in_record": false
+  },
+  {
+   "nct": "NCT04721691",
+   "gene": "CDKL5",
+   "gene_in_record": false
+  },
+  {
+   "nct": "NCT07233239",
+   "gene": "CDKL5",
+   "gene_in_record": false
+  },
+  {
+   "nct": "NCT04069689",
+   "gene": "CDKL5",
+   "gene_in_record": false
+  },
+  {
+   "nct": "NCT05044819",
+   "gene": "CDKL5",
+   "gene_in_record": false
+  },
+  {
+   "nct": "NCT03649919",
+   "gene": "CDKL5",
+   "gene_in_record": false
+  },
+  {
+   "nct": "NCT07531745",
+   "gene": "CDKL5",
+   "gene_in_record": false
+  },
+  {
+   "nct": "NCT05560282",
+   "gene": "CDKL5",
+   "gene_in_record": false
+  },
+  {
+   "nct": "NCT05126914",
+   "gene": "CDKL5",
+   "gene_in_record": false
+  },
+  {
+   "nct": "NCT05982717",
+   "gene": "CDKL5",
+   "gene_in_record": false
+  },
+  {
+   "nct": "NCT02358538",
+   "gene": "CDKL5",
+   "gene_in_record": true
+  },
+  {
+   "nct": "NCT03861871",
+   "gene": "CDKL5",
+   "gene_in_record": true
+  },
+  {
+   "nct": "NCT06283212",
+   "gene": "CDKL5",
+   "gene_in_record": false
+  },
+  {
+   "nct": "NCT02091206",
+   "gene": "CDKL5",
+   "gene_in_record": false
+  },
+  {
+   "nct": "NCT04437004",
+   "gene": "CDKL5",
+   "gene_in_record": false
+  },
+  {
+   "nct": "NCT06448663",
+   "gene": "CDKL5",
+   "gene_in_record": true
+  },
+  {
+   "nct": "NCT07675746",
+   "gene": "CDKL5",
+   "gene_in_record": false
+  },
+  {
+   "nct": "NCT03077308",
+   "gene": "CDKL5",
+   "gene_in_record": false
+  },
+  {
+   "nct": "NCT05161494",
+   "gene": "CDKL5",
+   "gene_in_record": false
+  },
+  {
+   "nct": "NCT02174094",
+   "gene": "CDKL5",
+   "gene_in_record": false
+  },
+  {
+   "nct": "NCT07225231",
+   "gene": "CDKL5",
+   "gene_in_record": false
+  },
+  {
+   "nct": "NCT02187809",
+   "gene": "CDKL5",
+   "gene_in_record": false
+  },
+  {
+   "nct": "NCT05544058",
+   "gene": "CDKL5",
+   "gene_in_record": false
+  },
+  {
+   "nct": "NCT04740476",
+   "gene": "CDKL5",
+   "gene_in_record": false
+  },
+  {
+   "nct": "NCT02896608",
+   "gene": "CDKL5",
+   "gene_in_record": false
+  },
+  {
+   "nct": "NCT06192589",
+   "gene": "CDKL5",
+   "gene_in_record": false
+  },
+  {
+   "nct": "NCT04940624",
+   "gene": "CDKL5",
+   "gene_in_record": false
+  },
+  {
+   "nct": "NCT03857451",
+   "gene": "CDKL5",
+   "gene_in_record": false
+  },
+  {
+   "nct": "NCT02318602",
+   "gene": "CDKL5",
+   "gene_in_record": false
+  },
+  {
+   "nct": "NCT07013331",
+   "gene": "CDKL5",
+   "gene_in_record": false
+  },
+  {
+   "nct": "NCT02823145",
+   "gene": "CDKL5",
+   "gene_in_record": false
+  },
+  {
+   "nct": "NCT07413211",
+   "gene": "CDKL5",
+   "gene_in_record": false
+  },
+  {
+   "nct": "NCT06422377",
+   "gene": "CDKL5",
+   "gene_in_record": false
+  },
+  {
+   "nct": "NCT07602205",
+   "gene": "CDKL5",
+   "gene_in_record": true
+  },
+  {
+   "nct": "NCT04678479",
+   "gene": "CDKL5",
+   "gene_in_record": true
+  },
+  {
+   "nct": "NCT06149663",
+   "gene": "CDKL5",
+   "gene_in_record": true
+  },
+  {
+   "nct": "NCT02318563",
+   "gene": "CDKL5",
+   "gene_in_record": false
+  },
+  {
+   "nct": "NCT06967727",
+   "gene": "CDKL5",
+   "gene_in_record": true
+  },
+  {
+   "nct": "NCT01835314",
+   "gene": "CDKL5",
+   "gene_in_record": false
+  },
+  {
+   "nct": "NCT07251673",
+   "gene": "CDKL5",
+   "gene_in_record": false
+  },
+  {
+   "nct": "NCT02815540",
+   "gene": "CDKL5",
+   "gene_in_record": false
+  },
+  {
+   "nct": "NCT03254680",
+   "gene": "CDKL5",
+   "gene_in_record": false
+  },
+  {
+   "nct": "NCT02415686",
+   "gene": "CDKL5",
+   "gene_in_record": false
+  },
+  {
+   "nct": "NCT06585605",
+   "gene": "CDKL5",
+   "gene_in_record": true
+  },
+  {
+   "nct": "NCT04457687",
+   "gene": "CDKL5",
+   "gene_in_record": false
+  },
+  {
+   "nct": "NCT02926898",
+   "gene": "CDKL5",
+   "gene_in_record": false
+  },
+  {
+   "nct": "NCT07723976",
+   "gene": "CDKL5",
+   "gene_in_record": false
+  },
+  {
+   "nct": "NCT03694275",
+   "gene": "CDKL5",
+   "gene_in_record": true
+  },
+  {
+   "nct": "NCT05373719",
+   "gene": "CDKL5",
+   "gene_in_record": true
+  },
+  {
+   "nct": "NCT06401538",
+   "gene": "CDKL5",
+   "gene_in_record": false
+  },
+  {
+   "nct": "NCT02286986",
+   "gene": "CDKL5",
+   "gene_in_record": false
+  },
+  {
+   "nct": "NCT06738732",
+   "gene": "CDKL5",
+   "gene_in_record": false
+  },
+  {
+   "nct": "NCT04572243",
+   "gene": "CDKL5",
+   "gene_in_record": false
+  },
+  {
+   "nct": "NCT07801404",
+   "gene": "CDKL5",
+   "gene_in_record": false
+  },
+  {
+   "nct": "NCT06395792",
+   "gene": "CDKL5",
+   "gene_in_record": false
+  },
+  {
+   "nct": "NCT03024827",
+   "gene": "CDKL5",
+   "gene_in_record": false
+  },
+  {
+   "nct": "NCT01533506",
+   "gene": "CDKL5",
+   "gene_in_record": false
+  },
+  {
+   "nct": "NCT05558371",
+   "gene": "CDKL5",
+   "gene_in_record": true
+  },
+  {
+   "nct": "NCT07651293",
+   "gene": "CDKL5",
+   "gene_in_record": false
+  },
+  {
+   "nct": "NCT04442295",
+   "gene": "CDKL5",
+   "gene_in_record": false
+  },
+  {
+   "nct": "NCT01983722",
+   "gene": "CDKL5",
+   "gene_in_record": false
+  },
+  {
+   "nct": "NCT06112275",
+   "gene": "CDKL5",
+   "gene_in_record": false
+  },
+  {
+   "nct": "NCT06598449",
+   "gene": "CDKL5",
+   "gene_in_record": false
+  },
+  {
+   "nct": "NCT02910297",
+   "gene": "CDKL5",
+   "gene_in_record": false
+  },
+  {
+   "nct": "NCT07363603",
+   "gene": "GNAO1",
+   "gene_in_record": true
+  },
+  {
+   "nct": "NCT06999096",
+   "gene": "GNAO1",
+   "gene_in_record": false
+  },
+  {
+   "nct": "NCT06912841",
+   "gene": "GNAO1",
+   "gene_in_record": true
+  },
+  {
+   "nct": "NCT06412653",
+   "gene": "GNAO1",
+   "gene_in_record": true
+  },
+  {
+   "nct": "NCT06967727",
+   "gene": "GNAO1",
+   "gene_in_record": true
+  },
+  {
+   "nct": "NCT06585605",
+   "gene": "GNAO1",
+   "gene_in_record": true
+  },
+  {
+   "nct": "NCT04950946",
+   "gene": "GNAO1",
+   "gene_in_record": true
+  },
+  {
+   "nct": "NCT03043560",
+   "gene": "KCNQ2",
+   "gene_in_record": false
+  },
+  {
+   "nct": "NCT04639310",
+   "gene": "KCNQ2",
+   "gene_in_record": true
+  },
+  {
+   "nct": "NCT05157737",
+   "gene": "KCNQ2",
+   "gene_in_record": true
+  },
+  {
+   "nct": "NCT03934268",
+   "gene": "KCNQ2",
+   "gene_in_record": true
+  },
+  {
+   "nct": "NCT05450822",
+   "gene": "KCNQ2",
+   "gene_in_record": false
+  },
+  {
+   "nct": "NCT02885389",
+   "gene": "KCNQ2",
+   "gene_in_record": false
+  },
+  {
+   "nct": "NCT04827901",
+   "gene": "KCNQ2",
+   "gene_in_record": false
+  },
+  {
+   "nct": "NCT04912856",
+   "gene": "KCNQ2",
+   "gene_in_record": true
+  },
+  {
+   "nct": "NCT04802135",
+   "gene": "KCNQ2",
+   "gene_in_record": true
+  },
+  {
+   "nct": "NCT04924153",
+   "gene": "KCNT1",
+   "gene_in_record": true
+  },
+  {
+   "nct": "NCT07600736",
+   "gene": "KCNT1",
+   "gene_in_record": true
+  },
+  {
+   "nct": "NCT07156201",
+   "gene": "KCNT1",
+   "gene_in_record": true
+  },
+  {
+   "nct": "NCT07227857",
+   "gene": "KCNT1",
+   "gene_in_record": true
+  },
+  {
+   "nct": "NCT05450822",
+   "gene": "KCNT1",
+   "gene_in_record": false
+  },
+  {
+   "nct": "NCT03650452",
+   "gene": "SCN1A",
+   "gene_in_record": true
+  },
+  {
+   "nct": "NCT00142363",
+   "gene": "SCN1A",
+   "gene_in_record": false
+  },
+  {
+   "nct": "NCT05419492",
+   "gene": "SCN1A",
+   "gene_in_record": true
+  },
+  {
+   "nct": "NCT02239276",
+   "gene": "SCN1A",
+   "gene_in_record": true
+  },
+  {
+   "nct": "NCT02229032",
+   "gene": "SCN1A",
+   "gene_in_record": false
+  },
+  {
+   "nct": "NCT05651204",
+   "gene": "SCN1A",
+   "gene_in_record": false
+  },
+  {
+   "nct": "NCT04537832",
+   "gene": "SCN1A",
+   "gene_in_record": true
+  },
+  {
+   "nct": "NCT05472389",
+   "gene": "SCN1A",
+   "gene_in_record": false
+  },
+  {
+   "nct": "NCT04614506",
+   "gene": "SCN1A",
+   "gene_in_record": false
+  },
+  {
+   "nct": "NCT06504511",
+   "gene": "SCN1A",
+   "gene_in_record": true
+  },
+  {
+   "nct": "NCT06371794",
+   "gene": "SCN1A",
+   "gene_in_record": false
+  },
+  {
+   "nct": "NCT04166305",
+   "gene": "SCN1A",
+   "gene_in_record": false
+  },
+  {
+   "nct": "NCT05982717",
+   "gene": "SCN1A",
+   "gene_in_record": false
+  },
+  {
+   "nct": "NCT06283212",
+   "gene": "SCN1A",
+   "gene_in_record": true
+  },
+  {
+   "nct": "NCT07675746",
+   "gene": "SCN1A",
+   "gene_in_record": true
+  },
+  {
+   "nct": "NCT07013331",
+   "gene": "SCN1A",
+   "gene_in_record": false
+  },
+  {
+   "nct": "NCT06967727",
+   "gene": "SCN1A",
+   "gene_in_record": true
+  },
+  {
+   "nct": "NCT07251673",
+   "gene": "SCN1A",
+   "gene_in_record": true
+  },
+  {
+   "nct": "NCT02415686",
+   "gene": "SCN1A",
+   "gene_in_record": false
+  },
+  {
+   "nct": "NCT06585605",
+   "gene": "SCN1A",
+   "gene_in_record": true
+  },
+  {
+   "nct": "NCT07801404",
+   "gene": "SCN1A",
+   "gene_in_record": false
+  },
+  {
+   "nct": "NCT06395792",
+   "gene": "SCN1A",
+   "gene_in_record": false
+  },
+  {
+   "nct": "NCT06112275",
+   "gene": "SCN1A",
+   "gene_in_record": true
+  },
+  {
+   "nct": "NCT06598449",
+   "gene": "SCN1A",
+   "gene_in_record": false
+  },
+  {
+   "nct": "NCT01238250",
+   "gene": "SCN1A",
+   "gene_in_record": true
+  },
+  {
+   "nct": "NCT07019922",
+   "gene": "SCN2A",
+   "gene_in_record": true
+  },
+  {
+   "nct": "NCT05407727",
+   "gene": "SCN2A",
+   "gene_in_record": true
+  },
+  {
+   "nct": "NCT05818553",
+   "gene": "SCN2A",
+   "gene_in_record": true
+  },
+  {
+   "nct": "NCT02505477",
+   "gene": "SCN2A",
+   "gene_in_record": false
+  },
+  {
+   "nct": "NCT06314490",
+   "gene": "SCN2A",
+   "gene_in_record": true
+  },
+  {
+   "nct": "NCT07494331",
+   "gene": "SCN2A",
+   "gene_in_record": false
+  },
+  {
+   "nct": "NCT05737784",
+   "gene": "SCN2A",
+   "gene_in_record": true
+  },
+  {
+   "nct": "NCT06674070",
+   "gene": "SCN2A",
+   "gene_in_record": true
+  },
+  {
+   "nct": "NCT07031661",
+   "gene": "SCN2A",
+   "gene_in_record": false
+  },
+  {
+   "nct": "NCT03907124",
+   "gene": "SCN2A",
+   "gene_in_record": false
+  },
+  {
+   "nct": "NCT01238250",
+   "gene": "SCN2A",
+   "gene_in_record": true
+  },
+  {
+   "nct": "NCT05226780",
+   "gene": "SCN8A",
+   "gene_in_record": true
+  },
+  {
+   "nct": "NCT05450822",
+   "gene": "SCN8A",
+   "gene_in_record": false
+  },
+  {
+   "nct": "NCT04873869",
+   "gene": "SCN8A",
+   "gene_in_record": true
+  },
+  {
+   "nct": "NCT05818553",
+   "gene": "SCN8A",
+   "gene_in_record": true
+  },
+  {
+   "nct": "NCT06967727",
+   "gene": "SCN8A",
+   "gene_in_record": true
+  },
+  {
+   "nct": "NCT06585605",
+   "gene": "SCN8A",
+   "gene_in_record": true
+  },
+  {
+   "nct": "NCT06625112",
+   "gene": "STXBP1",
+   "gene_in_record": true
+  },
+  {
+   "nct": "NCT02885389",
+   "gene": "STXBP1",
+   "gene_in_record": false
+  },
+  {
+   "nct": "NCT05161494",
+   "gene": "STXBP1",
+   "gene_in_record": true
+  },
+  {
+   "nct": "NCT05232630",
+   "gene": "STXBP1",
+   "gene_in_record": true
+  },
+  {
+   "nct": "NCT05462054",
+   "gene": "STXBP1",
+   "gene_in_record": true
+  },
+  {
+   "nct": "NCT06555965",
+   "gene": "STXBP1",
+   "gene_in_record": true
+  },
+  {
+   "nct": "NCT06967727",
+   "gene": "STXBP1",
+   "gene_in_record": true
+  },
+  {
+   "nct": "NCT06585605",
+   "gene": "STXBP1",
+   "gene_in_record": true
+  },
+  {
+   "nct": "NCT06356233",
+   "gene": "STXBP1",
+   "gene_in_record": true
+  },
+  {
+   "nct": "NCT04937062",
+   "gene": "STXBP1",
+   "gene_in_record": true
+  },
+  {
+   "nct": "NCT01238250",
+   "gene": "STXBP1",
+   "gene_in_record": true
+  },
+  {
+   "nct": "NCT06983158",
+   "gene": "STXBP1",
+   "gene_in_record": true
+  },
+  {
+   "nct": "NCT05450822",
+   "gene": "SYNGAP1",
+   "gene_in_record": false
+  },
+  {
+   "nct": "NCT05232630",
+   "gene": "SYNGAP1",
+   "gene_in_record": true
+  },
+  {
+   "nct": "NCT04395495",
+   "gene": "SYNGAP1",
+   "gene_in_record": true
+  },
+  {
+   "nct": "NCT06555965",
+   "gene": "SYNGAP1",
+   "gene_in_record": true
+  },
+  {
+   "nct": "NCT01238250",
+   "gene": "SYNGAP1",
+   "gene_in_record": true
+  }
+ ]
+}
