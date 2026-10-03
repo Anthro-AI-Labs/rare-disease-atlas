@@ -210,9 +210,10 @@ export function actionView(id: string) {
 }
 
 export type GNode = { id: string; gene: string; name: string; cluster: number; role: string; route: "supported" | "hypothesis" | "none"; uncertain: boolean; conflict: boolean; href: string };
-export type GLink = { a: string; b: string; kind: "hyp" | "gene" | "sup"; w: number; mech: boolean };
+export type GLink = { a: string; b: string; kind: "hyp" | "gene" | "sup" | "review"; w: number; mech: boolean };
 
-/** Disease graph: nodes coloured by route status; dashed amber = computed hypothesis link; solid grey = same gene; solid green = curated shared route. */
+/** Disease graph: nodes coloured by route status; dashed amber = computed hypothesis link; solid grey = same gene; solid green = curated shared route;
+ *  pink dotted = same-gene mild/severe pair whose grouping is uncertain (expert review). */
 export function graphData() {
   const { g } = load();
   const ds = diseases();
@@ -229,6 +230,10 @@ export function graphData() {
     if (hasEdge) links.set(key(p.a, p.b), { a: p.a, b: p.b, kind: "hyp", w: p.combined, mech: p.mechanism_available && (p.mechanism ?? 0) >= g.meta.share_mechanism_min_ui });
     else if (sameGene) links.set(key(p.a, p.b), { a: p.a, b: p.b, kind: "gene", w: p.combined, mech: false });
     if (hasEdge && sameGene) links.get(key(p.a, p.b))!.kind = "hyp";
+  }
+  for (const p of g.meta.cluster_report.counterexample_pairs) if (p.status === "uncertain membership") {
+    const l = links.get(key(p.counterexample, p.core));
+    links.set(key(p.counterexample, p.core), { a: p.counterexample, b: p.core, kind: "review", w: l?.w ?? 0, mech: false });
   }
   for (const gp of Object.values(g.meta.gaps)) for (const r of gp.routes) if (r.connection_status === "supported") {
     const a = Object.entries(g.meta.gaps).find(([, v]) => v === gp)![0];

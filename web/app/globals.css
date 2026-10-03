@@ -113,3 +113,6 @@ html[data-depth="simple"] .more:not([data-ov="open"]) > .more-body, .more[data-o
 .sat { border-radius: 999px; display: grid; place-items: center; font-family: var(--font-heading); font-weight: 700; font-size: .8rem; color: var(--ink); background: var(--surface2); border: 2px solid var(--g); }
 .sat:hover, .sat[aria-pressed="true"] { box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 55%, transparent); }
 .hollow { border: 2px dashed var(--muted); background: transparent; color: var(--muted); }
+.legend-pulse line { animation: spulse 3.2s ease-in-out infinite; }
+.zbtn { display: grid; place-items: center; width: 2rem; height: 2rem; border-radius: .5rem; border: 1px solid var(--line); background: var(--surface2); color: var(--ink); }
+.zbtn:hover { border-color: var(--accent); }

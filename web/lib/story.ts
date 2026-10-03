@@ -1,6 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
-import { actionView, diseases, load, slugOf, type Edge } from "@/lib/graph";
+import { actionView, diseases, graphData, load, slugOf, type Edge } from "@/lib/graph";
 import { FUNC, whyLine } from "@/lib/plain";
 import type { Kind } from "@/lib/status";
 
@@ -159,3 +159,10 @@ export function messageFor(s: Story, sat: Sat, origin = "{ATLAS_URL}") {
     "Not medical advice.",
   ].join("\n");
 }
+
+/** Map nodes with what the side card needs: everyday name, plain one-sentence summary (the same template as the answer), gene role. */
+export function mapData() {
+  const { nodes, links } = graphData();
+  return { links, nodes: nodes.map((n) => { const s = story(n.id); return { ...n, common: s.common, summary: answerText(s.answer), func: s.gene.func }; }) };
+}
+export type MapNode = ReturnType<typeof mapData>["nodes"][number];

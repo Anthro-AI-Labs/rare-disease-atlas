@@ -1,14 +1,15 @@
 import Link from "next/link";
-import ClusterGraph from "@/components/ClusterGraph";
+import ForceMap from "@/components/ForceMap";
 import Search from "@/components/Search";
 import { Chip } from "@/components/Chip";
 import { Persona } from "@/components/Depth";
 import { Term } from "@/components/Term";
-import { diseases, graphData, slugOf } from "@/lib/graph";
+import { diseases, slugOf } from "@/lib/graph";
+import { mapData } from "@/lib/story";
 
 export default function Home() {
   const ds = diseases();
-  const { nodes, links } = graphData();
+  const { nodes, links } = mapData();
   return (
     <main className="mx-auto max-w-5xl px-5 pb-16">
       <section className="pt-8 sm:pt-14">
@@ -38,7 +39,7 @@ export default function Home() {
       <section className="mt-12" aria-labelledby="map">
         <h2 id="map" className="text-2xl font-semibold">The map</h2>
         <p className="mt-1 max-w-2xl text-muted">Twelve <Term k="encephalopathy">epilepsy-related conditions</Term> from eight genes. Closer means more alike on symptoms and the literature; dashed lines are <Term k="hypothesis">hypotheses</Term>.</p>
-        <div className="card mt-4 p-4 sm:p-6"><ClusterGraph nodes={nodes} links={links} height={440} /></div>
+        <div className="card mt-4 p-4 sm:p-6"><ForceMap nodes={nodes} links={links} height={440} /></div>
       </section>
 
       <section className="mt-12" aria-labelledby="all">

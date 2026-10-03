@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Answer } from "@/components/Answer";
-import ClusterGraph from "@/components/ClusterGraph";
+import ForceMap from "@/components/ForceMap";
 import { More } from "@/components/Depth";
 import { Chip } from "@/components/Chip";
 import { Claim, Investigators } from "@/components/Claim";
@@ -14,9 +14,9 @@ import SceneD from "@/components/scenes/SceneD";
 import StepNav from "@/components/StepNav";
 import { DiseaseName, GeneName, StatusTip } from "@/components/Names";
 import { Glossed, Term } from "@/components/Term";
-import { diseases, graphData, idOf, load, slugOf } from "@/lib/graph";
+import { diseases, idOf, load, slugOf } from "@/lib/graph";
 import { ROUTE } from "@/lib/status";
-import { diseaseTip, geneTip, story } from "@/lib/story";
+import { diseaseTip, geneTip, mapData, story } from "@/lib/story";
 
 export function generateStaticParams() {
   return diseases().map((d) => ({ slug: slugOf(d.id) }));
@@ -42,7 +42,7 @@ export default async function DiseasePage({ params }: { params: Promise<{ slug: 
   const { v, gap, rel, communities, assets, review, explanation: ex } = a;
   const { d, cluster, mechanisms, geneLevel, mechOtherCount, effectCounts, sole, trials, phenotypes, pairInfo, findings, invs, causes } = v;
   const rule = g.meta.confidence_rule;
-  const { nodes: gn, links: gl } = graphData();
+  const { nodes: gn, links: gl } = mapData();
   const route = ROUTE[gap.route_status];
   const recruiting = trials.filter((t) => t.study.status === "RECRUITING");
   const shownTrials = [...recruiting, ...trials.filter((t) => t.study.status !== "RECRUITING")];
@@ -85,7 +85,7 @@ export default async function DiseasePage({ params }: { params: Promise<{ slug: 
       <More label="the map of related conditions" className="mt-6">
         <div className="card p-4 sm:p-6">
           <p className="mb-2 text-sm text-muted">Where this disease sits among its neighbours. Select a circle to open it.</p>
-          <ClusterGraph nodes={gn} links={gl} focusId={id} height={380} />
+          <ForceMap nodes={gn} links={gl} focusId={id} height={400} />
         </div>
       </More>
 
