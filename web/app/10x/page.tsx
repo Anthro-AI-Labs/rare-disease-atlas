@@ -6,7 +6,7 @@ import type { Kind } from "@/lib/status";
 
 export const metadata = { title: "The 10× case · Rare Disease Atlas" };
 
-// The text lives in web/content/10x.md (written and source-checked by Varduhi). It is rendered verbatim: this page only adds links,
+// The text lives in web/content/10x.md (drafted with AI help; sources checked by Varduhi). It is rendered verbatim: this page only adds links,
 // the formula layout and a label per statement. Labels are plain pattern matches on the words already in the text.
 function read() {
   try { return fs.readFileSync(path.join(process.cwd(), "content/10x.md"), "utf8"); } catch { return null; }
