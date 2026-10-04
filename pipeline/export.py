@@ -57,8 +57,9 @@ def matching_diseases_for_study(s, gene, nodes):
     EMBOLD (NCT05818553) enrolls DEE only -> SCN2A DEE11 + SCN8A DEE13, never BFIS3/BFIS5.
     If a record does not specify, link only the core (severe) form, labeled 'condition not specified'."""
     text = " ".join([s.get("title", ""), *s.get("conditions", [])]).lower()
-    is_benign = bool(re.search(r"\b(benign|self-limited|neonatal seizures)\b", text))
-    is_dee = bool(re.search(r"\b(developmental and epileptic encephalopath|encephalopath|dee|early infantile|severe)\b", text))
+    # "neonatal seizures" is NOT a benign marker: KCNQ2-DEE also presents with neonatal seizures. `encephalopath\w*` covers -y / -ies.
+    is_benign = bool(re.search(r"\b(benign|self-limited)\b", text))
+    is_dee = bool(re.search(r"\b(encephalopath\w*|dee|early infantile|severe)\b", text))
     gene_dids = [d for d, g in ALL.items() if g == gene and d in nodes]
     if len(gene_dids) <= 1:
         return [(gene_dids[0], False)] if gene_dids else []

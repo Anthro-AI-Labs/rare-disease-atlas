@@ -788,3 +788,42 @@ def test_10x_page_footer_formula_labels_and_atlas_timing():
     assert "Atlas side: about 0.15 s to show the groups and studies for STXBP1 (median of 5 page loads, measured 2026-10-04)." in src
     md = (common.ROOT / "web" / "content" / "10x.md").read_text()
     assert "Overall speed-up = (D + 36 + recruitment time) / (36 + recruitment time)" in md and not (common.CURATED / "10x.md").exists()
+
+
+# ---------- final correctness pass ----------
+def test_committed_clusters_and_similarity_match_a_fresh_rebuild(monkeypatch, tmp_path):
+    """Derived data must not go stale: re-run cluster.py on a copy of its inputs and compare with the committed outputs."""
+    import json, shutil, cluster, common, mech
+    for f in ("nodes.jsonl", "similarity.json", "mechanisms.json", "entailment.json"):
+        shutil.copy(common.GRAPH / f, tmp_path / f)
+    monkeypatch.setattr(cluster, "GRAPH", tmp_path)
+    monkeypatch.setattr(mech, "GRAPH", tmp_path)
+    cluster.main()
+    for f in ("clusters.json", "cluster_report.json", "similarity_combined.json"):
+        assert json.loads((tmp_path / f).read_text()) == json.loads((common.GRAPH / f).read_text()), f"{f} is stale: run `make graph` and commit"
+    g = json.loads((common.GRAPH / "graph.json").read_text())
+    assert g["meta"]["pairs"] == json.loads((common.GRAPH / "similarity_combined.json").read_text())
+    assert g["clusters"] == json.loads((common.GRAPH / "clusters.json").read_text())
+
+
+def _study(title, conditions=()):
+    return {"title": title, "conditions": list(conditions)}
+
+
+def test_condition_matching_severe_benign_and_both():
+    import export
+    from config import ALL, COUNTEREXAMPLES
+    nodes = {d: {} for d in ALL}
+    sev = lambda r: {d for d, _ in r if d not in COUNTEREXAMPLES}
+    ben = lambda r: {d for d, _ in r if d in COUNTEREXAMPLES}
+    r = export.matching_diseases_for_study(_study("A study of early infantile epileptic encephalopathy in KCNQ2 disease"), "KCNQ2", nodes)
+    assert sev(r) and not ben(r) and all(not u for _, u in r)                       # explicit severe form, not 'unspecified'
+    r = export.matching_diseases_for_study(_study("Benign familial neonatal seizures", ["Benign Familial Neonatal Seizures"]), "KCNQ2", nodes)
+    assert ben(r) and not sev(r)
+    r = export.matching_diseases_for_study(_study("Neonatal seizures and encephalopathy", ["Neonatal seizures", "Encephalopathy"]), "KCNQ2", nodes)
+    assert sev(r) and not ben(r)                                                      # 'neonatal seizures' alone is not a benign marker
+    r = export.matching_diseases_for_study(_study("KCNQ2 neonatal seizures"), "KCNQ2", nodes)
+    assert sev(r) and all(u for _, u in r) and not ben(r)                              # no marker at all: severe form, labelled 'not specified'
+    r = export.matching_diseases_for_study(_study("Developmental and Epileptic Encephalopathies"), "SCN2A", nodes)   # plural: encephalopath\w*
+    assert sev(r) and all(not u for _, u in r)
+    assert export.matching_diseases_for_study(_study("anything"), "STXBP1", nodes) == [("OMIM:612164", False)]   # single-disease gene

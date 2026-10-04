@@ -3,35 +3,6 @@
     "cluster": 0,
     "members": [
       {
-        "id": "OMIM:613720",
-        "name": "Epileptic encephalopathy, early infantile, 7",
-        "role": "core",
-        "gene": "KCNQ2",
-        "stability": 1.0,
-        "uncertain": false
-      },
-      {
-        "id": "OMIM:614959",
-        "name": "Developmental and epileptic encephalopathy 14",
-        "role": "core",
-        "gene": "KCNT1",
-        "stability": 1.0,
-        "uncertain": false
-      },
-      {
-        "id": "OMIM:615473",
-        "name": "Developmental and epileptic encephalopathy 17",
-        "role": "core",
-        "gene": "GNAO1",
-        "stability": 1.0,
-        "uncertain": false
-      }
-    ]
-  },
-  {
-    "cluster": 1,
-    "members": [
-      {
         "id": "OMIM:300672",
         "name": "Developmental and epileptic encephalopathy 2",
         "role": "core",
@@ -58,16 +29,8 @@
     ]
   },
   {
-    "cluster": 2,
+    "cluster": 1,
     "members": [
-      {
-        "id": "OMIM:121200",
-        "name": "Seizures, benign familial neonatal, 1",
-        "role": "counterexample",
-        "gene": "KCNQ2",
-        "stability": 1.0,
-        "uncertain": false
-      },
       {
         "id": "OMIM:607208",
         "name": "Epileptic encephalopathy, early infantile, 6 (Dravet syndrome)",
@@ -111,6 +74,45 @@
         "stability": 1.0,
         "uncertain": true,
         "uncertain_reason": "Same-gene benign/severe pair co-clusters but disease-level evidence does not show the same variant effect (disease-level evidence: benign=1 directional claims (dominant None), severe=14 (dominant gain_of_function); minimum 3 each to compare.)"
+      }
+    ]
+  },
+  {
+    "cluster": 2,
+    "members": [
+      {
+        "id": "OMIM:121200",
+        "name": "Seizures, benign familial neonatal, 1",
+        "role": "counterexample",
+        "gene": "KCNQ2",
+        "stability": 1.0,
+        "uncertain": false,
+        "note": "Same-gene benign/severe pair with the same dominant variant effect: same mechanism, different severity."
+      },
+      {
+        "id": "OMIM:613720",
+        "name": "Epileptic encephalopathy, early infantile, 7",
+        "role": "core",
+        "gene": "KCNQ2",
+        "stability": 1.0,
+        "uncertain": false,
+        "note": "Same-gene benign/severe pair with the same dominant variant effect: same mechanism, different severity."
+      },
+      {
+        "id": "OMIM:614959",
+        "name": "Developmental and epileptic encephalopathy 14",
+        "role": "core",
+        "gene": "KCNT1",
+        "stability": 1.0,
+        "uncertain": false
+      },
+      {
+        "id": "OMIM:615473",
+        "name": "Developmental and epileptic encephalopathy 17",
+        "role": "core",
+        "gene": "GNAO1",
+        "stability": 1.0,
+        "uncertain": false
       }
     ]
   }

@@ -51,7 +51,8 @@ export function diseaseTip(id: string) {
     url: (d.definition_url as string | null) ?? (d.mondo ? `https://monarchinitiative.org/${d.mondo}` : null), mondo: (d.mondo as string | null) ?? null };
 }
 
-const ACTIVE = new Set(["RECRUITING", "NOT_YET_RECRUITING", "ACTIVE_NOT_RECRUITING", "ENROLLING_BY_INVITATION"]);
+export const ACTIVE = new Set(["RECRUITING", "NOT_YET_RECRUITING", "ACTIVE_NOT_RECRUITING", "ENROLLING_BY_INVITATION"]);
+export const ASSET_TYPE: Record<string, string> = { natural_history_study: "natural history study", clinical_trial: "clinical trial", registry: "registry", biomarker: "biomarker study", animal_model: "animal model or cell line" };
 const n = (k: number, one: string, many: string) => `${k === 0 ? "no" : k} ${k === 1 ? one : many}`;
 const cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 

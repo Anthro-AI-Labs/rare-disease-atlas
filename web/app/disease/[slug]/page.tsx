@@ -20,7 +20,7 @@ import { DiseaseName, GeneName, StatusTip } from "@/components/Names";
 import { Glossed, Term } from "@/components/Term";
 import { diseases, idOf, load, slugOf } from "@/lib/graph";
 import { ROUTE, studyStatusBadge } from "@/lib/status";
-import { diseaseTip, geneTip, mapData, messageFor, recipientFor, story } from "@/lib/story";
+import { ACTIVE, ASSET_TYPE, diseaseTip, geneTip, mapData, messageFor, recipientFor, story } from "@/lib/story";
 
 export function generateStaticParams() {
   return diseases().map((d) => ({ slug: slugOf(d.id) }));
@@ -48,8 +48,8 @@ export default async function DiseasePage({ params }: { params: Promise<{ slug: 
   const rule = g.meta.confidence_rule;
   const { nodes: gn, links: gl } = mapData();
   const route = ROUTE[gap.route_status];
-  const CLOSED_STATUSES = new Set(["TERMINATED", "WITHDRAWN", "SUSPENDED"]);
-  const isClosed = (t: (typeof trials)[number]) => CLOSED_STATUSES.has(String(t.study.status).toUpperCase());
+  // Same active set as the answer sentence (story.ts): everything else is "completed, closed or not active".
+  const isClosed = (t: (typeof trials)[number]) => !ACTIVE.has(String(t.study.status).toUpperCase());
   const openTrials = trials.filter((t) => !isClosed(t));
   const closedTrials = trials.filter((t) => isClosed(t));
   const recruiting = openTrials.filter((t) => String(t.study.status).toUpperCase() === "RECRUITING");
@@ -115,7 +115,7 @@ export default async function DiseasePage({ params }: { params: Promise<{ slug: 
         ) : <Empty>no summary is available for this disease yet.</Empty>}
       </Step>
 
-      <Step id="shared" n={2} title="Who shares your biology" sub="Conditions that look alike on symptoms and, where papers allow, in the kind of gene change. A program works these links out, so they are ideas to discuss, not findings.">
+      <Step id="shared" n={2} title="Who shares your biology" sub="Conditions that share a study with yours, or that look alike on symptoms and, where papers allow, in the kind of gene change. Shared-study links come from records we checked; the other links are worked out by a program, so treat them as ideas to discuss.">
         <StudyCards sats={s.sats.filter((x) => x.kind === "shares_study")} from={s.common} />
         <SceneB center={center} sats={satViews} />
         {pairInfo.map((p) => (
@@ -176,7 +176,7 @@ export default async function DiseasePage({ params }: { params: Promise<{ slug: 
                   {isBroad ? (
                     <span className="block text-sm text-muted">Also part of a broad genetic registry ({conds}+ conditions) · via {via}</span>
                   ) : (
-                    <span className="block text-sm text-muted"><Glossed text={String(asset.asset_type)} /> · via {via}</span>
+                    <span className="block text-sm text-muted"><Glossed text={ASSET_TYPE[String(asset.asset_type)] ?? String(asset.asset_type).replace(/_/g, " ")} /> · via {via}</span>
                   )}
                   <span className="mt-1 inline-block"><EvidenceBadge e={edge} /></span>
                 </li>
@@ -185,7 +185,7 @@ export default async function DiseasePage({ params }: { params: Promise<{ slug: 
               : <p className="mt-3 text-sm text-muted">None verified yet. A <Term k="registry">registry</Term>, a <Term k="natural history study">natural history study</Term> or a shared sample collection would count once someone confirms it and adds its source.</p>}</div>
           <div className="card p-5"><h3 className="text-lg font-semibold">Studies naming {d.gene}</h3>
             {trials.length ? (<>
-              <p className="mt-1 text-sm text-muted">{openTrials.length} open on ClinicalTrials.gov ({recruiting.length} recruiting){closedTrials.length > 0 ? `, ${closedTrials.length} closed/stopped` : ""}. Matched by gene name: please confirm they fit.</p>
+              <p className="mt-1 text-sm text-muted">{openTrials.length} active on ClinicalTrials.gov ({recruiting.length} recruiting){closedTrials.length > 0 ? `, ${closedTrials.length} completed, closed or not active` : ""}. Matched by gene name: please confirm they fit.</p>
               {shownOpenTrials.length > 0 && (<>
                 <ul className="mt-3 space-y-3">{shownOpenTrials.slice(0, 3).map((t) => {
                   const b = studyStatusBadge(String(t.study.status));
@@ -198,7 +198,7 @@ export default async function DiseasePage({ params }: { params: Promise<{ slug: 
                     </div>
                   </li>);
                 })}</ul>
-                {shownOpenTrials.length > 3 && <details className="mt-3 text-sm"><summary className="cursor-pointer text-muted">{shownOpenTrials.length - 3} more open studies</summary><ul className="mt-2 space-y-3">{shownOpenTrials.slice(3).map((t) => {
+                {shownOpenTrials.length > 3 && <details className="mt-3 text-sm"><summary className="cursor-pointer text-muted">{shownOpenTrials.length - 3} more active studies</summary><ul className="mt-2 space-y-3">{shownOpenTrials.slice(3).map((t) => {
                   const b = studyStatusBadge(String(t.study.status));
                   return (<li key={t.edge.id}>
                     <a className="font-medium hover:text-accent" target="_blank" rel="noreferrer" href={String(t.study.url)}>{t.study.name}</a>
@@ -210,7 +210,7 @@ export default async function DiseasePage({ params }: { params: Promise<{ slug: 
                   </li>);
                 })}</ul></details>}
               </>)}
-              {closedTrials.length > 0 && <details className="mt-4 border-t border-line/60 pt-3 text-sm"><summary className="cursor-pointer font-medium text-muted hover:text-ink">Closed or stopped studies ({closedTrials.length})</summary><ul className="mt-3 space-y-3">{closedTrials.map((t) => {
+              {closedTrials.length > 0 && <details className="mt-4 border-t border-line/60 pt-3 text-sm"><summary className="cursor-pointer font-medium text-muted hover:text-ink">Completed, closed or not active ({closedTrials.length})</summary><ul className="mt-3 space-y-3">{closedTrials.map((t) => {
                 const b = studyStatusBadge(String(t.study.status));
                 return (<li key={t.edge.id} className="opacity-80">
                   <a className="font-medium hover:text-accent" target="_blank" rel="noreferrer" href={String(t.study.url)}>{t.study.name}</a>
