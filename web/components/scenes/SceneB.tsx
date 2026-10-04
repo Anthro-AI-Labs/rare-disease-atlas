@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import { CopyMessage } from "@/components/Actions";
 import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
 import { Ev } from "@/components/EvidenceDrawer";
@@ -8,7 +9,7 @@ import { Connector, Scene, useSize } from "@/components/scenes/Scene";
 import type { Kind } from "@/lib/status";
 
 export type SatView = { id: string; gene: string; common: string; status: "supported" | "hypothesis" | "review"; why: string; edgeIds: string[]; href: string;
-  dt: DiseaseTipData; gt: GeneTipData };
+  dt: DiseaseTipData; gt: GeneTipData; message: string; to: string | null };
 export type Center = { gene: string; common: string; tone: Kind; gt: GeneTipData };
 
 const S: Record<SatView["status"], { kind: Kind; label: string; line: string }> = {
@@ -42,7 +43,8 @@ export default function SceneB({ center, sats }: { center: Center; sats: SatView
             </div>
             <p className="mt-4 text-lg"><b className="font-semibold">Why: </b>{cur.why}</p>
             {cur.status !== "supported" && <p className="mt-1 text-sm text-muted">{cur.status === "review" ? "Sources disagree or the grouping is uncertain, so an expert should look first." : "Worked out by a program from shared symptoms. It is an idea to check, not a finding."}</p>}
-            <div className="mt-5 flex flex-wrap gap-3">
+            <div className="mt-5 flex flex-wrap items-start gap-3">
+              <CopyMessage text={cur.message} label={cur.to ? `Copy a message to ${cur.to}` : "Copy a message to a related community"} />
               <Link href={cur.href} className="btn btn-ghost">Open {cur.gene} page <span aria-hidden>→</span></Link>
             </div>
           </motion.div>)}

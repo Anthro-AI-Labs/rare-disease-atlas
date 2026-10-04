@@ -116,3 +116,15 @@ html[data-depth="simple"] .more:not([data-ov="open"]) > .more-body, .more[data-o
 .legend-pulse line { animation: spulse 3.2s ease-in-out infinite; }
 .zbtn { display: grid; place-items: center; width: 2rem; height: 2rem; border-radius: .5rem; border: 1px solid var(--line); background: var(--surface2); color: var(--ink); }
 .zbtn:hover { border-color: var(--accent); }
+
+/* ---------- v3: print (one-page summary for a doctor) ---------- */
+@media print {
+  @page { size: A4; margin: 14mm; }
+  html, body { background: #fff !important; color: #000 !important; font-size: 10.5pt; }
+  .print-sheet { color: #000; line-height: 1.4; }
+  .print-sheet h1 { font-size: 18pt; margin: 2pt 0; }
+  .print-sheet h2 { font-size: 11.5pt; margin: 10pt 0 3pt; border-bottom: 1px solid #999; }
+  .print-sheet ul, .print-sheet ol { padding-left: 16pt; } .print-sheet ul { list-style: disc; } .print-sheet ol { list-style: decimal; }
+  .print-sheet li { margin: 2pt 0; }
+  .ps-kicker, .ps-small, .ps-foot { font-size: 8.5pt; color: #333; } .ps-foot { margin-top: 10pt; font-weight: 600; }
+}

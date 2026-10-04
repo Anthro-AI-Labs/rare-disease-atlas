@@ -21,7 +21,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className="flex min-h-full flex-col">
         <Script id="depth-boot" strategy="beforeInteractive">{DEPTH_BOOT}</Script>
         <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[60] focus:rounded-lg focus:bg-accent focus:px-4 focus:py-2 focus:text-base">Skip to content</a>
-        <header className="mx-auto flex w-full max-w-5xl flex-wrap items-center gap-x-4 gap-y-1 px-5 py-4">
+        <header className="print:hidden mx-auto flex w-full max-w-5xl flex-wrap items-center gap-x-4 gap-y-1 px-5 py-4">
           <Link href="/" className="whitespace-nowrap font-heading text-base font-semibold text-ink hover:text-accent sm:text-lg">Rare Disease Atlas</Link>
           <nav aria-label="Main" className="order-3 flex w-full sm:order-2 sm:ml-auto sm:w-auto gap-4 whitespace-nowrap text-sm text-muted sm:gap-5" >
             <Link className="hover:text-accent" href="/explore">Explore</Link>
@@ -31,7 +31,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           <div className="order-2 ml-auto sm:order-3 sm:ml-0"><DepthToggle /></div>
         </header>
         <EvidenceProvider><div id="main" className="flex-1">{children}</div></EvidenceProvider>
-        <footer className="mx-auto w-full max-w-5xl px-5 py-8 text-xs text-muted">
+        <footer className="print:hidden mx-auto w-full max-w-5xl px-5 py-8 text-xs text-muted">
           Not medical advice. A research prototype: links between diseases are hypotheses unless marked supported, and every claim shows its source.
         </footer>
       </body>

@@ -8,7 +8,9 @@ import { Claim, Investigators } from "@/components/Claim";
 import { Empty, EvidenceBadge, refLink } from "@/components/Evidence";
 import { Ev } from "@/components/EvidenceDrawer";
 import { strip } from "@/components/Explanation";
+import { CopyMessage, PrintSummary } from "@/components/Actions";
 import PairExplain from "@/components/PairExplain";
+import { PrintSheet } from "@/components/PrintSheet";
 import { SceneA, SceneB, SceneC } from "@/components/scenes";
 import SceneD from "@/components/scenes/SceneD";
 import StepNav from "@/components/StepNav";
@@ -16,7 +18,7 @@ import { DiseaseName, GeneName, StatusTip } from "@/components/Names";
 import { Glossed, Term } from "@/components/Term";
 import { diseases, idOf, load, slugOf } from "@/lib/graph";
 import { ROUTE } from "@/lib/status";
-import { diseaseTip, geneTip, mapData, story } from "@/lib/story";
+import { answerText, diseaseTip, geneTip, mapData, messageFor, story } from "@/lib/story";
 
 export function generateStaticParams() {
   return diseases().map((d) => ({ slug: slugOf(d.id) }));
@@ -53,7 +55,8 @@ export default async function DiseasePage({ params }: { params: Promise<{ slug: 
   const rest = mechanisms.filter((m) => !top3.includes(m));
   const ent = { yes: mechanisms.filter((m) => m.edge.entailment === "yes").length, partial: mechanisms.filter((m) => m.edge.entailment === "partial").length };
   const center = { gene: d.gene, common: s.common, tone: route.kind, gt: s.gene };
-  const satViews = s.sats.map((x) => ({ id: x.id, gene: x.gene, common: x.common, status: x.status, why: x.why, edgeIds: x.edgeIds, href: x.href, dt: diseaseTip(x.id), gt: geneTip(x.gene) }));
+  const satViews = s.sats.map((x) => ({ id: x.id, gene: x.gene, common: x.common, status: x.status, why: x.why, edgeIds: x.edgeIds, href: x.href, dt: diseaseTip(x.id), gt: geneTip(x.gene),
+    message: messageFor(s, x), to: x.groups[0] ?? s.groups[0]?.name ?? null }));
   const ord = [...s.active, ...s.studies.filter((t) => !s.active.includes(t))];
   const exists = { gene: d.gene, tone: route.kind, groups: s.groups.map((x) => ({ name: x.name, url: x.url })), registries: s.registries.map((x) => ({ name: x.name })),
     studies: ord.map((t) => ({ id: t.id, name: t.name, url: t.url })), activeCount: s.active.length, totalStudies: s.studies.length,
@@ -66,6 +69,8 @@ export default async function DiseasePage({ params }: { params: Promise<{ slug: 
 
   return (
     <main className="mx-auto max-w-5xl px-5 pb-20">
+      <PrintSheet s={s} />
+      <div className="print:hidden">
       <Link href="/" className="mt-2 inline-block text-sm text-muted hover:text-accent">← All diseases</Link>
       <header className="pt-4">
         <div className="flex flex-wrap items-center gap-2">
@@ -164,7 +169,10 @@ export default async function DiseasePage({ params }: { params: Promise<{ slug: 
       </Step>
 
       <Step id="next" n={4} title="Your next step">
-        <SceneD text={s.next.text} />
+        <SceneD text={s.next.text}>
+          {satViews[0] && <CopyMessage text={satViews[0].message} label={satViews[0].to ? `Copy a message to ${satViews[0].to}` : "Copy a message to a related community"} />}
+          <PrintSummary />
+        </SceneD>
         <div className="mt-6 rounded-2xl border border-conf/40 bg-conf/5 p-6">
           <h3 className="text-xl font-semibold text-conf">Needs <Term k="expert review">expert review</Term></h3>
           {review.length ? <ul className="mt-3 list-disc space-y-1.5 pl-5">{review.map((r) => <li key={r}><Glossed text={r} /></li>)}</ul> : <p className="mt-2 text-muted">Nothing flagged.</p>}
@@ -219,6 +227,7 @@ export default async function DiseasePage({ params }: { params: Promise<{ slug: 
           </div>
         </details>
       </section>
+      </div>
     </main>
   );
 }
