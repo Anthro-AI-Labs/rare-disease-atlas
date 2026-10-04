@@ -22,7 +22,7 @@ function tagsOf(text: string, section: string): Tag[] {
   const t: Tag[] = [];
   if (/^(The milestone|What must be validated next)$/i.test(section)) return t;   // plans, not findings: no label
   if (/\b(team estimate|estimate|assumption|assumptions|is not checked|may not hold)\b/i.test(text) || /^Assumptions$/i.test(section)) t.push("estimate");
-  if (/\bour own measured|own measurement|measured number|Our 2-hour measurement|2 hours of focused work|well over 10x\b/i.test(text)) t.push("measured");
+  if (/\bour own measured|own measurement|measured number|Our own timing|same 2 hours as step 1|2 hours of focused work|well over 10x\b/i.test(text)) t.push("measured");
   if (/Source:|https?:\/\/|checked on ClinicalTrials\.gov/i.test(text)) t.push("sourced");
   return t;
 }
@@ -47,9 +47,8 @@ function Formula({ line }: { line: string }) {
   const m = /^Overall speed-up = \((.+?)\) \/ \((.+?)\)$/.exec(line);
   if (!m) return <p>{line}</p>;
   return (
-    <div className="card my-3 px-5 py-4" role="group" aria-label={line}>
-      <span className="sr-only">{line}</span>
-      <div aria-hidden className="flex flex-wrap items-center gap-x-4 gap-y-2 font-heading text-lg sm:text-xl">
+    <div className="card my-3 px-5 py-4" role="img" aria-label={line}>
+      <div className="flex flex-wrap items-center gap-x-4 gap-y-2 font-heading text-lg sm:text-xl">
         <span className="text-sm font-semibold uppercase tracking-widest text-muted">Overall speed-up</span><span>=</span>
         <span className="inline-flex flex-col items-center"><span className="px-2 pb-1">{m[1]}</span><span className="h-0 w-full border-t-2 border-ink" /><span className="px-2 pt-1">{m[2]}</span></span>
       </div>
@@ -91,6 +90,7 @@ export default function TenX() {
           <li><b>Finding and connecting:</b> well over 10× <span className="chip chip-ok ml-1 !text-[0.7rem]">measured</span></li>
           <li><b>Launching a shared study:</b> about 1.3× <span className="chip chip-hyp ml-1 !text-[0.7rem]">estimate</span></li>
           <li>The biggest win may be joining an existing study.</li>
+          <li className="text-base text-muted sm:text-lg">Atlas side: about 0.15 s to show the groups and studies for STXBP1 (median of 5 page loads, measured 2026-10-04).</li>
         </ul>
       </section>
 
@@ -99,7 +99,7 @@ export default function TenX() {
       </ul>
 
       <article className="mt-2 text-lg leading-relaxed">{blocks}</article>
-      <p className="mt-10 text-sm text-muted">Text written and source-checked by Varduhi. Labels are added by the page from the words in each statement; the statements themselves are unchanged.</p>
+      <p className="mt-10 text-sm text-muted">Text drafted with AI help; sources checked by Varduhi.</p>
     </main>
   );
 }

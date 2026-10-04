@@ -757,3 +757,14 @@ def test_real_verified_assets_give_stxbp1_a_fully_supported_route():
     gap = g["meta"]["gaps"]["OMIM:612164"]
     assert gap["route_overall"] == "supported" and set(gap["route_segments"].values()) == {"supported"}
     assert not any(e["status"] == "hypothesis" for e in g["edges"] if e["relation"] == "has_asset" and e.get("verified"))
+
+
+def test_10x_page_footer_formula_labels_and_atlas_timing():
+    import common
+    src = (common.ROOT / "web" / "app" / "10x" / "page.tsx").read_text()
+    assert "Text drafted with AI help; sources checked by Varduhi." in src and "source-checked by Varduhi" not in src
+    assert 'className="sr-only">{line}' not in src and 'role="img" aria-label={line}' in src       # the formula is rendered once, as a fraction
+    assert "Our own timing" in src and "same 2 hours as step 1" in src                           # steps 1-2 -> Measured
+    assert "Atlas side: about 0.15 s to show the groups and studies for STXBP1 (median of 5 page loads, measured 2026-10-04)." in src
+    md = (common.ROOT / "web" / "content" / "10x.md").read_text()
+    assert "Overall speed-up = (D + 36 + recruitment time) / (36 + recruitment time)" in md and not (common.CURATED / "10x.md").exists()
