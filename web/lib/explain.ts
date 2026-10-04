@@ -23,6 +23,9 @@ export function summarize(ids: string[]) {
   });
 }
 
+/** Mirror of pipeline/spans.py STYLE_RE: readers never see "the graph" or its jargon. */
+const STYLE_RE = /\b(?:the (?:knowledge )?graph|graph|edges?|nodes?)\b/gi;
+
 export function validate(x: Raw, ids: string[]): string[] {
   const { edges } = load();
   const allowed = new Set(ids), refs = new Set<string>();
@@ -44,6 +47,8 @@ export function validate(x: Raw, ids: string[]): string[] {
     if (a.reduced && !yes.some((v) => ["loss_of_function", "dominant_negative", "mixed"].includes(v))) errs.push(`${lab}: asserts a reduced-function effect but cites no claim with entailment=yes for it`);
     if (a.increased && !yes.some((v) => ["gain_of_function", "mixed"].includes(v))) errs.push(`${lab}: asserts an increased-function effect but cites no claim with entailment=yes for it`);
   });
+  for (const t of [x.summary_plain, ...(x.uncertainties ?? []), ...steps.map((s) => s.text)])
+    for (const m of t.match(STYLE_RE) ?? []) errs.push(`style: do not write '${m}'; say 'research papers show' or 'we found'`);
   for (const t of [x.summary_plain, ...(x.uncertainties ?? []), ...steps.map((s) => s.text)])
     for (const m of t.match(ID_RE) ?? []) { const n = m.replace(/\s/g, "").replace(/^PMID:?/, "PMID:"); if (!refs.has(n)) errs.push(`identifier not in input: ${m}`); }
   if (!x.summary_plain) errs.push("missing summary_plain");

@@ -33,6 +33,9 @@ def effect_assertions(text):
     return ({"reduced"} if _asserted(REDUCED_RE, text) else set()) | ({"increased"} if _asserted(INCREASED_RE, text) else set())
 
 
+STYLE_RE = re.compile(r"\b(?:the (?:knowledge )?graph|graph|edges?|nodes?)\b", re.I)
+
+
 def validate_explanation(expl, path_edge_ids, allowed_refs=None, require_full=False, claim_info=None):
     """Return (ok, errors). Every step (and next_step) must cite >=1 edge id, all in the input path. If allowed_refs is given, any
     PMID/NCT/OMIM/HP/MONDO identifier written in the text must be in that set (no invented identifiers). require_full also demands
@@ -62,6 +65,10 @@ def validate_explanation(expl, path_edge_ids, allowed_refs=None, require_full=Fa
             for m in ID_RE.findall(t):
                 if re.sub(r"[\s]", "", m).replace("PMID", "PMID:").replace("PMID::", "PMID:") not in allowed_refs:
                     errs.append(f"identifier not in input: {m}")
+    # style: readers never see "the graph" or its jargon (UI v3 language rules)
+    for t in [expl.get("summary_plain", ""), *expl.get("uncertainties", []), *(st.get("text", "") for st in steps)]:
+        for m in STYLE_RE.findall(t):
+            errs.append(f"style: do not write '{m}'; say 'research papers show' or 'we found'")
     if require_full:
         if not expl.get("summary_plain"): errs.append("missing summary_plain")
         if not expl.get("steps"): errs.append("no steps")

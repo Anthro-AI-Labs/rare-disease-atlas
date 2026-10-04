@@ -42,6 +42,15 @@ def test_explanation_validator():
     assert not ok and len(errs) == 2
 
 
+def test_explanation_style_rule():
+    ok = {"summary_plain": "Research papers show STXBP1 can cause this disease.", "steps": [{"text": "We found one link.", "edge_ids": ["E1"]}],
+          "uncertainties": ["Not sure."], "next_step": {"text": "Ask an expert.", "edge_ids": ["E1"]}}
+    assert validate_explanation(ok, ["E1"], require_full=True)[0]
+    bad = {**ok, "summary_plain": "The graph says STXBP1 can cause this disease."}
+    good, errs = validate_explanation(bad, ["E1"], require_full=True)
+    assert not good and any(e.startswith("style:") for e in errs)
+
+
 def test_exported_graph_valid_if_present():
     import json, common
     p = common.GRAPH / "graph.json"
