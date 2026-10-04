@@ -67,6 +67,19 @@ export function template(ids: string[]): Raw {
   };
 }
 
+export const TREATMENT_NOTE = "This atlas does not track treatments. Ask your care team about current treatment options.";
+/** Same rule as pipeline/explain.py: never imply that no treatment exists. */
+export function noTreatmentClaims<T extends { uncertainties: string[] }>(x: T): T {
+  const out: string[] = []; let hit = false;
+  for (const u of x.uncertainties) {
+    const sents = u.trim().split(/(?<=[.!?])\s+/), keep = sents.filter((t) => !/\btreatments?\b/i.test(t));
+    if (keep.length === sents.length) { out.push(u); continue; }
+    hit = true; if (keep.length) out.push(keep.join(" "));
+  }
+  if (hit) out.push(TREATMENT_NOTE);
+  return { ...x, uncertainties: out.filter((u, i) => u !== TREATMENT_NOTE || i === out.length - 1) };
+}
+
 export async function explain(ids: string[], title: string) {
   const key = process.env.OPENAI_API_KEY, model = process.env.OPENAI_MODEL;
   if (!key || !model) return null;
@@ -79,7 +92,7 @@ export async function explain(ids: string[], title: string) {
     if (!r.ok) throw new Error(`OpenAI ${r.status}`);
     const x = JSON.parse((await r.json()).choices[0].message.content) as Raw;
     errs = validate(x, ids);
-    if (!errs.length) return { ...x, source: "llm" as const, attempts: attempt, model, validation_errors: [] as string[] };
+    if (!errs.length) return { ...noTreatmentClaims(x), source: "llm" as const, attempts: attempt, model, validation_errors: [] as string[] };
   }
-  return { ...template(ids), source: "template" as const, attempts: 2, model: null, validation_errors: errs };
+  return { ...noTreatmentClaims(template(ids)), source: "template" as const, attempts: 2, model: null, validation_errors: errs };
 }

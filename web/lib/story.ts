@@ -62,7 +62,7 @@ export function story(id: string) {
   const d = v.d;
   const common = commonName(id);
   const contradicted = new Set(g.meta.contradiction_findings.filter((f) => f.kind === "contradicted").map((f) => f.disease));
-  const groupsFor = (did: string) => g.edges.filter((e) => e.relation === "serves" && e.target === did).map((e) => nodes.get(e.source)!.name!);
+  const groupsFor = (did: string) => g.edges.filter((e) => e.relation === "serves" && e.target === did && e.status === "supported").map((e) => nodes.get(e.source)!.name!);   // verified groups only
 
   // --- Scene B: who shares your biology ---
   const sats: Sat[] = rel.map((r) => {
@@ -90,6 +90,7 @@ export function story(id: string) {
   const active = studies.filter((s) => ACTIVE.has(s.status));
   // groups = patient groups of THIS gene only; groups of other genes are "related communities" (never across opposite mechanisms) and never a recommendation
   const groups = communities.map((c) => ({ name: c.org.name!, via: c.via, edge: c.edge.id, url: (c.org.url as string) || null }));
+  const ownVerified = communities.filter((c) => c.edge.status === "supported").map((c) => c.org.name!);
   const relatedGroups = relatedCommunities.map((c) => ({ name: c.org.name!, via: c.via, gene: c.gene, edge: c.edge.id, url: (c.org.url as string) || null }));
   const registries = assets.map((x) => ({ name: x.asset.name!, via: x.via, edge: x.edge.id }));
 
@@ -126,7 +127,7 @@ export function story(id: string) {
   else answer.push({ t: `No patient group for ${d.gene}`, k: "ctx" }, " or ", { t: "active study", k: "ctx" }, " is on file yet. ");
   answer.push("Your next step: ", { t: next.short, k: "accent" }, ".");
 
-  return { a, d, common, func, effect, effectEdges, sats, linked, studies, active, groups, relatedGroups, registries, next, answer, relKind,
+  return { a, d, common, func, effect, effectEdges, sats, linked, studies, active, groups, ownVerified, relatedGroups, registries, next, answer, relKind,
     routeStatus: a.gap.route_status, tip: diseaseTip(id), gene: geneTip(d.gene) };
 }
 export type Story = ReturnType<typeof story>;
@@ -134,18 +135,27 @@ export type Story = ReturnType<typeof story>;
 /** Plain-text answer for places without highlights (map side card, print). */
 export const answerText = (s: Seg[]) => s.map((x) => (typeof x === "string" ? x : x.t)).join("").replace(/^./, (c) => cap(c));
 
+/** Who a message about this link is addressed to. Only a VERIFIED group of the gene the message is about is ever pre-filled:
+ *  the related disease's own-gene group when the link is "shares a study" (e.g. STXBP1 -> SYNGAP1 via STARR -> the SYNGAP1 group), otherwise the page disease's
+ *  own-gene group. Never a group of a gene with the opposite dominant effect, never an unverified group, never a third gene. */
+export function recipientFor(s: Story, sat: Sat): string | null {
+  if (sat.kind === "shares_study" && !sat.opposite && sat.groups.length) return sat.groups[0];
+  return s.ownVerified[0] ?? null;
+}
+
 /** Copyable message about one link. Only facts from graph.json; recipient left for the user when no group is on file. */
 export function messageFor(s: Story, sat: Sat, origin = "{ATLAS_URL}") {
   const { g } = load();
   const edges = sat.edgeIds.map((i) => g.edges.find((e) => e.id === i)).filter(Boolean) as Edge[];
   const pair = g.meta.pairs.find((p) => (p.a === s.d.id && p.b === sat.id) || (p.b === s.d.id && p.a === sat.id));
-  const status = sat.status === "supported" ? "This link is supported by a curated shared patient group or asset."
+  const status = sat.status === "supported" ? "This link is supported by a curated shared patient group, study or asset."
+    : sat.status === "pending" ? "This shared-study link comes from a curated list that a person has not verified yet (pending verification)."
     : sat.status === "review" ? "This link needs expert review: sources disagree or the grouping is uncertain."
       : "This is a computed hypothesis from shared symptoms, not a confirmed shared mechanism.";
   const studies = s.active.slice(0, 3).map((t) => `- ${t.id}: ${t.name.slice(0, 90)}${t.name.length > 90 ? "…" : ""} (https://clinicaltrials.gov/study/${t.id})`);
-  // The To: line is never pre-filled with a group of another gene (a recipient across genes or mechanisms must be chosen by the sender).
+  const to = recipientFor(s, sat);
   return [
-    `To: a ${sat.gene} patient community (the Atlas does not fill in recipients from another gene: please add the name yourself)`,
+    `To: ${to ?? `a ${sat.gene} patient community (no verified group is on file for the right gene: please add the name yourself)`}`,
     `Subject: Possible shared ground between ${s.common} and ${sat.common}`,
     "",
     "Hello,",

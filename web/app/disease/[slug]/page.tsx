@@ -20,7 +20,7 @@ import { DiseaseName, GeneName, StatusTip } from "@/components/Names";
 import { Glossed, Term } from "@/components/Term";
 import { diseases, idOf, load, slugOf } from "@/lib/graph";
 import { ROUTE } from "@/lib/status";
-import { diseaseTip, geneTip, mapData, messageFor, story } from "@/lib/story";
+import { diseaseTip, geneTip, mapData, messageFor, recipientFor, story } from "@/lib/story";
 
 export function generateStaticParams() {
   return diseases().map((d) => ({ slug: slugOf(d.id) }));
@@ -58,7 +58,7 @@ export default async function DiseasePage({ params }: { params: Promise<{ slug: 
   const ent = { yes: mechanisms.filter((m) => m.edge.entailment === "yes").length, partial: mechanisms.filter((m) => m.edge.entailment === "partial").length };
   const center = { gene: d.gene, common: s.common, tone: route.kind, gt: s.gene };
   const satViews = s.sats.map((x) => ({ id: x.id, gene: x.gene, common: x.common, status: x.status, why: x.why, edgeIds: x.edgeIds, href: x.href, dt: diseaseTip(x.id), gt: geneTip(x.gene),
-    message: messageFor(s, x), to: null, segments: x.segments, overall: x.overall, kind: x.kind, groups: x.groups, opposite: x.opposite }));
+    message: messageFor(s, x), to: recipientFor(s, x), segments: x.segments, overall: x.overall, kind: x.kind, groups: x.groups, opposite: x.opposite }));
   const ord = [...s.active, ...s.studies.filter((t) => !s.active.includes(t))];
   const exists = { gene: d.gene, tone: route.kind, groups: s.groups.map((x) => ({ name: x.name, url: x.url })), registries: s.registries.map((x) => ({ name: x.name })),
     studies: ord.map((t) => ({ id: t.id, name: t.name, url: t.url })), activeCount: s.active.length, totalStudies: s.studies.length,

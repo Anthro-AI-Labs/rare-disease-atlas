@@ -44,7 +44,7 @@
     "The change effect is strongest for loss-of-function claims only. The records do not show gain-of-function evidence for STXBP1 here.",
     "Several study links are marked as hypothesis or need verification. They should not be treated as fully confirmed assets.",
     "The records do not show which exact STXBP1 changes cause which symptom patterns in this condition.",
-    "The records do not give treatment results for this condition, so benefit from any study is unknown."
+    "This atlas does not track treatments. Ask your care team about current treatment options."
    ],
    "next_step": {
     "text": "Ask a doctor who knows genes to review the STXBP1 claims and the study records tied to this condition.",
@@ -165,7 +165,7 @@
     "Some study links are marked as needing confirmation, so the exact match to this condition is not fully checked.",
     "The SCN2A change type can differ by person and lab test, so the effect is not the same for every family.",
     "Several similarity and shared-study links are hypotheses only, not proven shared causes.",
-    "No treatment result for this condition is given here, and no asset row is fully verified in the input."
+    "This atlas does not track treatments. Ask your care team about current treatment options."
    ],
    "next_step": {
     "text": "Ask a doctor who knows genes to review the SCN2A claims and the study records together, especially the confirmed disease link and the mixed gain/loss findings.",
@@ -266,7 +266,8 @@
     "The change-to-disease link is strong for SCN8A, but not every patient has the same change. [E00038, M3ed936f1, M8ac04bfa, M71caee27]",
     "The study records say to confirm exact eligibility and disease scope. They do not prove which patients were included. [T00059, T00060, T00062, T00063]",
     "The similarity links to other conditions are only suggestions. They do not show a shared cause. [E00238, E00233]",
-    "I do not see clear records here for treatment results in this condition. The asset rows for some studies are marked as not yet verified. [C00038, C00039, C00040]"
+    "The asset rows for some studies are marked as not yet verified. [C00038, C00039, C00040]",
+    "This atlas does not track treatments. Ask your care team about current treatment options."
    ],
    "next_step": {
     "text": "Ask a doctor who knows genes to review the SCN8A claims and the three SCN8A study records together. Focus on whether your family\u2019s specific change matches the gain-of-function findings and the listed study scope. [M3ed936f1, M8ac04bfa, M71caee27, T00059, T00060, T00062, T00063]",
@@ -543,8 +544,9 @@
    ],
    "uncertainties": [
     "The study-record links are partly unverified and some are marked as hypothesis, so they need review. [T00077, T00078, C00058, C00059, C00060]",
-    "We do not have a clear, plain-language list of which SYNGAP1 changes act the same way for every child. The records also do not give treatment results for this condition. [Mf184bfbd, M3a0e0640, M891283ca, T00078]",
-    "Some similar-disease matches may reflect shared symptoms like seizures, not a shared cause. That means they should not be treated as proof. [E00246, E00248]"
+    "We do not have a clear, plain-language list of which SYNGAP1 changes act the same way for every child. [Mf184bfbd, M3a0e0640, M891283ca, T00078]",
+    "Some similar-disease matches may reflect shared symptoms like seizures, not a shared cause. That means they should not be treated as proof. [E00246, E00248]",
+    "This atlas does not track treatments. Ask your care team about current treatment options."
    ],
    "next_step": {
     "text": "Ask a doctor who knows genes to review the three SYNGAP1 study records and the three loss-of-function papers together, to confirm which family resources or study contacts are real matches for your child. [T00078, T00077, T00076, Mf184bfbd, M3a0e0640, M891283ca]",
@@ -649,8 +651,8 @@
    "uncertainties": [
     "Some study records say the disease name in the title or keywords, but they also ask for expert confirmation. So the fit may not be exact.",
     "The patient registry and network links are marked as not yet checked by a human reviewer.",
-    "We did not find clear treatment results for this condition in the records you gave.",
-    "We did not find variant-by-variant detail beyond the general CDKL5 loss-of-function pattern."
+    "We did not find variant-by-variant detail beyond the general CDKL5 loss-of-function pattern.",
+    "This atlas does not track treatments. Ask your care team about current treatment options."
    ],
    "next_step": {
     "text": "Ask a doctor who knows genes to review the CDKL5 registry and network links, along with the CDKL5-focused study records.",
@@ -738,7 +740,7 @@
     "Some study links are only marked as hypothesis and need human review.",
     "The records do not clearly say which exact GNAO1 changes fit each child.",
     "The similarity links to other conditions are only hypotheses, not proof of the same cause.",
-    "No treatment result is shown here for this condition."
+    "This atlas does not track treatments. Ask your care team about current treatment options."
    ],
    "next_step": {
     "text": "Ask a doctor who knows genes to review the GNAO1 change and the listed study records, especially the GNAO1 natural history study and the ASO-GNAO1 study.",
@@ -963,7 +965,7 @@
     "The records do not show which exact change a child has, so the expected effect can differ.",
     "Some study links are marked as only suggested and not fully checked by a person.",
     "One supporting paper is in lab cells, not in children, so it may not match every patient.",
-    "We do not have treatment results for this condition in these records."
+    "This atlas does not track treatments. Ask your care team about current treatment options."
    ],
    "next_step": {
     "text": "Ask a doctor who knows genes to review the KCNQ2 change and the cited paper findings, especially the lab data and the study links.",
@@ -1041,8 +1043,8 @@
    "uncertainties": [
     "The study records do not prove who can join each study. The notes say the disease scope still needs confirmation.",
     "The similarity links are only hypotheses. They do not show a shared disease cause.",
-    "We do not have treatment results in these records for this condition.",
-    "We do not have detailed family history, age of onset, or exact change type for your child."
+    "We do not have detailed family history, age of onset, or exact change type for your child.",
+    "This atlas does not track treatments. Ask your care team about current treatment options."
    ],
    "next_step": {
     "text": "Ask a doctor who knows genes to review the SCN1A papers and the study records for this condition, especially the SCN1A-positive study and the natural history study.",

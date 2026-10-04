@@ -122,6 +122,28 @@ def generate(client, model, g, did):
             "validation_errors": errs}
 
 
+TREATMENT_NOTE = "This atlas does not track treatments. Ask your care team about current treatment options."
+TREATMENT_RE = re.compile(r"\btreatments?\b", re.I)
+
+
+def no_treatment_claims(ex):
+    """Deterministic post-processing: an explanation must never imply that no treatment exists. Any sentence of an uncertainty that talks about
+    (missing) treatment results is dropped and replaced, once, by TREATMENT_NOTE. Edge citations in steps / next_step are untouched."""
+    out, hit = [], False
+    for u in ex["uncertainties"]:
+        sents = re.split(r"(?<=[.!?])\s+", u.strip())
+        keep = [x for x in sents if not TREATMENT_RE.search(x)]
+        if len(keep) == len(sents):
+            out.append(u)
+            continue
+        hit = True
+        if keep:
+            out.append(" ".join(keep))
+    if hit:
+        out = [u for u in out if u != TREATMENT_NOTE] + [TREATMENT_NOTE]
+    return {**ex, "uncertainties": out}
+
+
 def main():
     g = json.loads((GRAPH / "graph.json").read_text())
     model = os.getenv("OPENAI_MODEL")
@@ -137,6 +159,7 @@ def main():
         else:
             ids = path_edge_ids(g, did)
             ex = {**template(g, did, ids), "source": "template", "attempts": 0, "first_try_pass": False, "input_edge_ids": ids, "validation_errors": ["OpenAI not configured"]}
+        ex = no_treatment_claims(ex)
         ex["model"] = model if ex["source"] == "llm" else None
         ex["generated_at"] = datetime.date.today().isoformat()
         out[did] = ex

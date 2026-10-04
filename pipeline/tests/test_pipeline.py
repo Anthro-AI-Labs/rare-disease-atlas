@@ -654,3 +654,91 @@ def test_shares_study_links_and_verified_is_the_only_source_of_truth(monkeypatch
     gap = export.build()["meta"]["gaps"]["OMIM:612164"]
     r = next(r for r in gap["routes"] if r["connection"] == "shares_study")
     assert r["segments"]["link"] == "pending" and r["overall"] in ("pending", "missing")
+
+
+# ---------- final fixes: Copy-message To:, treatment wording, verified study assets ----------
+def _messages(page_id):
+    import re, common
+    html = common.ROOT / "web" / ".next" / "server" / "app" / "disease" / f"{page_id}.html"
+    if not html.exists():
+        pytest.skip("web not built")
+    t = html.read_text()
+    out = {}
+    for m in re.finditer(r"To: (.*?)(?:\\n|\n)Subject: Possible shared ground between .*? and (.*?)(?:\\n|\n)", t):
+        out.setdefault(m.group(2), set()).add(m.group(1))
+    return out
+
+
+def _groups_by_gene():
+    import csv, common
+    by = {}
+    for r in csv.DictReader((common.CURATED / "patient_groups.csv").open(encoding="utf-8-sig")):
+        if r["verified"] == "yes":
+            for g in r["gene"].replace(",", ";").split(";"):
+                by.setdefault(g.strip().upper(), set()).add(r["organization_name"])
+    return by
+
+
+def test_copy_message_to_line_prefills_only_the_verified_group_of_the_right_gene():
+    by = _groups_by_gene()
+    msgs = _messages("OMIM_612164")                                   # STXBP1 (loss of function)
+    syn = next(v for k, v in msgs.items() if k.startswith("SYNGAP1"))
+    assert syn and syn <= by["SYNGAP1"]                                       # STXBP1 -> SYNGAP1 via STARR -> To: CURE SYNGAP1
+    assert any("CURE SYNGAP1" in x for x in syn)
+    scn2a = next(v for k, v in msgs.items() if k.startswith("SCN2A"))  # shares a study (Simons) but gain of function: opposite
+    assert not (scn2a & by["SCN2A"]) and scn2a and scn2a <= by["STXBP1"]        # never an opposite-gene group; falls back to the page disease's own gene
+    gnao1 = next(v for k, v in msgs.items() if k.startswith("GNAO1"))  # phenotype-only link: own gene's group
+    assert gnao1 and gnao1 <= by["STXBP1"]
+    # every pre-filled recipient anywhere is a verified group; SCN1A has no own group, so nothing is pre-filled
+    allgroups = set().union(*by.values())
+    for page in ("OMIM_612164", "OMIM_613721", "OMIM_614558", "OMIM_607208"):
+        for tos in _messages(page).values():
+            for to in tos:
+                assert to in allgroups or to.startswith("a ") and "no verified group" in to, (page, to)
+    for tos in _messages("OMIM_607208").values():
+        assert all(t.startswith("a ") for t in tos)
+    scn2a_page = _messages("OMIM_613721")                             # SCN2A <-> SCN8A via EMBOLD, both gain of function: SCN8A group allowed
+    scn8a = next(v for k, v in scn2a_page.items() if k.startswith("SCN8A"))
+    assert scn8a and scn8a <= by["SCN8A"]
+
+
+def test_explanations_never_imply_no_treatment_exists():
+    import json, re, common
+    g = json.loads((common.GRAPH / "graph.json").read_text())
+    note = "This atlas does not track treatments. Ask your care team about current treatment options."
+    for did, ex in g["explanations"].items():
+        for u in ex["uncertainties"]:
+            assert not re.search(r"\btreatments?\b", u, re.I) or u == note, (did, u)
+        assert ex["uncertainties"], did
+    assert any(note in ex["uncertainties"] for ex in g["explanations"].values())
+    ids = {e["id"] for e in g["edges"]}
+    for ex in g["explanations"].values():                                # edge citations untouched
+        assert {i for s in ex["steps"] + [ex["next_step"]] for i in s["edge_ids"]} <= ids
+
+
+def test_treatment_postprocessing_keeps_other_uncertainties():
+    import explain
+    out = explain.no_treatment_claims({"uncertainties": ["We do not have treatment results for this condition.",
+                                                          "Asset rows are not verified. The records do not give treatment results.", "Links are only hypotheses, not to be treated as proof."]})
+    assert out["uncertainties"] == ["Asset rows are not verified.", "Links are only hypotheses, not to be treated as proof.", explain.TREATMENT_NOTE]
+
+
+def test_verified_study_assets_make_the_stxbp1_route_fully_supported(monkeypatch, tmp_path):
+    """Simulates Varduhi's verified rows for STARR, EMBOLD, FENDEEP and Simons Searchlight on a COPY of assets.csv."""
+    import csv, shutil, curated, export, common
+    for f in ("patient_groups.csv", "assets.csv"):
+        shutil.copy(common.CURATED / f, tmp_path / f)
+    rows = list(csv.DictReader((tmp_path / "assets.csv").open(encoding="utf-8-sig")))
+    for r in rows:
+        if r["identifier"] in ("NCT06555965", "NCT05818553", "NCT05232630", "NCT01238250"):
+            r["verified"], r["verified_by"], r["verified_at"] = "yes", "Varduhi", "2026-10-04"
+    with open(tmp_path / "assets.csv", "w", newline="") as f:
+        w = csv.DictWriter(f, list(rows[0].keys())); w.writeheader(); w.writerows(rows)
+    monkeypatch.setattr(curated, "CURATED", tmp_path)
+    g = export.build()
+    gap = g["meta"]["gaps"]["OMIM:612164"]
+    assert gap["route_overall"] == "supported" and set(gap["route_segments"].values()) == {"supported"}
+    study = [e for e in g["edges"] if e["relation"] == "shares_study_with"]
+    assert study and all(e["status"] == "supported" and not e["pending_verification"] for e in study)
+    scn2a = g["meta"]["gaps"]["OMIM:613721"]["route_overall"]
+    assert scn2a == "supported"                                        # EMBOLD verified: SCN2A <-> SCN8A
