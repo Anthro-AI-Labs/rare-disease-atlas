@@ -128,3 +128,6 @@ html[data-depth="simple"] .more:not([data-ov="open"]) > .more-body, .more[data-o
   .print-sheet li { margin: 2pt 0; }
   .ps-kicker, .ps-small, .ps-foot { font-size: 8.5pt; color: #333; } .ps-foot { margin-top: 10pt; font-weight: 600; }
 }
+.sd-pre { opacity: 0; transform: translateY(36px); }
+.sd-play { animation: sdup .6s cubic-bezier(.2,.7,.2,1) both; }
+@keyframes sdup { from { opacity: 0; transform: translateY(36px); } to { opacity: 1; transform: none; } }

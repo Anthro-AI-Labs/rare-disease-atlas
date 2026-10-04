@@ -13,7 +13,7 @@ type Part = { x0: number; y0: number; x1: number; y1: number; shape: "dot" | "ri
 type Spec = { deco: React.ReactNode; gate?: React.ReactNode; parts: (n: number) => Part[]; n: number };
 
 const W = 260, H = 170, M = 85; // panel size and membrane line
-const C = { ink: "#e6eaf2", line: "#34406a", mem: "#242d47", acc: "#22d3ee", muted: "#8b93a7" };
+const C = { ink: "#e6eaf2", line: "#6170a3", mem: "#242d47", acc: "#22d3ee", muted: "#8b93a7" };
 const membrane = <><rect x={0} y={M - 8} width={W} height={16} fill={C.mem} /><line x1={0} y1={M - 8} x2={W} y2={M - 8} stroke={C.line} /><line x1={0} y1={M + 8} x2={W} y2={M + 8} stroke={C.line} /></>;
 const lbl = (x: number, y: number, t: string) => <text x={x} y={y} fontSize={10} fill={C.muted} textAnchor="middle">{t}</text>;
 const spread = (n: number, f: (i: number, t: number) => Part) => Array.from({ length: n }, (_, i) => f(i, n === 1 ? 0.5 : i / (n - 1)));

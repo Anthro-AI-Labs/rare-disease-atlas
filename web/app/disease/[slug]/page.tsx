@@ -18,7 +18,7 @@ import { DiseaseName, GeneName, StatusTip } from "@/components/Names";
 import { Glossed, Term } from "@/components/Term";
 import { diseases, idOf, load, slugOf } from "@/lib/graph";
 import { ROUTE } from "@/lib/status";
-import { answerText, diseaseTip, geneTip, mapData, messageFor, story } from "@/lib/story";
+import { diseaseTip, geneTip, mapData, messageFor, story } from "@/lib/story";
 
 export function generateStaticParams() {
   return diseases().map((d) => ({ slug: slugOf(d.id) }));
