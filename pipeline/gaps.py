@@ -56,7 +56,7 @@ def build_gaps(nodes, edges, pairs, meta_in):
              "unit": f"records returned for {gene}", "found": len(trials_by_d.get(did, [])), "found_unit": "naming the gene, linked to this disease"},
             {"source": "Curated patient groups", "searched": True, "count": meta_in["n_orgs_file"], "unit": "rows in patient_groups.csv", "found": len(orgs_by_d.get(did, [])), "found_unit": "for this disease"},
             {"source": "Curated assets", "searched": True, "count": meta_in["n_assets_file"], "unit": "rows in assets.csv", "found": len(assets_by_g.get(gid, [])), "found_unit": f"for {gene}"},
-            {"source": "NIH RePORTER", "searched": False, "count": 0, "unit": "not searched yet (planned Phase 3)"},
+            {"source": "NIH RePORTER", "searched": False, "count": 0, "unit": "Not included in this prototype"},
         ]
         rel = []
         for p in pairs:
