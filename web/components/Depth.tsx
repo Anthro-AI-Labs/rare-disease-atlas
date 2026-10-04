@@ -7,7 +7,7 @@ export function DepthToggle() {
   const d = useDepth();
   const opt = (v: Depth, label: string) => (
     <button type="button" role="radio" aria-checked={d === v} onClick={() => setDepth(v)}
-      className={`rounded-full px-3 py-1 text-xs font-semibold transition-colors ${d === v ? "bg-accent text-[#04121a]" : "text-muted hover:text-ink"}`}>{label}</button>
+      className={`rounded-full px-3 py-1 text-xs font-semibold transition-colors ${d === v ? "bg-accent text-onfill" : "text-muted hover:text-ink"}`}>{label}</button>
   );
   return (
     <div role="radiogroup" aria-label="How much detail to show" className="inline-flex items-center gap-0.5 rounded-full border border-line bg-surface p-0.5">

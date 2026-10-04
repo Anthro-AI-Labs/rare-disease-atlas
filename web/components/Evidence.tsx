@@ -8,7 +8,7 @@ export function EvidenceBadge({ e, label }: { e: Edge; label?: string }) {
   const c = chipOf(e);
   return (
     <StatusTip kind={c.kind}><Ev ids={[e.id]} title="Evidence" className="rounded-full">
-      <span className={`chip chip-${c.kind} cursor-pointer`}>{e.review_verdict === "correct" ? "✓ " : ""}{label ?? c.label}<span aria-hidden className="ev-n opacity-70">· 1 evidence</span></span>
+      <span className={`chip chip-${c.kind} cursor-pointer`}>{e.review_verdict === "correct" ? "✓ " : ""}{label ?? c.label}<span aria-hidden className="ev-n">· 1 evidence</span></span>
     </Ev></StatusTip>
   );
 }

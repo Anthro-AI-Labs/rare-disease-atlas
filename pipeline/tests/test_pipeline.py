@@ -515,3 +515,27 @@ def test_review_packet_hides_scores_and_verdicts():
         for banned in ("entailment", "confidence", "verdict", "correct"):      # "correct" also covers "incorrect"
             assert banned not in l.lower(), (banned, l)
     assert "verdict:" not in body.lower()
+
+
+def test_theme_defaults_to_light_ignores_os_and_keeps_dark_tokens():
+    import common
+    web = common.ROOT / "web"
+    boot = (web / "lib" / "theme-boot.ts").read_text()
+    assert "prefers-color-scheme" not in boot and "matchMedia" not in boot          # first visit: light, never the OS preference
+    assert 'dataset.theme=(t==="dark"||t==="light")?t:"light"' in boot
+    css = (web / "app" / "globals.css").read_text()
+    root = css.split(":root {", 1)[1].split("}", 1)[0]
+    assert "--bg: #f7f9fc" in root and "--ok: #15803d" in root and "--hyp: #b45309" in root and "--conf: #be185d" in root and "--accent: #0e7490" in root
+    dark = css.split(':root[data-theme="dark"] {', 1)[1].split("}", 1)[0]
+    for tok in ("--bg: #0a0e1a", "--surface: #121829", "--ink: #e6eaf2", "--muted: #8b93a7", "--ok: #4ade80", "--hyp: #fbbf24", "--conf: #f472b6", "--accent: #22d3ee"):
+        assert tok in dark, tok                                                      # dark tokens unchanged
+    layout = (web / "app" / "layout.tsx").read_text()
+    assert "THEME_BOOT" in layout and "<head><script" in layout                       # inline in <head>: set before first paint
+    assert "aria-label" in (web / "components" / "ThemeToggle.tsx").read_text()
+
+
+def test_no_hard_coded_hex_colours_in_components():
+    import re, common
+    web = common.ROOT / "web"
+    for p in list((web / "components").rglob("*.tsx")) + list((web / "app").rglob("*.tsx")):
+        assert not re.search(r'(fill|stroke|color|borderColor)=?[:=]\s*[{"\']?#[0-9a-fA-F]{3,8}', p.read_text()), p.name     # colours come from theme variables

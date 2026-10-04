@@ -11,12 +11,12 @@ import type { GLink } from "@/lib/graph";
 import { FUNC } from "@/lib/plain";
 import type { MapNode } from "@/lib/story";
 
-const COLOR = { supported: "#4ade80", hypothesis: "#fbbf24", none: "#8b93a7" } as const;
+const COLOR = { supported: "var(--ok)", hypothesis: "var(--hyp)", none: "var(--ctx)" } as const;
 const LINK: Record<GLink["kind"], { stroke: string; dash?: string; label: string }> = {
-  sup: { stroke: "#4ade80", label: "Supported route" },
-  hyp: { stroke: "#fbbf24", dash: "7 5", label: "Hypothesis (computed)" },
-  review: { stroke: "#f472b6", dash: "2 4", label: "Expert review needed" },
-  gene: { stroke: "#8b93a7", label: "Same gene" },
+  sup: { stroke: "var(--ok)", label: "Supported route" },
+  hyp: { stroke: "var(--hyp)", dash: "7 5", label: "Hypothesis (computed)" },
+  review: { stroke: "var(--conf)", dash: "2 4", label: "Expert review needed" },
+  gene: { stroke: "var(--ctx)", label: "Same gene" },
 };
 const ROUTE = { supported: "Supported route", hypothesis: "Hypothesis only", none: "No supported route" } as const;
 type N = MapNode & SimulationNodeDatum & { r: number };
@@ -101,7 +101,7 @@ export default function ForceMap({ nodes: input, links, focusId, height = 460 }:
             {ls.map((l) => {
               const on = !act || l.source.id === act || l.target.id === act, st = LINK[l.kind];
               return <line key={l.source.id + l.target.id} x1={l.source.x} y1={l.source.y} x2={l.target.x} y2={l.target.y} stroke={st.stroke} strokeWidth={l.mech ? 3 : 2}
-                strokeDasharray={st.dash} strokeLinecap="round" opacity={act ? (on ? 0.95 : 0.08) : 0.55} style={{ transition: "opacity .2s" }} />;
+                strokeDasharray={st.dash} strokeLinecap="round" opacity={act ? (on ? 0.95 : 0.08) : 0.85} style={{ transition: "opacity .2s" }} />;
             })}
             {nodes.map((d, i) => {
               const focus = d.id === focusId, a = act === d.id, dim = near && !near.has(d.id);
@@ -110,12 +110,12 @@ export default function ForceMap({ nodes: input, links, focusId, height = 460 }:
                   tabIndex={0} role="button" aria-pressed={sel === d.id} aria-label={`${d.common}, gene ${d.gene}. ${ROUTE[d.route]}${d.uncertain ? ", uncertain grouping" : ""}. Show summary.`}
                   onPointerEnter={() => setHov(d.id)} onPointerLeave={() => setHov(null)} onFocus={() => setHov(d.id)} onBlur={() => setHov(null)}
                   onClick={() => setSel(d.id)} onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); setSel(d.id); } }}>
-                  {(d.uncertain || d.conflict) && <circle r={d.r + 7} fill="none" stroke="#f472b6" strokeWidth={2} strokeDasharray="3 4" />}
-                  <circle r={d.r} fill="#182036" stroke={COLOR[d.route]} strokeWidth={focus || a || sel === d.id ? 4 : 2.5} strokeDasharray={d.role === "counterexample" ? "4 3" : undefined}
-                    style={{ filter: focus || a ? `drop-shadow(0 0 10px ${COLOR[d.route]})` : undefined }} />
-                  {sel === d.id && <circle r={d.r + 4} fill="none" stroke="#22d3ee" strokeWidth={2} />}
-                  <text y={4.5} textAnchor="middle" fontSize={narrow ? 13 : focus ? 13 : 12} fontWeight={700} fill="#e6eaf2" style={{ fontFamily: "var(--font-heading)", pointerEvents: "none" }}>{d.gene}</text>
-                  {d.role === "counterexample" && <text y={d.r + 18} textAnchor="middle" fontSize={narrow ? 15 : 13} fontWeight={600} fill="#c3c9d8" style={{ pointerEvents: "none" }}>benign form</text>}
+                  {(d.uncertain || d.conflict) && <circle r={d.r + 7} fill="none" stroke="var(--conf)" strokeWidth={2} strokeDasharray="3 4" />}
+                  <circle r={d.r} fill="var(--node-fill)" stroke={COLOR[d.route]} strokeWidth={focus || a || sel === d.id ? 4 : 2.5} strokeDasharray={d.role === "counterexample" ? "4 3" : undefined}
+                    className={focus || a ? `nglow-${d.route}` : undefined} />
+                  {sel === d.id && <circle r={d.r + 4} fill="none" stroke="var(--accent)" strokeWidth={2} />}
+                  <text y={4.5} textAnchor="middle" fontSize={narrow ? 13 : focus ? 13 : 12} fontWeight={700} fill="var(--ink)" style={{ fontFamily: "var(--font-heading)", pointerEvents: "none" }}>{d.gene}</text>
+                  {d.role === "counterexample" && <text y={d.r + 18} textAnchor="middle" fontSize={narrow ? 15 : 13} fontWeight={600} fill="var(--ink2)" style={{ pointerEvents: "none" }}>benign form</text>}
                 </g>);
             })}
           </g>
@@ -148,17 +148,17 @@ function Legend() {
   const row = (k: GLink["kind"], extra: React.ReactNode, cls = "") => (
     <li className="flex items-center gap-2">
       <svg width="44" height="14" aria-hidden className={cls}><line x1="2" y1="7" x2="42" y2="7" stroke={LINK[k].stroke} strokeWidth="2.5" strokeDasharray={LINK[k].dash} strokeLinecap="round"
-        style={k === "sup" ? { filter: `drop-shadow(0 0 4px ${LINK.sup.stroke})` } : undefined} />{extra}</svg>{LINK[k].label}
+        className={k === "sup" ? "lglow" : undefined} />{extra}</svg>{LINK[k].label}
     </li>);
   return (
     <ul className="flex flex-wrap gap-x-6 gap-y-2 text-xs text-muted lg:col-span-2" aria-label="Legend">
       {row("sup", null)}
       {row("hyp", null, "legend-pulse")}
-      {row("review", <><circle cx="22" cy="7" r="6" fill="#f472b6" /><text x="22" y="10.5" textAnchor="middle" fontSize="10" fontWeight="700" fill="#1a0610">!</text></>)}
+      {row("review", <><circle cx="22" cy="7" r="6" fill="var(--conf)" /><text x="22" y="10.5" textAnchor="middle" fontSize="10" fontWeight="700" fill="var(--on-fill)">!</text></>)}
       {row("gene", null)}
-      <li className="flex items-center gap-2"><span className="inline-block h-3.5 w-3.5 rounded-full border-2 border-dashed" style={{ borderColor: "#f472b6" }} />uncertain grouping</li>
-      <li className="flex items-center gap-2"><span className="inline-block h-3.5 w-3.5 rounded-full border-2 border-dashed" style={{ borderColor: "#8b93a7" }} />benign form (dashed circle)</li>
-      <li className="flex items-center gap-2">circle colour = <span style={{ color: COLOR.supported }}>supported</span> / <span style={{ color: COLOR.hypothesis }}>hypothesis only</span> / <span style={{ color: "#c3c9d8" }}>no supported route</span></li>
+      <li className="flex items-center gap-2"><span className="inline-block h-3.5 w-3.5 rounded-full border-2 border-dashed" style={{ borderColor: "var(--conf)" }} />uncertain grouping</li>
+      <li className="flex items-center gap-2"><span className="inline-block h-3.5 w-3.5 rounded-full border-2 border-dashed" style={{ borderColor: "var(--ctx)" }} />benign form (dashed circle)</li>
+      <li className="flex items-center gap-2">circle colour = <span style={{ color: COLOR.supported }}>supported</span> / <span style={{ color: COLOR.hypothesis }}>hypothesis only</span> / <span style={{ color: "var(--ink2)" }}>no supported route</span></li>
     </ul>
   );
 }

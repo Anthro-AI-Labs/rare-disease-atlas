@@ -13,7 +13,7 @@ type Part = { x0: number; y0: number; x1: number; y1: number; shape: "dot" | "ri
 type Spec = { deco: React.ReactNode; gate?: React.ReactNode; parts: (n: number) => Part[]; n: number };
 
 const W = 260, H = 170, M = 85; // panel size and membrane line
-const C = { ink: "#e6eaf2", line: "#6170a3", mem: "#242d47", acc: "#22d3ee", muted: "#8b93a7" };
+const C = { ink: "var(--ink)", line: "var(--scene-line)", mem: "var(--scene-mem)", acc: "var(--accent)", muted: "var(--muted)" };
 const membrane = <><rect x={0} y={M - 8} width={W} height={16} fill={C.mem} /><line x1={0} y1={M - 8} x2={W} y2={M - 8} stroke={C.line} /><line x1={0} y1={M + 8} x2={W} y2={M + 8} stroke={C.line} /></>;
 const lbl = (x: number, y: number, t: string) => <text x={x} y={y} fontSize={10} fill={C.muted} textAnchor="middle">{t}</text>;
 const spread = (n: number, f: (i: number, t: number) => Part) => Array.from({ length: n }, (_, i) => f(i, n === 1 ? 0.5 : i / (n - 1)));
@@ -53,7 +53,7 @@ const MOD: Record<Mode, { k: number; reps: number; peak: number; color: string }
 
 function Shape({ p, color }: { p: Part; color: string }) {
   if (p.shape === "ring") return <circle r={6} fill="none" stroke={color} strokeWidth={2} />;
-  if (p.shape === "tag") return <g><circle r={7} fill={color} /><text y={3.5} fontSize={9} fontWeight={700} textAnchor="middle" fill="#04121a">P</text></g>;
+  if (p.shape === "tag") return <g><circle r={7} fill={color} /><text y={3.5} fontSize={9} fontWeight={700} textAnchor="middle" fill="var(--on-fill)">P</text></g>;
   if (p.shape === "pill") return <rect x={-9} y={-5} width={18} height={10} rx={5} fill={color} />;
   return <circle r={4.5} fill={color} />;
 }
@@ -74,7 +74,7 @@ function Panel({ spec, mode, title, still }: { spec: Spec; mode: Mode; title: st
             transition={still ? { duration: 0 } : { duration: dur * 0.75, delay: (i / parts.length) * dur * 0.25, repeat: m.reps - 1, repeatDelay: 0.05, ease: "easeInOut" }}>
             <Shape p={p} color={m.color} />
           </motion.g>))}
-        {(mode === "mixed" || mode === "neutral") && <g><circle cx={W - 18} cy={18} r={11} fill={C.muted} /><text x={W - 18} y={22.5} fontSize={13} fontWeight={700} textAnchor="middle" fill="#0a0e1a">?</text></g>}
+        {(mode === "mixed" || mode === "neutral") && <g><circle cx={W - 18} cy={18} r={11} fill={C.muted} /><text x={W - 18} y={22.5} fontSize={13} fontWeight={700} textAnchor="middle" fill="var(--on-fill)">?</text></g>}
       </svg>
     </div>
   );
@@ -96,9 +96,9 @@ export default function SceneA({ func, effect, gene, edgeIds }: { func: string; 
           </div>
           <p className="mt-3">
             {directional && edgeIds.length > 0
-              ? <StatusTip kind="ok"><Ev ids={edgeIds} title="Quotes that state this effect"><span className="chip chip-ok cursor-pointer">Supported · literature<span aria-hidden className="ev-n opacity-70">· {edgeIds.length} evidence</span></span></Ev></StatusTip>
+              ? <StatusTip kind="ok"><Ev ids={edgeIds} title="Quotes that state this effect"><span className="chip chip-ok cursor-pointer">Supported · literature<span aria-hidden className="ev-n">· {edgeIds.length} evidence</span></span></Ev></StatusTip>
               : effect === "mixed" && edgeIds.length > 0
-                ? <StatusTip kind="conf"><Ev ids={edgeIds} title="Both sides"><span className="chip chip-conf cursor-pointer">Expert review: effects differ<span aria-hidden className="ev-n opacity-70">· {edgeIds.length} evidence</span></span></Ev></StatusTip>
+                ? <StatusTip kind="conf"><Ev ids={edgeIds} title="Both sides"><span className="chip chip-conf cursor-pointer">Expert review: effects differ<span aria-hidden className="ev-n">· {edgeIds.length} evidence</span></span></Ev></StatusTip>
                 : <StatusTip kind="ctx" interactive={false}><span className="chip chip-ctx">Direction not shown yet</span></StatusTip>}
           </p>
         </div>)}

@@ -36,7 +36,7 @@ export default function Search({ big = false }: { big?: boolean }) {
       <label htmlFor="search" className="sr-only">Search a disease, gene or symptom</label>
       <input id="search" type="search" value={q} onChange={(e) => setQ(e.target.value)} autoComplete="off"
         placeholder="Search a disease, gene or symptom, e.g. STXBP1, seizures"
-        className={`w-full rounded-full border border-line bg-surface px-6 text-ink placeholder:text-muted outline-none transition-shadow focus:border-accent focus:shadow-[0_0_28px_-6px_var(--accent)] ${big ? "py-5 text-xl" : "py-3 text-[1rem]"}`} />
+        className={`w-full rounded-full border border-edge bg-surface px-6 text-ink placeholder:text-muted outline-none transition-shadow focus:border-accent focus:shadow-[0_0_28px_-6px_var(--accent)] ${big ? "py-5 text-xl" : "py-3 text-[1rem]"}`} />
       {err && <p className="mt-3 text-sm text-muted">The search index could not be loaded. You can still browse the diseases below.</p>}
       {res && (
         <div className="mt-4 space-y-5" role="region" aria-label="Search results" aria-live="polite">

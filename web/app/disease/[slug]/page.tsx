@@ -120,7 +120,7 @@ export default async function DiseasePage({ params }: { params: Promise<{ slug: 
           <div key={f.disease} className="mt-5 rounded-2xl border border-conf/40 bg-conf/5 p-5">
             <p className="font-semibold text-conf">Conflicting evidence: expert review needed</p>
             <p className="mt-1 text-sm">Papers disagree on whether the gene change reduces or increases function. We do not settle it. It may depend on age at onset, the exact variant or the lab system — that is only a guess.</p>
-            <p className="mt-2"><StatusTip kind="conf"><Ev ids={[...f.reduced.slice(0, 3), ...f.increased.slice(0, 3)]} title="Both sides of the conflict"><span className="chip chip-conf cursor-pointer">See both sides<span aria-hidden className="ev-n opacity-70">· {Math.min(3, f.reduced.length) + Math.min(3, f.increased.length)} evidence</span></span></Ev></StatusTip></p>
+            <p className="mt-2"><StatusTip kind="conf"><Ev ids={[...f.reduced.slice(0, 3), ...f.increased.slice(0, 3)]} title="Both sides of the conflict"><span className="chip chip-conf cursor-pointer">See both sides<span aria-hidden className="ev-n">· {Math.min(3, f.reduced.length) + Math.min(3, f.increased.length)} evidence</span></span></Ev></StatusTip></p>
           </div>))}
         {rel.length > 0 && <More label="details for each related condition" className="mt-5">
           <ul className="grid gap-5">{rel.map((r) => {
@@ -135,7 +135,7 @@ export default async function DiseasePage({ params }: { params: Promise<{ slug: 
                   </div>
                   <div className="flex flex-wrap gap-2">
                     {r.route.connection === "same_gene" && <Chip kind="ctx">Same gene</Chip>}
-                    <StatusTip kind={c.kind}><Ev ids={r.route.edge_ids} title={`Evidence: link to ${r.to.name}`}><span className={`chip chip-${c.kind} cursor-pointer`}>{c.label}<span aria-hidden className="ev-n opacity-70">· {r.route.edge_ids.length} evidence</span></span></Ev></StatusTip>
+                    <StatusTip kind={c.kind}><Ev ids={r.route.edge_ids} title={`Evidence: link to ${r.to.name}`}><span className={`chip chip-${c.kind} cursor-pointer`}>{c.label}<span aria-hidden className="ev-n">· {r.route.edge_ids.length} evidence</span></span></Ev></StatusTip>
                   </div>
                 </div>
                 <p className="mt-4 text-lg"><b className="font-semibold">Why:</b> {sat.why} {mechLine(r)}</p>

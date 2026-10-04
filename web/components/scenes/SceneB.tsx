@@ -39,7 +39,7 @@ export default function SceneB({ center, sats }: { center: Center; sats: SatView
                 <p className="mt-0.5 text-sm text-muted">{cur.dt.name} · gene <GeneName t={cur.gt} /></p>
               </div>
               <StatusTip kind={S[cur.status].kind}><Ev ids={cur.edgeIds} title={`Evidence: link to ${cur.common}`}>
-                <span className={`chip chip-${S[cur.status].kind} cursor-pointer`}>{S[cur.status].label}<span aria-hidden className="ev-n opacity-70">· {cur.edgeIds.length} evidence</span></span></Ev></StatusTip>
+                <span className={`chip chip-${S[cur.status].kind} cursor-pointer`}>{S[cur.status].label}<span aria-hidden className="ev-n">· {cur.edgeIds.length} evidence</span></span></Ev></StatusTip>
             </div>
             <p className="mt-4 text-lg"><b className="font-semibold">Why: </b>{cur.why}</p>
             {cur.status !== "supported" && <p className="mt-1 text-sm text-muted">{cur.status === "review" ? "Sources disagree or the grouping is uncertain, so an expert should look first." : "Worked out by a program from shared symptoms. It is an idea to check, not a finding."}</p>}
@@ -73,7 +73,7 @@ function Orbit({ center, sats, sel, onSel, still }: { center: Center; sats: SatV
             <Connector key={s.id} cls={S[s.status].line} x1={cx + ux * (R0 + 4)} y1={cy + uy * (R0 + 4)} x2={p.x - ux * (R + 4)} y2={p.y - uy * (R + 4)}
               delay={0.6 + i * 0.25} still={still} pulse={s.status === "hypothesis"} dim={!!sel && sel !== s.id}>
               {s.status === "review" && <motion.span initial={still ? false : { opacity: 0, scale: 0.5 }} animate={{ opacity: 1, scale: 1 }} transition={t(1.1 + i * 0.25)}
-                aria-hidden className="grid h-5 w-5 place-items-center rounded-full bg-conf text-xs font-bold text-[#1a0610]">!</motion.span>}
+                aria-hidden className="grid h-5 w-5 place-items-center rounded-full bg-conf text-xs font-bold text-onfill">!</motion.span>}
             </Connector>);
         })}
         <motion.div initial={still ? false : { opacity: 0, scale: 0.4 }} animate={{ opacity: 1, scale: 1 }} transition={t(0)}

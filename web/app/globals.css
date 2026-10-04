@@ -1,8 +1,31 @@
 @import "tailwindcss";
 
 :root {
-  --bg: #0a0e1a; --surface: #121829; --surface2: #182036; --ink: #e6eaf2; --muted: #8b93a7; --line: #242d47;
+  /* Light theme = default (also when JS is off). Status colours darkened for AA contrast on white. */
+  --bg: #f7f9fc; --surface: #ffffff; --surface2: #f1f5f9; --ink: #111827; --ink2: #374151; --muted: #4b5563; --line: #e5e7eb; --edge: #758094;
+  --ok: #15803d; --hyp: #b45309; --conf: #be185d; --ctx: #6b7280; --accent: #0e7490;
+  --on-fill: #ffffff; --node-fill: #ffffff; --scene-line: #64748b; --scene-mem: #e2e8f0;
+  --shadow: 0 1px 2px rgba(17,24,39,.06), 0 10px 28px -14px rgba(17,24,39,.20);
+  --shadow-hover: 0 2px 4px rgba(17,24,39,.08), 0 14px 32px -14px color-mix(in srgb, var(--accent) 45%, transparent);
+  --tip-shadow: 0 10px 28px rgba(17,24,39,.20);
+  --color-neutral-50: #f9fafb; --color-neutral-100: #f1f5f9; --color-neutral-200: #e5e7eb; --color-neutral-300: #d1d5db;
+  --color-neutral-400: #6b7280; --color-neutral-500: #4b5563; --color-neutral-600: #4b5563; --color-neutral-700: #374151;
+  --color-neutral-800: #1f2937; --color-neutral-900: #111827;
+  --color-emerald-700: #15803d; --color-emerald-800: #15803d; --color-amber-600: #b45309; --color-amber-800: #b45309;
+  --color-red-700: #be185d; --color-red-800: #be185d; --color-sky-700: #0e7490; --color-sky-800: #0e7490;
+  color-scheme: light;
+}
+:root[data-theme="dark"] {
+  --bg: #0a0e1a; --surface: #121829; --surface2: #182036; --ink: #e6eaf2; --ink2: #c3c9d8; --muted: #8b93a7; --line: #242d47; --edge: #5b6a99;
   --ok: #4ade80; --hyp: #fbbf24; --conf: #f472b6; --ctx: #8b93a7; --accent: #22d3ee;
+  --on-fill: #04121a; --node-fill: #182036; --scene-line: #6170a3; --scene-mem: #242d47;
+  --shadow: none; --shadow-hover: 0 0 24px -6px color-mix(in srgb, var(--accent) 45%, transparent); --tip-shadow: 0 10px 30px rgba(0,0,0,.55);
+  --color-neutral-50: #121829; --color-neutral-100: #182036; --color-neutral-200: #242d47; --color-neutral-300: #34406a;
+  --color-neutral-400: #8b93a7; --color-neutral-500: #8b93a7; --color-neutral-600: #a3abbf; --color-neutral-700: #c3c9d8;
+  --color-neutral-800: #dde2ee; --color-neutral-900: #e6eaf2;
+  --color-emerald-700: #4ade80; --color-emerald-800: #4ade80; --color-amber-600: #fbbf24; --color-amber-800: #fbbf24;
+  --color-red-700: #f472b6; --color-red-800: #f472b6; --color-sky-700: #22d3ee; --color-sky-800: #22d3ee;
+  color-scheme: dark;
 }
 
 @theme inline {
@@ -17,21 +40,15 @@
   --color-conf: var(--conf);
   --color-ctx: var(--ctx);
   --color-accent: var(--accent);
+  --color-onfill: var(--on-fill);
+  --color-edge: var(--edge);
   --font-heading: var(--font-space), ui-sans-serif, system-ui, sans-serif;
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
 }
 
-/* Legacy light-theme utilities (text-neutral-*, border-emerald-* ...) used by the entity pages are remapped onto the dark palette
-   so every page shares one semantic scheme: green = supported, amber = hypothesis, pink = conflict, grey = context, cyan = interactive. */
-@theme {
-  --color-neutral-50: #121829; --color-neutral-100: #182036; --color-neutral-200: #242d47; --color-neutral-300: #34406a;
-  --color-neutral-400: #8b93a7; --color-neutral-500: #8b93a7; --color-neutral-600: #a3abbf; --color-neutral-700: #c3c9d8;
-  --color-neutral-800: #dde2ee; --color-neutral-900: #e6eaf2;
-  --color-emerald-700: #4ade80; --color-emerald-800: #4ade80; --color-amber-600: #fbbf24; --color-amber-800: #fbbf24;
-  --color-red-700: #f472b6; --color-red-800: #f472b6; --color-sky-700: #22d3ee; --color-sky-800: #22d3ee;
-}
+/* Legacy utilities (text-neutral-*, border-emerald-* ...) used by the entity pages are remapped per theme in the token blocks above. */
 
-html { font-size: 18px; background: var(--bg); color-scheme: dark; scroll-behavior: smooth; }
+html { font-size: 18px; background: var(--bg); scroll-behavior: smooth; }
 body { background: var(--bg); color: var(--ink); font-family: var(--font-sans); line-height: 1.6; }
 h1, h2, h3, h4 { font-family: var(--font-heading); letter-spacing: -0.01em; }
 a { text-underline-offset: 3px; }
@@ -41,19 +58,19 @@ summary { cursor: pointer; }
 summary:hover { color: var(--accent); }
 blockquote { color: var(--ink); }
 
-.card { background: var(--surface); border: 1px solid var(--line); border-radius: 20px; transition: border-color .2s, box-shadow .2s, transform .2s; }
-a.card:hover, button.card:hover, .card.hoverable:hover { border-color: color-mix(in srgb, var(--accent) 60%, var(--line)); box-shadow: 0 0 24px -6px color-mix(in srgb, var(--accent) 45%, transparent); }
+.card { background: var(--surface); border: 1px solid var(--line); box-shadow: var(--shadow); border-radius: 20px; transition: border-color .2s, box-shadow .2s, transform .2s; }
+a.card:hover, button.card:hover, .card.hoverable:hover { border-color: color-mix(in srgb, var(--accent) 60%, var(--line)); box-shadow: var(--shadow-hover); }
 .btn { display: inline-flex; align-items: center; gap: .5rem; border-radius: 999px; padding: .7rem 1.4rem; font-weight: 600; transition: box-shadow .2s, background .2s, transform .15s; }
-.btn-accent { background: var(--accent); color: #04121a; }
-.btn-accent:hover { color: #04121a; box-shadow: 0 0 28px -2px color-mix(in srgb, var(--accent) 70%, transparent); transform: translateY(-1px); }
-.btn-ghost { border: 1px solid var(--line); background: var(--surface); }
+.btn-accent { background: var(--accent); color: var(--on-fill); }
+.btn-accent:hover { color: var(--on-fill); box-shadow: 0 0 28px -2px color-mix(in srgb, var(--accent) 70%, transparent); transform: translateY(-1px); }
+.btn-ghost { border: 1px solid var(--edge); background: var(--surface); }
 .btn-ghost:hover { border-color: var(--accent); box-shadow: 0 0 20px -6px var(--accent); }
 
 .chip { display: inline-flex; align-items: center; gap: .35rem; border-radius: 999px; border: 1px solid; padding: .1rem .7rem; font-size: .78rem; font-weight: 600; line-height: 1.6; white-space: nowrap; transition: box-shadow .2s, background .2s; }
 .chip-ok { color: var(--ok); border-color: color-mix(in srgb, var(--ok) 55%, transparent); background: color-mix(in srgb, var(--ok) 10%, transparent); }
 .chip-hyp { color: var(--hyp); border-color: color-mix(in srgb, var(--hyp) 60%, transparent); background: color-mix(in srgb, var(--hyp) 9%, transparent); border-style: dashed; }
 .chip-conf { color: var(--conf); border-color: color-mix(in srgb, var(--conf) 60%, transparent); background: color-mix(in srgb, var(--conf) 10%, transparent); }
-.chip-ctx { color: var(--ctx); border-color: color-mix(in srgb, var(--ctx) 50%, transparent); background: color-mix(in srgb, var(--ctx) 8%, transparent); }
+.chip-ctx { color: var(--ctx); border-color: color-mix(in srgb, var(--ctx) 85%, transparent); background: color-mix(in srgb, var(--ctx) 8%, transparent); }
 .chip-accent { color: var(--accent); border-color: color-mix(in srgb, var(--accent) 55%, transparent); background: color-mix(in srgb, var(--accent) 9%, transparent); }
 button.chip:hover, button.chip:focus-visible, a.chip:hover { box-shadow: 0 0 16px -2px currentColor; }
 
@@ -92,7 +109,7 @@ html[data-depth="simple"] .more:not([data-ov="open"]) > .more-body, .more[data-o
 .tip-trigger { cursor: help; }
 .tip-trigger.dotted { border-bottom: 1px dotted var(--muted); }
 .tip-box { position: fixed; z-index: 70; max-width: min(280px, calc(100vw - 16px)); width: max-content; background: var(--surface2); border: 1px solid var(--line); color: var(--ink);
-  border-radius: 12px; padding: .6rem .8rem; font-size: .8rem; line-height: 1.45; font-weight: 400; text-align: left; box-shadow: 0 10px 30px rgba(0,0,0,.55); animation: tipin .15s ease-out; }
+  border-radius: 12px; padding: .6rem .8rem; font-size: .8rem; line-height: 1.45; font-weight: 400; text-align: left; box-shadow: var(--tip-shadow); animation: tipin .15s ease-out; }
 .tip-box::after { content: ""; position: absolute; left: calc(var(--ax) - 6px); bottom: -6px; width: 11px; height: 11px; background: var(--surface2); border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); transform: rotate(45deg); }
 .tip-box.below::after { bottom: auto; top: -6px; transform: rotate(225deg); }
 .tip-box a { color: var(--accent); text-decoration: underline; }
@@ -131,3 +148,41 @@ html[data-depth="simple"] .more:not([data-ov="open"]) > .more-body, .more[data-o
 .sd-pre { opacity: 0; transform: translateY(36px); }
 .sd-play { animation: sdup .6s cubic-bezier(.2,.7,.2,1) both; }
 @keyframes sdup { from { opacity: 0; transform: translateY(36px); } to { opacity: 1; transform: none; } }
+
+/* ---------- node glow on the map (class per route; colours resolve on the element) ---------- */
+.nglow-supported { filter: drop-shadow(0 0 10px var(--ok)); } .nglow-hypothesis { filter: drop-shadow(0 0 10px var(--hyp)); } .nglow-none { filter: drop-shadow(0 0 10px var(--ctx)); }
+.lglow { filter: drop-shadow(0 0 4px var(--ok)); }
+.control { border: 1px solid var(--edge); }
+
+/* ---------- LIGHT THEME visual rules (default) ----------
+   No neon: subtle coloured outlines + soft shadows. Meaning is unchanged: dashed = hypothesis, solid = supported, pink = expert review.
+   The L1 answer keeps the strongest emphasis: tinted background, thicker coloured underline. */
+html:not([data-theme="dark"]) .chip { box-shadow: none; }
+html:not([data-theme="dark"]) .chip-ok { border-color: var(--ok); background: color-mix(in srgb, var(--ok) 5%, #fff); }
+html:not([data-theme="dark"]) .chip-hyp { border-color: var(--hyp); background: color-mix(in srgb, var(--hyp) 5%, #fff); }
+html:not([data-theme="dark"]) .chip-conf { border-color: var(--conf); background: color-mix(in srgb, var(--conf) 5%, #fff); }
+html:not([data-theme="dark"]) .chip-ctx { border-color: var(--ctx); background: color-mix(in srgb, var(--ctx) 5%, #fff); }
+html:not([data-theme="dark"]) .chip-accent { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 5%, #fff); }
+html:not([data-theme="dark"]) button.chip:hover, html:not([data-theme="dark"]) button.chip:focus-visible, html:not([data-theme="dark"]) a.chip:hover { box-shadow: 0 2px 8px -2px color-mix(in srgb, currentColor 45%, transparent); }
+html:not([data-theme="dark"]) .glow-1 { border: 2px solid color-mix(in srgb, var(--g) 88%, #fff); background: color-mix(in srgb, var(--g) 7%, var(--surface));
+  box-shadow: 0 1px 2px rgba(17,24,39,.06), 0 16px 36px -18px color-mix(in srgb, var(--g) 55%, transparent); }
+html:not([data-theme="dark"]) .glow-2 { border: 1.5px solid color-mix(in srgb, var(--g) 80%, #fff); background: color-mix(in srgb, var(--g) 4%, var(--surface));
+  box-shadow: 0 1px 2px rgba(17,24,39,.05), 0 10px 24px -14px color-mix(in srgb, var(--g) 45%, transparent); }
+html:not([data-theme="dark"]) .hl { background-size: 100% 3px; text-shadow: none; padding-bottom: 2px; background-color: color-mix(in srgb, var(--g) 10%, transparent); }
+html:not([data-theme="dark"]) .line-ok { box-shadow: none; }
+html:not([data-theme="dark"]) .star { box-shadow: 0 6px 18px -8px color-mix(in srgb, var(--g) 55%, transparent); background: radial-gradient(circle at 50% 40%, color-mix(in srgb, var(--g) 16%, #fff), var(--surface2) 75%); }
+html:not([data-theme="dark"]) .sat:hover, html:not([data-theme="dark"]) .sat[aria-pressed="true"] { box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 35%, transparent); }
+html:not([data-theme="dark"]) .more-btn { border-color: var(--edge); } 
+html:not([data-theme="dark"]) .more-btn:hover { box-shadow: 0 2px 8px -3px color-mix(in srgb, var(--accent) 50%, transparent); }
+html:not([data-theme="dark"]) .btn-ghost:hover { box-shadow: 0 2px 8px -3px color-mix(in srgb, var(--accent) 50%, transparent); }
+html:not([data-theme="dark"]) .btn-accent:hover { box-shadow: 0 6px 16px -6px color-mix(in srgb, var(--accent) 60%, transparent); filter: brightness(.94); }
+html:not([data-theme="dark"]) .zbtn { background: var(--surface); border-color: var(--edge); }
+html:not([data-theme="dark"]) .nglow-supported, html:not([data-theme="dark"]) .nglow-hypothesis, html:not([data-theme="dark"]) .nglow-none { filter: drop-shadow(0 2px 3px rgba(17,24,39,.28)); }
+html:not([data-theme="dark"]) .lglow { filter: none; }
+html:not([data-theme="dark"]) .tip-box { box-shadow: var(--tip-shadow); }
+html:not([data-theme="dark"]) .scrim { background: rgba(17,24,39,.35) !important; }
+html:not([data-theme="dark"]) input[type="search"]:focus { box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 30%, transparent) !important; }
+html:not([data-theme="dark"]) button.card { border-color: var(--edge); }
+/* interactive controls need a 3:1 boundary in both themes */
+button.card, .zbtn, .more-btn { border-color: var(--edge); }
+button.card:hover, .more-btn:hover, .zbtn:hover { border-color: var(--accent); }
