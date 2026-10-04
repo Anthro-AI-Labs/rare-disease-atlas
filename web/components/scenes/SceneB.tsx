@@ -50,7 +50,7 @@ export default function SceneB({ center, sats }: { center: Center; sats: SatView
             {cur.opposite && <p className="mt-2 text-sm text-muted">No community is suggested here: the usual gene change in the two conditions is opposite (loss vs gain of function).</p>}
             {cur.status !== "supported" && <p className="mt-1 text-sm text-muted">{cur.status === "review" ? "Sources disagree or the grouping is uncertain, so an expert should look first." : "Worked out by a program from shared symptoms. It is an idea to check, not a finding."}</p>}
             <div className="mt-5 flex flex-wrap items-start gap-3">
-              <CopyMessage text={cur.message} label={cur.to ? `Copy a message to ${cur.to}` : "Copy a message to a related community"} />
+              {!cur.opposite && <CopyMessage text={cur.message} label={cur.to ? `Copy a message to ${cur.to}` : "Copy a message to a related community"} />}
               <Link href={cur.href} className="btn btn-ghost">Open {cur.gene} page <span aria-hidden>→</span></Link>
             </div>
           </motion.div>)}

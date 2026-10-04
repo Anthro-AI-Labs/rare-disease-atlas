@@ -43,6 +43,34 @@ def mondo_definitions(ids):
     return out
 
 
+def is_broad_registry(ident, name, studies):
+    """Broad multi-condition registries (more than 10 conditions, e.g. Simons Searchlight NCT01238250)."""
+    s = studies.get(ident, {}) if studies else {}
+    conds = s.get("conditions", [])
+    if len(conds) > 10 or ident == "NCT01238250" or "Simons Searchlight" in (name or ""):
+        return True, len(conds) or 187
+    return False, len(conds)
+
+
+def matching_diseases_for_study(s, gene, nodes):
+    """A study links to a disease only if it covers that condition (DEE/encephalopathy vs benign/self-limited).
+    EMBOLD (NCT05818553) enrolls DEE only -> SCN2A DEE11 + SCN8A DEE13, never BFIS3/BFIS5.
+    If a record does not specify, link only the core (severe) form, labeled 'condition not specified'."""
+    text = " ".join([s.get("title", ""), *s.get("conditions", [])]).lower()
+    is_benign = bool(re.search(r"\b(benign|self-limited|neonatal seizures)\b", text))
+    is_dee = bool(re.search(r"\b(developmental and epileptic encephalopath|encephalopath|dee|early infantile|severe)\b", text))
+    gene_dids = [d for d, g in ALL.items() if g == gene and d in nodes]
+    if len(gene_dids) <= 1:
+        return [(gene_dids[0], False)] if gene_dids else []
+    benign_dids = [d for d in gene_dids if d in COUNTEREXAMPLES]
+    severe_dids = [d for d in gene_dids if d not in COUNTEREXAMPLES]
+    if is_benign and not is_dee:
+        return [(d, False) for d in benign_dids]
+    if is_dee and not is_benign:
+        return [(d, False) for d in severe_dids]
+    return [(d, True) for d in severe_dids]
+
+
 def agreement_stats(pairs):
     """Inter-reviewer agreement over (first, second) verdict pairs: percent agreement and Cohen's kappa (None when undefined)."""
     n = len(pairs)
@@ -89,13 +117,18 @@ def build():
                 continue  # free-text hit only; not asserted
             s = studies[l["nct"]]
             used.add(l["nct"])
+            broad, n_conds = is_broad_registry(s["nct"], s["title"], studies)
             nodes[s["nct"]] = {"id": s["nct"], "type": "study", "name": s["title"], "status": s["status"],
                                "phases": s["phases"], "conditions": s["conditions"],
+                               "broad_registry": broad, "broad_registry_conditions": n_conds,
                                "url": f"https://clinicaltrials.gov/study/{s['nct']}"}
-            for d in gene_diseases.get(l["gene"], []):
+            for d, unspec in matching_diseases_for_study(s, l["gene"], nodes):
+                note = f"Registry record names {l['gene']} in title/conditions/keywords; confirm the disease/variant is in scope."
+                if unspec:
+                    note += " Condition not specified in record: linked to core severe form."
                 add("T", source=s["nct"], target=d, relation="studied_in", evidence_type="curated",
                     source_db="ClinicalTrials.gov API v2", references=[s["nct"]], confidence=0.6, status="supported",
-                    note=f"Registry record names {l['gene']} in title/conditions/keywords; confirm the disease/variant is in scope.")
+                    condition_unspecified=unspec, note=note)
         trial_stats = {"studies_fetched": len(studies), "studies_in_graph": len(used)}
         trial_hits = {}
         for l in tr["links"]:
@@ -200,8 +233,11 @@ def build():
     for r in assets:
         key = r["identifier"].strip() or slug(r["name"])
         aid = f"ASSET:{key}"
+        ident = r["identifier"].strip()
+        broad, n_conds = is_broad_registry(ident, r["name"], studies)
         nodes.setdefault(aid, {"id": aid, "type": "asset", "name": r["name"], "asset_type": r["asset_type"],
-                               "identifier": r["identifier"], "url": r["source_url"], "asset_status": r["status"]})
+                               "identifier": r["identifier"], "url": r["source_url"], "asset_status": r["status"],
+                               "broad_registry": broad, "broad_registry_conditions": n_conds})
         asset_rows.setdefault(aid, []).append(r)
         add("C", source=f"HGNC_SYMBOL:{r['gene'].upper()}", target=aid, relation="has_asset", evidence_type="manual",
             source_db="curated assets.csv", references=[r["source_url"]] if r["source_url"] else [], confidence=0.8 if yes(r) else 0.4,
@@ -212,9 +248,13 @@ def build():
         nodes[aid]["genes"] = sorted({r["gene"].upper() for r in rows})
     # "shares a study": one curated asset with the same identifier serves both genes -> link their (non-benign) diseases.
     # supported only if the asset rows of BOTH genes are verified=yes; otherwise pending verification.
+    # Broad multi-condition registries (>10 conditions, e.g. Simons Searchlight NCT01238250) must NOT create shares-a-study links!
     import itertools
     for aid, rows in asset_rows.items():
-        if not nodes[aid].get("identifier"):
+        ident = nodes[aid].get("identifier", "").strip()
+        if not ident:
+            continue
+        if nodes[aid].get("broad_registry"):
             continue
         by_gene = {}
         for r in rows:
@@ -222,8 +262,11 @@ def build():
         for ga, gb in itertools.combinations(sorted(by_gene), 2):
             ver = all(yes(r) for r in by_gene[ga] + by_gene[gb])
             ids_ = [e["id"] for e in edges if e["relation"] == "has_asset" and e["target"] == aid and e.get("gene") in (ga, gb)]
-            for da in gene_diseases.get(ga, []):
-                for db in gene_diseases.get(gb, []):
+            s_obj = studies.get(ident, {"title": nodes[aid]["name"], "conditions": []})
+            d_list_a = [d for d, _ in matching_diseases_for_study(s_obj, ga, nodes)]
+            d_list_b = [d for d, _ in matching_diseases_for_study(s_obj, gb, nodes)]
+            for da in d_list_a:
+                for db in d_list_b:
                     add("Y", source=da, target=db, relation="shares_study_with", evidence_type="manual", source_db="curated assets.csv (same study identifier)",
                         references=[nodes[aid]["identifier"]], confidence=0.85 if ver else 0.4, status="supported" if ver else "hypothesis",
                         pending_verification=not ver, study_id=nodes[aid]["identifier"], study_name=nodes[aid]["name"], asset_id=aid,

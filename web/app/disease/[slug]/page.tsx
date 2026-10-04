@@ -19,7 +19,7 @@ import StepNav from "@/components/StepNav";
 import { DiseaseName, GeneName, StatusTip } from "@/components/Names";
 import { Glossed, Term } from "@/components/Term";
 import { diseases, idOf, load, slugOf } from "@/lib/graph";
-import { ROUTE } from "@/lib/status";
+import { ROUTE, studyStatusBadge } from "@/lib/status";
 import { diseaseTip, geneTip, mapData, messageFor, recipientFor, story } from "@/lib/story";
 
 export function generateStaticParams() {
@@ -48,8 +48,12 @@ export default async function DiseasePage({ params }: { params: Promise<{ slug: 
   const rule = g.meta.confidence_rule;
   const { nodes: gn, links: gl } = mapData();
   const route = ROUTE[gap.route_status];
-  const recruiting = trials.filter((t) => t.study.status === "RECRUITING");
-  const shownTrials = [...recruiting, ...trials.filter((t) => t.study.status !== "RECRUITING")];
+  const CLOSED_STATUSES = new Set(["TERMINATED", "WITHDRAWN", "SUSPENDED"]);
+  const isClosed = (t: (typeof trials)[number]) => CLOSED_STATUSES.has(String(t.study.status).toUpperCase());
+  const openTrials = trials.filter((t) => !isClosed(t));
+  const closedTrials = trials.filter((t) => isClosed(t));
+  const recruiting = openTrials.filter((t) => String(t.study.status).toUpperCase() === "RECRUITING");
+  const shownOpenTrials = [...recruiting, ...openTrials.filter((t) => String(t.study.status).toUpperCase() !== "RECRUITING")];
   const gapAll = gap.missing;
   const causesIds = (other: string) => g.edges.filter((e) => e.relation === "causes" && (e.target === id || e.target === other)).map((e) => e.id);
   const directional = mechanisms.filter((m) => m.mech.variant_effect !== "unclear");
@@ -58,7 +62,7 @@ export default async function DiseasePage({ params }: { params: Promise<{ slug: 
   const ent = { yes: mechanisms.filter((m) => m.edge.entailment === "yes").length, partial: mechanisms.filter((m) => m.edge.entailment === "partial").length };
   const center = { gene: d.gene, common: s.common, tone: route.kind, gt: s.gene };
   const satViews = s.sats.map((x) => ({ id: x.id, gene: x.gene, common: x.common, status: x.status, why: x.why, edgeIds: x.edgeIds, href: x.href, dt: diseaseTip(x.id), gt: geneTip(x.gene),
-    message: messageFor(s, x), to: recipientFor(s, x), segments: x.segments, overall: x.overall, kind: x.kind, groups: x.groups, opposite: x.opposite }));
+    message: x.opposite ? "" : messageFor(s, x), to: recipientFor(s, x), segments: x.segments, overall: x.overall, kind: x.kind, groups: x.groups, opposite: x.opposite }));
   const ord = [...s.active, ...s.studies.filter((t) => !s.active.includes(t))];
   const exists = { gene: d.gene, tone: route.kind, groups: s.groups.map((x) => ({ name: x.name, url: x.url })), registries: s.registries.map((x) => ({ name: x.name })),
     studies: ord.map((t) => ({ id: t.id, name: t.name, url: t.url })), activeCount: s.active.length, totalStudies: s.studies.length,
@@ -163,13 +167,60 @@ export default async function DiseasePage({ params }: { params: Promise<{ slug: 
               <ul className="mt-2 space-y-2">{s.relatedGroups.map((x) => (<li key={x.edge} className="text-sm"><Link href={`/org/${x.name ? s.a.relatedCommunities.find((c) => c.edge.id === x.edge)!.org.id.slice(4) : ""}`} className="font-medium">{x.name}</Link><span className="block text-muted">Related community (different gene: {x.gene}) · via {x.via}</span></li>))}</ul></>}
             {a.oppositeGenes.length > 0 && <p className="mt-3 text-xs text-muted">No community is suggested for {[...new Set(a.oppositeGenes)].join(", ")}: the usual gene change there is the opposite of {d.gene}&apos;s.</p>}</div>
           <div className="card p-5"><h3 className="text-lg font-semibold">Registries and shared assets</h3>
-            {assets.length ? <ul className="mt-3 space-y-3">{assets.map(({ asset, via, edge }) => (<li key={edge.id}><span className="font-medium">{asset.name}</span><span className="block text-sm text-muted"><Glossed text={String(asset.asset_type)} /> · via {via}</span><span className="mt-1 inline-block"><EvidenceBadge e={edge} /></span></li>))}</ul>
+            {assets.length ? <ul className="mt-3 space-y-3">{assets.map(({ asset, via, edge }) => {
+              const isBroad = Boolean(asset.broad_registry);
+              const conds = typeof asset.broad_registry_conditions === "number" ? asset.broad_registry_conditions : 150;
+              return (
+                <li key={edge.id}>
+                  <span className="font-medium">{asset.name}</span>
+                  {isBroad ? (
+                    <span className="block text-sm text-muted">Also part of a broad genetic registry ({conds}+ conditions) · via {via}</span>
+                  ) : (
+                    <span className="block text-sm text-muted"><Glossed text={String(asset.asset_type)} /> · via {via}</span>
+                  )}
+                  <span className="mt-1 inline-block"><EvidenceBadge e={edge} /></span>
+                </li>
+              );
+            })}</ul>
               : <p className="mt-3 text-sm text-muted">None verified yet. A <Term k="registry">registry</Term>, a <Term k="natural history study">natural history study</Term> or a shared sample collection would count once someone confirms it and adds its source.</p>}</div>
           <div className="card p-5"><h3 className="text-lg font-semibold">Studies naming {d.gene}</h3>
-            {shownTrials.length ? (<>
-              <p className="mt-1 text-sm text-muted">{trials.length} on ClinicalTrials.gov, {recruiting.length} recruiting. Matched by gene name: please confirm they fit.</p>
-              <ul className="mt-3 space-y-3">{shownTrials.slice(0, 3).map((t) => (<li key={t.edge.id}><a className="font-medium" target="_blank" rel="noreferrer" href={String(t.study.url)}>{t.study.name}</a><span className="block text-sm text-muted">{t.study.id} · {String(t.study.status).toLowerCase().replace(/_/g, " ")}</span><span className="mt-1 inline-block"><EvidenceBadge e={t.edge} /></span></li>))}</ul>
-              {shownTrials.length > 3 && <details className="mt-3 text-sm"><summary className="text-muted">{shownTrials.length - 3} more</summary><ul className="mt-2 space-y-2">{shownTrials.slice(3).map((t) => (<li key={t.edge.id}><a target="_blank" rel="noreferrer" href={String(t.study.url)}>{t.study.name}</a> <span className="text-muted">· {t.study.id} · {String(t.study.status).toLowerCase().replace(/_/g, " ")}</span></li>))}</ul></details>}
+            {trials.length ? (<>
+              <p className="mt-1 text-sm text-muted">{openTrials.length} open on ClinicalTrials.gov ({recruiting.length} recruiting){closedTrials.length > 0 ? `, ${closedTrials.length} closed/stopped` : ""}. Matched by gene name: please confirm they fit.</p>
+              {shownOpenTrials.length > 0 && (<>
+                <ul className="mt-3 space-y-3">{shownOpenTrials.slice(0, 3).map((t) => {
+                  const b = studyStatusBadge(String(t.study.status));
+                  return (<li key={t.edge.id}>
+                    <a className="font-medium hover:text-accent" target="_blank" rel="noreferrer" href={String(t.study.url)}>{t.study.name}</a>
+                    <div className="mt-1 flex flex-wrap items-center gap-2 text-sm text-muted">
+                      <span>{t.study.id}</span><span>·</span>
+                      <Chip kind={b.kind}>{b.label}</Chip>
+                      <EvidenceBadge e={t.edge} />
+                    </div>
+                  </li>);
+                })}</ul>
+                {shownOpenTrials.length > 3 && <details className="mt-3 text-sm"><summary className="cursor-pointer text-muted">{shownOpenTrials.length - 3} more open studies</summary><ul className="mt-2 space-y-3">{shownOpenTrials.slice(3).map((t) => {
+                  const b = studyStatusBadge(String(t.study.status));
+                  return (<li key={t.edge.id}>
+                    <a className="font-medium hover:text-accent" target="_blank" rel="noreferrer" href={String(t.study.url)}>{t.study.name}</a>
+                    <div className="mt-1 flex flex-wrap items-center gap-2 text-sm text-muted">
+                      <span>{t.study.id}</span><span>·</span>
+                      <Chip kind={b.kind}>{b.label}</Chip>
+                      <EvidenceBadge e={t.edge} />
+                    </div>
+                  </li>);
+                })}</ul></details>}
+              </>)}
+              {closedTrials.length > 0 && <details className="mt-4 border-t border-line/60 pt-3 text-sm"><summary className="cursor-pointer font-medium text-muted hover:text-ink">Closed or stopped studies ({closedTrials.length})</summary><ul className="mt-3 space-y-3">{closedTrials.map((t) => {
+                const b = studyStatusBadge(String(t.study.status));
+                return (<li key={t.edge.id} className="opacity-80">
+                  <a className="font-medium hover:text-accent" target="_blank" rel="noreferrer" href={String(t.study.url)}>{t.study.name}</a>
+                  <div className="mt-1 flex flex-wrap items-center gap-2 text-sm text-muted">
+                    <span>{t.study.id}</span><span>·</span>
+                    <Chip kind={b.kind}>{b.label}</Chip>
+                    <EvidenceBadge e={t.edge} />
+                  </div>
+                </li>);
+              })}</ul></details>}
             </>) : <p className="mt-3 text-sm text-muted">No registry record names {d.gene} in its title, conditions or keywords.</p>}</div>
         </div>
         </More>
@@ -177,7 +228,7 @@ export default async function DiseasePage({ params }: { params: Promise<{ slug: 
 
       <Step id="next" n={4} title="Your next step">
         <SceneD text={s.next.text}>
-          {satViews[0] && <CopyMessage text={satViews[0].message} label={satViews[0].to ? `Copy a message to ${satViews[0].to}` : "Copy a message to a related community"} />}
+          <CopyMessage text={s.next.message} label={s.next.buttonLabel} />
           <PrintSummary />
         </SceneD>
         <div className="mt-6 rounded-2xl border border-conf/40 bg-conf/5 p-6">

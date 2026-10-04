@@ -44,7 +44,9 @@ def build(nodes, edges, clusters_diseases):
         syn = list(mondo.get(n.get("mondo"), {}).get("synonyms", []))
         mname = mondo.get(n.get("mondo"), {}).get("name")
         aliases = [a for a in {*syn, *( [mname] if mname else [] ), gene_of[n["id"]], n["id"], n.get("mondo") or ""} if a and a != n["name"]]
-        items.append({"type": "disease", "id": n["id"], "label": n["name"], "aliases": sorted(aliases), "href": f"/disease/{slug(n['id'])}",
+        if n["id"] == "OMIM:300672" or gene_of.get(n["id"]) == "CDKL5":
+            aliases.extend(["CDKL5 deficiency disorder", "CDKL5 deficiency", "CDD"])
+        items.append({"type": "disease", "id": n["id"], "label": n["name"], "aliases": sorted(set(aliases)), "href": f"/disease/{slug(n['id'])}",
                       "sub": f"{gene_of[n['id']]} · {n['id']}" + (" · benign counterexample" if n.get("role") == "counterexample" else "")})
     # genes
     for n in nodes.values():
@@ -82,4 +84,90 @@ def build(nodes, edges, clusters_diseases):
         if n["type"] == "patient_org":
             items.append({"type": "patient_group", "id": n["id"], "label": n["name"], "aliases": [], "href": f"/org/{n['id'].split(':', 1)[1]}",
                           "sub": str(n.get("country") or "")})
+
+    # studies and assets (STARR, EMBOLD, FENDEEP, Simons Searchlight, NCT IDs, etc.)
+    assets_by_ident = {}
+    for n in nodes.values():
+        if n["type"] == "asset":
+            ident = n.get("identifier", "").strip()
+            if ident:
+                assets_by_ident.setdefault(ident, []).append(n)
+
+    seen_studies = set()
+    studies_with_edges = set()
+
+    def extract_acronyms(*texts):
+        found = set()
+        for text in texts:
+            if not text:
+                continue
+            for m in re.findall(r"\(([A-Za-z0-9-]{3,})\)", text):
+                found.add(m)
+            if "Simons Searchlight" in text:
+                found.add("Simons Searchlight")
+                found.add("Simons")
+            if "STARR" in text:
+                found.add("STARR")
+            if "EMBOLD" in text:
+                found.add("EMBOLD")
+            if "FENDEEP" in text:
+                found.add("FENDEEP")
+        return found
+
+    for e in edges:
+        if e["relation"] == "studied_in":
+            sid = e["source"]
+            did = e["target"]
+            studies_with_edges.add(sid)
+            snode = nodes.get(sid)
+            if not snode:
+                continue
+            key = (sid, did)
+            if key in seen_studies:
+                continue
+            seen_studies.add(key)
+            matched_assets = assets_by_ident.get(sid, [])
+            asset_names = [a["name"] for a in matched_assets]
+            all_acronyms = extract_acronyms(snode["name"], *asset_names)
+            aliases = list({sid, *all_acronyms})
+            best_name = next((an for an in asset_names if any(f"({ac})" in an for ac in all_acronyms)), snode["name"])
+            items.append({
+                "type": "study",
+                "id": f"study_{sid}_{slug(did)}",
+                "label": best_name,
+                "aliases": sorted(aliases),
+                "href": f"/disease/{slug(did)}",
+                "sub": f"{gene_of.get(did, '')} · {sid}"
+            })
+
+    for e in edges:
+        if e["relation"] == "has_asset":
+            gid = e["source"]
+            aid = e["target"]
+            anode = nodes.get(aid)
+            if not anode:
+                continue
+            ident = anode.get("identifier", "").strip()
+            if ident and ident in studies_with_edges:
+                continue  # already indexed via condition-matched studied_in edges
+            gene = gid.split(":")[1]
+            name = anode["name"]
+            all_acronyms = extract_acronyms(name)
+            dids = [d for d, g in gene_of.items() if g == gene]
+            for did in dids:
+                ref_id = ident or aid
+                key = (ref_id, did)
+                if key in seen_studies:
+                    continue
+                seen_studies.add(key)
+                aliases = list({a for a in [ident, *all_acronyms] if a})
+                items.append({
+                    "type": "study",
+                    "id": f"asset_{slug(anode['id'])}_{slug(did)}",
+                    "label": name,
+                    "aliases": sorted(aliases),
+                    "href": f"/disease/{slug(did)}",
+                    "sub": f"{gene} · {ident or anode.get('asset_type', 'asset')}"
+                })
+
     return items

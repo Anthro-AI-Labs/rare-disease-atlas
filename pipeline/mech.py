@@ -9,11 +9,26 @@ REDUCED, INCREASED = {"loss_of_function", "dominant_negative"}, {"gain_of_functi
 GENERIC = {"seizures", "seizure", "epilepsy", "epileptic", "encephalopathy", "disease", "syndrome", "and", "the", "of", "in", "with", "a"}
 
 
+GENE_MOLECULAR_FUNCTION = {
+    "SCN1A": "sodium_channel",
+    "SCN2A": "sodium_channel",
+    "SCN8A": "sodium_channel",
+    "KCNQ2": "potassium_channel",
+    "KCNT1": "potassium_channel",
+    "STXBP1": "synaptic_vesicle_release",
+    "SYNGAP1": "synaptic_signaling",
+    "CDKL5": "kinase_signaling",
+    "GNAO1": "g_protein_signaling",
+}
+
+
 def claim_id(c):
-    """Stable edge id: independent of extraction order and of the entailment overlay (hash of the ORIGINAL extracted effect)."""
+    """Stable edge id: independent of extraction order, entailment overlay, and deterministic function remap."""
     if c.get("claim_id"):
         return c["claim_id"]
-    h = hashlib.sha1(f"{c['pmid']}|{c['gene']}|{c['quoted_span']}|{c['variant_effect']}|{c['molecular_function']}".encode()).hexdigest()
+    func = c.get("extracted_molecular_function", c.get("molecular_function"))
+    effect = c.get("extracted_variant_effect", c.get("variant_effect"))
+    h = hashlib.sha1(f"{c['pmid']}|{c['gene']}|{c['quoted_span']}|{effect}|{func}".encode()).hexdigest()
     return "M" + h[:8]
 
 
@@ -56,8 +71,13 @@ def load_claims(overlay=True):
     p = GRAPH / "mechanisms.json"
     claims = json.loads(p.read_text())["claims"] if p.exists() else []
     for c in claims:
-        c["claim_id"] = claim_id(c)
+        if "claim_id" not in c:
+            c["claim_id"] = claim_id(c)
         c["extracted_variant_effect"], c["extracted_population"] = c["variant_effect"], c["population"]
+        c["extracted_molecular_function"] = c.get("extracted_molecular_function", c["molecular_function"])
+        g = c["gene"].upper()
+        if g in GENE_MOLECULAR_FUNCTION:
+            c["molecular_function"] = GENE_MOLECULAR_FUNCTION[g]
         c["entailment"] = "not_checked" if c["variant_effect"] == "unclear" else None
     ev = GRAPH / "entailment.json"
     if overlay and ev.exists():

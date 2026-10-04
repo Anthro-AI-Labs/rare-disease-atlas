@@ -34,3 +34,16 @@ export const OVERALL: Record<Seg, { kind: Kind; label: string }> = {
 };
 export const SEG_NAME = { own_community: "Your community", link: "Link to related disease", related_community: "Related community", shared_asset: "Shared asset" } as const;
 export const SEG_SHORT = { own_community: "Yours", link: "Link", related_community: "Related", shared_asset: "Asset" } as const;
+
+export function studyStatusBadge(rawStatus: string): { label: string; kind: Kind } {
+  const s = (rawStatus || "").toUpperCase().replace(/\s+/g, "_");
+  if (s === "RECRUITING") return { label: "Recruiting", kind: "ok" };
+  if (s === "NOT_YET_RECRUITING") return { label: "Not yet recruiting", kind: "hyp" };
+  if (s === "ACTIVE_NOT_RECRUITING" || s === "ENROLLING_BY_INVITATION" || s === "ACTIVE") return { label: "Active", kind: "ok" };
+  if (s === "COMPLETED") return { label: "Completed", kind: "ctx" };
+  if (s === "TERMINATED") return { label: "Terminated", kind: "conf" };
+  if (s === "WITHDRAWN") return { label: "Withdrawn", kind: "conf" };
+  if (s === "SUSPENDED") return { label: "Suspended", kind: "conf" };
+  return { label: s ? s.charAt(0) + s.slice(1).toLowerCase().replace(/_/g, " ") : "Unknown", kind: "ctx" };
+}
+

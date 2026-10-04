@@ -685,8 +685,7 @@ def test_copy_message_to_line_prefills_only_the_verified_group_of_the_right_gene
     syn = next(v for k, v in msgs.items() if k.startswith("SYNGAP1"))
     assert syn and syn <= by["SYNGAP1"]                                       # STXBP1 -> SYNGAP1 via STARR -> To: CURE SYNGAP1
     assert any("CURE SYNGAP1" in x for x in syn)
-    scn2a = next(v for k, v in msgs.items() if k.startswith("SCN2A"))  # shares a study (Simons) but gain of function: opposite mechanisms -> blank
-    assert all(x.startswith("a SCN2A patient community") for x in scn2a)
+    assert not any(k.startswith("SCN2A") for k in msgs)                       # Simons broad registry excluded; opposite mechanism suppressed
     gnao1 = next(v for k, v in msgs.items() if k.startswith("GNAO1"))  # phenotype-only (computed) link -> blank
     assert all(x.startswith("a GNAO1 patient community") for x in gnao1)
     benign = _messages("OMIM_613721")                                   # SCN2A DEE11 page: same-gene benign partner -> the own-gene group
@@ -703,6 +702,27 @@ def test_copy_message_to_line_prefills_only_the_verified_group_of_the_right_gene
     scn2a_page = _messages("OMIM_613721")                             # SCN2A <-> SCN8A via EMBOLD, both gain of function: SCN8A group allowed
     scn8a = next(v for k, v in scn2a_page.items() if k.startswith("SCN8A"))
     assert scn8a and scn8a <= by["SCN8A"]
+
+
+def test_step4_never_names_opposite_mechanism_gene():
+    """Requirement 1: No Step 4 target, button label, or message ever names an opposite-mechanism gene."""
+    import json, re, common
+    g = json.loads((common.GRAPH / "graph.json").read_text())
+    disease_gene = {e["target"]: e["source"].split(":")[-1] for e in g["edges"] if e["relation"] == "causes"}
+    for did, gap in g["meta"]["gaps"].items():
+        opp_genes = {disease_gene[r["to"]] for r in gap.get("routes", []) if r.get("opposite_mechanisms") and r["to"] in disease_gene}
+        if not opp_genes:
+            continue
+        page_id = did.replace(":", "_")
+        html_file = common.ROOT / "web" / ".next" / "server" / "app" / "disease" / f"{page_id}.html"
+        if not html_file.exists():
+            continue
+        html = html_file.read_text()
+        step4_match = re.search(r"id=\"next\".*?</section>", html, re.DOTALL)
+        assert step4_match, f"Step 4 section not found in {page_id}"
+        step4 = step4_match.group(0)
+        for g_name in opp_genes:
+            assert not re.search(r"\b" + g_name + r"\b", step4), f"Disease {did} ({disease_gene.get(did)}) Step 4 names opposite-mechanism gene {g_name}!"
 
 
 def test_explanations_never_imply_no_treatment_exists():

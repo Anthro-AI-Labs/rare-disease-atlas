@@ -79,7 +79,6 @@ def build_gaps(nodes, edges, pairs, meta_in):
                 ids += [e["id"] for e in by_rel["causes"] if e["target"] in (did, o)]
             # a group (or asset) shared by two diseases of the SAME gene is trivial, not a cross-gene route
             shared_orgs = set() if same_gene else org_src.get(did, set()) & org_src.get(o, set())
-            shared_assets = set() if same_gene else asset_src.get(gid, set()) & asset_src.get(gene_of[o], set())
             studies = [{"id": e["study_id"], "name": e["study_name"], "status": "supported" if e["status"] == "supported" else "pending", "edge_id": e["id"]}
                        for e in study_edges.get(o, [])]
             if studies:                       # curated, same study identifier serves both genes
@@ -87,10 +86,10 @@ def build_gaps(nodes, edges, pairs, meta_in):
                 link = "supported" if any(x["status"] == "supported" for x in studies) else "pending"
                 ids = [x["edge_id"] for x in studies] + ids
                 asset_seg = link
-            elif shared_orgs or shared_assets:
-                kind = "shared_patient_group" if shared_orgs else "shared_asset"
+            elif shared_orgs:
+                kind = "shared_patient_group"
                 link = asset_seg = "supported"
-                ids += [serve_edge[(x, g)] for x in (did, o) for g in shared_orgs] + [asset_edge[(x, a)] for x in (gid, gene_of[o]) for a in shared_assets if (x, a) in asset_edge]
+                ids += [serve_edge[(x, g)] for x in (did, o) for g in shared_orgs]
             else:  # same gene or computed similarity: a hypothesis, not a route (lead decision)
                 kind, link, asset_seg = ("same_gene" if same_gene else "computed"), "hypothesis", "missing"
             opp = (not same_gene) and opposite(did, o)    # never recommend a community across opposite mechanisms
@@ -109,7 +108,7 @@ def build_gaps(nodes, edges, pairs, meta_in):
             if o not in have:
                 routes.append(route(comb, o)); have.add(o)
         for comb, o, p in rel[3:]:
-            if o not in have and ALL[o] != gene and (org_src.get(did, set()) & org_src.get(o, set()) or asset_src.get(gid, set()) & asset_src.get(gene_of[o], set())):
+            if o not in have and ALL[o] != gene and (org_src.get(did, set()) & org_src.get(o, set()) or o in study_edges):
                 routes.append(route(comb, o)); have.add(o)
         best = max(routes, key=lambda r: (RANK[r["overall"]], sum(RANK[v] for v in r["segments"].values())), default=None)   # ties: the route with the most solid parts
         overall = best["overall"] if best else "missing"

@@ -109,13 +109,68 @@ export function story(id: string) {
   const effectEdges = (effect === "loss_of_function" ? reduced : effect === "gain_of_function" ? increased : effect === "mixed" ? [...reduced.slice(0, 3), ...increased.slice(0, 3)] : [])
     .sort((x, y) => y.edge.confidence - x.edge.confidence).slice(0, 6).map((m) => m.edge.id);
 
+  // --- Compatible satellites (never opposite dominant effect) ---
+  const compatible = linked.filter((s) => !s.opposite);
+  const supportedRelated = compatible.find((s) => s.status === "supported" && s.kind === "shares_study" && s.groups.length > 0);
+
   // --- Next step (deterministic priority list) ---
-  const top = linked[0];
-  let next: { text: string; kind: Kind; short: string };
-  if (groups.length) { const o = groups[0]; next = { kind: "accent", short: `contact ${o.name}`, text: `Contact ${o.name} and share what this page shows.` }; }
-  else if (active.length) next = { kind: "accent", short: `ask a study team whether ${d.gene} families are in scope`, text: `Ask the team behind one of the ${active.length} active studies that name ${d.gene} whether families like yours can take part.` };
-  else if (top) next = { kind: "accent", short: `ask a genetics expert whether the link to ${top.common} is real`, text: `Ask a genetics expert whether the possible link to ${top.common} is real, using the sources on this page.` };
-  else next = { kind: "accent", short: "ask a genetics expert which evidence is missing", text: "Ask a genetics expert which evidence is missing, using the gaps listed on this page." };
+  let next: { text: string; kind: Kind; short: string; buttonLabel: string; message: string; to: string | null };
+  const storyBase = { d, common, active, ownVerified };
+
+  if (supportedRelated) {
+    const toName = supportedRelated.groups[0];
+    const btn = `Message a related community (${toName})`;
+    next = {
+      kind: "accent",
+      short: `message a related community (${toName})`,
+      text: `Message a related community (${toName}) and share what this page shows.`,
+      buttonLabel: btn,
+      message: messageFor(storyBase, supportedRelated),
+      to: toName,
+    };
+  } else if (groups.length) {
+    const o = groups[0];
+    const btn = `Message ${o.name}`;
+    next = {
+      kind: "accent",
+      short: `contact ${o.name}`,
+      text: `Contact ${o.name} and share what this page shows.`,
+      buttonLabel: btn,
+      message: ownGroupMessage(storyBase, o.name),
+      to: o.name,
+    };
+  } else if (active.length) {
+    const btn = "Message a study team";
+    next = {
+      kind: "accent",
+      short: `ask a study team whether ${d.gene} families are in scope`,
+      text: `Ask the team behind one of the ${active.length} active studies that name ${d.gene} whether families like yours can take part.`,
+      buttonLabel: btn,
+      message: studyTeamMessage(storyBase),
+      to: null,
+    };
+  } else if (compatible.length) {
+    const top = compatible[0];
+    const btn = "Message a genetics expert";
+    next = {
+      kind: "accent",
+      short: `ask a genetics expert whether the link to ${top.common} is real`,
+      text: `Ask a genetics expert whether the possible link to ${top.common} is real, using the sources on this page.`,
+      buttonLabel: btn,
+      message: expertMessage(storyBase),
+      to: null,
+    };
+  } else {
+    const btn = "Message a genetics expert";
+    next = {
+      kind: "accent",
+      short: "ask a genetics expert which evidence is missing",
+      text: "Ask a genetics expert which evidence is missing, using the gaps listed on this page.",
+      buttonLabel: btn,
+      message: expertMessage(storyBase),
+      to: null,
+    };
+  }
 
   // --- Answer sentence ---
   const relKind: Kind = linked.some((s) => s.status === "supported") ? "ok" : linked.length ? "hyp" : "ctx";
@@ -140,14 +195,65 @@ export const answerText = (s: Seg[]) => s.map((x) => (typeof x === "string" ? x 
  *  - same gene (mild vs severe form): the page disease's own-gene group;
  *  - phenotype-only (computed) links and opposite-mechanism links: blank, the sender chooses.
  *  Never an opposite-gene, unverified or third-gene group. */
-export function recipientFor(s: Story, sat: Sat): string | null {
-  if (sat.kind === "shares_study") return !sat.opposite && sat.groups.length ? sat.groups[0] : null;
-  if (sat.kind === "same_gene") return s.ownVerified[0] ?? null;
+export function recipientFor(s: { ownVerified?: string[] }, sat: Sat): string | null {
+  if (sat.opposite) return null;
+  if (sat.kind === "shares_study") return sat.groups.length ? sat.groups[0] : null;
+  if (sat.kind === "same_gene") return s.ownVerified?.[0] ?? null;
   return null;
 }
 
+export function studyTeamMessage(s: { d: { id: string; name?: string; gene: string }; common: string; active: { id: string; name: string }[] }, origin = "{ATLAS_URL}") {
+  const studies = s.active.slice(0, 3).map((t) => `- ${t.id}: ${t.name.slice(0, 90)}${t.name.length > 90 ? "…" : ""} (https://clinicaltrials.gov/study/${t.id})`);
+  return [
+    "To: ",
+    `Subject: Participating in ${s.d.gene} research - ${s.common}`,
+    "",
+    "Hello,",
+    "",
+    `I am part of the community around ${s.common} (${s.d.name || s.common}, gene ${s.d.gene}). I saw your active study naming ${s.d.gene} and wanted to ask whether families like ours can take part, or whether you know of registries or natural history studies for this condition.`,
+    "",
+    ...(studies.length ? ["Active studies on file:", ...studies, ""] : []),
+    `Atlas page: ${origin}/disease/${slugOf(s.d.id)}`,
+    "",
+    "Not medical advice.",
+  ].join("\n");
+}
+
+export function ownGroupMessage(s: { d: { id: string; name?: string; gene: string }; common: string; active: { id: string; name: string }[] }, groupName: string, origin = "{ATLAS_URL}") {
+  const studies = s.active.slice(0, 3).map((t) => `- ${t.id}: ${t.name.slice(0, 90)}${t.name.length > 90 ? "…" : ""} (https://clinicaltrials.gov/study/${t.id})`);
+  return [
+    `To: ${groupName}`,
+    `Subject: Connecting around ${s.common}`,
+    "",
+    "Hello,",
+    "",
+    `I am reaching out regarding ${s.common} (${s.d.name || s.common}, gene ${s.d.gene}). I found your patient organization through the Rare Disease Atlas and wanted to connect with your community.`,
+    "",
+    ...(studies.length ? [`Active studies naming ${s.d.gene}:`, ...studies, ""] : []),
+    `Atlas page: ${origin}/disease/${slugOf(s.d.id)}`,
+    "",
+    "Not medical advice.",
+  ].join("\n");
+}
+
+export function expertMessage(s: { d: { id: string; name?: string; gene: string }; common: string }, origin = "{ATLAS_URL}") {
+  return [
+    "To: ",
+    `Subject: Evidence and research gaps for ${s.common}`,
+    "",
+    "Hello,",
+    "",
+    `I am seeking guidance regarding ${s.common} (${s.d.name || s.common}, gene ${s.d.gene}) and the current state of research evidence and gaps identified on the Rare Disease Atlas.`,
+    "",
+    `Atlas page: ${origin}/disease/${slugOf(s.d.id)}`,
+    "",
+    "Not medical advice.",
+  ].join("\n");
+}
+
 /** Copyable message about one link. Only facts from graph.json; recipient left for the user when no group is on file. */
-export function messageFor(s: Story, sat: Sat, origin = "{ATLAS_URL}") {
+export function messageFor(s: { d: { id: string; name?: string; gene: string }; common: string; active: { id: string; name: string }[]; ownVerified?: string[] }, sat: Sat, origin = "{ATLAS_URL}") {
+  if (sat.opposite) return "";
   const { g } = load();
   const edges = sat.edgeIds.map((i) => g.edges.find((e) => e.id === i)).filter(Boolean) as Edge[];
   const pair = g.meta.pairs.find((p) => (p.a === s.d.id && p.b === sat.id) || (p.b === s.d.id && p.a === sat.id));
@@ -158,12 +264,12 @@ export function messageFor(s: Story, sat: Sat, origin = "{ATLAS_URL}") {
   const studies = s.active.slice(0, 3).map((t) => `- ${t.id}: ${t.name.slice(0, 90)}${t.name.length > 90 ? "…" : ""} (https://clinicaltrials.gov/study/${t.id})`);
   const to = recipientFor(s, sat);
   return [
-    `To: ${to ?? `a ${sat.gene} patient community (no verified group is on file for the right gene: please add the name yourself)`}`,
+    `To: ${to ?? (sat.opposite ? "" : `a ${sat.gene} patient community (no verified group is on file for the right gene: please add the name yourself)`)}`,
     `Subject: Possible shared ground between ${s.common} and ${sat.common}`,
     "",
     "Hello,",
     "",
-    `I am part of the community around ${s.common} (${s.d.name}, gene ${s.d.gene}). The Rare Disease Atlas, a research prototype, lists ${sat.common} (${sat.name}, gene ${sat.gene}) as a related condition. ${sat.why}`,
+    `I am part of the community around ${s.common} (${s.d.name || s.common}, gene ${s.d.gene}). The Rare Disease Atlas, a research prototype, lists ${sat.common} (${sat.name}, gene ${sat.gene}) as a related condition. ${sat.why}`,
     "",
     status,
     "",

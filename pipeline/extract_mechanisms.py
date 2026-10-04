@@ -136,7 +136,12 @@ def main():
                 stats["span_mentions_gene"] = stats.get("span_mentions_gene", 0) + mentions
                 dc = stats.setdefault("by_disease_context", {}).setdefault(f"{gene}|{c['disease_context']}", {"claims": 0, "directional": 0})
                 dc["claims"] += 1; dc["directional"] += c["variant_effect"] != "unclear"
-                kept.append({**c, "pmid": pmid, "year": rec["year"], "title": rec["title"],
+                import mech
+                orig_mf = c["molecular_function"]
+                mf = mech.GENE_MOLECULAR_FUNCTION.get(gene, orig_mf)
+                rec_claim = {**c, "pmid": pmid, "extracted_molecular_function": orig_mf, "molecular_function": mf}
+                rec_claim["claim_id"] = mech.claim_id(rec_claim)
+                kept.append({**rec_claim, "year": rec["year"], "title": rec["title"],
                              "span_mentions_gene": mentions, "confidence": conf})
     stats["span_drop_rate"] = round(stats["dropped_span"] / stats["extracted"], 3) if stats["extracted"] else None
     out = {"retrieved_at": datetime.date.today().isoformat(), "model": model, "prompt_hash": PROMPT_HASH,

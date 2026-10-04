@@ -3,7 +3,14 @@ import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 
 type Item = { type: string; id: string; label: string; aliases: string[]; href: string; sub: string };
-const GROUPS: [string, string][] = [["disease", "Diseases"], ["gene", "Genes"], ["symptom", "Symptoms"], ["mechanism", "Biology (mechanisms)"], ["patient_group", "Patient groups"]];
+const GROUPS: [string, string][] = [
+  ["disease", "Diseases"],
+  ["gene", "Genes"],
+  ["study", "Studies & Registries"],
+  ["symptom", "Symptoms"],
+  ["mechanism", "Biology (mechanisms)"],
+  ["patient_group", "Patient groups"]
+];
 const norm = (s: string) => s.toLowerCase().normalize("NFKD").replace(/[̀-ͯ]/g, "").replace(/[^a-z0-9]+/g, " ").trim();
 
 function score(it: Item & { _l: string; _a: string[] }, q: string, toks: string[]) {
