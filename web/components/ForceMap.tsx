@@ -7,6 +7,7 @@ import { zoom, zoomIdentity, type ZoomBehavior } from "d3-zoom";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { FuncIcon } from "@/components/FuncIcon";
 import { useSize } from "@/components/scenes/Scene";
+import { RouteBar } from "@/components/RouteBar";
 import type { GLink } from "@/lib/graph";
 import { FUNC } from "@/lib/plain";
 import type { MapNode } from "@/lib/story";
@@ -133,8 +134,8 @@ export default function ForceMap({ nodes: input, links, focusId, height = 460 }:
           <p className="mt-0.5 text-sm text-muted">{cur.name}</p>
           <p className="mt-3 flex gap-2 text-sm"><FuncIcon f={cur.func} className="mt-0.5 text-accent" /><span><b>{cur.gene}</b> {FUNC[cur.func].desc}.</span></p>
           <p className="mt-3 text-sm">{cur.summary}</p>
-          <p className="mt-3"><span className={`chip chip-${cur.route === "supported" ? "ok" : cur.route === "hypothesis" ? "hyp" : "ctx"}`}>{ROUTE[cur.route]}</span>
-            {cur.uncertain && <span className="chip chip-conf ml-2">Grouping uncertain</span>}</p>
+          <RouteBar className="mt-3" compact overall={cur.overall} segments={cur.segments} />
+          {cur.uncertain && <p className="mt-2"><span className="chip chip-conf">Grouping uncertain</span></p>}
           {cur.id !== focusId && <Link href={cur.href} className="btn btn-accent mt-4 !py-2">Open <span aria-hidden>→</span></Link>}
         </>) : <p className="text-sm text-muted">Select a circle to see a plain summary of that disease. Hover or focus one to highlight its links.</p>}
       </aside>

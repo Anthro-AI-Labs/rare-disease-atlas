@@ -4,6 +4,8 @@ import { Answer } from "@/components/Answer";
 import ForceMap from "@/components/ForceMap";
 import { More } from "@/components/Depth";
 import { Chip } from "@/components/Chip";
+import { RouteBar } from "@/components/RouteBar";
+import { StudyCards } from "@/components/StudyCards";
 import { Claim, Investigators } from "@/components/Claim";
 import { Empty, EvidenceBadge, refLink } from "@/components/Evidence";
 import { Ev } from "@/components/EvidenceDrawer";
@@ -56,7 +58,7 @@ export default async function DiseasePage({ params }: { params: Promise<{ slug: 
   const ent = { yes: mechanisms.filter((m) => m.edge.entailment === "yes").length, partial: mechanisms.filter((m) => m.edge.entailment === "partial").length };
   const center = { gene: d.gene, common: s.common, tone: route.kind, gt: s.gene };
   const satViews = s.sats.map((x) => ({ id: x.id, gene: x.gene, common: x.common, status: x.status, why: x.why, edgeIds: x.edgeIds, href: x.href, dt: diseaseTip(x.id), gt: geneTip(x.gene),
-    message: messageFor(s, x), to: x.groups[0] ?? s.groups[0]?.name ?? null }));
+    message: messageFor(s, x), to: null, segments: x.segments, overall: x.overall, kind: x.kind, groups: x.groups, opposite: x.opposite }));
   const ord = [...s.active, ...s.studies.filter((t) => !s.active.includes(t))];
   const exists = { gene: d.gene, tone: route.kind, groups: s.groups.map((x) => ({ name: x.name, url: x.url })), registries: s.registries.map((x) => ({ name: x.name })),
     studies: ord.map((t) => ({ id: t.id, name: t.name, url: t.url })), activeCount: s.active.length, totalStudies: s.studies.length,
@@ -77,8 +79,8 @@ export default async function DiseasePage({ params }: { params: Promise<{ slug: 
           <GeneName t={s.gene}><span className="chip chip-accent">{d.gene}</span></GeneName>
           <a className="chip chip-ctx" href={refLink(d.id)!} target="_blank" rel="noreferrer">{d.id}</a>
           {d.role === "counterexample" && <Chip kind="ctx">benign form of a gene that also causes a severe disease</Chip>}
-          <StatusTip kind={route.kind}><Ev ids={g.meta.gaps[id].routes.flatMap((r) => r.edge_ids).slice(0, 10).concat([causes.id])} title="Evidence for this route"><span className={`chip chip-${route.kind} cursor-pointer`}>{route.label}</span></Ev></StatusTip>
         </div>
+        <RouteBar className="mt-3" overall={gap.route_overall} segments={gap.route_segments} />
         <h1 className="mt-4 max-w-4xl text-4xl font-bold leading-tight sm:text-5xl">{s.common}</h1>
         <p className="mt-2 text-lg text-muted">{d.name} · <DiseaseName t={s.tip} className="dotted text-accent">What is this?</DiseaseName></p>
       </header>
@@ -110,6 +112,7 @@ export default async function DiseasePage({ params }: { params: Promise<{ slug: 
       </Step>
 
       <Step id="shared" n={2} title="Who shares your biology" sub="Conditions that look alike on symptoms and, where papers allow, in the kind of gene change. A program works these links out, so they are ideas to discuss, not findings.">
+        <StudyCards sats={s.sats.filter((x) => x.kind === "shares_study")} from={s.common} />
         <SceneB center={center} sats={satViews} />
         {pairInfo.map((p) => (
           <div key={p.counterexample} className="mt-5 rounded-2xl border border-conf/40 bg-conf/5 p-5">
@@ -124,7 +127,7 @@ export default async function DiseasePage({ params }: { params: Promise<{ slug: 
           </div>))}
         {rel.length > 0 && <More label="details for each related condition" className="mt-5">
           <ul className="grid gap-5">{rel.map((r) => {
-            const c = r.route.connection_status === "supported" ? { kind: "ok" as const, label: "Supported route" } : { kind: "hyp" as const, label: "Hypothesis" };
+            const c = r.route.connection_status === "supported" ? { kind: "ok" as const, label: "Supported link" } : r.route.connection_pending ? { kind: "hyp" as const, label: "Pending verification" } : { kind: "hyp" as const, label: "Hypothesis" };
             const sat = s.sats.find((x) => x.id === r.to.id)!;
             return (
               <li key={r.to.id} className="card p-6">
@@ -138,7 +141,8 @@ export default async function DiseasePage({ params }: { params: Promise<{ slug: 
                     <StatusTip kind={c.kind}><Ev ids={r.route.edge_ids} title={`Evidence: link to ${r.to.name}`}><span className={`chip chip-${c.kind} cursor-pointer`}>{c.label}<span aria-hidden className="ev-n">· {r.route.edge_ids.length} evidence</span></span></Ev></StatusTip>
                   </div>
                 </div>
-                <p className="mt-4 text-lg"><b className="font-semibold">Why:</b> {sat.why} {mechLine(r)}</p>
+                <p className="mt-4 text-lg"><b className="font-semibold">Why:</b> {sat.why} {r.route.connection === "shares_study" ? "" : mechLine(r)}</p>
+                <RouteBar className="mt-3" overall={r.route.overall} segments={r.route.segments} />
                 <details className="mt-3 text-sm text-muted"><summary>What differs</summary>
                   <p className="mt-2"><b className="text-ink">Only in {d.gene}:</b> {r.onlyHere.map((p) => p.name).join("; ") || "nothing listed"}.</p>
                   <p className="mt-1"><b className="text-ink">Only in {sat.gene}:</b> {r.onlyThere.map((p) => p.name).join("; ") || "nothing listed"}.</p></details>
@@ -153,8 +157,11 @@ export default async function DiseasePage({ params }: { params: Promise<{ slug: 
         <More label="the full list of groups, registries and studies" className="mt-5">
         <div className="grid gap-5 md:grid-cols-3">
           <div className="card p-5"><h3 className="text-lg font-semibold">Patient groups</h3>
-            {communities.length ? <ul className="mt-3 space-y-3">{communities.map(({ org, via, edge }) => (<li key={edge.id}><Link href={`/org/${org.id.slice(4)}`} className="font-medium">{org.name}</Link><span className="block text-sm text-muted">via {via}{org.country ? ` · ${String(org.country)}` : ""}</span><span className="mt-1 inline-block"><EvidenceBadge e={edge} /></span></li>))}</ul>
-              : <p className="mt-3 text-sm text-muted">None verified yet for {d.gene} or its neighbours. A route becomes <b className="text-ink">supported</b> when a verified patient group serves this disease and a related one.</p>}</div>
+            {communities.length ? <ul className="mt-3 space-y-3">{communities.map(({ org, edge }) => (<li key={edge.id}><Link href={`/org/${org.id.slice(4)}`} className="font-medium">{org.name}</Link><span className="block text-sm text-muted">Serves {d.gene}-related conditions{org.country ? ` · ${String(org.country)}` : ""}</span><span className="mt-1 inline-block"><EvidenceBadge e={edge} /></span></li>))}</ul>
+              : <p className="mt-3 text-sm text-muted"><b className="text-ink">No patient group on file for {d.gene} yet.</b> A route becomes <b className="text-ink">supported</b> when a verified group serves this disease and a related one. <a className="text-accent underline" href={exists.helpUrl} target="_blank" rel="noreferrer">How you can help</a></p>}
+            {s.relatedGroups.length > 0 && <><p className="mt-4 text-xs font-semibold uppercase tracking-widest text-muted">Related community</p>
+              <ul className="mt-2 space-y-2">{s.relatedGroups.map((x) => (<li key={x.edge} className="text-sm"><Link href={`/org/${x.name ? s.a.relatedCommunities.find((c) => c.edge.id === x.edge)!.org.id.slice(4) : ""}`} className="font-medium">{x.name}</Link><span className="block text-muted">Related community (different gene: {x.gene}) · via {x.via}</span></li>))}</ul></>}
+            {a.oppositeGenes.length > 0 && <p className="mt-3 text-xs text-muted">No community is suggested for {[...new Set(a.oppositeGenes)].join(", ")}: the usual gene change there is the opposite of {d.gene}&apos;s.</p>}</div>
           <div className="card p-5"><h3 className="text-lg font-semibold">Registries and shared assets</h3>
             {assets.length ? <ul className="mt-3 space-y-3">{assets.map(({ asset, via, edge }) => (<li key={edge.id}><span className="font-medium">{asset.name}</span><span className="block text-sm text-muted"><Glossed text={String(asset.asset_type)} /> · via {via}</span><span className="mt-1 inline-block"><EvidenceBadge e={edge} /></span></li>))}</ul>
               : <p className="mt-3 text-sm text-muted">None verified yet. A <Term k="registry">registry</Term>, a <Term k="natural history study">natural history study</Term> or a shared sample collection would count once someone confirms it and adds its source.</p>}</div>

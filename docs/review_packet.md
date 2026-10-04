@@ -255,7 +255,7 @@ Upstream open reading frames (uORFs) within the 5'-untranslated region (5'-UTR) 
 
 ## Row 20 · KCNQ2
 
-- **Claim:** Variants in **KCNQ2** have the effect: loss of function (the protein works less or not at all), in the disease “Seizures, benign familial neonatal, 1”.
+- **Claim:** Variants in **KCNQ2** have the effect: an effect on the protein whose direction is not stated, in the disease “Seizures, benign familial neonatal, 1”.
 - **PubMed:** https://pubmed.ncbi.nlm.nih.gov/42610455/
 - **Title:** Early sodium channel blocker initiation is associated with better outcomes in KCNQ2 disorders.
 - **Other project genes mentioned in this abstract:** none
@@ -281,7 +281,7 @@ The voltage-gated sodium channel NaV1.2 is frequently implicated in neurodevelop
 
 ## Row 22 · SCN2A
 
-- **Claim:** Variants in **SCN2A** have the effect: loss of function (the protein works less or not at all), in an unspecified disease.
+- **Claim:** Variants in **SCN2A** have the effect: an effect on the protein whose direction is not stated, in an unspecified disease.
 - **PubMed:** https://pubmed.ncbi.nlm.nih.gov/40887751/
 - **Title:** Sex-Specific Behavioral Features of Juvenile and Adult Haploinsufficient Scn2a+/- Female Mice, Model of Autism Spectrum Disorder.
 - **Other project genes mentioned in this abstract:** none
@@ -294,7 +294,7 @@ Genetic variants of the **SCN2A gene, encoding the NaV1.2 sodium channel, cause 
 
 ## Row 23 · SCN2A
 
-- **Claim:** Variants in **SCN2A** have the effect: loss of function (the protein works less or not at all), in an unspecified disease.
+- **Claim:** Variants in **SCN2A** have the effect: an effect on the protein whose direction is not stated, in an unspecified disease.
 - **PubMed:** https://pubmed.ncbi.nlm.nih.gov/31501495/
 - **Title:** NaV1.2 haploinsufficiency in Scn2a knock-out mice causes an autistic-like phenotype attenuated with age.
 - **Other project genes mentioned in this abstract:** none
@@ -307,7 +307,7 @@ Mutations of the SCN2A gene, encoding the voltage gated sodium channel NaV1.2, h
 
 ## Row 24 · SYNGAP1
 
-- **Claim:** Variants in **SYNGAP1** have the effect: loss of function (the protein works less or not at all), in an unspecified disease.
+- **Claim:** Variants in **SYNGAP1** have the effect: an effect on the protein whose direction is not stated, in an unspecified disease.
 - **PubMed:** https://pubmed.ncbi.nlm.nih.gov/37786701/
 - **Title:** Context-dependent hyperactivity in syngap1a and syngap1b zebrafish autism models.
 - **Other project genes mentioned in this abstract:** none

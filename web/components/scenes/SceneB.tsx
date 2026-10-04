@@ -4,16 +4,19 @@ import { CopyMessage } from "@/components/Actions";
 import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
 import { Ev } from "@/components/EvidenceDrawer";
+import { RouteBar } from "@/components/RouteBar";
 import { DiseaseName, GeneName, StatusTip, type DiseaseTipData, type GeneTipData } from "@/components/Names";
 import { Connector, Scene, useSize } from "@/components/scenes/Scene";
-import type { Kind } from "@/lib/status";
+import type { Kind, Seg } from "@/lib/status";
 
-export type SatView = { id: string; gene: string; common: string; status: "supported" | "hypothesis" | "review"; why: string; edgeIds: string[]; href: string;
-  dt: DiseaseTipData; gt: GeneTipData; message: string; to: string | null };
+export type SatView = { id: string; gene: string; common: string; status: "supported" | "pending" | "hypothesis" | "review"; why: string; edgeIds: string[]; href: string;
+  dt: DiseaseTipData; gt: GeneTipData; message: string; to: string | null;
+  segments: { own_community: Seg; link: Seg; related_community: Seg; shared_asset: Seg }; overall: Seg; kind: string; groups: string[]; opposite: boolean };
 export type Center = { gene: string; common: string; tone: Kind; gt: GeneTipData };
 
 const S: Record<SatView["status"], { kind: Kind; label: string; line: string }> = {
   supported: { kind: "ok", label: "Supported link", line: "line-ok" },
+  pending: { kind: "hyp", label: "Shared study: pending verification", line: "line-hyp" },
   hypothesis: { kind: "hyp", label: "Hypothesis: needs checking", line: "line-hyp" },
   review: { kind: "conf", label: "Expert review needed", line: "line-conf" },
 };
@@ -42,6 +45,9 @@ export default function SceneB({ center, sats }: { center: Center; sats: SatView
                 <span className={`chip chip-${S[cur.status].kind} cursor-pointer`}>{S[cur.status].label}<span aria-hidden className="ev-n">· {cur.edgeIds.length} evidence</span></span></Ev></StatusTip>
             </div>
             <p className="mt-4 text-lg"><b className="font-semibold">Why: </b>{cur.why}</p>
+            <RouteBar className="mt-3" overall={cur.overall} segments={cur.segments} />
+            {cur.groups.length > 0 && <p className="mt-2 text-sm text-muted">Related community (different gene: {cur.gene}): {cur.groups.join("; ")}</p>}
+            {cur.opposite && <p className="mt-2 text-sm text-muted">No community is suggested here: the usual gene change in the two conditions is opposite (loss vs gain of function).</p>}
             {cur.status !== "supported" && <p className="mt-1 text-sm text-muted">{cur.status === "review" ? "Sources disagree or the grouping is uncertain, so an expert should look first." : "Worked out by a program from shared symptoms. It is an idea to check, not a finding."}</p>}
             <div className="mt-5 flex flex-wrap items-start gap-3">
               <CopyMessage text={cur.message} label={cur.to ? `Copy a message to ${cur.to}` : "Copy a message to a related community"} />

@@ -2,7 +2,7 @@ import { load } from "@/lib/graph";
 import { EFFECT } from "@/lib/plain";
 import { answerText, type Story } from "@/lib/story";
 
-const STATUS = { supported: "SUPPORTED", hypothesis: "HYPOTHESIS (computed, needs checking)", review: "EXPERT REVIEW NEEDED" } as const;
+const STATUS = { supported: "SUPPORTED", pending: "PENDING VERIFICATION (shared study)", hypothesis: "HYPOTHESIS (computed, needs checking)", review: "EXPERT REVIEW NEEDED" } as const;
 
 /** One-page summary for a doctor. Hidden on screen, shown only when printing. Status is written in words (print may be greyscale). */
 export function PrintSheet({ s }: { s: Story }) {
@@ -31,7 +31,7 @@ export function PrintSheet({ s }: { s: Story }) {
         <li><b>{s.effect === "neutral" ? "NOT SHOWN" : s.effect === "mixed" ? "EXPERT REVIEW NEEDED" : "SUPPORTED (literature)"}:</b> gene change — {EFFECT[s.effect].plain}{effectRefs.length ? ` (${effectRefs.join(", ")})` : ""}.</li>
         {s.sats.map((x) => <li key={x.id}><b>{STATUS[x.status]}:</b> related to {x.common} ({x.name}). {x.why}</li>)}
         <li><b>{s.active.length ? "SUPPORTED (registry)" : "GAP"}:</b> {s.active.length} active of {s.studies.length} studies on ClinicalTrials.gov name {d.gene}; check each one fits.</li>
-        <li><b>{s.groups.length ? "SUPPORTED (curated)" : "GAP"}:</b> {s.groups.length ? s.groups.map((x) => x.name).join(", ") : "no patient group or registry is on file yet"}.</li>
+        <li><b>{s.groups.length ? "SUPPORTED (curated)" : "GAP"}:</b> {s.groups.length ? s.groups.map((x) => x.name).join(", ") : "no patient group for this gene is on file yet"}.</li>
       </ul>
       <h2>Questions to ask an expert</h2>
       <ol>{qs.map((q) => <li key={q}>{q}</li>)}</ol>

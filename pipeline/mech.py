@@ -21,6 +21,34 @@ def base_confidence(mentions, population):
     return (0.8 if population == "human" else 0.7) if mentions else 0.5
 
 
+VERDICTS = ("correct", "partial", "incorrect")
+CLAIM_RE = re.compile(r"^(?P<effect>[a-z ]+?) / (?P<func>[a-z ]+?) \((?P<pop>[a-z_ ]+); disease: (?P<disease>.*?); confidence (?P<conf>[0-9.]+)\)\s*$")
+
+
+def parse_claim_text(t):
+    """The claim column of evidence_review_v2.csv: '<effect> / <function> (<population>; disease: <name>; confidence <c>)'. Never edited."""
+    m = CLAIM_RE.match((t or "").strip())
+    return {**m.groupdict(), "conf": float(m["conf"])} if m else None
+
+
+def human_reviews():
+    """Final human review of the 24-claim sample (data/curated/evidence_review_v2.csv): only verified=yes rows count.
+    Joined on the stable claim id (edge_id). first = verdict (reviewer 1), second = second_verdict (reviewer 2), final = final_verdict.
+    Nothing here ever modifies those columns."""
+    import curated
+    out = {}
+    for r in curated.load("evidence_review_v2"):
+        if r.get("verified", "").strip().lower() != "yes":
+            continue
+        low = lambda k: r.get(k, "").strip().lower()
+        c = parse_claim_text(r.get("claim", ""))
+        out[r["edge_id"]] = {"edge_id": r["edge_id"], "pmid": r["pmid"], "span": r["quoted_span"], "gene": r["gene"], "claim": r.get("claim", ""), "parsed": c,
+                             "first": low("verdict") if low("verdict") in VERDICTS else "", "second": low("second_verdict") if low("second_verdict") in VERDICTS else "",
+                             "final": low("final_verdict") if low("final_verdict") in VERDICTS else "", "notes": r.get("notes", "").strip(),
+                             "first_by": r.get("verified_by", ""), "second_by": r.get("second_by", ""), "verified_at": r.get("verified_at", "")}
+    return out
+
+
 def load_claims(overlay=True):
     """Claims from mechanisms.json, with the entailment overlay (data/graph/entailment.json) applied:
     population := population described by the span; entailment 'no' => variant_effect 'unclear' (context only, conf <= 0.4);
@@ -50,6 +78,18 @@ def load_claims(overlay=True):
             if c["variant_effect"] == "unclear":
                 conf = min(conf, 0.4)
             c["confidence"] = round(conf, 2)
+    if overlay:
+        rev = human_reviews()
+        for c in claims:
+            r = rev.get(c["claim_id"])
+            c["review"] = None
+            if not r:
+                continue
+            c["review"] = {k: r[k] for k in ("first", "second", "final", "notes", "first_by", "second_by")}
+            c["review"]["by_two_humans"] = bool(r["first"] and r["second"] and r["first_by"] and r["second_by"])
+            if r["final"] == "incorrect":      # human verdict: the claim is wrong -> context only
+                c["variant_effect"], c["human_demoted"] = "unclear", True
+                c["confidence"] = min(c["confidence"], 0.4)
     return claims
 
 

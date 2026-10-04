@@ -6,7 +6,8 @@ type L = {
   id: string; relation: string; source: string; target: string; evidence_type: string; status: string; confidence: number; source_db: string;
   retrieved_at: string; references?: string[]; ref_titles?: Record<string, string>; quoted_span?: string; population?: string; entailment?: string;
   entailment_rationale?: string; extracted_variant_effect?: string; variant_effect?: string; disease_context?: string; contradicts?: string[];
-  note?: string; review_verdict?: string; match_level?: string; shared_phenotypes?: string[]; shared_mechanisms?: string[];
+  note?: string; review_verdict?: string; match_level?: string; human_demoted?: boolean; pending_verification?: boolean; study_name?: string;
+  review?: { first: string; second: string; final: string; notes: string; first_by: string; second_by: string; by_two_humans: boolean }; shared_phenotypes?: string[]; shared_mechanisms?: string[];
 };
 type Ctx = { open: (ids: string[], title?: string) => void };
 const C = createContext<Ctx>({ open: () => {} });
@@ -53,7 +54,18 @@ function EdgeBlock({ e, all }: { e: L; all: Record<string, L> }) {
               <li key={id} className="rounded-xl border border-conf/40 p-3"><span className="italic">“{o.quoted_span}”</span> <a className="text-accent underline" target="_blank" rel="noreferrer" href={refUrl((o.references ?? [])[0] ?? "") ?? "#"}>{(o.references ?? [])[0]}</a> <span className="text-muted">· {o.variant_effect?.replace(/_/g, " ")} · {o.population?.replace(/_/g, " ")}</span></li>) : null; })}</ul>
               <p className="mt-2 text-muted">Needs expert review. Whether the effect depends on age at onset, the exact variant or the lab system is only a hypothesis.</p></dd></div>)}
         {e.note && <div><dt className="text-muted">Note</dt><dd>{e.note}</dd></div>}
-        {e.review_verdict && <div><dt className="text-muted">Human review</dt><dd>{e.review_verdict === "correct" ? "✓ Checked by a reviewer: correct" : `Reviewer verdict: ${e.review_verdict}`}</dd></div>}
+        {e.review && (
+          <div className="rounded-xl border border-ok/40 p-3">
+            <dt className="text-muted">Human review</dt>
+            <dd>
+              {e.review.by_two_humans && <span className="chip chip-ok mr-2">Reviewed by two humans</span>}
+              <span className={`chip ${e.review.final === "correct" ? "chip-ok" : e.review.final === "partial" ? "chip-hyp" : "chip-conf"}`}>Final verdict: {e.review.final}</span>
+              {e.human_demoted && <p className="mt-2">The reviewers found this claim wrong, so it is kept as context only and not counted.</p>}
+              <p className="mt-2 text-muted">{e.review.first_by || "Reviewer 1"}: {e.review.first || "n/a"} · {e.review.second_by || "Reviewer 2"}: {e.review.second || "n/a"}</p>
+              {e.review.notes && <p className="mt-2"><span className="text-muted">Reviewers&apos; evidence: </span>{e.review.notes}</p>}
+              <p className="mt-2 text-xs text-muted">Both reviewers are people (Varduhi, Amin). An AI assistant helped enter results and draft the notes.</p>
+            </dd>
+          </div>)}
       </dl>
       <p className="mt-3 text-xs text-muted">Edge {e.id}</p>
     </section>

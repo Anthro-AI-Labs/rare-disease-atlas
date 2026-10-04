@@ -3,7 +3,8 @@ Per row: number, gene, the claim in plain words, PubMed link, the full cached ab
 ([LoF] [GoF] [DN] for direction, [HUMAN] [MODEL] for population) and other project genes mentioned. It deliberately shows no verdicts,
 confidence values or entailment results. Keyword tags are string matches, not judgements."""
 import csv, json, re
-from common import CURATED, GRAPH, ROOT, cache_get
+from common import CURATED, ROOT, cache_get
+from mech import parse_claim_text
 from config import ALL
 from spans import norm
 
@@ -17,6 +18,16 @@ TAG = {t: t for t, _ in DIR + POP}
 EFFECT = {"loss_of_function": "loss of function (the protein works less or not at all)", "gain_of_function": "gain of function (the protein is overactive)",
           "dominant_negative": "dominant negative (the faulty protein interferes with the healthy copy)", "mixed": "mixed: both reduced and increased function",
           "unclear": "an effect on the protein whose direction is not stated"}
+
+
+def claim_sentence(gene, claim_text):
+    """The CURRENT claim, exactly as written in the CSV's `claim` column (never the original extracted effect: demoted rows say 'unclear')."""
+    c = parse_claim_text(claim_text)
+    if not c:
+        return f"{claim_text} (could not be parsed)"
+    eff = EFFECT.get(c["effect"].replace(" ", "_"), c["effect"])
+    ctx = "an unspecified disease" if c["disease"] in ("", "unspecified") else f"the disease “{c['disease']}”"
+    return f"Variants in **{gene}** have the effect: {eff}, in {ctx}."
 
 
 def tag(text):
@@ -36,8 +47,6 @@ def marked(abstract, span):
 
 
 def main():
-    g = json.loads((GRAPH / "graph.json").read_text())
-    edges = {e["id"]: e for e in g["edges"]}
     rows = list(csv.DictReader(open(CURATED / "evidence_review_v2.csv", newline="", encoding="utf-8-sig")))
     genes = sorted(set(ALL.values()))
     out = ["# Review packet: evidence_review_v2.csv", "",
@@ -48,17 +57,10 @@ def main():
            "", "**What to fill in `evidence_review_v2.csv`:** `about_this_gene`, `same_mechanism`, `human_patients` (yes/no), `verdict` (correct | partial | incorrect), `notes`, "
            "then `verified`, `verified_by`, `verified_at`. A second reviewer fills `second_verdict` and `second_by` without looking at the first verdict.", ""]
     for n, r in enumerate(rows, 1):
-        e = edges.get(r["edge_id"])
         gene, pmid = r["gene"], r["pmid"]
         rec = (cache_get("pubmed_abs", pmid)[1] or {}).get("value", {})
         abstract = rec.get("abstract", "")
-        if e:
-            eff = EFFECT.get(e.get("extracted_variant_effect") or "unclear")
-            dc = e.get("disease_context")
-            ctx = "an unspecified disease" if dc in (None, "unspecified") else f"the disease “{dc}”"
-            claim = f"Variants in **{gene}** have the effect: {eff}, in {ctx}."
-        else:
-            claim = r["claim"].split(";")[0].split("(")[0].strip() or "(claim text unavailable)"
+        claim = claim_sentence(gene, r["claim"])
         others = {x: len(re.findall(rf"\b{x}\b", abstract)) for x in genes if x != gene}
         others = {k: v for k, v in others.items() if v}
         out += [f"## Row {n} · {gene}", "", f"- **Claim:** {claim}", f"- **PubMed:** https://pubmed.ncbi.nlm.nih.gov/{pmid}/",

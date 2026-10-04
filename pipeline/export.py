@@ -70,7 +70,7 @@ def build():
             gene_diseases.setdefault(g, []).append(d)
     sources = [{"name": "HPO + MONDO", "retrieved_at": (GRAPH.parent / "raw" / "RETRIEVED_AT").read_text().strip()
                 if (GRAPH.parent / "raw" / "RETRIEVED_AT").exists() else TODAY}]
-    counter = {"T": 0, "S": 0, "C": 0, "A": 0}
+    counter = {"T": 0, "S": 0, "C": 0, "A": 0, "Y": 0}
 
     def add(prefix, **kw):
         counter[prefix] += 1
@@ -122,7 +122,8 @@ def build():
                           "status": "supported", "quoted_span": c["quoted_span"], "population": c["population"],
                           "linked_phenotype_or_disease": c["linked_phenotype_or_disease"], "contradicts": [],
                           "entailment": c["entailment"], "entailment_rationale": c.get("entailment_rationale", ""),
-                          "extracted_variant_effect": c["extracted_variant_effect"], "extracted_population": c["extracted_population"]})
+                          "extracted_variant_effect": c["extracted_variant_effect"], "extracted_population": c["extracted_population"],
+                          "review": c.get("review"), "human_demoted": bool(c.get("human_demoted"))})
     by_id = {e["id"]: e for e in edges}
     # --- WP2.2 contradictions (disease level); "mixed" is a finding, not a contradiction ---
     findings = mech.contradictions(claims, idx) if claims else []
@@ -176,24 +177,58 @@ def build():
         return keep
     pg, assets = ok("patient_groups"), ok("assets")
     yes = lambda r: r.get("verified", "").strip().lower() == "yes"   # protocol: only verified=yes rows count as human-verified
+    all_gene_diseases = {}                       # patient groups serve EVERY disease of their gene, benign forms included
+    for d, g in ALL.items():
+        if d in nodes:
+            all_gene_diseases.setdefault(g, []).append(d)
+    org_genes = {}
     for r in pg:
         oid = f"ORG:{slug(r['organization_name'])}"
+        org_genes.setdefault(oid, set()).add(r["gene"].upper())
         nodes.setdefault(oid, {"id": oid, "type": "patient_org", "name": r["organization_name"], "url": r["url"],
                                "verified": yes(r), "country": r["country"], "has_registry": r["has_registry"].lower() in ("1", "true", "yes"),
                                "registry_url": r["registry_url"]})
-        for d in gene_diseases.get(r["gene"].upper(), []):
+        for d in all_gene_diseases.get(r["gene"].upper(), []):
             add("C", source=oid, target=d, relation="serves", evidence_type="manual", source_db="curated patient_groups.csv",
                 references=[r["url"]] if r["url"] else [], confidence=0.8 if yes(r) else 0.4, status="supported" if yes(r) else "hypothesis",
                 date_checked=r["date_checked"], verified=yes(r), verified_by=r.get("verified_by", ""), verified_at=r.get("verified_at", ""),
-                note="" if yes(r) else "Not yet verified by a human reviewer.")
+                gene=r["gene"].upper(), note="" if yes(r) else "Not yet verified by a human reviewer.")
+    for oid, gs in org_genes.items():
+        nodes[oid]["genes"] = sorted(gs)
+    # assets: one node per study/registry identifier (falls back to the name); `verified` is the ONLY source of truth for their status
+    asset_rows = {}
     for r in assets:
-        aid = f"ASSET:{slug(r['name'])}"
+        key = r["identifier"].strip() or slug(r["name"])
+        aid = f"ASSET:{key}"
         nodes.setdefault(aid, {"id": aid, "type": "asset", "name": r["name"], "asset_type": r["asset_type"],
-                               "identifier": r["identifier"], "url": r["source_url"], "asset_status": r["status"], "verified": yes(r)})
+                               "identifier": r["identifier"], "url": r["source_url"], "asset_status": r["status"]})
+        asset_rows.setdefault(aid, []).append(r)
         add("C", source=f"HGNC_SYMBOL:{r['gene'].upper()}", target=aid, relation="has_asset", evidence_type="manual",
             source_db="curated assets.csv", references=[r["source_url"]] if r["source_url"] else [], confidence=0.8 if yes(r) else 0.4,
             status="supported" if yes(r) else "hypothesis", date_checked=r["date_checked"], verified=yes(r), verified_by=r.get("verified_by", ""),
-            verified_at=r.get("verified_at", ""), note="" if yes(r) else "Not yet verified by a human reviewer.")
+            verified_at=r.get("verified_at", ""), gene=r["gene"].upper(), note="" if yes(r) else "Not yet verified by a human reviewer.")
+    for aid, rows in asset_rows.items():
+        nodes[aid]["verified"] = all(yes(r) for r in rows)
+        nodes[aid]["genes"] = sorted({r["gene"].upper() for r in rows})
+    # "shares a study": one curated asset with the same identifier serves both genes -> link their (non-benign) diseases.
+    # supported only if the asset rows of BOTH genes are verified=yes; otherwise pending verification.
+    import itertools
+    for aid, rows in asset_rows.items():
+        if not nodes[aid].get("identifier"):
+            continue
+        by_gene = {}
+        for r in rows:
+            by_gene.setdefault(r["gene"].upper(), []).append(r)
+        for ga, gb in itertools.combinations(sorted(by_gene), 2):
+            ver = all(yes(r) for r in by_gene[ga] + by_gene[gb])
+            ids_ = [e["id"] for e in edges if e["relation"] == "has_asset" and e["target"] == aid and e.get("gene") in (ga, gb)]
+            for da in gene_diseases.get(ga, []):
+                for db in gene_diseases.get(gb, []):
+                    add("Y", source=da, target=db, relation="shares_study_with", evidence_type="manual", source_db="curated assets.csv (same study identifier)",
+                        references=[nodes[aid]["identifier"]], confidence=0.85 if ver else 0.4, status="supported" if ver else "hypothesis",
+                        pending_verification=not ver, study_id=nodes[aid]["identifier"], study_name=nodes[aid]["name"], asset_id=aid,
+                        supporting_edge_ids=ids_, genes=[ga, gb],
+                        note="Both are included in the same study: " + nodes[aid]["name"] + ("" if ver else " (pending verification of the asset rows)."))
     if pg or assets:
         sources.append({"name": "curated CSVs", "retrieved_at": TODAY})
 
@@ -205,32 +240,29 @@ def build():
         assert e["source"] in nodes and e["target"] in nodes, f"dangling edge {e['id']}"
     for n in nodes.values():
         Node(**n)
-    # --- review precision per confidence tier (evidence_review*.csv; joined on pmid + quoted span) ---
+    # --- human review of the 24-claim sample (final_verdict): precision per sampling-time confidence tier, demotion check, agreement ---
+    rev = mech.human_reviews()
     tier = lambda c: "0.8" if c >= 0.8 else "0.7" if c >= 0.7 else "<0.7"
-    key = lambda pmid, span: (str(pmid), mech_norm(span))
-    claim_edge = {key(e["references"][0].removeprefix("PMID:"), e["quoted_span"]): e for e in edges if e["relation"] == "has_variant_effect"}
     review = {t: {"sampled": 0, "reviewed": 0, "correct": 0, "partial": 0, "incorrect": 0} for t in ("0.8", "0.7", "<0.7")}
-    seen, pairs_two = set(), []
-    for name in ("evidence_review_v2",):  # v1 is a non-random (priority) sample: excluded from precision estimates
-        for r in curated.load(name):
-            e = claim_edge.get(key(r["pmid"], r["quoted_span"]))
-            if not e or key(r["pmid"], r["quoted_span"]) in seen:
-                continue
-            seen.add(key(r["pmid"], r["quoted_span"]))
-            t = review[tier(e["confidence"])]
-            t["sampled"] += 1
-            v = r["verdict"].strip().lower()
-            if r.get("verified", "").strip().lower() != "yes":   # protocol: only verified=yes rows count as human-verified
-                continue
-            if v in ("correct", "partial", "incorrect"):
-                t["reviewed"] += 1; t[v] += 1
-                e["review_verdict"] = v
-                sv = r.get("second_verdict", "").strip().lower()
-                if sv in ("correct", "partial", "incorrect"):
-                    pairs_two.append((v, sv))
+    demotion = {"n": 0, "correct": 0, "partial": 0, "incorrect": 0, "rows": []}
+    pairs_two, review_rows = [], []
+    for eid, r in rev.items():
+        e = next((x for x in edges if x["id"] == eid), None)
+        if e is None or not r["final"] or not r["parsed"]:
+            continue
+        e["review_verdict"] = r["final"]
+        if r["first"] and r["second"]:
+            pairs_two.append((r["first"], r["second"]))
+        row = {"edge_id": eid, "gene": r["gene"], "final": r["final"], "effect_at_review": r["parsed"]["effect"], "tier": tier(r["parsed"]["conf"])}
+        review_rows.append(row)
+        if r["parsed"]["effect"] == "unclear":      # claim was already context only when sampled -> demotion check, not precision
+            demotion["n"] += 1; demotion[r["final"]] += 1; demotion["rows"].append(eid)
+            continue
+        t = review[tier(r["parsed"]["conf"])]
+        t["sampled"] += 1; t["reviewed"] += 1; t[r["final"]] += 1
     for t in review.values():
         t["precision"] = round(t["correct"] / t["reviewed"], 3) if t["reviewed"] else None
-    agreement = agreement_stats(pairs_two)
+    agreement = {**agreement_stats(pairs_two), "label": "two human reviewers (Varduhi, Amin)"}
     tot = {k: sum(t[k] for t in review.values()) for k in ("sampled", "reviewed", "correct", "partial", "incorrect")}
     review_overall = {**tot, "share_reviewed": round(tot["reviewed"] / tot["sampled"], 3) if tot["sampled"] else None}
     gaps = build_gaps(nodes, edges, comb, {"claims": claims, "specific": spec, "mech_stats": mech_json["stats"] if mech_json else None,
@@ -254,7 +286,7 @@ def build():
                       "curated_skipped": skipped, "share_mechanism_min_ui": SHARE_MECH_MIN, "explanation_stats": {**(ex_file["stats"] if ex_file else {}), "stale_dropped": ex_stale}, "network_stats": net["stats"] if net else None, "share_mechanism_min": SHARE_MECH_MIN,
                       "confidence_rule": "LLM claims: 0.8 if the quoted span names the gene and the span-check says it describes human subjects; 0.7 if it names the gene but describes cells, animals or no stated population; 0.5 if the span does not name the gene. A second check sees only the span: entailment 'partial' lowers confidence by 0.2; 'no' sets the variant effect to unclear (context only, at most 0.4, excluded from similarity and profiles).",
                       "entailment_stats": (jload("entailment.json") or {}).get("stats"),
-                      "review_overall": review_overall, "review_agreement": agreement,
+                      "review_overall": review_overall, "review_agreement": agreement, "review_demotion_check": demotion,
                       "curated_counts": {"patient_groups": len(pg), "assets": len(assets)},
                       "core": CORE, "counterexamples": COUNTEREXAMPLES},
              "nodes": list(nodes.values()), "edges": edges, "clusters": json.loads((GRAPH / "clusters.json").read_text()),
@@ -283,7 +315,7 @@ def main():
             "variant_effect": nm[e["target"]].get("variant_effect") if e["relation"] == "has_variant_effect" else None,
             "disease_context": e.get("disease_context"), "contradicts": e.get("contradicts") or None,
             "note": e.get("note") or e.get("method_note") or None, "review_verdict": e.get("review_verdict"),
-            "match_level": e.get("match_level"), "shared_phenotypes": [p["name"] for p in e.get("shared_phenotypes", [])[:5]] or None,
+            "match_level": e.get("match_level"), "review": e.get("review"), "human_demoted": e.get("human_demoted") or None, "pending_verification": e.get("pending_verification") or None, "study_name": e.get("study_name"), "verified": e.get("verified"), "shared_phenotypes": [p["name"] for p in e.get("shared_phenotypes", [])[:5]] or None,
             "shared_mechanisms": e.get("shared_mechanisms"), "frequency": e.get("frequency") or None}.items() if v not in (None, "", [])}
     (web / "edges.json").write_text(json.dumps(lite, separators=(",", ":")))
     items = search_index.build({n["id"]: n for n in g["nodes"]}, g["edges"], None)

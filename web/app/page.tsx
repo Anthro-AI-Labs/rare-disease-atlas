@@ -42,6 +42,13 @@ export default function Home() {
         <div className="card mt-4 p-4 sm:p-6"><ForceMap nodes={nodes} links={links} height={440} /></div>
       </section>
 
+      <section className="mt-12" aria-labelledby="tenx">
+        <Link href="/10x" className="card block p-5 sm:p-6">
+          <h2 id="tenx" className="text-2xl font-semibold">The 10× case</h2>
+          <p className="mt-1 text-muted">Finding and connecting: well over 10× (measured). Launching a shared study: about 1.3× (estimate). What we measured, what we sourced, what we only assume. <span className="text-accent underline">Read it →</span></p>
+        </Link>
+      </section>
+
       <section className="mt-12" aria-labelledby="all">
         <h2 id="all" className="text-2xl font-semibold">All diseases</h2>
         <ul className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">

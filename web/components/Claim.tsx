@@ -9,6 +9,8 @@ export function Claim({ edge, mech, pub, rule }: { edge: Edge; mech: Node; pub?:
         <EntailChip e={edge} />
         {edge.confidence <= 0.5 && <span title={rule} className="ml-2 rounded border border-red-700 px-1 text-xs font-normal text-red-800">low confidence {edge.confidence}</span>}</p>
       <blockquote className="mt-1 border-l-2 border-neutral-300 pl-3 text-sm italic text-neutral-700">“{edge.quoted_span}”</blockquote>
+      {edge.review && (edge.review.final === "partial" || edge.human_demoted) && (
+        <p className="mt-1 text-sm"><span className={`chip ${edge.human_demoted ? "chip-conf" : "chip-hyp"} mr-2`}>{edge.human_demoted ? "Reviewers: context only" : "Reviewers: partly right"}</span>{edge.review.notes}</p>)}
       <p className="mt-1 text-sm">{pub ? <a className="underline" target="_blank" rel="noreferrer" href={String(pub.url)}>{edge.references[0]}</a> : edge.references[0]}{pub?.name ? ` — ${pub.name}` : ""}</p>
       <div className="mt-1"><EvidenceBadge e={edge} /></div>
     </li>

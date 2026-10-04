@@ -4,7 +4,7 @@ import { Chip } from "@/components/Chip";
 import { Term } from "@/components/Term";
 import { load, slugOf } from "@/lib/graph";
 import { mapData } from "@/lib/story";
-import { ROUTE } from "@/lib/status";
+import { RouteBar } from "@/components/RouteBar";
 
 export const metadata = { title: "Explore the map · Rare Disease Atlas" };
 
@@ -26,7 +26,7 @@ export default function Explore() {
               <li key={m.id}><Link href={`/disease/${slugOf(m.id)}`} className="font-heading text-lg font-semibold">{m.gene}</Link>
                 {m.role === "counterexample" && <span className="ml-2 chip chip-ctx">benign form</span>}
                 <span className="mt-0.5 block text-sm text-muted">{m.name}</span>
-                <span className="mt-1 flex flex-wrap gap-2"><Chip kind={ROUTE[g.meta.gaps[m.id].route_status].kind}>{ROUTE[g.meta.gaps[m.id].route_status].label}</Chip>{m.uncertain && <Chip kind="conf" title={m.uncertain_reason}>Grouping uncertain</Chip>}</span></li>))}</ul>
+                <span className="mt-1 block"><RouteBar compact overall={g.meta.gaps[m.id].route_overall} segments={g.meta.gaps[m.id].route_segments} />{m.uncertain && <span className="mt-1.5 inline-block"><Chip kind="conf" title={m.uncertain_reason}>Grouping uncertain</Chip></span>}</span></li>))}</ul>
           </div>))}
       </div>
     </main>

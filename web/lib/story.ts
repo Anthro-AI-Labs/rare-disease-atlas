@@ -1,14 +1,15 @@
 import fs from "node:fs";
 import path from "node:path";
-import { actionView, diseases, graphData, load, slugOf, type Edge } from "@/lib/graph";
+import { actionView, diseases, graphData, load, slugOf, type Edge, type SegStatus, type Segments } from "@/lib/graph";
 import { FUNC, whyLine } from "@/lib/plain";
 import type { Kind } from "@/lib/status";
 
 /** Everything on the story layer is built DETERMINISTICALLY from graph.json counts and the controlled vocabulary (no LLM). */
 
 export type Seg = string | { t: string; k: Kind };
-export type SatStatus = "supported" | "hypothesis" | "review";
-export type Sat = { id: string; gene: string; common: string; name: string; status: SatStatus; why: string; edgeIds: string[]; href: string; func: string; groups: string[] };
+export type SatStatus = "supported" | "pending" | "hypothesis" | "review";
+export type Sat = { id: string; gene: string; common: string; name: string; status: SatStatus; why: string; edgeIds: string[]; href: string; func: string; groups: string[];
+  kind: string; studies: { id: string; name: string; status: "supported" | "pending"; edge_id: string }[]; segments: Segments; overall: SegStatus; opposite: boolean };
 export type Effect = "loss_of_function" | "gain_of_function" | "mixed" | "neutral";
 
 let aliasCache: Map<string, string[]> | null = null;
@@ -57,7 +58,7 @@ const cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 export function story(id: string) {
   const a = actionView(id);
   const { g, nodes } = load();
-  const { v, rel, communities, assets } = a;
+  const { v, rel, communities, relatedCommunities, assets } = a;
   const d = v.d;
   const common = commonName(id);
   const contradicted = new Set(g.meta.contradiction_findings.filter((f) => f.kind === "contradicted").map((f) => f.disease));
@@ -66,9 +67,12 @@ export function story(id: string) {
   // --- Scene B: who shares your biology ---
   const sats: Sat[] = rel.map((r) => {
     const other = diseases().find((x) => x.id === r.to.id)!;
-    const status: SatStatus = r.route.connection_status === "supported" ? "supported" : contradicted.has(r.to.id) ? "review" : "hypothesis";
-    return { id: other.id, gene: other.gene, common: commonName(other.id), name: other.name!, status, why: whyLine(r.shared), edgeIds: r.route.edge_ids,
-      href: `/disease/${slugOf(other.id)}`, func: geneFunction(other.gene), groups: groupsFor(other.id) };
+    const status: SatStatus = r.route.connection_status === "supported" ? "supported" : r.route.connection_pending ? "pending" : contradicted.has(r.to.id) ? "review" : "hypothesis";
+    const study = r.route.studies[0];
+    return { id: other.id, gene: other.gene, common: commonName(other.id), name: other.name!, status,
+      why: study ? `Both are included in the same study: ${study.name}.` : whyLine(r.shared), edgeIds: r.route.edge_ids,
+      href: `/disease/${slugOf(other.id)}`, func: geneFunction(other.gene), groups: r.route.opposite_mechanisms || other.gene === d.gene ? [] : groupsFor(other.id),
+      kind: r.route.connection, studies: r.route.studies, segments: r.route.segments, overall: r.route.overall, opposite: !!r.route.opposite_mechanisms };
   });
   for (const p of v.pairInfo) {
     const oid = p.counterexample === id ? p.core : p.counterexample;
@@ -77,14 +81,16 @@ export function story(id: string) {
     const causes = g.edges.filter((e) => e.relation === "causes" && (e.target === id || e.target === oid)).map((e) => e.id);
     sats.push({ id: oid, gene: other.gene, common: commonName(oid), name: other.name!, status: p.status === "uncertain membership" ? "review" : "hypothesis",
       why: `Same gene (${p.gene}), but one form is mild and the other severe. An expert should check how they relate.`, edgeIds: causes,
-      href: `/disease/${slugOf(oid)}`, func: geneFunction(other.gene), groups: groupsFor(oid) });
+      href: `/disease/${slugOf(oid)}`, func: geneFunction(other.gene), groups: [], kind: "same_gene", studies: [], segments: a.gap.route_segments, overall: a.gap.route_overall, opposite: false });
   }
   const linked = sats.filter((s) => rel.some((r) => r.to.id === s.id)); // computed neighbours only; same-gene mild/severe partners are shown but not counted
 
   // --- Scene C: what already exists ---
   const studies = v.trials.map((t) => ({ id: t.study.id, name: String(t.study.name), status: String(t.study.status), url: String(t.study.url), edge: t.edge.id }));
   const active = studies.filter((s) => ACTIVE.has(s.status));
+  // groups = patient groups of THIS gene only; groups of other genes are "related communities" (never across opposite mechanisms) and never a recommendation
   const groups = communities.map((c) => ({ name: c.org.name!, via: c.via, edge: c.edge.id, url: (c.org.url as string) || null }));
+  const relatedGroups = relatedCommunities.map((c) => ({ name: c.org.name!, via: c.via, gene: c.gene, edge: c.edge.id, url: (c.org.url as string) || null }));
   const registries = assets.map((x) => ({ name: x.asset.name!, via: x.via, edge: x.edge.id }));
 
   // --- Scene A: mechanism picture, only from claims whose quote states the effect ---
@@ -105,8 +111,7 @@ export function story(id: string) {
   // --- Next step (deterministic priority list) ---
   const top = linked[0];
   let next: { text: string; kind: Kind; short: string };
-  if (groups.some((x) => x.via === "this disease")) { const o = groups.find((x) => x.via === "this disease")!; next = { kind: "accent", short: `contact ${o.name}`, text: `Contact ${o.name} and share what this page shows.` }; }
-  else if (groups.length) next = { kind: "accent", short: `contact ${groups[0].name}`, text: `Contact ${groups[0].name}, which serves a related condition, and compare what each community has.` };
+  if (groups.length) { const o = groups[0]; next = { kind: "accent", short: `contact ${o.name}`, text: `Contact ${o.name} and share what this page shows.` }; }
   else if (active.length) next = { kind: "accent", short: `ask a study team whether ${d.gene} families are in scope`, text: `Ask the team behind one of the ${active.length} active studies that name ${d.gene} whether families like yours can take part.` };
   else if (top) next = { kind: "accent", short: `ask a genetics expert whether the link to ${top.common} is real`, text: `Ask a genetics expert whether the possible link to ${top.common} is real, using the sources on this page.` };
   else next = { kind: "accent", short: "ask a genetics expert which evidence is missing", text: "Ask a genetics expert which evidence is missing, using the gaps listed on this page." };
@@ -117,11 +122,11 @@ export function story(id: string) {
   if (linked.length) answer.push(`${common} `, linked.some((s) => s.status === "supported") ? "shares" : "may share", " key features with ", { t: `${n(linked.length, "other rare condition", "other rare conditions")}`, k: relKind }, ". ");
   else answer.push(`We found `, { t: "no other rare condition", k: "ctx" }, ` close enough to ${common} to compare yet. `);
   if (groups.length) answer.push({ t: n(groups.length, "patient group", "patient groups"), k: "ok" }, " and ", { t: n(active.length, "active study", "active studies"), k: active.length ? "ok" : "ctx" }, " may be relevant. ");
-  else if (active.length) answer.push({ t: "No patient group", k: "ctx" }, " is on file yet, but ", { t: n(active.length, "active study", "active studies"), k: "ok" }, ` ${active.length === 1 ? "names" : "name"} ${d.gene}. `);
-  else answer.push({ t: "No patient group", k: "ctx" }, " or ", { t: "active study", k: "ctx" }, " is on file yet. ");
+  else if (active.length) answer.push({ t: `No patient group for ${d.gene}`, k: "ctx" }, " is on file yet, but ", { t: n(active.length, "active study", "active studies"), k: "ok" }, ` ${active.length === 1 ? "names" : "name"} ${d.gene}. `);
+  else answer.push({ t: `No patient group for ${d.gene}`, k: "ctx" }, " or ", { t: "active study", k: "ctx" }, " is on file yet. ");
   answer.push("Your next step: ", { t: next.short, k: "accent" }, ".");
 
-  return { a, d, common, func, effect, effectEdges, sats, linked, studies, active, groups, registries, next, answer, relKind,
+  return { a, d, common, func, effect, effectEdges, sats, linked, studies, active, groups, relatedGroups, registries, next, answer, relKind,
     routeStatus: a.gap.route_status, tip: diseaseTip(id), gene: geneTip(d.gene) };
 }
 export type Story = ReturnType<typeof story>;
@@ -138,9 +143,9 @@ export function messageFor(s: Story, sat: Sat, origin = "{ATLAS_URL}") {
     : sat.status === "review" ? "This link needs expert review: sources disagree or the grouping is uncertain."
       : "This is a computed hypothesis from shared symptoms, not a confirmed shared mechanism.";
   const studies = s.active.slice(0, 3).map((t) => `- ${t.id}: ${t.name.slice(0, 90)}${t.name.length > 90 ? "…" : ""} (https://clinicaltrials.gov/study/${t.id})`);
-  const to = sat.groups[0] ?? s.groups[0]?.name;
+  // The To: line is never pre-filled with a group of another gene (a recipient across genes or mechanisms must be chosen by the sender).
   return [
-    `To: ${to ?? `a ${sat.gene} patient community (none is on file in the Atlas yet, please add the name)`}`,
+    `To: a ${sat.gene} patient community (the Atlas does not fill in recipients from another gene: please add the name yourself)`,
     `Subject: Possible shared ground between ${s.common} and ${sat.common}`,
     "",
     "Hello,",

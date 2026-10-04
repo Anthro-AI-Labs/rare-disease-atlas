@@ -36,6 +36,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <EvidenceProvider><div id="main" className="flex-1">{children}</div></EvidenceProvider>
         <footer className="print:hidden mx-auto w-full max-w-5xl px-5 py-8 text-xs text-muted">
           Not medical advice. A research prototype: links between diseases are hypotheses unless marked supported, and every claim shows its source.
+          <span className="ml-1">· <Link className="underline" href="/10x">The 10× case</Link> · <Link className="underline" href="/methods">Methods</Link></span>
         </footer>
       </body>
     </html>

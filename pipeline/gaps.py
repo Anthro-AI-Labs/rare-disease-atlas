@@ -1,7 +1,11 @@
 """WP2.5 gap engine: per disease, sources searched + counts, route status (supported | hypothesis | none), missing evidence and a
-suggested question. Deterministic templates only; no LLM, nothing invented."""
+suggested question. Deterministic templates only; no LLM, nothing invented.
+Each route has four segments (own community, link to the related disease, related community, shared asset); the overall label is the weakest."""
 from config import ALL
 import mech
+
+
+RANK = {"supported": 3, "pending": 2, "hypothesis": 1, "missing": 0}
 
 
 def build_gaps(nodes, edges, pairs, meta_in):
@@ -28,8 +32,15 @@ def build_gaps(nodes, edges, pairs, meta_in):
             asset_src.setdefault(e["source"], set()).add(e["target"]); asset_edge[(e["source"], e["target"])] = e["id"]
         else:
             unver["assets"] += 1
+    def comm_status(d):
+        """Own / related community segment: a verified patient group serves this disease -> supported; only unverified rows -> pending."""
+        es = [e for e in by_rel.get("serves", []) if e["target"] == d]
+        return "supported" if any(e["status"] == "supported" for e in es) else "pending" if es else "missing"
     claims = meta_in["claims"]
     spec = meta_in["specific"]
+    cls = lambda e: "reduced" if e in mech.REDUCED else "increased" if e == "gain_of_function" else None
+    dom = {n["id"]: mech.dominant_effect(spec.get(n["id"], [])) for n in diseases}
+    opposite = lambda a, b: bool(cls(dom[a]) and cls(dom[b]) and cls(dom[a]) != cls(dom[b]))   # e.g. SCN1A loss vs SCN8A gain of function
     out = {}
     for d in diseases:
         did, gene = d["id"], ALL[d["id"]]
@@ -53,37 +64,57 @@ def build_gaps(nodes, edges, pairs, meta_in):
                 o = p["b"] if p["a"] == did else p["a"]
                 rel.append((p["combined"], o, p))
         rel.sort(key=lambda x: -x[0])
-        routes = []
+        comb_of = {o: c for c, o, _ in rel}
+        study_edges = {}                     # other disease -> shares_study_with edges
+        for e in by_rel.get("shares_study_with", []):
+            if did in (e["source"], e["target"]):
+                study_edges.setdefault(e["target"] if e["source"] == did else e["source"], []).append(e)
+        own_status = comm_status(did)
+
         def route(comb, o):
             same_gene = ALL[o] == gene
             ids = [e["id"] for e in by_rel.get("phenotypically_similar_to", []) if {e["source"], e["target"]} == {did, o}]
             ids += [e["id"] for e in by_rel.get("shares_mechanism_with", []) if {e["source"], e["target"]} == {did, o}]
             if same_gene:
                 ids += [e["id"] for e in by_rel["causes"] if e["target"] in (did, o)]
-            shared_orgs = org_src.get(did, set()) & org_src.get(o, set())
-            shared_assets = asset_src.get(gid, set()) & asset_src.get(gene_of[o], set())
-            if shared_orgs or shared_assets:  # curated, manually verified shared community/asset => supported connection
-                conn = "shared_patient_group" if shared_orgs else "shared_asset"
-                status_c = "supported"
+            # a group (or asset) shared by two diseases of the SAME gene is trivial, not a cross-gene route
+            shared_orgs = set() if same_gene else org_src.get(did, set()) & org_src.get(o, set())
+            shared_assets = set() if same_gene else asset_src.get(gid, set()) & asset_src.get(gene_of[o], set())
+            studies = [{"id": e["study_id"], "name": e["study_name"], "status": "supported" if e["status"] == "supported" else "pending", "edge_id": e["id"]}
+                       for e in study_edges.get(o, [])]
+            if studies:                       # curated, same study identifier serves both genes
+                kind = "shares_study"
+                link = "supported" if any(x["status"] == "supported" for x in studies) else "pending"
+                ids = [x["edge_id"] for x in studies] + ids
+                asset_seg = link
+            elif shared_orgs or shared_assets:
+                kind = "shared_patient_group" if shared_orgs else "shared_asset"
+                link = asset_seg = "supported"
                 ids += [serve_edge[(x, g)] for x in (did, o) for g in shared_orgs] + [asset_edge[(x, a)] for x in (gid, gene_of[o]) for a in shared_assets if (x, a) in asset_edge]
-            else:  # same gene is a curated fact but not evidence of a shared route (lead decision): hypothesis
-                conn, status_c = ("same_gene" if same_gene else "computed"), "hypothesis"
-            leads = {"trials": trials_by_d.get(o, []), "patient_groups": orgs_by_d.get(o, []),
+            else:  # same gene or computed similarity: a hypothesis, not a route (lead decision)
+                kind, link, asset_seg = ("same_gene" if same_gene else "computed"), "hypothesis", "missing"
+            opp = (not same_gene) and opposite(did, o)    # never recommend a community across opposite mechanisms
+            leads = {"trials": trials_by_d.get(o, []), "patient_groups": [] if opp else orgs_by_d.get(o, []),
                      "assets": assets_by_g.get(gene_of[o], []) if not same_gene else []}
-            return {"to": o, "combined_similarity": round(comb, 3), "connection": conn, "connection_status": status_c,
+            seg = {"own_community": own_status, "link": link, "related_community": "missing" if opp else comm_status(o), "shared_asset": asset_seg}
+            overall = min(seg.values(), key=lambda v: RANK[v])   # the weakest segment
+            return {"to": o, "combined_similarity": round(comb, 3), "connection": kind, "connection_status": "supported" if link == "supported" else "hypothesis",
+                    "connection_pending": link == "pending", "opposite_mechanisms": opp, "dominant": {"here": dom[did], "there": dom[o]}, "segments": seg, "overall": overall, "studies": studies,
                     "edge_ids": ids, "leads": leads, "n_leads": sum(len(v) for v in leads.values())}
+        routes, have = [], set()
+        for o in sorted(study_edges, key=lambda x: -comb_of.get(x, 0)):          # shared studies rank above phenotype hypotheses
+            routes.append(route(comb_of.get(o, 0.0), o)); have.add(o)
+        routes.sort(key=lambda r: -RANK[r["overall"]])
         for comb, o, p in rel[:3]:
-            routes.append(route(comb, o))
-        have = {r["to"] for r in routes}
+            if o not in have:
+                routes.append(route(comb, o)); have.add(o)
         for comb, o, p in rel[3:]:
-            if o not in have and (org_src.get(did, set()) & org_src.get(o, set()) or asset_src.get(gid, set()) & asset_src.get(gene_of[o], set())):
-                routes.append(route(comb, o))
-        if any(r["connection_status"] == "supported" and r["n_leads"] for r in routes):
-            status = "supported"
-        elif any(r["n_leads"] for r in routes):
-            status = "hypothesis"
-        else:
-            status = "none"
+            if o not in have and ALL[o] != gene and (org_src.get(did, set()) & org_src.get(o, set()) or asset_src.get(gid, set()) & asset_src.get(gene_of[o], set())):
+                routes.append(route(comb, o)); have.add(o)
+        best = max(routes, key=lambda r: RANK[r["overall"]], default=None)
+        overall = best["overall"] if best else "missing"
+        segments = best["segments"] if best else {"own_community": own_status, "link": "missing", "related_community": "missing", "shared_asset": "missing"}
+        status = {"supported": "supported", "pending": "hypothesis", "hypothesis": "hypothesis", "missing": "none"}[overall]   # compat with map colours
         missing = []
         if len(dirc) < mech.MIN_DIRECTIONAL:
             missing.append(f"Disease-level mechanism evidence: {len(dirc)} directional claim(s) for this disease (need {mech.MIN_DIRECTIONAL}).")
@@ -96,12 +127,13 @@ def build_gaps(nodes, edges, pairs, meta_in):
         if not trials_by_d.get(did):
             missing.append(f"No ClinicalTrials.gov record naming {gene} linked to this disease.")
         if routes and all(r["connection_status"] == "hypothesis" for r in routes):
-            missing.append("No curated shared patient group or asset linking this disease to a related disease; links are computed similarity or same-gene only (hypothesis).")
+            missing.append("No verified shared study, patient group or asset links this disease to a related disease; the links are computed similarity or same-gene only (hypothesis)." if not any(r["connection"] == "shares_study" for r in routes)
+                           else "A shared study links this disease to a related one but its asset rows are not verified yet (pending verification).")
         top = next((r for r in routes if r["connection"] in ("computed", "same_gene")), None)
         if top:
             on = nodes[top["to"]]["name"]
             q = f"Do {d['name']} and {on} share the same variant effect in human patients? Needs expert review of the cited PMIDs."
         else:
             q = f"Which patient groups, registries or natural-history studies exist for {gene}-related disease? None are curated yet."
-        out[did] = {"route_status": status, "sources": sources, "routes": routes, "missing": missing, "suggested_question": q}
+        out[did] = {"route_status": status, "route_overall": overall, "route_segments": segments, "sources": sources, "routes": routes, "missing": missing, "suggested_question": q}
     return out

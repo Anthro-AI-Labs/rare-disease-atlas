@@ -8,18 +8,22 @@ export type Edge = {
   source_db: string; references: string[]; retrieved_at: string; confidence: number;
   contradicts?: string[]; quoted_span?: string; population?: string; linked_phenotype_or_disease?: string;
   shared_phenotypes?: { id: string; name: string; ic: number }[]; method_note?: string; note?: string;
-  frequency?: string; entailment?: string | null; entailment_rationale?: string; extracted_variant_effect?: string; extracted_population?: string; review_verdict?: string; [k: string]: unknown;
+  frequency?: string; entailment?: string | null; entailment_rationale?: string; extracted_variant_effect?: string; extracted_population?: string; review_verdict?: string; review?: Review | null; human_demoted?: boolean; pending_verification?: boolean; study_name?: string; [k: string]: unknown;
 };
 export type Node = { id: string; type: string; name?: string; role?: string; mondo?: string | null; definition?: string; definition_url?: string | null; [k: string]: unknown };
 export type Pair = { a: string; b: string; phenotype: number; mechanism: number | null; mechanism_available: boolean; combined: number;
   shared_phenotypes: { id: string; name: string; ic: number }[]; shared_mechanism_keys: string[] };
 export type CounterPair = { counterexample: string; core: string; gene: string; status: string; evidence_note: string; same_cluster_freq: number;
   claims_benign: number; claims_severe: number; directional_benign: number; directional_severe: number };
-export type Gap = { route_status: "supported" | "hypothesis" | "none";
+export type SegStatus = "supported" | "pending" | "hypothesis" | "missing";
+export type Segments = { own_community: SegStatus; link: SegStatus; related_community: SegStatus; shared_asset: SegStatus };
+export type Gap = { route_status: "supported" | "hypothesis" | "none"; route_overall: SegStatus; route_segments: Segments;
   sources: { source: string; searched: boolean; count: number; unit: string; found?: number; found_unit?: string }[];
-  routes: { to: string; combined_similarity: number; connection: string; connection_status: string; edge_ids: string[]; n_leads: number;
-    leads: { trials: string[]; patient_groups: string[]; assets: string[] } }[];
+  routes: { to: string; combined_similarity: number; connection: string; connection_status: string; connection_pending?: boolean; opposite_mechanisms?: boolean;
+    dominant?: { here: string | null; there: string | null }; segments: Segments; overall: SegStatus; studies: { id: string; name: string; status: "supported" | "pending"; edge_id: string }[];
+    edge_ids: string[]; n_leads: number; leads: { trials: string[]; patient_groups: string[]; assets: string[] } }[];
   missing: string[]; suggested_question: string };
+export type Review = { first: string; second: string; final: string; notes: string; first_by: string; second_by: string; by_two_humans: boolean };
 export type Step = { text: string; edge_ids: string[] };
 export type Explanation = { summary_plain: string; steps: Step[]; uncertainties: string[]; next_step: Step; source: "llm" | "template";
   attempts: number; first_try_pass: boolean; model: string | null; input_edge_ids: string[]; generated_at: string };
@@ -28,7 +32,8 @@ export type Graph = {
     curated_counts: { patient_groups: number; assets: number };
     confidence_rule: string;
     entailment_stats?: { checked: number; skipped_unclear: number; by_verdict: Record<string, number>; by_gene: Record<string, Record<string, number>>; population_checked: Record<string, number>; population_changed: number } | null;
-    review_agreement?: { n_double_reviewed: number; agree: number; percent_agreement: number | null; cohens_kappa: number | null };
+    review_agreement?: { n_double_reviewed: number; agree: number; percent_agreement: number | null; cohens_kappa: number | null; label?: string };
+    review_demotion_check?: { n: number; correct: number; partial: number; incorrect: number; rows: string[] };
     review_overall?: { sampled: number; reviewed: number; correct: number; partial: number; incorrect: number; share_reviewed: number | null };
     mechanism_stats: { verified: number; extracted: number; dropped_span: number; span_drop_rate: number | null; abstracts: number } | null;
     review_precision_by_tier: Record<string, { sampled: number; reviewed: number; correct: number; partial: number; incorrect: number; precision: number | null }>;
@@ -187,12 +192,19 @@ export function actionView(id: string) {
       effects: { here: mineEffect, there: effectOf(r.to) },
       edges: r.edge_ids.map((i) => g.edges.find((e) => e.id === i)).filter(Boolean) as Edge[] };
   });
+  // Own-gene groups only here. Groups of OTHER genes are "related communities" and are never offered across opposite mechanisms
+  // (the gap engine already empties leads.patient_groups for those routes).
   const orgIds = new Set<string>(); const communities: { org: Node; via: string; edge: Edge }[] = [];
+  const relatedCommunities: { org: Node; via: string; gene: string; edge: Edge }[] = [];
   for (const o of v.orgs) { orgIds.add(o.org.id); communities.push({ org: o.org, via: "this disease", edge: o.edge }); }
+  const dis = diseases();
   for (const r of rel) for (const eid of r.route.leads.patient_groups) {
     const e = g.edges.find((x) => x.id === eid)!;
-    if (!orgIds.has(e.source)) { orgIds.add(e.source); communities.push({ org: nodes.get(e.source)!, via: String(r.to.name), edge: e }); }
+    const og = dis.find((x) => x.id === r.to.id)!.gene;
+    if (og === v.d.gene || orgIds.has(e.source)) continue;
+    orgIds.add(e.source); relatedCommunities.push({ org: nodes.get(e.source)!, via: String(r.to.name), gene: og, edge: e });
   }
+  const opposite = rel.filter((r) => r.route.opposite_mechanisms).map((r) => dis.find((x) => x.id === r.to.id)!.gene);
   const assetIds = new Set<string>(); const assets: { asset: Node; via: string; edge: Edge }[] = [];
   for (const a of v.assets) { assetIds.add(a.asset.id); assets.push({ asset: a.asset, via: `${v.d.gene} (this disease)`, edge: a.edge }); }
   for (const r of rel) for (const eid of r.route.leads.assets) {
@@ -207,10 +219,10 @@ export function actionView(id: string) {
   const lowConf = v.mechanisms.filter((m) => m.edge.confidence <= 0.5).length;
   if (lowConf) review.push(`${lowConf} of ${v.mechanisms.length} mechanism claims for this disease have confidence ≤ 0.5 (span does not name the gene, or direction unclear).`);
   const ex = g.explanations[id];
-  return { v, gap, rel, communities, assets, review, explanation: ex };
+  return { v, gap, rel, communities, relatedCommunities, oppositeGenes: [...new Set(opposite)], assets, review, explanation: ex };
 }
 
-export type GNode = { id: string; gene: string; name: string; cluster: number; role: string; route: "supported" | "hypothesis" | "none"; uncertain: boolean; conflict: boolean; href: string };
+export type GNode = { id: string; gene: string; name: string; cluster: number; role: string; route: "supported" | "hypothesis" | "none"; overall: SegStatus; segments: Segments; uncertain: boolean; conflict: boolean; href: string };
 export type GLink = { a: string; b: string; kind: "hyp" | "gene" | "sup" | "review"; w: number; mech: boolean };
 
 /** Disease graph: nodes coloured by route status; dashed amber = computed hypothesis link; solid grey = same gene; solid green = curated shared route;
@@ -221,7 +233,7 @@ export function graphData() {
   const cl = new Map<string, { c: number; unc: boolean }>();
   for (const c of g.clusters) for (const m of c.members) cl.set(m.id, { c: c.cluster, unc: m.uncertain });
   const conflict = new Set(g.meta.contradiction_findings.filter((f) => f.kind === "contradicted").map((f) => f.disease));
-  const nodes: GNode[] = ds.map((d) => ({ id: d.id, gene: d.gene, name: d.name!, cluster: cl.get(d.id)?.c ?? 0, role: String(d.role), route: g.meta.gaps[d.id].route_status,
+  const nodes: GNode[] = ds.map((d) => ({ id: d.id, gene: d.gene, name: d.name!, cluster: cl.get(d.id)?.c ?? 0, role: String(d.role), route: g.meta.gaps[d.id].route_status, overall: g.meta.gaps[d.id].route_overall, segments: g.meta.gaps[d.id].route_segments,
     uncertain: !!cl.get(d.id)?.unc, conflict: conflict.has(d.id), href: `/disease/${slugOf(d.id)}` }));
   const links = new Map<string, GLink>();
   const key = (a: string, b: string) => [a, b].sort().join("|");

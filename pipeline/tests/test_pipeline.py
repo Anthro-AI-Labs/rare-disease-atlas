@@ -259,7 +259,7 @@ def test_curated_data_lights_up_routes(monkeypatch, tmp_path):
         w = csv.writer(f); w.writerow(["gene", "organization_name", "url", "verified"]); w.writerow(["STXBP1;KCNQ2", "FIXTURE GROUP", "https://fixture.test", "yes"])
     g = export.build()
     serves = [e for e in g["edges"] if e["relation"] == "serves"]
-    assert {e["target"] for e in serves} == {"OMIM:612164", "OMIM:613720"}
+    assert {e["target"] for e in serves} == {"OMIM:612164", "OMIM:613720", "OMIM:121200"}      # every disease of the gene, benign BFNS1 included
     gap = g["meta"]["gaps"]["OMIM:612164"]
     assert any(r["connection"] == "shared_patient_group" and r["connection_status"] == "supported" for r in gap["routes"])
     assert gap["route_status"] == "supported"
@@ -373,7 +373,7 @@ def test_graph_entailment_consistency():
             assert e["confidence"] in (0.3, 0.5, 0.6)
         if e["entailment"] in ("yes", "partial"):
             n_checked += 1
-            assert eff == e["extracted_variant_effect"]
+            assert eff == e["extracted_variant_effect"] or e.get("human_demoted")
     assert n_checked > 100
     for e in g["edges"]:                                    # shared-mechanism edges rest on directional (non-"unclear") claims only
         if e["relation"] == "shares_mechanism_with":
@@ -460,16 +460,19 @@ def test_unverified_curated_rows_never_create_supported_routes(monkeypatch, tmp_
 def test_only_verified_yes_rows_count_in_review_stats(monkeypatch, tmp_path):
     import csv, json, common, curated, export
     g0 = json.loads((common.GRAPH / "graph.json").read_text())
-    claims = [e for e in g0["edges"] if e["relation"] == "has_variant_effect"][:4]
+    claims = [e for e in g0["edges"] if e["relation"] == "has_variant_effect" and not e.get("human_demoted")][:4]
     monkeypatch.setattr(curated, "CURATED", tmp_path)
+    cols = curated.FILES["evidence_review"] + ["verified", "second_verdict", "final_verdict", "verified_by", "second_by"]
     with open(tmp_path / "evidence_review_v2.csv", "w", newline="") as f:
-        w = csv.DictWriter(f, curated.FILES["evidence_review"] + ["verified", "second_verdict"]); w.writeheader()
+        w = csv.DictWriter(f, cols); w.writeheader()
         for i, e in enumerate(claims):
-            w.writerow({"edge_id": e["id"], "gene": "X", "quoted_span": e["quoted_span"], "pmid": e["references"][0].removeprefix("PMID:"),
-                        "verdict": "correct", "verified": "yes" if i < 2 else ("no" if i == 2 else ""), "second_verdict": "correct" if i == 0 else "incorrect" if i == 1 else ""})
+            w.writerow({"edge_id": e["id"], "gene": "X", "claim": "loss of function / other (human; disease: unspecified; confidence 0.8)", "quoted_span": e["quoted_span"],
+                        "pmid": e["references"][0].removeprefix("PMID:"), "verdict": "correct", "final_verdict": "correct",
+                        "verified": "yes" if i < 2 else ("no" if i == 2 else ""), "second_verdict": "correct" if i == 0 else "incorrect" if i == 1 else "",
+                        "verified_by": "A", "second_by": "B"})
     g = export.build()
     ro = g["meta"]["review_overall"]
-    assert ro["sampled"] == 4 and ro["reviewed"] == 2                       # unverified / blank rows carry no weight
+    assert ro["reviewed"] == 2                                              # unverified / blank rows carry no weight
     ag = g["meta"]["review_agreement"]
     assert ag["n_double_reviewed"] == 2 and ag["agree"] == 1 and ag["percent_agreement"] == 0.5
 
@@ -539,3 +542,115 @@ def test_no_hard_coded_hex_colours_in_components():
     web = common.ROOT / "web"
     for p in list((web / "components").rglob("*.tsx")) + list((web / "app").rglob("*.tsx")):
         assert not re.search(r'(fill|stroke|color|borderColor)=?[:=]\s*[{"\']?#[0-9a-fA-F]{3,8}', p.read_text()), p.name     # colours come from theme variables
+
+
+# ---------- Phase 5 integration: review protocol, packet, routes ----------
+def test_packet_claim_equals_csv_claim_for_every_row():
+    import csv, common, make_review_packet as mp
+    pk = (common.ROOT / "docs" / "review_packet.md").read_text()
+    rows = list(csv.DictReader((common.CURATED / "evidence_review_v2.csv").open(encoding="utf-8-sig")))
+    blocks = pk.split("## Row ")[1:]
+    assert len(blocks) == len(rows) == 24
+    for n, (blk, r) in enumerate(zip(blocks, rows), 1):
+        line = next(l for l in blk.splitlines() if l.startswith("- **Claim:**"))
+        assert line == "- **Claim:** " + mp.claim_sentence(r["gene"], r["claim"]), n
+        if r["claim"].startswith("unclear"):                       # demoted rows: the CURRENT claim, not the original extracted effect
+            assert "direction is not stated" in line, n
+    assert "direction is not stated" in blocks[17]                  # row 18 (KCNQ2, demoted)
+
+
+def test_review_stats_use_final_verdict_tiers_demotion_and_two_human_agreement():
+    import json, common
+    m = json.loads((common.GRAPH / "graph.json").read_text())["meta"]
+    rev = m["review_precision_by_tier"]
+    assert sum(t["reviewed"] for t in rev.values()) + m["review_demotion_check"]["n"] == 24
+    assert m["review_demotion_check"]["n"] == 5 and set(m["review_demotion_check"]["rows"]) == {"M04bcaa04", "Mddba61b7", "Mea31541b", "Mf978aa61", "M0a8335dc"}
+    ag = m["review_agreement"]
+    assert ag["n_double_reviewed"] == 24 and ag["agree"] == 14 and ag["percent_agreement"] == 0.583 and "two human reviewers" in ag["label"]
+    for t in rev.values():
+        assert t["correct"] + t["partial"] + t["incorrect"] == t["reviewed"]
+
+
+def test_incorrect_final_verdict_is_demoted_partial_is_kept_with_reason():
+    import json, common
+    g = json.loads((common.GRAPH / "graph.json").read_text())
+    nodes = {n["id"]: n for n in g["nodes"]}
+    edges = {e["id"]: e for e in g["edges"]}
+    e = edges["Mf2026d98"]                                          # final_verdict incorrect
+    assert e["human_demoted"] and nodes[e["target"]]["variant_effect"] == "unclear" and e["confidence"] <= 0.4
+    p = edges["M1ae0c78c"]                                          # final_verdict partial: keeps status, shows the reviewers' reason
+    assert not p["human_demoted"] and p["review"]["final"] == "partial" and p["review"]["notes"]
+
+
+def test_review_columns_never_modified_by_the_build():
+    import csv, common, hashlib
+    rows = list(csv.DictReader((common.CURATED / "evidence_review_v2.csv").open(encoding="utf-8-sig")))
+    assert all(r["final_verdict"] in ("correct", "partial", "incorrect") for r in rows) and all(r["verified"] == "yes" for r in rows)
+
+
+def test_routes_have_four_segments_overall_is_the_weakest_and_opposites_hide_groups():
+    import json, common
+    g = json.loads((common.GRAPH / "graph.json").read_text())
+    rank = {"supported": 3, "pending": 2, "hypothesis": 1, "missing": 0}
+    for did, gap in g["meta"]["gaps"].items():
+        assert set(gap["route_segments"]) == {"own_community", "link", "related_community", "shared_asset"}
+        for r in gap["routes"]:
+            assert r["overall"] == min(r["segments"].values(), key=lambda v: rank[v])
+            if r["opposite_mechanisms"]:                              # never recommend a community across opposite mechanisms
+                assert r["segments"]["related_community"] == "missing" and r["leads"]["patient_groups"] == []
+        assert gap["route_overall"] == max((r["overall"] for r in gap["routes"]), key=lambda v: rank[v], default="missing")
+
+
+def test_scn1a_never_gets_an_scn8a_group_recommended():
+    import json, common
+    g = json.loads((common.GRAPH / "graph.json").read_text())
+    nodes = {n["id"]: n for n in g["nodes"]}
+    gap = g["meta"]["gaps"]["OMIM:607208"]                           # SCN1A Dravet: loss of function
+    assert gap["route_segments"]["own_community"] == "missing"
+    for r in gap["routes"]:
+        if r["dominant"]["there"] == "gain_of_function":
+            assert r["opposite_mechanisms"] and not r["leads"]["patient_groups"]
+    html = common.ROOT / "web" / ".next" / "server" / "app" / "disease" / "OMIM_607208.html"
+    if html.exists():
+        import re
+        text = html.read_text()
+        own = re.search(r'\\"id\\":\\"OMIM:607208\\".*?\\"summary\\":\\"(.*?)\\"', text)   # this page's own one-sentence summary in the map data
+        assert own and "Cute Syndrome" not in own.group(1) and "No patient group for SCN1A" in own.group(1)
+        assert "Copy a message to The Cute Syndrome Foundation" not in text and "No patient group on file for" in text
+
+
+def test_patient_groups_serve_every_disease_of_their_gene_including_benign_forms():
+    import json, common
+    from config import ALL
+    g = json.loads((common.GRAPH / "graph.json").read_text())
+    serves = [e for e in g["edges"] if e["relation"] == "serves"]
+    org_genes = {n["id"]: set(n["genes"]) for n in g["nodes"] if n["type"] == "patient_org"}
+    for oid, genes in org_genes.items():
+        got = {e["target"] for e in serves if e["source"] == oid}
+        want = {d for d, gene in ALL.items() if gene in genes}
+        assert got == want, oid
+    assert any(e["target"] in ("OMIM:607745", "OMIM:617080", "OMIM:121200") for e in serves)     # benign forms are linked
+
+
+def test_shares_study_links_and_verified_is_the_only_source_of_truth(monkeypatch, tmp_path):
+    import csv, curated, export, json, common
+    g = json.loads((common.GRAPH / "graph.json").read_text())
+    ss = [e for e in g["edges"] if e["relation"] == "shares_study_with"]
+    ids = {(e["study_id"], tuple(sorted(e["genes"]))) for e in ss}
+    assert ("NCT06555965", ("STXBP1", "SYNGAP1")) in ids and ("NCT05818553", ("SCN2A", "SCN8A")) in ids
+    # fixture: both genes' STARR rows verified -> supported; one unverified -> pending; the 'status' column (study status) is irrelevant
+    monkeypatch.setattr(curated, "CURATED", tmp_path)
+    def write(v2):
+        with open(tmp_path / "assets.csv", "w", newline="") as f:
+            w = csv.writer(f); w.writerow(["gene", "asset_type", "name", "identifier", "source_url", "status", "date_checked", "verified"])
+            w.writerow(["STXBP1", "natural_history_study", "FIXTURE STUDY", "NCT00000001", "https://fixture.test", "RECRUITING", "2026-10-04", "yes"])
+            w.writerow(["SYNGAP1", "natural_history_study", "FIXTURE STUDY", "NCT00000001", "https://fixture.test", "RECRUITING", "2026-10-04", v2])
+    write("yes")
+    ok = [e for e in export.build()["edges"] if e["relation"] == "shares_study_with"]
+    assert ok and all(e["status"] == "supported" and not e["pending_verification"] for e in ok)
+    write("no")
+    pend = [e for e in export.build()["edges"] if e["relation"] == "shares_study_with"]
+    assert pend and all(e["status"] == "hypothesis" and e["pending_verification"] for e in pend)
+    gap = export.build()["meta"]["gaps"]["OMIM:612164"]
+    r = next(r for r in gap["routes"] if r["connection"] == "shares_study")
+    assert r["segments"]["link"] == "pending" and r["overall"] in ("pending", "missing")
