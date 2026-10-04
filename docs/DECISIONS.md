@@ -29,3 +29,10 @@
 - /api/explain: pre-generated explanations returned from graph.json without OpenAI; live route only for new edge-id sets; 5 req/min/IP in-memory (best effort on serverless); 503 when OPENAI env missing. NOT setting OPENAI_* in Vercel without the owner's go-ahead.
 - Network: lead authors (first 2 + last 2) from PubMed efetch; shared only if two different papers support two different genes (a multi-gene review is not an overlap; dead end: first version flagged review-paper authors). ORCID/affiliation (token Jaccard>=0.5) = confirmed, else "possible match" (status hypothesis). RePORTER PIs not added (time).
 - Curated loader hardened for partial files: BOM, header case, blank rows, multi-gene cells (; , / |), non-http URLs blanked, unusable rows listed in meta.curated_skipped.
+- UI v3: three depths on one page (Simple story / Detailed map + evidence counts / evidence drawer), stored on `<html data-depth>` before paint so static pages switch with CSS only.
+- Answer sentence, next step, "why" lines, copy-message and print sheet are templates over graph.json counts (no LLM). Recipient is left blank when no curated group exists (0 rows today), never invented.
+- Common names = shortest MONDO synonym of the form "<GENE>-related encephalopathy/epilepsy", "<GENE> encephalopathy/syndrome" or "<GENE> benign…"; else "<GENE>-related encephalopathy". OMIM name always shown second.
+- Gene tooltip function = most frequent molecular_function among that gene's entailed (yes) claims; text is fixed per controlled-vocabulary value.
+- Scene A draws a direction only with ≥2 entailed quotes for it (BFIS3/BFIS5 have 1 → neutral "?"); any mixed finding → neutral "?". Motion = transform/opacity only; reduced motion = static final frame; `?motion=force` for demo recording.
+- Dead end: theme colour named `base` collided with Tailwind's `text-base` size (text turned background-coloured in 3 places); renamed to `canvas`.
+- Map: d3-force settled synchronously (400 ticks, deterministic) so SSR and client agree; wide/narrow layouts differ in cluster anchors; same-gene mild/severe pairs with uncertain grouping drawn pink dotted.

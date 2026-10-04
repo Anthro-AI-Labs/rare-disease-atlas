@@ -20,7 +20,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html lang="en" data-depth="simple" suppressHydrationWarning className={`${space.variable} ${inter.variable} h-full antialiased`}>
       <body className="flex min-h-full flex-col">
         <Script id="depth-boot" strategy="beforeInteractive">{DEPTH_BOOT}</Script>
-        <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[60] focus:rounded-lg focus:bg-accent focus:px-4 focus:py-2 focus:text-base">Skip to content</a>
+        <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[60] focus:rounded-lg focus:bg-accent focus:px-4 focus:py-2 focus:text-canvas">Skip to content</a>
         <header className="print:hidden mx-auto flex w-full max-w-5xl flex-wrap items-center gap-x-4 gap-y-1 px-5 py-4">
           <Link href="/" className="whitespace-nowrap font-heading text-base font-semibold text-ink hover:text-accent sm:text-lg">Rare Disease Atlas</Link>
           <nav aria-label="Main" className="order-3 flex w-full sm:order-2 sm:ml-auto sm:w-auto gap-4 whitespace-nowrap text-sm text-muted sm:gap-5" >

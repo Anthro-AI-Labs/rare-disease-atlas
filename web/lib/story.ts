@@ -95,7 +95,8 @@ export function story(id: string) {
   const reduced = yes.filter((m) => ["loss_of_function", "dominant_negative"].includes(String(m.mech.variant_effect)));
   const increased = yes.filter((m) => m.mech.variant_effect === "gain_of_function");
   let effect: Effect = "neutral";
-  if (v.findings.length || (reduced.length && increased.length && Math.min(reduced.length, increased.length) / Math.max(reduced.length, increased.length) > 0.5)) effect = "mixed";
+  if (Math.max(reduced.length, increased.length) < 2) effect = "neutral"; // one quote is too thin to animate as a direction
+  else if (v.findings.length || (reduced.length && increased.length && Math.min(reduced.length, increased.length) / Math.max(reduced.length, increased.length) > 0.5)) effect = "mixed";
   else if (reduced.length > increased.length) effect = "loss_of_function";
   else if (increased.length > reduced.length) effect = "gain_of_function";
   const effectEdges = (effect === "loss_of_function" ? reduced : effect === "gain_of_function" ? increased : effect === "mixed" ? [...reduced.slice(0, 3), ...increased.slice(0, 3)] : [])

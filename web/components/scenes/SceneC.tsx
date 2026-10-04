@@ -54,7 +54,7 @@ function Ring({ data, items, still }: { data: ExistsData; items: Item[]; still: 
             const body = (
               <span className={`grid place-items-center rounded-full ${it.missing ? "hollow" : it.kind === "study" ? "sat tone-ok" : "sat tone-ok"}`} style={{ width: r * 2, height: r * 2 }}>
                 <svg viewBox="0 0 24 24" width={22} height={22} fill="none" stroke="currentColor" strokeWidth={1.6} strokeLinecap="round" strokeLinejoin="round" aria-hidden>{ICON[it.kind]}</svg>
-                {it.missing && <span aria-hidden className="absolute -right-1 -top-1 grid h-5 w-5 place-items-center rounded-full border border-dashed border-muted bg-base text-xs font-bold text-ink">+</span>}
+                {it.missing && <span aria-hidden className="absolute -right-1 -top-1 grid h-5 w-5 place-items-center rounded-full border border-dashed border-muted bg-canvas text-xs font-bold text-ink">+</span>}
               </span>);
             return (
               <motion.li key={`${it.kind}${i}`} initial={still ? false : { opacity: 0, scale: 0.3 }} animate={{ opacity: 1, scale: 1 }}

@@ -97,7 +97,7 @@ export default async function DiseasePage({ params }: { params: Promise<{ slug: 
       <StepNav steps={STEPS} />
 
       <Step id="disease" n={1} title="Your disease">
-        <SceneA />
+        <SceneA func={s.func} effect={s.effect} gene={d.gene} edgeIds={s.effectEdges} />
         {ex ? (
           <div className="card mt-5 p-6 sm:p-8">
             <p className="text-xl leading-relaxed sm:text-2xl"><Glossed text={strip(ex.summary_plain)} /></p>
