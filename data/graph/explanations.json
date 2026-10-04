@@ -1,16 +1,16 @@
 {
  "explanations": {
   "OMIM:612164": {
-   "summary_plain": "Developmental and epileptic encephalopathy 4 is linked to changes in the STXBP1 gene. Research papers show these changes often make STXBP1 work less. That can disturb synaptic vesicle release, which helps nerve cells send messages.",
+   "summary_plain": "Developmental and epileptic encephalopathy 4 is strongly linked to STXBP1. Research papers show STXBP1 changes that make the protein work less. There are also patient studies and group resources you may want to review.",
    "steps": [
     {
-     "text": "Records show STXBP1 causes this condition, with strong support from a curated disease link.",
+     "text": "Research papers show STXBP1 can cause this condition. The link is well supported.",
      "edge_ids": [
       "E00001"
      ]
     },
     {
-     "text": "Research papers show many STXBP1 changes are loss-of-function changes. That means the gene makes less working protein, or the protein does not work well.",
+     "text": "Several papers say STXBP1 changes may make the protein work less. They describe loss of function, haploinsufficiency, or mRNA breakdown.",
      "edge_ids": [
       "M5aa5e603",
       "M6d03ea65",
@@ -18,19 +18,20 @@
      ]
     },
     {
-     "text": "The same records also show STXBP1 is being studied in natural history and readiness studies. These studies may help families and doctors learn how this condition looks over time.",
+     "text": "Records show STXBP1-related studies and data projects are already underway. These include STARR, ESCO, RARE-X STXBP1, and Simons Searchlight.",
      "edge_ids": [
-      "T00064",
       "T00068",
+      "T00064",
       "T00069",
       "T00070",
       "C00020",
       "C00021",
-      "C00022"
+      "C00022",
+      "C00023"
      ]
     },
     {
-     "text": "Some records suggest this condition looks similar to a few other childhood epilepsy conditions. That does not prove they share the same cause, but it may help researchers compare patterns.",
+     "text": "Research papers also suggest this condition may look similar to some other epilepsy conditions. That is only a hint, not proof of the same cause.",
      "edge_ids": [
       "E00224",
       "E00220",
@@ -41,22 +42,22 @@
     }
    ],
    "uncertainties": [
-    "The change effect is strongest for loss-of-function claims only. The records do not show gain-of-function evidence for STXBP1 here.",
-    "Several study links are marked as hypothesis or need verification. They should not be treated as fully confirmed assets.",
-    "The records do not show which exact STXBP1 changes cause which symptom patterns in this condition.",
+    "The records do not show which STXBP1 changes fit each person\u2019s symptoms.",
+    "The study notes say some registry entries need confirmation for exact scope.",
+    "The similarity links are hypotheses, so they do not prove shared biology.",
     "This atlas does not track treatments. Ask your care team about current treatment options."
    ],
    "next_step": {
-    "text": "Ask a doctor who knows genes to review the STXBP1 claims and the study records tied to this condition.",
+    "text": "Ask a doctor who knows genes to review the STXBP1 claims and the listed studies, especially STARR and ESCO, for fit to your family.",
     "edge_ids": [
      "E00001",
      "M5aa5e603",
      "M6d03ea65",
      "M42d5a943",
-     "T00064",
      "T00068",
-     "T00069",
-     "T00070"
+     "T00064",
+     "C00020",
+     "C00021"
     ]
    },
    "source": "llm",
@@ -105,6 +106,9 @@
     "T00002",
     "C00065",
     "C00066",
+    "C00023",
+    "C00036",
+    "C00004",
     "T00064",
     "T00068",
     "T00069",
@@ -118,62 +122,60 @@
    "generated_at": "2026-10-04"
   },
   "OMIM:613721": {
-   "summary_plain": "Epileptic encephalopathy, early infantile, 11 is linked to SCN2A. Research papers show SCN2A changes can make the sodium channel work too much, too little, or both. Several studies and trials focus on this condition, but some links are only tentative.",
+   "summary_plain": "Epileptic encephalopathy, early infantile, 11 is strongly linked to SCN2A. Research papers show SCN2A changes can make the sodium channel work too much, too little, or in a mixed way. Several studies and patient resources also include this condition.",
    "steps": [
     {
-     "text": "Records show SCN2A causes Epileptic encephalopathy, early infantile, 11. This link is strongly supported in trusted disease records.",
+     "text": "Research papers show SCN2A causes this condition. That link is well supported. [E00026]",
      "edge_ids": [
       "E00026"
      ]
     },
     {
-     "text": "Research papers show some SCN2A changes may make the sodium channel work more. That is reported as gain of function.",
+     "text": "One paper says some SCN2A changes may make the sodium channel work too much. This fits a gain-of-function change. [Mfce5014c]",
      "edge_ids": [
       "Mfce5014c"
      ]
     },
     {
-     "text": "Other research papers show some SCN2A changes may make the channel work less. One study also found a mixed pattern in lab tests.",
+     "text": "Another paper says one SCN2A change may make the channel work less, while also showing mixed behavior in cells. That means some changes may not act the same way. [Md58c8bdc, M30b5f5fe]",
      "edge_ids": [
       "Md58c8bdc",
       "M30b5f5fe"
      ]
     },
     {
-     "text": "Records show this condition is being studied in several SCN2A-focused studies. Some are long-term follow-up or observational studies.",
+     "text": "Records show this condition is being studied in several SCN2A-focused studies, including Elsunersen and PRAX-562. [T00052, T00053, T00054, C00031, C00032, C00033]",
      "edge_ids": [
       "T00052",
       "T00053",
-      "T00054"
+      "T00054",
+      "C00031",
+      "C00032",
+      "C00033"
      ]
     },
     {
-     "text": "Research papers also show this condition is listed alongside other gene-related epilepsies in shared study settings. These links are only hints, not proof of the same cause.",
+     "text": "Records also show this condition appears in broader patient studies, including Simons Searchlight. [T00058, Y00002, Y00003]",
      "edge_ids": [
-      "Y00006",
+      "T00058",
       "Y00002",
-      "Y00003",
-      "E00228",
-      "E00220",
-      "E00230",
-      "E00231",
-      "S00001"
+      "Y00003"
      ]
     }
    ],
    "uncertainties": [
-    "Some study links are marked as needing confirmation, so the exact match to this condition is not fully checked.",
-    "The SCN2A change type can differ by person and lab test, so the effect is not the same for every family.",
-    "Several similarity and shared-study links are hypotheses only, not proven shared causes.",
+    "Some SCN2A changes may work differently from others. The mixed and loss-of-function findings come from lab studies, not all patients. [M30b5f5fe, Md58c8bdc]",
+    "The study records say SCN2A is in the title or keywords, but they also say the disease fit should be checked. That means the exact group enrolled is not fully clear. [T00052, T00053, T00054, T00058]",
+    "So we cannot say which approach helps most. [T00052, T00053, T00054, C00031, C00032, C00033]",
+    "The patient-group resources listed are for related conditions and may not be a direct resource for this condition. [C00005, C00007]",
     "This atlas does not track treatments. Ask your care team about current treatment options."
    ],
    "next_step": {
-    "text": "Ask a doctor who knows genes to review the SCN2A claims and the study records together, especially the confirmed disease link and the mixed gain/loss findings.",
+    "text": "Ask a doctor who knows genes or a study contact to review the SCN2A change against the three SCN2A study records and the lab findings. This can help judge whether the change looks more like gain, loss, or mixed effect. [Mfce5014c, M30b5f5fe, Md58c8bdc, T00052, T00053, T00054]",
     "edge_ids": [
-     "E00026",
      "Mfce5014c",
-     "Md58c8bdc",
      "M30b5f5fe",
+     "Md58c8bdc",
      "T00052",
      "T00053",
      "T00054"
@@ -216,29 +218,32 @@
     "T00032",
     "C00042",
     "C00043",
+    "C00033",
+    "C00040",
+    "C00006",
+    "C00008",
     "T00052",
     "T00058",
     "T00053",
     "T00054",
     "C00031",
-    "C00032",
-    "C00033"
+    "C00032"
    ],
    "validation_errors": [],
    "model": "gpt-5.4-mini",
    "generated_at": "2026-10-04"
   },
   "OMIM:614558": {
-   "summary_plain": "Epileptic encephalopathy, early infantile, 13 is linked to SCN8A. Research papers also suggest that many disease-causing changes make the sodium channel work too much. That matters because this condition has studies and patient resources tied to SCN8A.",
+   "summary_plain": "Research papers and study records show that SCN8A is linked to Epileptic encephalopathy, early infantile, 13. The strongest clue is that SCN8A changes that make the sodium channel work too much are reported in this condition. Several study records also include this condition, which suggests active research and possible patient matching.",
    "steps": [
     {
-     "text": "Research papers show SCN8A can cause this condition. That is a supported disease link, not just a guess. [E00038]",
+     "text": "SCN8A is tied to Epileptic encephalopathy, early infantile, 13 in trusted disease records. This is a supported link, not just a guess. [E00038]",
      "edge_ids": [
       "E00038"
      ]
     },
     {
-     "text": "Research papers also show SCN8A changes may make the sodium channel work too much. This is suggested by patient-derived findings and a named recurrent change. [M3ed936f1, M8ac04bfa, M71caee27]",
+     "text": "Studies report SCN8A changes that make the sodium channel work too much. One paper says patient-derived SCN8A changes were gain-of-function. Another says gain-of-function changes cause this SCN8A-related encephalopathy. A specific change, R1872W, was reported to impair channel inactivation and cause nerve-cell overactivity and seizures. [M3ed936f1, M8ac04bfa, M71caee27]",
      "edge_ids": [
       "M3ed936f1",
       "M8ac04bfa",
@@ -246,8 +251,9 @@
      ]
     },
     {
-     "text": "Records show this condition is being studied in SCN8A-focused studies. That includes the NBI-921352 studies and an SCN8A disease history study. The records say to confirm exact scope. [T00059, T00060, T00062, T00063]",
+     "text": "There are study records that include this condition, including the EMBOLD trial and two SCN8A-DEE studies. This shows the condition is being followed in research settings. [C00040, T00059, T00060, T00062, T00063]",
      "edge_ids": [
+      "C00040",
       "T00059",
       "T00060",
       "T00062",
@@ -255,30 +261,28 @@
      ]
     },
     {
-     "text": "Research papers also suggest this condition may be similar to other epilepsy conditions. But those links are only hypothesis signals, not proof of the same cause. [E00238, E00233]",
+     "text": "We also found a study record for a registry and natural history project on epilepsy-dyskinesia syndromes. That suggests researchers are collecting real-world information, but it does not prove one shared cause for every person. [T00062, T00063]",
      "edge_ids": [
-      "E00238",
-      "E00233"
+      "T00062",
+      "T00063"
      ]
     }
    ],
    "uncertainties": [
-    "The change-to-disease link is strong for SCN8A, but not every patient has the same change. [E00038, M3ed936f1, M8ac04bfa, M71caee27]",
-    "The study records say to confirm exact eligibility and disease scope. They do not prove which patients were included. [T00059, T00060, T00062, T00063]",
-    "The similarity links to other conditions are only suggestions. They do not show a shared cause. [E00238, E00233]",
-    "The asset rows for some studies are marked as not yet verified. [C00038, C00039, C00040]",
+    "The records do not say which exact SCN8A change applies to your family member.",
+    "Some study titles mention SCN8A, but the notes say the disease fit should be confirmed.",
+    "The possible shared mechanism with other early infantile encephalopathies is only a hypothesis in the records.",
     "This atlas does not track treatments. Ask your care team about current treatment options."
    ],
    "next_step": {
-    "text": "Ask a doctor who knows genes to review the SCN8A claims and the three SCN8A study records together. Focus on whether your family\u2019s specific change matches the gain-of-function findings and the listed study scope. [M3ed936f1, M8ac04bfa, M71caee27, T00059, T00060, T00062, T00063]",
+    "text": "Ask a doctor who knows genes to review the specific SCN8A change against the supported gain-of-function claims and the study records for EMBOLD and the SCN8A-DEE studies. [M3ed936f1, M8ac04bfa, M71caee27, C00040, T00059, T00060]",
     "edge_ids": [
      "M3ed936f1",
      "M8ac04bfa",
      "M71caee27",
+     "C00040",
      "T00059",
-     "T00060",
-     "T00062",
-     "T00063"
+     "T00060"
     ]
    },
    "source": "llm",
@@ -306,71 +310,74 @@
     "T00037",
     "C00050",
     "C00051",
+    "C00040",
+    "C00033",
+    "C00004",
     "T00062",
     "T00063",
     "T00059",
     "T00060",
     "C00038",
-    "C00039",
-    "C00040"
+    "C00039"
    ],
    "validation_errors": [],
    "model": "gpt-5.4-mini",
    "generated_at": "2026-10-04"
   },
   "OMIM:613720": {
-   "summary_plain": "Research papers and study records point to KCNQ2 as a cause of Epileptic encephalopathy, early infantile, 7. They also suggest that some KCNQ2 changes make the potassium channel work less, while others may make it work more. Several study records and patient resources exist, but some are only listed as unverified or hypothesis-level links.",
+   "summary_plain": "Research records show that KCNQ2 causes Epileptic encephalopathy, early infantile, 7. Some KCNQ2 changes may make the channel work less, while others may make it work more. Records also show several studies and patient resources for this condition, but some links are only suggestive and need expert review.",
    "steps": [
     {
-     "text": "KCNQ2 is linked to this condition in curated records. That is the main gene-disease link we found. [E00066]",
+     "text": "Research records show KCNQ2 causes Epileptic encephalopathy, early infantile, 7.",
      "edge_ids": [
       "E00066"
      ]
     },
     {
-     "text": "Some research says KCNQ2 changes can make the potassium channel work less. That supports a loss-of-function pattern in some patients. [M0b72332f]",
+     "text": "Some KCNQ2 changes may make the potassium channel work less.",
      "edge_ids": [
       "M0b72332f"
      ]
     },
     {
-     "text": "Other research says different KCNQ2 changes may make the potassium channel work more. This may help explain why symptoms can look different in different people. [M0d3df851, Me55d253d]",
+     "text": "Other KCNQ2 changes may make the potassium channel work more.",
      "edge_ids": [
       "M0d3df851",
       "Me55d253d"
      ]
     },
     {
-     "text": "Research records also show studies in children with KCNQ2-related disease, including a registry and a KCNQ2 treatment study. These records show active study interest, but they do not prove benefit. [T00035, T00031, T00032, T00033]",
+     "text": "Records show this condition is being studied in several KCNQ2 research projects.",
      "edge_ids": [
       "T00035",
       "T00031",
       "T00032",
-      "T00033"
-     ]
-    },
-    {
-     "text": "A patient resource and study links are listed for KCNQ2, but they are marked as not yet human-checked. These may be useful leads, not firm proof. [C00050, C00051, C00042, C00043, C00044]",
-     "edge_ids": [
-      "C00050",
-      "C00051",
+      "T00033",
       "C00042",
       "C00043",
       "C00044"
      ]
+    },
+    {
+     "text": "Records also show a KCNQ2 patient registry and a natural history study.",
+     "edge_ids": [
+      "C00050",
+      "C00051"
+     ]
     }
    ],
    "uncertainties": [
-    "The change-to-symptom link is incomplete. We have strong gene-disease support, but not a full map for every symptom type. [E00066, M0d3df851, M0b72332f]",
-    "The patient-resource links and study links marked 'hypothesis' need human checking. They may be wrong, outdated, or not fully in scope. [C00050, C00051, C00042, C00043, C00044]",
-    "The gain-of-function and loss-of-function findings are tied to different reports and phenotypes. That suggests possible subtype differences, but it is not settled. [M0d3df851, M0b72332f, Me55d253d]",
-    "Some study records say to confirm the disease or change is really in scope. So the exact match for your family may still need review. [T00035, T00031, T00032, T00033]"
+    "Some study records only say KCNQ2 in the title or keywords, so scope should be checked.",
+    "The gain-of-function and loss-of-function findings are tied to different reports, so they do not prove one shared mechanism.",
+    "The similarity links to other diseases are only hypotheses, not proof of the same cause.",
+    "This atlas does not track treatments. Ask your care team about current treatment options."
    ],
    "next_step": {
-    "text": "Ask a doctor who knows genes to review the KCNQ2 records and the listed study links together. Have them check whether your child\u2019s exact KCNQ2 change matches the loss- or gain-of-function reports. [M0d3df851, M0b72332f, T00031, T00032, T00033]",
+    "text": "Ask a doctor who knows genes to review the KCNQ2 reports and study records, especially E00066, M0b72332f, M0d3df851, and the study records T00031, T00032, and T00033.",
     "edge_ids": [
-     "M0d3df851",
+     "E00066",
      "M0b72332f",
+     "M0d3df851",
      "T00031",
      "T00032",
      "T00033"
@@ -417,16 +424,16 @@
    "generated_at": "2026-10-04"
   },
   "OMIM:614959": {
-   "summary_plain": "Developmental and epileptic encephalopathy 14 is strongly linked to KCNT1. Research papers show KCNT1 changes can make the potassium channel work more. That change is tied to this condition. There are also related studies and a patient list for KCNT1-related epilepsy, but some links need expert review.",
+   "summary_plain": "KCNT1 changes cause Developmental and epileptic encephalopathy 14. Research papers also suggest many disease changes make the KCNT1 potassium channel work more, not less. There are study records and a patient registry for this condition.",
    "steps": [
     {
-     "text": "Research papers show KCNT1 causes Developmental and epileptic encephalopathy 14. This is a strong, curated link. [E00076]",
+     "text": "Research papers show KCNT1 causes Developmental and epileptic encephalopathy 14. That is the main known cause we found. [E00076]",
      "edge_ids": [
       "E00076"
      ]
     },
     {
-     "text": "Several papers report KCNT1 changes that make the potassium channel work more. The quoted text says 'gain-of-function' in people with severe disease. [M42759263, Mda84cf38, M6bf4475a]",
+     "text": "Several human reports say KCNT1 changes may make the potassium channel work more. The quoted papers describe gain-of-function changes in children with this condition. [M42759263, Mda84cf38, M6bf4475a]",
      "edge_ids": [
       "M42759263",
       "Mda84cf38",
@@ -434,42 +441,39 @@
      ]
     },
     {
-     "text": "That change is suggested to be part of this condition, but it is still a gene-to-protein effect. It does not prove every child has the same exact change or the same severity. [M42759263, Mda84cf38, M6bf4475a]",
+     "text": "We also found a KCNT1 patient registry and KCNT1-related studies. These include a natural history study and two treatment studies. [C00050, C00051, C00052, T00036, T00037, T00039]",
      "edge_ids": [
-      "M42759263",
-      "Mda84cf38",
-      "M6bf4475a"
-     ]
-    },
-    {
-     "text": "Records also show studies in KCNT1-related epilepsy, including a natural history study and drug studies. These may help families find research options, but the records note that scope still needs checking. [T00036, T00037, T00038, T00039, C00050, C00051, C00052]",
-     "edge_ids": [
-      "T00036",
-      "T00037",
-      "T00038",
-      "T00039",
       "C00050",
       "C00051",
-      "C00052"
+      "C00052",
+      "T00036",
+      "T00037",
+      "T00039"
+     ]
+    },
+    {
+     "text": "Some records mention other gene conditions that look similar. That similarity is only a hint, not proof of the same cause. [E00239, E00233, E00244]",
+     "edge_ids": [
+      "E00239",
+      "E00233",
+      "E00244"
      ]
     }
    ],
    "uncertainties": [
-    "The records do not show which KCNT1 changes were in each study or patient list.",
-    "The study records note that disease and variant scope still need confirmation.",
-    "We do not see outcome results, so we cannot say which study helped.",
-    "Some related links are only hypotheses, so they need expert review before being treated as shared biology."
+    "The study records say KCNT1 in the title or keywords, but each one still needs scope checking. [T00036, T00037, T00039]",
+    "We did not find details here about which KCNT1 changes are most common, or how symptoms differ by change. [M42759263, Mda84cf38, M6bf4475a]",
+    "The similar-disease links are hypothesis-only and do not show shared biology. [E00239, E00233, E00244]"
    ],
    "next_step": {
-    "text": "Ask a doctor who knows genes or a study team to check whether your family\u2019s KCNT1 change matches the scope of the KCNT1-related studies and patient list. Use the cited study records and patient list as the starting point. [T00036, T00037, T00038, T00039, C00050, C00051, C00052]",
+    "text": "Ask a doctor who knows genes to review the KCNT1 registry and study records, especially the natural history study and the two KCNT1 treatment studies. [C00050, C00051, C00052, T00036, T00037, T00039]",
     "edge_ids": [
-     "T00036",
-     "T00037",
-     "T00038",
-     "T00039",
      "C00050",
      "C00051",
-     "C00052"
+     "C00052",
+     "T00036",
+     "T00037",
+     "T00039"
     ]
    },
    "source": "llm",
@@ -510,16 +514,16 @@
    "generated_at": "2026-10-04"
   },
   "OMIM:612621": {
-   "summary_plain": "Intellectual developmental disorder, autosomal dominant 5 is linked to SYNGAP1. Research papers show SYNGAP1 changes often make the protein work less, and this likely helps cause this condition.",
+   "summary_plain": "Research papers show that changes in SYNGAP1 cause Intellectual developmental disorder, autosomal dominant 5. The strongest pattern is loss of function, which means the gene makes its protein work less. Records also show this condition is being studied in natural history and autism-related studies.",
    "steps": [
     {
-     "text": "SYNGAP1 is linked to this condition in trusted disease records. That link is already supported. [E00108]",
+     "text": "Research papers show that SYNGAP1 causes this condition.",
      "edge_ids": [
       "E00108"
      ]
     },
     {
-     "text": "Several research papers say SYNGAP1 changes often make the gene work less. These papers describe loss of function in people with this condition. [Mf184bfbd, M3a0e0640, M891283ca]",
+     "text": "Several papers say SYNGAP1 changes may make the protein work less. That loss-of-function pattern is supported in people with this condition.",
      "edge_ids": [
       "Mf184bfbd",
       "M3a0e0640",
@@ -527,36 +531,40 @@
      ]
     },
     {
-     "text": "Because the same gene and condition show up in study records, there may be useful patient groups and natural history studies to follow. These include Simons Searchlight, the STARR study, and a SYNGAP1-related study record. [T00078, T00077, T00076]",
+     "text": "Records show this condition is included in studies that follow patients over time. These include Simons Searchlight, STARR, and FENDEEP.",
      "edge_ids": [
       "T00078",
       "T00077",
-      "T00076"
+      "T00075",
+      "C00063",
+      "C00060",
+      "C00020"
      ]
     },
     {
-     "text": "Some other conditions look similar, but that does not prove the same cause. Those similarity findings are only hints, not shared-mechanism proof. [E00246, E00248]",
+     "text": "Research papers also show overlap with seizure and development problems seen in other rare brain conditions. That overlap is only a clue, not proof of a shared cause.",
      "edge_ids": [
       "E00246",
-      "E00248"
+      "E00248",
+      "E00224",
+      "E00230"
      ]
     }
    ],
    "uncertainties": [
-    "The study-record links are partly unverified and some are marked as hypothesis, so they need review. [T00077, T00078, C00058, C00059, C00060]",
-    "We do not have a clear, plain-language list of which SYNGAP1 changes act the same way for every child. [Mf184bfbd, M3a0e0640, M891283ca, T00078]",
-    "Some similar-disease matches may reflect shared symptoms like seizures, not a shared cause. That means they should not be treated as proof. [E00246, E00248]",
+    "The study notes say some records need confirmation of exact scope for SYNGAP1 or the related condition.",
+    "The overlap with other conditions is a hypothesis, not proven shared biology.",
+    "This list does not show whether age, exact change type, or symptoms affect study fit.",
     "This atlas does not track treatments. Ask your care team about current treatment options."
    ],
    "next_step": {
-    "text": "Ask a doctor who knows genes to review the three SYNGAP1 study records and the three loss-of-function papers together, to confirm which family resources or study contacts are real matches for your child. [T00078, T00077, T00076, Mf184bfbd, M3a0e0640, M891283ca]",
+    "text": "Ask the study team or a doctor who knows genes to review the cited SYNGAP1 natural history records and confirm which ones accept your family\u2019s exact change.",
     "edge_ids": [
-     "T00078",
      "T00077",
-     "T00076",
-     "Mf184bfbd",
-     "M3a0e0640",
-     "M891283ca"
+     "T00078",
+     "C00063",
+     "C00058",
+     "C00059"
     ]
    },
    "source": "llm",
@@ -595,6 +603,9 @@
     "E00248",
     "T00040",
     "T00041",
+    "C00063",
+    "C00036",
+    "C00004",
     "T00076",
     "T00077",
     "T00078",
@@ -608,16 +619,16 @@
    "generated_at": "2026-10-04"
   },
   "OMIM:300672": {
-   "summary_plain": "Research papers show that CDKL5 changes cause Developmental and epileptic encephalopathy 2. The main effect is a change that makes CDKL5 work less. We also found patient groups and studies built around CDKL5 that may help you connect with experts.",
+   "summary_plain": "Developmental and epileptic encephalopathy 2 is strongly linked to changes in CDKL5. Records show those changes usually make CDKL5 work less, which fits this condition. We also found patient study resources and natural history studies that may help families and experts learn more.",
    "steps": [
     {
-     "text": "Research papers show CDKL5 causes this condition. That link is well supported.",
+     "text": "Records show CDKL5 causes Developmental and epileptic encephalopathy 2. This is the main known link for this condition. [E00128]",
      "edge_ids": [
       "E00128"
      ]
     },
     {
-     "text": "Other papers say CDKL5 changes may make the protein work less. One paper says pathogenic changes may cause loss of CDKL5 activity. Another says these changes cause enzymatic loss of function.",
+     "text": "Research papers show CDKL5 changes may make the protein work less. One paper says the change can lower CDKL5 catalytic activity. Another says CDKL5 mutations cause enzymatic loss of function. [Mf6524880, Meaf2ee41, M01118803]",
      "edge_ids": [
       "Mf6524880",
       "Meaf2ee41",
@@ -625,44 +636,41 @@
      ]
     },
     {
-     "text": "We also found a CDKL5 patient registry and a CDKL5 research network. These may be useful places to look for shared patient information and study news.",
+     "text": "We also found family and study resources for CDKL5. These include the International CDKL5 Registry, the International CDKL5 Disorder Database, and the International CDKL5 Clinical Research Network. [C00065, C00066, C00067]",
      "edge_ids": [
       "C00065",
       "C00066",
-      "C00067",
-      "T00024"
+      "C00067"
      ]
     },
     {
-     "text": "There is also a registry study for epilepsy-dyskinesia syndromes that names CDKL5. That suggests CDKL5-focused patients are being followed in research settings.",
+     "text": "Records show this condition is being studied in a registry-style study and a clinical research network study. These records may help families find more natural history information. [T00020, T00021, T00024, T00001]",
      "edge_ids": [
       "T00020",
-      "T00021"
-     ]
-    },
-    {
-     "text": "A broader study of developmental and epileptic encephalopathies also names CDKL5. This may give another route to learn about study options.",
-     "edge_ids": [
-      "T00001",
-      "T00020"
+      "T00021",
+      "T00024",
+      "T00001"
      ]
     }
    ],
    "uncertainties": [
-    "Some study records say the disease name in the title or keywords, but they also ask for expert confirmation. So the fit may not be exact.",
-    "The patient registry and network links are marked as not yet checked by a human reviewer.",
-    "We did not find variant-by-variant detail beyond the general CDKL5 loss-of-function pattern.",
+    "The study records do not prove the exact patient group included. Several notes say the disease or change should be confirmed. [T00020, T00021, T00024, T00001]",
+    "The listed study records are about study enrollment or readiness, not outcomes. [T00020, T00021, T00024, T00001]",
+    "The similarity links to other conditions are only hypotheses. They are not proof of the same disease process. [E00246, E00225, E00250]",
     "This atlas does not track treatments. Ask your care team about current treatment options."
    ],
    "next_step": {
-    "text": "Ask a doctor who knows genes to review the CDKL5 registry and network links, along with the CDKL5-focused study records.",
+    "text": "Ask a doctor who knows genes to review the CDKL5 loss-of-function claims and the CDKL5 study records together. Ask whether the registry or research network fit your family\u2019s situation. [Mf6524880, Meaf2ee41, M01118803, T00020, T00021, T00024, C00065, C00066, C00067]",
     "edge_ids": [
+     "Mf6524880",
+     "Meaf2ee41",
+     "M01118803",
+     "T00020",
+     "T00021",
+     "T00024",
      "C00065",
      "C00066",
-     "C00067",
-     "T00024",
-     "T00020",
-     "T00021"
+     "C00067"
     ]
    },
    "source": "llm",
@@ -702,34 +710,42 @@
    "generated_at": "2026-10-04"
   },
   "OMIM:615473": {
-   "summary_plain": "Developmental and epileptic encephalopathy 17 is linked to GNAO1 in research records. Research papers also suggest GNAO1 changes can make G protein signaling too active or act in a dominant-negative way. Several GNAO1-focused studies and family resources are listed, but some are only partly verified.",
+   "summary_plain": "Developmental and epileptic encephalopathy 17 is tied to GNAO1. Research papers also suggest this condition may involve changes that make G protein signaling work too much or in a dominant-negative way, but those animal findings need expert review.",
    "steps": [
     {
-     "text": "Research records show GNAO1 causes Developmental and epileptic encephalopathy 17.",
+     "text": "Research papers show GNAO1 causes Developmental and epileptic encephalopathy 17. That is the main known link for this condition.",
      "edge_ids": [
       "E00160"
      ]
     },
     {
-     "text": "Some studies suggest certain GNAO1 changes may make G protein signaling work too much.",
+     "text": "We found animal studies where GNAO1 changes may make G protein signaling work too much. These studies support a possible gain-of-function pattern, but they do not prove every patient has the same change.",
      "edge_ids": [
       "M301d2222",
       "Me05332b6"
      ]
     },
     {
-     "text": "Another paper suggests a severe GNAO1 change may act in a dominant-negative way, which means it can interfere with normal protein signaling.",
+     "text": "We also found an animal study that suggests a dominant-negative change for GNAO1. That means the changed gene may interfere with the normal one, but this is still a research finding.",
      "edge_ids": [
       "Mdb58fe2b"
      ]
     },
     {
-     "text": "Research records list GNAO1-focused studies and a natural history study for this condition.",
+     "text": "There are study records for this condition, including a GNAO1 natural history study and several GNAO1-focused research projects. These records show active research support, not a proven treatment path.",
      "edge_ids": [
+      "C00084",
+      "C00085",
+      "C00086",
       "T00025",
-      "T00028",
-      "T00029",
       "T00026",
+      "T00028",
+      "T00029"
+     ]
+    },
+    {
+     "text": "Records also show a few GNAO1 support and study resources. These can help families connect with research teams and learn what is being studied.",
+     "edge_ids": [
       "C00084",
       "C00085",
       "C00086"
@@ -737,18 +753,23 @@
     }
    ],
    "uncertainties": [
-    "Some study links are only marked as hypothesis and need human review.",
-    "The records do not clearly say which exact GNAO1 changes fit each child.",
-    "The similarity links to other conditions are only hypotheses, not proof of the same cause.",
+    "The animal findings do not tell us which change, if any, applies to a specific person.",
+    "The records do not give clear patient results, so we cannot say which research study helps which child.",
+    "The similarity links to other seizure conditions are only hypotheses, not proof of shared cause.",
     "This atlas does not track treatments. Ask your care team about current treatment options."
    ],
    "next_step": {
-    "text": "Ask a doctor who knows genes to review the GNAO1 change and the listed study records, especially the GNAO1 natural history study and the ASO-GNAO1 study.",
+    "text": "Ask a doctor who knows genes to review the GNAO1 papers and the listed GNAO1 study records together, so you can check whether any family member matches the research scope.",
     "edge_ids": [
      "E00160",
+     "M301d2222",
+     "Me05332b6",
+     "Mdb58fe2b",
      "C00084",
      "C00085",
+     "C00086",
      "T00025",
+     "T00026",
      "T00028",
      "T00029"
     ]
@@ -792,37 +813,45 @@
    "generated_at": "2026-10-04"
   },
   "OMIM:607745": {
-   "summary_plain": "Research papers show that SCN2A is linked to Seizures, benign familial infantile, 3. One study also suggests some SCN2A changes make the sodium channel work less. This may help explain why this condition happens in some families.",
+   "summary_plain": "Seizures, benign familial infantile, 3 is linked to SCN2A. Research also suggests some SCN2A changes make the sodium channel work less. There are support groups and research studies connected to SCN2A, but they may not all fit this exact condition.",
    "steps": [
     {
-     "text": "SCN2A is a known cause of Seizures, benign familial infantile, 3.",
+     "text": "Research papers show SCN2A causes Seizures, benign familial infantile, 3. This is a well-supported link for this condition. [E00175]",
      "edge_ids": [
       "E00175"
      ]
     },
     {
-     "text": "One published report suggests an SCN2A change may make the sodium channel work less.",
+     "text": "One study reports an SCN2A change that made the sodium channel work less in the lab. That result supports a possible loss-of-function change, but it is still a lab finding. [M13d4d49b]",
      "edge_ids": [
       "M13d4d49b"
      ]
     },
     {
-     "text": "Records also show a family support group for this condition.",
+     "text": "Records also show a similar condition, Seizures, benign familial infantile, 5, may share symptoms. That is only a suggestion, not proof of the same cause. [E00252]",
+     "edge_ids": [
+      "E00252"
+     ]
+    },
+    {
+     "text": "We also found a family group for SCN2A-related disease, including this condition. That may help with patient support and study updates. [C00004]",
      "edge_ids": [
       "C00004"
      ]
     }
    ],
    "uncertainties": [
-    "The sodium-channel finding comes from one lab-based report, so it may not fit every family.",
-    "We do not have a clear list of which SCN2A changes cause this condition in people.",
-    "The records here do not show how often SCN2A is the cause, or what age pattern is typical."
+    "The lab finding is only from one quoted study, so it may not apply to every SCN2A change. [M13d4d49b]",
+    "The similar-condition link is a hypothesis, not proof of shared biology. [E00252]",
+    "The research study records linked to SCN2A mostly name broader SCN2A-DEE or other conditions, so it is unclear which ones fit this exact condition. [C00031, C00032]",
+    "This atlas does not track treatments. Ask your care team about current treatment options."
    ],
    "next_step": {
-    "text": "Ask a doctor who knows genes to review the SCN2A finding and the quoted lab result for your family.",
+    "text": "Ask a doctor who knows genes to review the SCN2A finding and the support group link together. They can help decide whether the lab result and family group are useful for your family. [E00175, M13d4d49b, C00004]",
     "edge_ids": [
      "E00175",
-     "M13d4d49b"
+     "M13d4d49b",
+     "C00004"
     ]
    },
    "source": "llm",
@@ -832,6 +861,8 @@
     "E00175",
     "M13d4d49b",
     "E00252",
+    "C00033",
+    "C00040",
     "C00006",
     "C00008",
     "C00038",
@@ -844,60 +875,75 @@
     "C00003",
     "T00052",
     "T00053",
+    "C00036",
+    "C00063",
+    "C00012",
+    "T00075",
+    "T00076",
+    "C00058",
+    "C00059",
+    "C00023",
+    "C00001",
+    "C00002",
+    "T00064",
+    "T00065",
+    "C00020",
+    "C00021",
     "C00004",
     "C00031",
-    "C00032",
-    "C00033"
+    "C00032"
    ],
    "validation_errors": [],
    "model": "gpt-5.4-mini",
    "generated_at": "2026-10-04"
   },
   "OMIM:617080": {
-   "summary_plain": "Seizures, benign familial infantile, 5 is linked to SCN8A in research records. One study says some SCN8A changes may make the sodium channel work more, not less. There are also support groups for this condition, but trial links are only shown for related SCN8A severe epilepsy records, not this exact condition.",
+   "summary_plain": "Seizures, benign familial infantile, 5 is linked to SCN8A. Research papers also suggest a change in SCN8A may make a sodium channel work more. There are patient groups and related studies for SCN8A, but not a study named for this exact condition.",
    "steps": [
     {
-     "text": "Research records show SCN8A causes Seizures, benign familial infantile, 5. That is the main gene link found here. [E00183]",
+     "text": "Research papers show SCN8A causes this condition. That link is well supported.",
      "edge_ids": [
       "E00183"
      ]
     },
     {
-     "text": "One paper suggests a SCN8A change may make the sodium channel work more. The quoted study says one change showed mild gain of function, with less normal fast shutoff and more cell firing. This is a change-level clue, not proof for every person. [Mf1484ef6]",
+     "text": "One report suggests some SCN8A changes may make the sodium channel work more. This is based on one described case, so it is suggestive, not final.",
      "edge_ids": [
       "Mf1484ef6"
      ]
     },
     {
-     "text": "Records also show this condition has patient support groups. The Cute Syndrome Foundation and Shay Emma Hammer Research Foundation both serve this condition. [C00006, C00008]",
+     "text": "There is a hypothesis that this condition may be similar to Seizures, benign familial infantile, 3. That shared pattern is not proof of the same cause.",
+     "edge_ids": [
+      "E00252"
+     ]
+    },
+    {
+     "text": "We also found patient groups that serve people with this condition. These groups may be useful for support and updates.",
      "edge_ids": [
       "C00006",
       "C00008"
      ]
     },
     {
-     "text": "A different SCN8A condition has study records for treatment and follow-up. But those study records are for early infantile epileptic encephalopathy, not this exact condition, so they cannot be assumed to fit here. [C00031, C00032, T00052, T00053]",
+     "text": "Records show SCN8A has related studies of seizure care in SCN8A-DEE. These studies are related, but they are not shown here as studies for this exact condition.",
      "edge_ids": [
-      "C00031",
-      "C00032",
-      "T00052",
-      "T00053"
+      "C00038",
+      "C00039"
      ]
     }
    ],
    "uncertainties": [
-    "We do not have a study record that clearly names Seizures, benign familial infantile, 5.",
-    "The gain-of-function note comes from one quoted change, so it may not apply to all SCN8A changes.",
-    "The support groups are listed, but no service details are shown here.",
-    "The trial records in hand are for a different SCN8A-related condition, so fit is unclear."
+    "We do not see a study listed here for Seizures, benign familial infantile, 5 by name.",
+    "The variant effect evidence is from one quoted report, so it may not apply to every SCN8A change.",
+    "The similarity to Seizures, benign familial infantile, 3 is only a hypothesis and needs expert review.",
+    "We do not have details here about which SCN8A changes are most common in this condition."
    ],
    "next_step": {
-    "text": "Ask a doctor who knows genes to review the SCN8A finding and compare it with the quoted gain-of-function study. Use the support groups named here to help find the right specialist. [E00183, Mf1484ef6, C00006, C00008]",
+    "text": "Ask a doctor who knows genes to review the SCN8A cause link and the one gain-of-function report together, using OMIM:617080 and PMID:34431999.",
     "edge_ids": [
      "E00183",
-     "Mf1484ef6",
-     "C00006",
-     "C00008"
+     "Mf1484ef6"
     ]
    },
    "source": "llm",
@@ -907,6 +953,8 @@
     "E00183",
     "Mf1484ef6",
     "E00252",
+    "C00040",
+    "C00033",
     "C00004",
     "C00031",
     "C00032",
@@ -919,62 +967,68 @@
     "C00006",
     "C00008",
     "C00038",
-    "C00039",
-    "C00040"
+    "C00039"
    ],
    "validation_errors": [],
    "model": "gpt-5.4-mini",
    "generated_at": "2026-10-04"
   },
   "OMIM:121200": {
-   "summary_plain": "Research papers show that KCNQ2 is a known cause of Seizures, benign familial neonatal, 1. They also show that changes in KCNQ2 can make its channel work less, which fits this condition. Some studies and patient groups focus on KCNQ2-related epilepsy, but a few links are only early or unverified.",
+   "summary_plain": "Seizures, benign familial neonatal, 1 is strongly linked to KCNQ2. Research papers also suggest some KCNQ2 changes make the protein work less. Some records show KCNQ2-focused studies and a patient group resource, but not specific care advice for this condition.",
    "steps": [
     {
-     "text": "KCNQ2 is a known cause of Seizures, benign familial neonatal, 1. This is a well-supported link in the records.",
+     "text": "Research papers show KCNQ2 causes Seizures, benign familial neonatal, 1. This is a strong, curated link. [E00187]",
      "edge_ids": [
       "E00187"
      ]
     },
     {
-     "text": "Research papers show KCNQ2 changes can make the channel work less. That kind of effect can fit this condition.",
+     "text": "Research papers also show some KCNQ2 changes make the protein work less. That fits a loss-of-function pattern in this condition. [M469654af, M05787647]",
      "edge_ids": [
       "M469654af",
       "M05787647"
      ]
     },
     {
-     "text": "One paper also describes different KCNQ2 changes having different effects in lab tests. That suggests not every change acts the same way.",
+     "text": "One study report says two KCNQ2 changes at the same spot had opposite effects in lab tests. One change increased protein pieces, while the other decreased them. That suggests change-specific effects, but it is still lab evidence. [Md1dba723]",
      "edge_ids": [
       "Md1dba723"
      ]
     },
     {
-     "text": "We also found KCNQ2-focused studies and a support group for this condition. Some study links are only suggested and need human checking.",
+     "text": "Records also show a KCNQ2 patient group resource for this condition. That can help families find disease-focused information. [C00010]",
+     "edge_ids": [
+      "C00010"
+     ]
+    },
+    {
+     "text": "Other records show KCNQ2-focused studies, including XEN496 (Ezogabine) and an omics study. These records show research interest, but they do not prove benefit for this condition. [T00031, T00032, C00042, C00043, C00044]",
      "edge_ids": [
       "T00031",
       "T00032",
       "C00042",
       "C00043",
-      "C00044",
-      "C00010",
-      "C00009"
+      "C00044"
      ]
     }
    ],
    "uncertainties": [
-    "The records do not show which exact change a child has, so the expected effect can differ.",
-    "Some study links are marked as only suggested and not fully checked by a person.",
-    "One supporting paper is in lab cells, not in children, so it may not match every patient.",
-    "This atlas does not track treatments. Ask your care team about current treatment options."
+    "The study records do not confirm results for people with this condition. They only show that the studies exist. [T00031, T00032, C00042, C00043, C00044]",
+    "The lab findings describe specific KCNQ2 changes, not all changes. We cannot assume every change acts the same way. [Md1dba723, M469654af, M05787647]",
+    "We do not have direct care guidance, symptom timing details, or family history data here. [E00187, Md1dba723, M469654af, M05787647]"
    ],
    "next_step": {
-    "text": "Ask a doctor who knows genes to review the KCNQ2 change and the cited paper findings, especially the lab data and the study links.",
+    "text": "Ask a doctor who knows genes to review the KCNQ2 change in your family and compare it with the lab findings and KCNQ2 study records. [E00187, Md1dba723, M469654af, M05787647, T00031, T00032, C00042, C00043, C00044]",
     "edge_ids": [
      "E00187",
-     "M469654af",
      "Md1dba723",
+     "M469654af",
+     "M05787647",
      "T00031",
-     "T00032"
+     "T00032",
+     "C00042",
+     "C00043",
+     "C00044"
     ]
    },
    "source": "llm",
@@ -1006,16 +1060,16 @@
    "generated_at": "2026-10-04"
   },
   "OMIM:607208": {
-   "summary_plain": "Dravet syndrome is most strongly linked to changes in SCN1A. Research papers show these changes usually make the sodium channel work less. Some study records also show disease-specific studies and natural history follow-up for this condition.",
+   "summary_plain": "Research papers show that SCN1A changes are a known cause of Dravet syndrome. The strongest records say these changes usually make the sodium channel work less. We also found several studies and patient-list efforts, but some are for related conditions, not this one.",
    "steps": [
     {
-     "text": "Research papers show SCN1A can cause this condition. That link is strongly supported.",
+     "text": "Research papers show SCN1A causes Epileptic encephalopathy, early infantile, 6 (Dravet syndrome).",
      "edge_ids": [
       "E00194"
      ]
     },
     {
-     "text": "Other papers say SCN1A changes often make the sodium channel work less. This is a strong, direct finding from patient studies.",
+     "text": "More papers say SCN1A changes usually make the sodium channel work less.",
      "edge_ids": [
       "Mb9043aec",
       "M6865b9ca",
@@ -1023,35 +1077,27 @@
      ]
     },
     {
-     "text": "Study records show this condition has its own clinical studies and follow-up records. These records help families find research options and track symptoms over time.",
+     "text": "We also found Dravet syndrome studies and follow-up records, which may help families track research.",
      "edge_ids": [
       "T00041",
       "T00046",
       "T00047",
       "T00048"
      ]
-    },
-    {
-     "text": "Some records suggest other epilepsy conditions may look similar. That is only a clue, not proof of the same cause.",
-     "edge_ids": [
-      "E00238",
-      "E00231",
-      "E00248"
-     ]
     }
    ],
    "uncertainties": [
-    "The study records do not prove who can join each study. The notes say the disease scope still needs confirmation.",
-    "The similarity links are only hypotheses. They do not show a shared disease cause.",
-    "We do not have detailed family history, age of onset, or exact change type for your child.",
+    "Some study records only say SCN1A is in the title or keywords. They still need expert checking for exact fit.",
+    "The related-condition studies for SCN8A and SCN2A are not direct evidence for this condition.",
+    "The similarity links to other conditions are only guesses.",
     "This atlas does not track treatments. Ask your care team about current treatment options."
    ],
    "next_step": {
-    "text": "Ask a doctor who knows genes to review the SCN1A papers and the study records for this condition, especially the SCN1A-positive study and the natural history study.",
+    "text": "Ask a doctor who knows genes to review the SCN1A cause claim and the listed Dravet study records together.",
     "edge_ids": [
      "E00194",
-     "Mb9043aec",
      "T00041",
+     "T00046",
      "T00047",
      "T00048"
     ]

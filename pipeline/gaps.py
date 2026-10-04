@@ -111,7 +111,7 @@ def build_gaps(nodes, edges, pairs, meta_in):
         for comb, o, p in rel[3:]:
             if o not in have and ALL[o] != gene and (org_src.get(did, set()) & org_src.get(o, set()) or asset_src.get(gid, set()) & asset_src.get(gene_of[o], set())):
                 routes.append(route(comb, o)); have.add(o)
-        best = max(routes, key=lambda r: RANK[r["overall"]], default=None)
+        best = max(routes, key=lambda r: (RANK[r["overall"]], sum(RANK[v] for v in r["segments"].values())), default=None)   # ties: the route with the most solid parts
         overall = best["overall"] if best else "missing"
         segments = best["segments"] if best else {"own_community": own_status, "link": "missing", "related_community": "missing", "shared_asset": "missing"}
         status = {"supported": "supported", "pending": "hypothesis", "hypothesis": "hypothesis", "missing": "none"}[overall]   # compat with map colours

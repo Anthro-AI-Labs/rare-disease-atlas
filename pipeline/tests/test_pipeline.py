@@ -685,10 +685,13 @@ def test_copy_message_to_line_prefills_only_the_verified_group_of_the_right_gene
     syn = next(v for k, v in msgs.items() if k.startswith("SYNGAP1"))
     assert syn and syn <= by["SYNGAP1"]                                       # STXBP1 -> SYNGAP1 via STARR -> To: CURE SYNGAP1
     assert any("CURE SYNGAP1" in x for x in syn)
-    scn2a = next(v for k, v in msgs.items() if k.startswith("SCN2A"))  # shares a study (Simons) but gain of function: opposite
-    assert not (scn2a & by["SCN2A"]) and scn2a and scn2a <= by["STXBP1"]        # never an opposite-gene group; falls back to the page disease's own gene
-    gnao1 = next(v for k, v in msgs.items() if k.startswith("GNAO1"))  # phenotype-only link: own gene's group
-    assert gnao1 and gnao1 <= by["STXBP1"]
+    scn2a = next(v for k, v in msgs.items() if k.startswith("SCN2A"))  # shares a study (Simons) but gain of function: opposite mechanisms -> blank
+    assert all(x.startswith("a SCN2A patient community") for x in scn2a)
+    gnao1 = next(v for k, v in msgs.items() if k.startswith("GNAO1"))  # phenotype-only (computed) link -> blank
+    assert all(x.startswith("a GNAO1 patient community") for x in gnao1)
+    benign = _messages("OMIM_613721")                                   # SCN2A DEE11 page: same-gene benign partner -> the own-gene group
+    same = next(v for k, v in benign.items() if k.startswith("SCN2A") and "benign" in k.lower())
+    assert same and same <= by["SCN2A"]
     # every pre-filled recipient anywhere is a verified group; SCN1A has no own group, so nothing is pre-filled
     allgroups = set().union(*by.values())
     for page in ("OMIM_612164", "OMIM_613721", "OMIM_614558", "OMIM_607208"):
@@ -742,3 +745,15 @@ def test_verified_study_assets_make_the_stxbp1_route_fully_supported(monkeypatch
     assert study and all(e["status"] == "supported" and not e["pending_verification"] for e in study)
     scn2a = g["meta"]["gaps"]["OMIM:613721"]["route_overall"]
     assert scn2a == "supported"                                        # EMBOLD verified: SCN2A <-> SCN8A
+
+
+def test_real_verified_assets_give_stxbp1_a_fully_supported_route():
+    import csv, json, common
+    rows = list(csv.DictReader((common.CURATED / "assets.csv").open(encoding="utf-8-sig")))
+    star = [r for r in rows if r["identifier"] in ("NCT06555965",)]
+    if not star or not all(r["verified"] == "yes" for r in star):
+        pytest.skip("STARR rows not verified yet")
+    g = json.loads((common.GRAPH / "graph.json").read_text())
+    gap = g["meta"]["gaps"]["OMIM:612164"]
+    assert gap["route_overall"] == "supported" and set(gap["route_segments"].values()) == {"supported"}
+    assert not any(e["status"] == "hypothesis" for e in g["edges"] if e["relation"] == "has_asset" and e.get("verified"))

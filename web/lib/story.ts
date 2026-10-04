@@ -136,11 +136,14 @@ export type Story = ReturnType<typeof story>;
 export const answerText = (s: Seg[]) => s.map((x) => (typeof x === "string" ? x : x.t)).join("").replace(/^./, (c) => cap(c));
 
 /** Who a message about this link is addressed to. Only a VERIFIED group of the gene the message is about is ever pre-filled:
- *  the related disease's own-gene group when the link is "shares a study" (e.g. STXBP1 -> SYNGAP1 via STARR -> the SYNGAP1 group), otherwise the page disease's
- *  own-gene group. Never a group of a gene with the opposite dominant effect, never an unverified group, never a third gene. */
+ *  - "shares a study" (not opposite mechanisms): the related disease's own-gene group (STXBP1 -> SYNGAP1 via STARR -> the SYNGAP1 group);
+ *  - same gene (mild vs severe form): the page disease's own-gene group;
+ *  - phenotype-only (computed) links and opposite-mechanism links: blank, the sender chooses.
+ *  Never an opposite-gene, unverified or third-gene group. */
 export function recipientFor(s: Story, sat: Sat): string | null {
-  if (sat.kind === "shares_study" && !sat.opposite && sat.groups.length) return sat.groups[0];
-  return s.ownVerified[0] ?? null;
+  if (sat.kind === "shares_study") return !sat.opposite && sat.groups.length ? sat.groups[0] : null;
+  if (sat.kind === "same_gene") return s.ownVerified[0] ?? null;
+  return null;
 }
 
 /** Copyable message about one link. Only facts from graph.json; recipient left for the user when no group is on file. */
