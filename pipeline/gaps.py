@@ -12,15 +12,22 @@ def build_gaps(nodes, edges, pairs, meta_in):
     gene_of = {e["target"]: e["source"] for e in by_rel["causes"]}
     trials_by_d, orgs_by_d = {}, {}
     org_src, asset_src, serve_edge, asset_edge = {}, {}, {}, {}
+    unver = {"orgs": 0, "assets": 0}
     for e in by_rel.get("studied_in", []):
         trials_by_d.setdefault(e["target"], []).append(e["id"])
     for e in by_rel.get("serves", []):
         orgs_by_d.setdefault(e["target"], []).append(e["id"])
-        org_src.setdefault(e["target"], set()).add(e["source"]); serve_edge[(e["target"], e["source"])] = e["id"]
+        if e["status"] == "supported":   # only verified rows can create a supported connection
+            org_src.setdefault(e["target"], set()).add(e["source"]); serve_edge[(e["target"], e["source"])] = e["id"]
+        else:
+            unver["orgs"] += 1
     assets_by_g = {}
     for e in by_rel.get("has_asset", []):
         assets_by_g.setdefault(e["source"], []).append(e["id"])
-        asset_src.setdefault(e["source"], set()).add(e["target"]); asset_edge[(e["source"], e["target"])] = e["id"]
+        if e["status"] == "supported":
+            asset_src.setdefault(e["source"], set()).add(e["target"]); asset_edge[(e["source"], e["target"])] = e["id"]
+        else:
+            unver["assets"] += 1
     claims = meta_in["claims"]
     spec = meta_in["specific"]
     out = {}
@@ -80,10 +87,12 @@ def build_gaps(nodes, edges, pairs, meta_in):
         missing = []
         if len(dirc) < mech.MIN_DIRECTIONAL:
             missing.append(f"Disease-level mechanism evidence: {len(dirc)} directional claim(s) for this disease (need {mech.MIN_DIRECTIONAL}).")
-        if not orgs_by_d.get(did):
-            missing.append(f"No curated patient group or registry on file for {gene}.")
-        if not assets_by_g.get(gid):
-            missing.append(f"No curated shared asset (registry, natural-history study, biobank, model) for {gene}.")
+        ver_orgs = [i for i in orgs_by_d.get(did, []) if (did, next(e["source"] for e in by_rel["serves"] if e["id"] == i)) in serve_edge]
+        ver_assets = [i for i in assets_by_g.get(gid, []) if (gid, next(e["target"] for e in by_rel["has_asset"] if e["id"] == i)) in asset_edge]
+        if not ver_orgs:
+            missing.append(f"No verified patient group or registry on file for {gene}" + (f" ({len(orgs_by_d.get(did, []))} curated row(s) not yet verified)." if orgs_by_d.get(did) else "."))
+        if not ver_assets:
+            missing.append(f"No verified shared asset (registry, natural-history study, biobank, model) for {gene}" + (f" ({len(assets_by_g.get(gid, []))} curated row(s) not yet verified)." if assets_by_g.get(gid) else "."))
         if not trials_by_d.get(did):
             missing.append(f"No ClinicalTrials.gov record naming {gene} linked to this disease.")
         if routes and all(r["connection_status"] == "hypothesis" for r in routes):

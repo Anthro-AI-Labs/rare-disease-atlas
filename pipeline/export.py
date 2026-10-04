@@ -43,6 +43,18 @@ def mondo_definitions(ids):
     return out
 
 
+def agreement_stats(pairs):
+    """Inter-reviewer agreement over (first, second) verdict pairs: percent agreement and Cohen's kappa (None when undefined)."""
+    n = len(pairs)
+    out = {"n_double_reviewed": n, "agree": sum(a == b for a, b in pairs), "percent_agreement": round(sum(a == b for a, b in pairs) / n, 3) if n else None,
+           "cohens_kappa": None}
+    if n >= 2:
+        po = out["agree"] / n
+        pe = sum((sum(a == c for a, _ in pairs) / n) * (sum(b == c for _, b in pairs) / n) for c in ("correct", "partial", "incorrect"))
+        out["cohens_kappa"] = round((po - pe) / (1 - pe), 3) if pe < 1 else None
+    return out
+
+
 def build():
     nodes = {n["id"]: n for n in jl("nodes.jsonl")}
     defs = mondo_definitions({n.get("mondo") for n in nodes.values() if n.get("type") == "disease"})
@@ -163,21 +175,25 @@ def build():
             print(f"WARNING: {name} row skipped ({why})")
         return keep
     pg, assets = ok("patient_groups"), ok("assets")
+    yes = lambda r: r.get("verified", "").strip().lower() == "yes"   # protocol: only verified=yes rows count as human-verified
     for r in pg:
         oid = f"ORG:{slug(r['organization_name'])}"
         nodes.setdefault(oid, {"id": oid, "type": "patient_org", "name": r["organization_name"], "url": r["url"],
-                               "country": r["country"], "has_registry": r["has_registry"].lower() in ("1", "true", "yes"),
+                               "verified": yes(r), "country": r["country"], "has_registry": r["has_registry"].lower() in ("1", "true", "yes"),
                                "registry_url": r["registry_url"]})
         for d in gene_diseases.get(r["gene"].upper(), []):
             add("C", source=oid, target=d, relation="serves", evidence_type="manual", source_db="curated patient_groups.csv",
-                references=[r["url"]] if r["url"] else [], confidence=0.8, status="supported", date_checked=r["date_checked"])
+                references=[r["url"]] if r["url"] else [], confidence=0.8 if yes(r) else 0.4, status="supported" if yes(r) else "hypothesis",
+                date_checked=r["date_checked"], verified=yes(r), verified_by=r.get("verified_by", ""), verified_at=r.get("verified_at", ""),
+                note="" if yes(r) else "Not yet verified by a human reviewer.")
     for r in assets:
         aid = f"ASSET:{slug(r['name'])}"
         nodes.setdefault(aid, {"id": aid, "type": "asset", "name": r["name"], "asset_type": r["asset_type"],
-                               "identifier": r["identifier"], "url": r["source_url"], "asset_status": r["status"]})
+                               "identifier": r["identifier"], "url": r["source_url"], "asset_status": r["status"], "verified": yes(r)})
         add("C", source=f"HGNC_SYMBOL:{r['gene'].upper()}", target=aid, relation="has_asset", evidence_type="manual",
-            source_db="curated assets.csv", references=[r["source_url"]] if r["source_url"] else [], confidence=0.8,
-            status="supported", date_checked=r["date_checked"])
+            source_db="curated assets.csv", references=[r["source_url"]] if r["source_url"] else [], confidence=0.8 if yes(r) else 0.4,
+            status="supported" if yes(r) else "hypothesis", date_checked=r["date_checked"], verified=yes(r), verified_by=r.get("verified_by", ""),
+            verified_at=r.get("verified_at", ""), note="" if yes(r) else "Not yet verified by a human reviewer.")
     if pg or assets:
         sources.append({"name": "curated CSVs", "retrieved_at": TODAY})
 
@@ -194,7 +210,7 @@ def build():
     key = lambda pmid, span: (str(pmid), mech_norm(span))
     claim_edge = {key(e["references"][0].removeprefix("PMID:"), e["quoted_span"]): e for e in edges if e["relation"] == "has_variant_effect"}
     review = {t: {"sampled": 0, "reviewed": 0, "correct": 0, "partial": 0, "incorrect": 0} for t in ("0.8", "0.7", "<0.7")}
-    seen = set()
+    seen, pairs_two = set(), []
     for name in ("evidence_review_v2",):  # v1 is a non-random (priority) sample: excluded from precision estimates
         for r in curated.load(name):
             e = claim_edge.get(key(r["pmid"], r["quoted_span"]))
@@ -203,12 +219,18 @@ def build():
             seen.add(key(r["pmid"], r["quoted_span"]))
             t = review[tier(e["confidence"])]
             t["sampled"] += 1
-            v = r["verdict"].lower()
+            v = r["verdict"].strip().lower()
+            if r.get("verified", "").strip().lower() != "yes":   # protocol: only verified=yes rows count as human-verified
+                continue
             if v in ("correct", "partial", "incorrect"):
                 t["reviewed"] += 1; t[v] += 1
                 e["review_verdict"] = v
+                sv = r.get("second_verdict", "").strip().lower()
+                if sv in ("correct", "partial", "incorrect"):
+                    pairs_two.append((v, sv))
     for t in review.values():
         t["precision"] = round(t["correct"] / t["reviewed"], 3) if t["reviewed"] else None
+    agreement = agreement_stats(pairs_two)
     tot = {k: sum(t[k] for t in review.values()) for k in ("sampled", "reviewed", "correct", "partial", "incorrect")}
     review_overall = {**tot, "share_reviewed": round(tot["reviewed"] / tot["sampled"], 3) if tot["sampled"] else None}
     gaps = build_gaps(nodes, edges, comb, {"claims": claims, "specific": spec, "mech_stats": mech_json["stats"] if mech_json else None,
@@ -232,7 +254,7 @@ def build():
                       "curated_skipped": skipped, "share_mechanism_min_ui": SHARE_MECH_MIN, "explanation_stats": {**(ex_file["stats"] if ex_file else {}), "stale_dropped": ex_stale}, "network_stats": net["stats"] if net else None, "share_mechanism_min": SHARE_MECH_MIN,
                       "confidence_rule": "LLM claims: 0.8 if the quoted span names the gene and the span-check says it describes human subjects; 0.7 if it names the gene but describes cells, animals or no stated population; 0.5 if the span does not name the gene. A second check sees only the span: entailment 'partial' lowers confidence by 0.2; 'no' sets the variant effect to unclear (context only, at most 0.4, excluded from similarity and profiles).",
                       "entailment_stats": (jload("entailment.json") or {}).get("stats"),
-                      "review_overall": review_overall,
+                      "review_overall": review_overall, "review_agreement": agreement,
                       "curated_counts": {"patient_groups": len(pg), "assets": len(assets)},
                       "core": CORE, "counterexamples": COUNTEREXAMPLES},
              "nodes": list(nodes.values()), "edges": edges, "clusters": json.loads((GRAPH / "clusters.json").read_text()),

@@ -256,7 +256,7 @@ def test_curated_data_lights_up_routes(monkeypatch, tmp_path):
     import csv, curated, export
     monkeypatch.setattr(curated, "CURATED", tmp_path)
     with open(tmp_path / "patient_groups.csv", "w", newline="") as f:
-        w = csv.writer(f); w.writerow(["gene", "organization_name", "url"]); w.writerow(["STXBP1;KCNQ2", "FIXTURE GROUP", "https://fixture.test"])
+        w = csv.writer(f); w.writerow(["gene", "organization_name", "url", "verified"]); w.writerow(["STXBP1;KCNQ2", "FIXTURE GROUP", "https://fixture.test", "yes"])
     g = export.build()
     serves = [e for e in g["edges"] if e["relation"] == "serves"]
     assert {e["target"] for e in serves} == {"OMIM:612164", "OMIM:613720"}
@@ -440,3 +440,78 @@ def test_glossary_regex_and_live_flag_files_exist():
     route = (web / "app" / "api" / "explain" / "route.ts").read_text()
     assert "export async function GET" in route and "live:" in route          # UI hides the live feature when not configured
     assert "503" in route
+
+
+# ---------- verification protocol ----------
+def test_unverified_curated_rows_never_create_supported_routes(monkeypatch, tmp_path):
+    import csv, curated, export
+    monkeypatch.setattr(curated, "CURATED", tmp_path)
+    with open(tmp_path / "patient_groups.csv", "w", newline="") as f:
+        w = csv.writer(f); w.writerow(["gene", "organization_name", "url", "verified"])
+        w.writerow(["STXBP1;KCNQ2", "FIXTURE GROUP", "https://fixture.test", "no"])
+    g = export.build()
+    serves = [e for e in g["edges"] if e["relation"] == "serves"]
+    assert serves and all(e["status"] == "hypothesis" and e["verified"] is False for e in serves)
+    gap = g["meta"]["gaps"]["OMIM:612164"]
+    assert gap["route_status"] != "supported" and not any(r["connection"] == "shared_patient_group" for r in gap["routes"])
+    assert any("not yet verified" in m for m in gap["missing"])
+
+
+def test_only_verified_yes_rows_count_in_review_stats(monkeypatch, tmp_path):
+    import csv, json, common, curated, export
+    g0 = json.loads((common.GRAPH / "graph.json").read_text())
+    claims = [e for e in g0["edges"] if e["relation"] == "has_variant_effect"][:4]
+    monkeypatch.setattr(curated, "CURATED", tmp_path)
+    with open(tmp_path / "evidence_review_v2.csv", "w", newline="") as f:
+        w = csv.DictWriter(f, curated.FILES["evidence_review"] + ["verified", "second_verdict"]); w.writeheader()
+        for i, e in enumerate(claims):
+            w.writerow({"edge_id": e["id"], "gene": "X", "quoted_span": e["quoted_span"], "pmid": e["references"][0].removeprefix("PMID:"),
+                        "verdict": "correct", "verified": "yes" if i < 2 else ("no" if i == 2 else ""), "second_verdict": "correct" if i == 0 else "incorrect" if i == 1 else ""})
+    g = export.build()
+    ro = g["meta"]["review_overall"]
+    assert ro["sampled"] == 4 and ro["reviewed"] == 2                       # unverified / blank rows carry no weight
+    ag = g["meta"]["review_agreement"]
+    assert ag["n_double_reviewed"] == 2 and ag["agree"] == 1 and ag["percent_agreement"] == 0.5
+
+
+def test_agreement_stats_and_kappa():
+    import export
+    assert export.agreement_stats([])["percent_agreement"] is None
+    perfect = export.agreement_stats([("correct", "correct"), ("incorrect", "incorrect"), ("partial", "partial")])
+    assert perfect["percent_agreement"] == 1.0 and perfect["cohens_kappa"] == 1.0
+    mixed = export.agreement_stats([("correct", "correct"), ("correct", "incorrect"), ("incorrect", "incorrect"), ("incorrect", "correct")])
+    assert mixed["percent_agreement"] == 0.5 and mixed["cohens_kappa"] == 0.0
+
+
+def test_curated_files_follow_protocol_columns():
+    import csv, common
+    need = {"patient_groups": ["verified", "verified_by", "verified_at"], "assets": ["verified", "verified_by", "verified_at"],
+            "evidence_review_v2": ["verified", "verified_by", "verified_at", "second_verdict", "second_by"]}
+    for name, cols in need.items():
+        p = common.CURATED / f"{name}.csv"
+        if not p.exists():
+            continue
+        rows = list(csv.DictReader(p.open(encoding="utf-8-sig")))
+        assert all(c in rows[0] for c in cols), name
+        for r in rows:
+            for k in ("date_checked", "verified_at"):
+                if r.get(k):
+                    assert len(r[k]) == 10 and r[k][4] == "-", (name, k, r[k])   # ISO dates
+            assert r["verified"] in ("yes", "no", "")
+    pg = list(csv.DictReader((common.CURATED / "patient_groups.csv").open(encoding="utf-8-sig"))) if (common.CURATED / "patient_groups.csv").exists() else []
+    assert all(r["verified"] == "yes" for r in pg) or not pg
+
+
+def test_review_packet_hides_scores_and_verdicts():
+    import common
+    p = common.ROOT / "docs" / "review_packet.md"
+    if not p.exists():
+        pytest.skip("no packet")
+    t = p.read_text()
+    assert t.count("## Row ") == 24
+    body = t.split("## Row 1", 1)[1]
+    structural = [l for l in body.splitlines() if l.startswith(("- **", "## Row"))]     # abstracts may contain any word; our own lines may not
+    for l in structural:
+        for banned in ("entailment", "confidence", "verdict", "correct"):      # "correct" also covers "incorrect"
+            assert banned not in l.lower(), (banned, l)
+    assert "verdict:" not in body.lower()

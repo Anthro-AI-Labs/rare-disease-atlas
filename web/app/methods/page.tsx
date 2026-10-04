@@ -29,7 +29,8 @@ export default function Methods() {
 
       <H>Confidence rule (a heuristic, not a probability)</H>
       <p className="mt-2">{m.confidence_rule}</p>
-      <p className="mt-2">Precision is reported per tier from a random manual-review sample (<code>evidence_review_v2.csv</code>): {ro && ro.reviewed > 0 ? `${ro.reviewed} of ${ro.sampled} reviewed so far.` : "no claims have been reviewed yet, so no precision is claimed."} Edges with a reviewer verdict carry a “manually verified” badge.</p>
+      <p className="mt-2">Precision is reported per tier from a random manual-review sample (<code>evidence_review_v2.csv</code>): {ro && ro.reviewed > 0 ? `${ro.reviewed} of ${ro.sampled} reviewed so far.` : "no claims have been reviewed yet, so no precision is claimed."} Edges with a reviewer verdict carry a “manually verified” badge. Protocol: only rows marked <code>verified = yes</code> count as human-verified; unverified rows (including curated assets and patient groups) are shown as “not yet verified” and can never make a route “supported”.
+        {m.review_agreement && m.review_agreement.n_double_reviewed > 0 ? ` Second reviewer: ${m.review_agreement.agree} of ${m.review_agreement.n_double_reviewed} verdicts agree (${Math.round((m.review_agreement.percent_agreement ?? 0) * 100)}%${m.review_agreement.cohens_kappa !== null ? `, Cohen's κ ${m.review_agreement.cohens_kappa}` : ""}).` : " No second-reviewer verdicts yet, so no agreement figure is reported."}</p>
 
       <H>Similarity, clusters, conflicts, routes</H>
       <ul className="mt-2 list-disc pl-5">

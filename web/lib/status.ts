@@ -5,6 +5,7 @@ type E = { relation?: string; evidence_type: string; status: string; entailment?
 export function chipOf(e: E): { kind: Kind; label: string } {
   if (e.status === "contradicted") return { kind: "conf", label: "Conflicting evidence" };
   if (e.relation === "authored" && e.match_level === "possible") return { kind: "hyp", label: "Possible match" };
+  if (e.evidence_type === "manual" && e.status === "hypothesis") return { kind: "hyp", label: "Not yet verified" };
   if (e.evidence_type === "computed" || e.status === "hypothesis") return { kind: "hyp", label: "Hypothesis" };
   if (e.evidence_type === "llm_extracted") {
     if (e.entailment === "yes") return { kind: "ok", label: "Supported · literature" };

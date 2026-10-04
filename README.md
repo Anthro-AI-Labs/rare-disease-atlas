@@ -89,6 +89,9 @@ edge_id,gene,claim,quoted_span,pmid,about_this_gene,same_mechanism,human_patient
 ```
 Partial files are fine: rows without `gene` and a name, or naming a gene outside the slice, are skipped and counted; a `gene` cell may list several genes separated by `;`. Never enter a URL or organization you have not verified. Run `make graph` and routes light up.
 
+## Verification protocol for curated files
+`patient_groups.csv`, `assets.csv` and `evidence_review_v2.csv` carry `verified` (yes/no), `verified_by`, `verified_at` (ISO date); the review file also has `second_verdict` and `second_by` for a second reviewer. **Only `verified=yes` rows count as human-verified**: unverified patient groups and assets still appear, as "not yet verified" hypotheses, and cannot make a route "supported"; unverified review rows are excluded from the precision tables. Where `second_verdict` exists the Methods page reports percent agreement and Cohen's κ. `docs/review_packet.md` (regenerate with `python pipeline/make_review_packet.py`) is a deterministic reading aid for the 24 review rows: full abstract, quoted span in bold, keyword tags, no scores or earlier verdicts. `pipeline/curated_protocol.py` is the idempotent migration that added these columns.
+
 ## Deploy (Vercel)
 Project root directory: `web`. Environment variables (server-side only): `OPENAI_API_KEY`, `OPENAI_MODEL`. They only power the live "explain this link" button and `POST /api/explain`; without them `GET /api/explain` reports `{live:false}`, the button is hidden, and every page still shows its pre-generated explanation.
 ```bash

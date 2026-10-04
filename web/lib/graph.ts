@@ -28,6 +28,7 @@ export type Graph = {
     curated_counts: { patient_groups: number; assets: number };
     confidence_rule: string;
     entailment_stats?: { checked: number; skipped_unclear: number; by_verdict: Record<string, number>; by_gene: Record<string, Record<string, number>>; population_checked: Record<string, number>; population_changed: number } | null;
+    review_agreement?: { n_double_reviewed: number; agree: number; percent_agreement: number | null; cohens_kappa: number | null };
     review_overall?: { sampled: number; reviewed: number; correct: number; partial: number; incorrect: number; share_reviewed: number | null };
     mechanism_stats: { verified: number; extracted: number; dropped_span: number; span_drop_rate: number | null; abstracts: number } | null;
     review_precision_by_tier: Record<string, { sampled: number; reviewed: number; correct: number; partial: number; incorrect: number; precision: number | null }>;
